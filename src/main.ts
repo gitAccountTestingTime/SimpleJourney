@@ -2,7 +2,7 @@
 document.querySelector('#app').innerHTML = `
 <div>
     <p>
-        We Alive?
+        We Alive?!
     </p>
 </div>
 `
