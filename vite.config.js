@@ -1,3 +1,3 @@
 export default {
-    base: '/a-simple-journey'
+    base: '/SimpleJourney'
 }
