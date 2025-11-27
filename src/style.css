@@ -127,3 +127,571 @@ div.next h5 {
 .material-rates > div > span:first-child {
   flex-grow: 1;
 }
+
+/* Simple styles for story choices */
+#choices-list {
+  list-style: none;
+  margin: 1rem 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#choices-list li {
+  margin: 0;
+}
+
+.choice-button {
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.choice-button:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.choice-button:focus {
+  outline: 2px solid #646cff;
+  outline-offset: 2px;
+}
+
+.control-buttons {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.control-buttons button {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: inherit;
+  cursor: pointer;
+}
+
+.control-buttons button:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+#status-msg {
+  min-width: 6rem;
+  display: inline-block;
+}
+
+/* App layout */
+.app-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.app-card {
+  width: 100%;
+  max-width: 820px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  flex: 1 1 auto;
+  margin-right: 1rem;
+}
+
+.choices-section {
+  margin-top: 0.5rem;
+}
+
+#choices-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.choice-button {
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.choice-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.choice-button:active {
+  transform: translateY(0);
+}
+
+.control-buttons {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.control-buttons button {
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: inherit;
+  cursor: pointer;
+}
+
+.status-msg {
+  min-width: 8rem;
+  text-align: left;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.stats-panel {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.stat-badge {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.choices-section {
+  margin-top: 0.5rem;
+}
+
+.titles-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.titles-section h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem 0;
+  color: rgba(255,255,255,0.9);
+}
+
+.titles-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,165,0,0.1));
+  border: 1px solid rgba(255,215,0,0.3);
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.title-icon {
+  font-size: 1.1rem;
+  display: inline-block;
+}
+
+.title-name {
+  font-weight: 500;
+}
+
+/* Title Toast Notification */
+.title-toast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: linear-gradient(135deg, rgba(255,215,0,0.95), rgba(255,165,0,0.85));
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 12px 40px rgba(255,165,0,0.4);
+  z-index: 10000;
+  animation: slideIn 0.4s ease-out;
+  color: #333;
+  max-width: 320px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.title-toast.fade-out {
+  animation: slideOut 0.5s ease-in forwards;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+.toast-content {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.toast-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.toast-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.toast-title {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Debug console styles (grouped UI + collapsed state) */
+.debug-console {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  width: 320px;
+  max-width: calc(100vw - 2rem);
+  background: rgba(20,20,20,0.9);
+  color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 9999;
+  font-size: 0.95rem;
+  overflow: hidden;
+}
+
+.debug-console .debug-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.debug-console .debug-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.debug-toggle-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: inherit;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.debug-body {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  max-height: 50vh;
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+}
+
+/* collapsed: hide the body and reduce shadow/height to header only */
+.debug-console.collapsed .debug-body {
+  display: none;
+  visibility: hidden;
+}
+
+/* Ensure all interior debug UI is hidden when collapsed (use specific overrides) */
+.debug-console.collapsed .debug-body,
+.debug-console.collapsed .debug-body > *,
+.debug-console.collapsed fieldset.debug-group,
+.debug-console.collapsed .debug-section {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.debug-body .debug-console .collapsed > * {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* fieldset groups for clearer structure */
+fieldset.debug-group {
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 0.5rem 0.6rem 0.6rem 0.6rem;
+  margin: 0 0 0.6rem 0;
+  background: rgba(255,255,255,0.01);
+}
+
+fieldset.debug-group legend {
+  padding: 0 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.debug-group.debug-controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.debug-stat-row,
+.debug-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.35rem 0;
+}
+
+.debug-stat-input {
+  width: 6.5rem;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.015);
+  color: inherit;
+}
+
+.debug-action-btn {
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: inherit;
+  cursor: pointer;
+}
+
+.debug-action-btn:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.toast-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #1a1a1a;
+}
+
+.toast-desc {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.2rem;
+}
+
+/* Debug Console */
+.debug-console {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 320px;
+  max-height: 60vh;
+  background: rgba(20, 20, 30, 0.95);
+  border: 1px solid rgba(255,200,100,0.3);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 9999;
+  font-size: 0.85rem;
+  font-family: 'Courier New', monospace;
+}
+
+.debug-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: rgba(255,100,0,0.1);
+  border-bottom: 1px solid rgba(255,200,100,0.2);
+  border-radius: 8px 8px 0 0;
+}
+
+.debug-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ffb347;
+}
+
+.debug-toggle-btn {
+  background: transparent;
+  border: none;
+  color: #ffb347;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.debug-body {
+  padding: 0.75rem;
+  overflow-y: auto;
+  max-height: calc(60vh - 2.5rem);
+}
+
+.debug-section {
+  margin-bottom: 0.75rem;
+}
+
+.debug-section h4 {
+  margin: 0.5rem 0 0.25rem 0;
+  font-size: 0.85rem;
+  color: #ffb347;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.debug-section p {
+  margin: 0.25rem 0;
+  color: rgba(255,255,255,0.8);
+}
+
+/* Final override: ensure collapsed debug console hides everything regardless of earlier rules */
+body .debug-console.collapsed .debug-body {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+body .debug-console.collapsed .debug-body * {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.debug-stat-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.debug-stat-row label {
+  flex: 0 0 auto;
+  width: 80px;
+  color: rgba(255,255,255,0.7);
+  font-weight: bold;
+}
+
+.debug-stat-input {
+  flex: 1;
+  padding: 0.25rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,200,100,0.2);
+  color: #ffb347;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.debug-stat-input:focus {
+  outline: none;
+  border-color: rgba(255,200,100,0.6);
+  background: rgba(255,200,100,0.1);
+}
+
+.debug-action-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: rgba(255,100,0,0.2);
+  border: 1px solid rgba(255,200,100,0.3);
+  color: #ffb347;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.debug-action-btn:hover {
+  background: rgba(255,100,0,0.3);
+}
+
+.debug-action-btn:active {
+  background: rgba(255,100,0,0.4);
+}
+
+.debug-title-row {
+  margin-bottom: 0.35rem;
+}
+
+.debug-title-row label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.85rem;
+}
+
+.debug-title-row input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 640px) {
+  .app-card {
+    padding: 1rem;
+  }
+  .intro-text {
+    font-size: 1rem;
+  }
+  .control-buttons {
+    gap: 0.35rem;
+  }
+}
