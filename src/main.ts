@@ -15,14 +15,9 @@ document.querySelector('#app').innerHTML = `
 <div class="app-wrapper">
     <main class="app-card" role="main">
         <header class="app-header">
-            <div id="intro-text" aria-live="polite" class="intro-text"></div>
             <div class="stats-panel" id="stats-panel" aria-hidden="false"></div>
-            <div class="control-buttons">
-                <button id="save-btn" type="button">Save</button>
-                <button id="restart-btn" type="button">Restart</button>
-                <span id="status-msg" aria-live="polite" class="status-msg"></span>
-            </div>
         </header>
+        <div id="intro-text" aria-live="polite" class="intro-text"></div>
         <header>
             <h2>Make your choice:</h2>
         </header>
@@ -33,6 +28,11 @@ document.querySelector('#app').innerHTML = `
             <h3>Titles Earned</h3>
             <div id="titles-display" class="titles-display"></div>
         </section>
+        <div class="control-buttons">
+            <button id="save-btn" type="button">Save</button>
+            <button id="restart-btn" type="button">Restart</button>
+            <span id="status-msg" aria-live="polite" class="status-msg"></span>
+        </div>
     </main>
 </div>
 `;

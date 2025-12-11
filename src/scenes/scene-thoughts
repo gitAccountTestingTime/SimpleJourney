@@ -1,0 +1,2272 @@
+# Scene Ideas for SimpleJourney
+# A Cohesive Story: The Lost Heir of Silverwood
+
+This document contains scene ideas that form a complete narrative arc for authors to implement.
+The story follows a character discovering their true identity and choosing their destiny in a rich
+fantasy world filled with magic, mythical creatures, and potential companions.
+
+## Story Overview
+The player begins as a commoner adventurer in the frontier, unaware of their true heritage. Through 
+adventuring, they meet companions, develop skills, and slowly discover they are the lost heir to the 
+throne of Silverwood—a kingdom that fell into chaos 20 years ago when the Crystal Heart, a magical 
+artifact that maintained peace between humans and magical beings, was shattered. 
+
+The extended prologue allows players to build their character, establish relationships, and explore 
+the world before discovering their royal destiny. Once their identity is revealed, they must decide 
+whether to reclaim their birthright, support a new order, or forge their own path. Along the way, 
+they maintain bonds with companions met during their adventuring days while forming new alliances with 
+political figures and magical beings.
+
+---
+
+## PROLOGUE: THE ADVENTURER'S LIFE (Extended Opening - 13 Scenes)
+
+### P1. Humble Beginnings
+**Scene ID:** `prologue_start`
+**Location:** Small frontier village of Thornhaven
+**Description:** Player is an orphan working odd jobs in a frontier village. No knowledge of noble heritage. Life is hard but simple. Today, the village is hiring adventurers to clear out bandits threatening trade routes.
+**Character Creation:**
+- Choose background skill: Combat training (guard work), Wilderness survival (hunting), Social charm (tavern work), or Scholarly (scribe work)
+- This choice sets initial stat distribution and unlocks early dialogue options
+**Key Choices:**
+- Volunteer immediately (courageous)
+- Ask about payment first (pragmatic)
+- Try to organize others (leadership)
+- Suggest alternative solution (clever)
+**Hidden Attributes Set:** `origin_choice`, initial stat allocation, `personality_seed`
+**Meets:** Village elder mentions the kingdom's troubles in distant capital
+**Tone:** Humble beginnings, hint of destiny
+
+### P2. First Companion - Vale
+**Scene ID:** `meet_vale`
+**Location:** Village tavern, night before bandit mission
+**Description:** Meet Vale, a traveling bard/information broker who's been everywhere. Charming, witty, knows everyone's secrets. They're surprisingly interested in helping with the bandit problem.
+**Vale's Secret:** They're actually a spy for the Reformist faction, tracking threats to the kingdom. Becomes recurring ally and romance option.
+**Key Choices:**
+- Share drinks and stories (opens up to them)
+- Keep distance (cautious)
+- Ask probing questions (investigative)
+- Flirt (romance seed)
+**Romance Option:** Yes - witty, charming, mysterious. Bisexual.
+**Hidden Attributes Set:** `vale_first_impression`, `vale_trust` (0-100), `vale_romance` (0-100)
+**Vale's Role:** Information gatherer, comic relief, can appear throughout story with intelligence reports
+**Outcome:** Vale offers to come along, or at least promises to meet again
+
+### P3. The Bandit Raid
+**Scene ID:** `bandit_encounter`
+**Location:** Forest ambush site
+**Description:** Confront bandits. But these aren't ordinary criminals - they're desperate refugees from a village destroyed by Shadow Beasts. They're stealing to survive.
+**Key Choices:**
+- Fight them (combat path, ruthless)
+- Negotiate (diplomatic path, compassionate)
+- Help them find legitimate work (compassionate, leadership)
+- Turn them over to authorities (lawful)
+**Combat Mechanics Introduction:** If fighting, introduces basic combat decision-making
+**Hidden Attributes Set:** `first_moral_choice`, `compassion` or `ruthlessness` counter starts, `combat_preference`
+**Meets:** Bandit leader mentions Shadow Beasts and the failing barrier - first hint of the larger threat
+**Outcome:** Establishes early moral alignment, reputation in frontier
+
+### P4. Shadow Beast Encounter
+**Scene ID:** `first_shadow_beast`
+**Location:** Forest depths
+**Description:** A real Shadow Beast appears, drawn by the commotion. It's terrifying - otherworldly, deadly, hungry. This is a creature from the Shadowrealm. First real threat to player's life.
+**Key Choices:**
+- Stand and fight (requires courage check)
+- Protect others while retreating (heroic)
+- Focus on survival (pragmatic)
+- Try to understand it (curious, magical affinity)
+**Critical Moment:** Player feels a strange connection to the creature, a warmth in their blood that repels it slightly. First hint of blood magic heritage.
+**Hidden Attributes Set:** `shadow_beast_reaction`, `magical_awakening`, `blood_magic_affinity`
+**Companion Help:** Vale uses bardic magic to help escape/fight
+**Outcome:** Survive, but barely. Understand the kingdom faces real existential threat. Player's blood glows briefly - noticed by Vale
+
+### P5. Meet Ash - The Mercenary
+**Scene ID:** `meet_ash`
+**Location:** Larger town of Millbrook, recovering from Shadow Beast
+**Description:** Meet Ash, a grizzled mercenary captain with a small company. Battle-scarred, cynical but fair, leads a diverse mercenary band. Lost family to Shadow Beasts years ago.
+**Ash's Offer:** Invites player to join the company. Good pay, see the world, learn to fight properly.
+**Key Choices:**
+- Join immediately (adventure path)
+- Negotiate terms (business-minded)
+- Ask about their past (empathetic)
+- Decline but stay in touch (independence)
+**Romance Option:** Yes - slow-burn, older mentor figure. Demisexual, needs deep trust.
+**Hidden Attributes Set:** `ash_trust`, `ash_romance`, `mercenary_life_chosen`
+**Ash's Role:** Combat mentor, provides mercenary perspective, can bring armed support later
+**Outcome:** Join Ash's company for several months (implied time skip) or decline but they remember you
+
+### P6. Mercenary Life Montage
+**Scene ID:** `mercenary_training`
+**Location:** Various locations across the kingdom
+**Description:** If joined Ash, experience several months of mercenary work. Escort caravans, guard nobles, clear monsters. See the kingdom's diversity and troubles. Training montage with choices.
+**Multiple Vignettes:**
+- **Caravan Guard:** Meet merchants, learn about economy, face road dangers
+- **Noble Estate Protection:** See wealth inequality, noble politics, meet Seraphine briefly
+- **Monster Hunting:** Face various creatures, learn combat, see environmental damage
+- **Town Festival:** Downtime, bond with mercenary company members, possible romance moments
+**Key Choices in Each:**
+- How you handle conflicts (violence vs. diplomacy)
+- Treatment of civilians (compassion vs. efficiency)
+- Money decisions (greed vs. generosity)
+- Relationship building with Ash and company
+**Hidden Attributes Set:** Multiple counters increment, `combat_skills` increase, `kingdom_knowledge`, reputation with various groups
+**Meets:** Encounter young Kieran as a knight-in-training, meet Sage at a library, see Finn's crafts at market
+**If Declined:** Alternative scene of independent adventuring with different encounters
+
+### P7. Meet Rook - The Street Rat
+**Scene ID:** `meet_rook`
+**Location:** Capital city slums (first time visiting capital)
+**Description:** Meet Rook, a young thief/con artist surviving in the capital's underworld. Quick, clever, morally gray. Pickpockets the player but gets caught (or succeeds, then approaches later).
+**Rook's Situation:** Orphan like player, but chose crime to survive. Part of thieves' guild, dreams of something better.
+**Key Choices:**
+- Turn them in (lawful)
+- Let them go with warning (merciful)
+- Offer to help them (compassionate)
+- Recruit them as scout (pragmatic)
+**Romance Option:** Yes - playful, morally complex, growth arc. Pansexual.
+**Hidden Attributes Set:** `rook_trust`, `rook_romance`, `underworld_connection`
+**Rook's Role:** Underworld contacts, thievery skills, comic relief, can provide intelligence or heist support
+**Outcome:** Rook may join as scout, or become recurring contact in capital
+**Connection:** Knows about the underground network from main story
+
+### P8. The Tournament
+**Scene ID:** `capital_tournament`
+**Location:** Capital arena
+**Description:** A grand tournament is held - combat, archery, even magical displays. Chance to prove yourself, meet nobles, and catch glimpses of the faction leaders.
+**Multiple Competition Types:**
+- **Combat Tournament:** Fight progressively harder opponents
+- **Archery Contest:** Precision and skill
+- **Magical Aptitude Test:** For those showing magical potential
+- **Chess/Strategy Tournament:** Mental competition
+**Key Choices:**
+- Which competitions to enter
+- Fight honorably or pragmatically
+- Show off or stay humble
+- Who to socialize with between rounds
+**Hidden Attributes Set:** Tournament performance affects reputation, `tournament_champion` if win, increase relevant stats
+**Meets:** 
+- See General Blackwood observing fighters
+- Lyra may be watching magical displays
+- Seraphine is in the noble box
+- Vale is working the crowd
+- Ash's company may be competing
+**Romance Moments:** Can impress or interact with Vale, Ash, Rook if they're present
+**Outcome:** Gain fame, prize money, catch attention of important figures
+
+### P9. The Magical Awakening
+**Scene ID:** `blood_magic_awakens`
+**Location:** Tournament aftermath, quiet moment
+**Description:** After tournament exertion or injury, player's blood magic manifests dramatically. Accidental healing, or elemental burst, or sensing danger. It's overwhelming and frightening.
+**Witness:** Vale sees it and reveals they suspected something. Explains blood magic is rare hereditary gift, almost extinct. Royal family were last known practitioners.
+**Key Choices:**
+- Panic and hide it (fear)
+- Try to control it (curiosity)
+- Ask Vale for help (trust)
+- Demand answers (assertive)
+**Hidden Attributes Set:** `magic_revealed`, `vale_knows_secret`, `magical_path_unlocked`
+**Critical Information:** Vale explains blood magic heredity, mentions lost royal family, doesn't make direct connection yet but plants seed
+**Outcome:** Player knows they have magic, must decide whether to explore it or hide it
+**Connection:** This is why Crystal Heart responds to player later
+
+### P10. Meet Whisper - The Information Dealer
+**Scene ID:** `meet_whisper`
+**Location:** Secret meeting arranged by Vale or Rook
+**Description:** Meet Whisper, an enigmatic information dealer who knows everyone's secrets. Gender ambiguous, face always partially hidden, voice soft. Knows about player's magic already.
+**Whisper's Offer:** Offers to research player's heritage - for a price (money, favor, or secret)
+**Key Choices:**
+- Accept immediately (desperate for answers)
+- Negotiate price (pragmatic)
+- Refuse (cautious)
+- Try to learn about Whisper instead (investigative)
+**Romance Option:** Yes - mysterious, intellectual, requires accepting you may never fully know them. Asexual, romantic.
+**Hidden Attributes Set:** `whisper_trust`, `whisper_romance`, `heritage_investigation_started`
+**Whisper's Role:** Information broker, can provide intelligence throughout story, mysterious ally
+**Outcome:** Whisper begins investigating player's past (if accepted)
+**Foreshadowing:** Whisper mentions there are people looking for someone with royal blood
+
+### P11. The Guild Master's Request
+**Scene ID:** `adventurer_guild_quest`
+**Location:** Adventurer's Guild hall
+**Description:** Guild master has special request: investigate strange magical phenomena near Silverwood Manor (player's future inheritance). Pays well, but seems urgent.
+**Guild Master's Secret:** Working with Agent Thorne, trying to verify player's identity before making contact
+**Key Choices:**
+- Accept quest (leads to inheritance discovery)
+- Ask why it's special (investigative)
+- Bring companions (teamwork)
+- Negotiate better pay (mercenary)
+**Hidden Attributes Set:** `guild_reputation`, preparation for inheritance reveal
+**Brings:** Can bring Vale, Ash, Rook, Whisper, or go solo
+**Setup:** This quest leads directly to discovering Silverwood Manor and the inheritance letter
+**Companion Interactions:** If bring companions, get bonding scenes during travel
+
+### P12. The Road to Silverwood
+**Scene ID:** `journey_to_silverwood`
+**Location:** Wilderness between capital and Silverwood
+**Description:** Journey to Silverwood Manor. If with companions, this is bonding time. Campfire scenes, sharing backstories, relationship building.
+**Multiple Vignettes:**
+- **Campfire Stories:** Companions share their pasts, player can share feelings about mysterious heritage
+- **Monster Attack:** Defend camp, work together in combat
+- **Beautiful Vista:** Peaceful moment, possible romance scene with chosen companion
+- **Mysterious Stranger:** Brief encounter with Rowan (ranger) who warns about something watching the roads
+**Key Choices:**
+- How much to share with companions
+- Who to spend time with (romance seeds)
+- How to handle dangers
+- Leadership decisions
+**Hidden Attributes Set:** Companion trust increases, romance scenes with present companions, `rowan_met_early`
+**Tone:** Calm before storm, building relationships, growing sense of destiny
+**Outcome:** Arrive at Silverwood Manor, ready for inheritance discovery
+
+### P13. Discovery at Silverwood
+**Scene ID:** `silverwood_discovery`
+**Location:** Silverwood Manor approach
+**Description:** Arrive at the manor that matches address from guild quest. It's beautiful but abandoned, overgrown. Player feels inexplicable draw to it. Then Agent Thorne appears with the letter.
+**The Reveal:** The inheritance letter reveals player is the lost heir of Silverwood. Evidence includes blood magic ability, birthmark, and documentation.
+**Key Choices:**
+- React with disbelief (skeptical)
+- Feel it's right somehow (intuitive)
+- Demand proof (logical)
+- Ask about companions' opinions (trust)
+**If Companions Present:** Their reactions vary:
+- Vale: "I suspected, but wanted you to discover it naturally"
+- Ash: "This explains the blood magic. You're legitimate heir."
+- Rook: "Wait, you're going to be ROYALTY? Can I be your official thief?"
+- Whisper (if contacted): Arrives with evidence, "I found this yesterday"
+**Hidden Attributes Set:** `companions_know_identity`, their support affects confidence, `identity_revealed`
+**Emotional Weight:** This has more impact because player has built life as adventurer - must now give it up for duty
+**Agent Thorne's Briefing:** Explains political situation, factions, the Crystal Heart, and the threat. Offers to guide player into political world.
+**Outcome:** Accept heritage and begin political journey, but now with established companions who have their own connections to the story
+
+---
+
+## PROLOGUE COMPANION SUMMARY
+
+The prologue introduces 4 new romance/companion options who integrate with later story:
+
+**1. Vale (They/Them) - Bard/Spy**
+- **Role:** Intelligence gathering, Reformist connection, charming information broker
+- **Romance:** Witty banter, mysterious past, medium difficulty, bisexual
+- **Stats Focus:** Charisma, investigation, social connections
+- **Later Integration:** Provides political intelligence, helps with negotiations, comic relief
+- **Personal Quest:** Uncover their true employer and decide if you trust their methods
+- **Romance Path:** Slow revelation of vulnerability beneath charm
+
+**2. Ash (They/Them) - Mercenary Captain**
+- **Role:** Combat mentor, military perspective, mercenary company leader
+- **Romance:** Slow-burn mentor-to-lover, high difficulty, demisexual (needs deep trust)
+- **Stats Focus:** Combat, tactics, leadership, pragmatism
+- **Later Integration:** Can bring mercenary company for key battles, military advice, tactical support
+- **Personal Quest:** Help them find peace with past losses, rebuild sense of purpose
+- **Romance Path:** Requires patience, emotional vulnerability, proving you see them as equal
+
+**3. Rook (Gender fluid) - Thief/Con Artist**
+- **Role:** Underworld connections, stealth missions, street smarts
+- **Romance:** Playful, growth arc from criminal to hero, medium difficulty, pansexual
+- **Stats Focus:** Stealth, deception, survival, street knowledge
+- **Later Integration:** Thieves guild contact, heist missions, comedy, can access underground network
+- **Personal Quest:** Help them escape criminal life or embrace it with honor
+- **Romance Path:** Fun and flirty, but requires helping them find self-worth
+
+**4. Whisper (Gender ambiguous) - Information Dealer**
+- **Role:** Secrets and blackmail, intelligence network, mysterious ally
+- **Romance:** Intellectual connection, mysterious, high difficulty, asexual romantic
+- **Stats Focus:** Intelligence, investigation, secrets, connections
+- **Later Integration:** Provides crucial information, knows everyone's secrets, can blackmail enemies
+- **Personal Quest:** Discover who/what they really are (possibly fae, spirit, or cursed)
+- **Romance Path:** Must accept mystery, focus on emotional intimacy not physical, trust without full knowledge
+
+This brings total companion count to **14 romance options** (4 prologue + 10 main story), plus Rowan who appears in both, creating a rich cast with varied perspectives and connections to different parts of the story.
+
+**Prologue Benefits:**
+- 10-15 hours of additional gameplay before political story begins
+- Character feels earned, not handed destiny
+- Companions have history with player, making later choices more emotional
+- World exploration before being constrained by politics
+- Skill development feels organic
+- Magic discovery is gradual and mysterious
+- Multiple relationship foundations before romance deepens
+
+---
+
+## ACT 1: THE INHERITANCE (Revised - Now starts at Scene 1 after Prologue)
+
+## Fantasy World Elements
+
+### The Crystal Heart
+An ancient artifact created by the First Mages and the Dragon Council. When whole, it:
+- Maintained the barrier between the mortal realm and the Shadowrealm
+- Allowed peaceful communication with magical creatures
+- Amplified beneficial magic while suppressing dark sorcery
+- Granted the rightful ruler prophetic dreams
+
+The shattering scattered five fragments across the realm, each guarded by different forces.
+
+### Magical Races & Creatures
+- **Elves of Moonwhisper Grove:** Long-lived, masters of nature magic, suspicious of humans after betrayal
+- **Dwarves of Ironpeak:** Master craftsmen, control earth magic, neutral but pragmatic
+- **Dragons:** Ancient, powerful, each with distinct personality and alignment
+- **Fae Folk:** Unpredictable tricksters dwelling in the Shimmerwood, bound by strict rules
+- **Shadow Beasts:** Creatures from the Shadowrealm leaking through barrier cracks
+- **Phoenixes:** Rare, wise, symbols of renewal and rebirth
+- **Griffins:** Noble, rideable, bond only with those of pure intent
+- **Merfolk:** Rule the coastal waters, possess water magic and sea knowledge
+
+### Magic System
+- **Elemental Magic:** Fire, Water, Earth, Air - learned through study
+- **Blood Magic:** Ancestral power passed through royal lineage (player has dormant potential)
+- **Rune Magic:** Ancient symbols of power, requires craftsmanship
+- **Spirit Magic:** Communion with ancestors and nature spirits
+- **Shadow Magic:** Dangerous, corrupting, draws from Shadowrealm
+- **Healing Light:** Rare gift, often found in those of pure heart
+
+### Key Locations
+- **Silverwood Kingdom:** Human capital, blend of medieval and magical architecture
+- **Moonwhisper Grove:** Ancient elven forest, trees sing with magic
+- **Ironpeak Mountains:** Dwarven fortress cities carved into living rock
+- **The Shimmerwood:** Fae realm where reality bends and time flows strangely
+- **Dragon's Spine:** Mountain range where dragons nest
+- **The Obsidian Wastes:** Corrupted lands where Shadowrealm bleeds through
+- **Coral Palace:** Underwater merfolk city
+- **The Starfall Ruins:** Remnants of First Mage civilization
+
+---
+
+## COMPANION CHARACTERS (Romance & Friendship Options)
+
+### PROLOGUE COMPANIONS (Met During Adventuring Days)
+
+### Vale (They/Them, Human Bard/Spy)
+**Role:** Information broker, Reformist spy, charming companion
+**Age:** 32 | **Personality:** Witty, charming, mysterious, idealistic beneath cynicism
+**Appearance:** Androgynous beauty, flowing clothes, musical instruments, expressive face
+**Romance Factors:** Values cleverness, honesty (ironic), shared laughter, intellectual connection
+**Relationship Path:**
+- Initial: Charming stranger who seems too interested in you
+- Friendship: Reveals they're Reformist spy, shares idealistic dreams for kingdom
+- Romance: Slow vulnerability beneath charm, admits they're falling despite professional distance
+- Requirements: Medium charisma, clever choices, discover their secrets but accept them
+**Hidden Attributes:** `vale_trust`, `vale_romance`, `vale_secret_revealed`
+**Special Abilities:** Bardic magic, disguises, social manipulation, extensive spy network
+**Conflict:** Their spy work may conflict with player's choices, must choose loyalty
+**Orientation:** Bisexual, attracted to wit and kindness
+
+### Ash (They/Them, Human Mercenary)
+**Role:** Combat mentor, mercenary captain, protective companion
+**Age:** 42 | **Personality:** Gruff exterior, deeply loyal, carries survivor's guilt
+**Appearance:** Battle-scarred, muscular, short gray hair, practical armor, kind eyes when guard is down
+**Romance Factors:** Values trust, loyalty, emotional honesty, patience
+**Relationship Path:**
+- Initial: Gruff mentor offering training and employment
+- Friendship: Slowly opens up about lost family, survivor's guilt from Shadow Beast attack
+- Romance: Very slow burn, requires deep emotional trust, eventually admits feelings they tried to ignore
+- Requirements: High trust over time, emotional vulnerability, prove you see past their walls
+**Hidden Attributes:** `ash_trust`, `ash_romance`, `ash_walls_down`, `ash_loved_again`
+**Special Abilities:** Master combatant, mercenary company command, tactical expertise
+**Conflict:** May struggle with player entering dangerous political world after losing family
+**Orientation:** Demisexual, needs deep emotional bond before attraction
+
+### Rook (Gender fluid, Human Thief)
+**Role:** Thief, scout, underworld contact, comic relief
+**Age:** 22 | **Personality:** Playful, clever, morally flexible, secretly insecure
+**Appearance:** Changes presentation daily, quick fingers, mischievous grin, stylish stolen clothes
+**Romance Factors:** Values acceptance, fun, helping them grow, seeing their potential
+**Relationship Path:**
+- Initial: Annoying pickpocket who becomes useful ally
+- Friendship: Opens up about surviving as orphan, dreams of being more than thief
+- Romance: Playful flirting becomes real feelings, needs reassurance they're worthy of love
+- Requirements: Accept their criminal past, help them find purpose, regular affection
+**Hidden Attributes:** `rook_trust`, `rook_romance`, `rook_redemption`, `rook_confidence`
+**Special Abilities:** Thievery, lockpicking, disguise, thieves' guild connections
+**Conflict:** May struggle with going legitimate, tempted back to crime
+**Orientation:** Pansexual, attracted to confidence and kindness
+
+### Whisper (Gender ambiguous, Unknown Species)
+**Role:** Information dealer, mystery, keeper of secrets
+**Age:** Unknown | **Personality:** Calm, cryptic, eerily perceptive, surprisingly tender
+**Appearance:** Partially hidden face, soft voice, flowing dark clothes, unsettling stillness
+**Romance Factors:** Values intellectual connection, accepting mystery, emotional intimacy
+**Relationship Path:**
+- Initial: Creepy information dealer who knows too much
+- Friendship: Reveals fragments of themselves, shows they genuinely care beneath mystery
+- Romance: Deep emotional connection without full revelation, tender despite unknowable nature
+- Requirements: Accept you may never know everything, value emotional over physical intimacy
+**Hidden Attributes:** `whisper_trust`, `whisper_romance`, `whisper_nature_clues`, `whisper_true_self`
+**Special Abilities:** Information network, seemingly omniscient, possibly magical nature
+**Conflict:** Their nature may be revealed as non-human (fae? spirit? cursed?), must accept them
+**Orientation:** Asexual romantic, desires emotional intimacy and companionship
+
+---
+
+### MAIN STORY COMPANIONS (Met After Identity Revealed)
+
+### Lady Seraphine Ashford (Female, Human Noble)
+**Role:** Loyalist faction leader, diplomatic advisor
+**Age:** 28 | **Personality:** Composed, principled, carries weight of responsibility
+**Appearance:** Dark hair, sharp eyes, always in formal attire
+**Romance Factors:** Values honor, tradition, shared purpose
+**Relationship Path:** 
+- Initial: Professional respect
+- Friendship: Reveals personal struggles with duty vs. desire
+- Romance: Slowly opens up, requires player to show commitment to kingdom
+- Requirements: High charisma, noble actions, support for stability
+**Hidden Attributes:** `seraphine_trust`, `seraphine_romance`, `seraphine_knows_real_you`
+**Special Abilities:** Political connections, knows noble etiquette, can navigate court intrigue
+**Conflict:** May oppose player if they choose radical reform or abdication
+
+### Rowan Thornheart (Non-binary, Half-Elf Ranger)
+**Role:** Guide, protector, wilderness expert
+**Age:** 95 (young for elf heritage) | **Personality:** Free-spirited, loyal, haunted by past
+**Appearance:** Auburn hair, forest green eyes, practical leathers, vine tattoos
+**Romance Factors:** Values freedom, authenticity, actions over words
+**Relationship Path:**
+- Initial: Skeptical guardian assigned by Marcus
+- Friendship: Opens up during travels, shares stories around campfires
+- Romance: Slow-burn, requires player to respect their boundaries and independence
+- Requirements: Show respect for nature, prove trustworthiness, share vulnerabilities
+**Hidden Attributes:** `rowan_bond`, `rowan_romance`, `rowan_taught_survival`
+**Special Abilities:** Tracking, nature magic, can speak with animals, archery expert
+**Conflict:** Distrusts cities and politics, may leave if player becomes too power-focused
+**Unique:** Romance not gender-locked, focuses on emotional connection
+
+### Kieran Blackthorn (Male, Human Knight)
+**Role:** Military captain, General Blackwood's nephew
+**Age:** 26 | **Personality:** Honorable soldier torn between duty and conscience
+**Appearance:** Battle-scarred, strong build, kind eyes, military bearing
+**Romance Factors:** Values courage, mercy, protecting the innocent
+**Relationship Path:**
+- Initial: Duty-bound guard assigned to protect player
+- Friendship: Bonds through shared danger, reveals conflict with uncle's ambitions
+- Romance: Passionate but complicated, requires player to inspire his idealism
+- Requirements: High courage, show mercy in conflicts, value his counsel
+**Hidden Attributes:** `kieran_loyalty`, `kieran_romance`, `kieran_defied_uncle`
+**Special Abilities:** Combat prowess, tactical knowledge, military connections
+**Conflict:** Caught between player and General Blackwood, must eventually choose
+
+### Lyra Starsong (Female, Full Elf Mage)
+**Role:** Elven emissary, magical tutor
+**Age:** 247 | **Personality:** Wise, patient, carries ancient sorrow
+**Appearance:** Silver hair, luminous eyes, graceful, traditional elven robes
+**Romance Factors:** Values wisdom, respect for magic, understanding of elven culture
+**Relationship Path:**
+- Initial: Cold, diplomatic, views player as potential threat
+- Friendship: Warms when player shows respect for elven ways and magic
+- Romance: Requires player to prove worthy across cultural divide, very slow development
+- Requirements: High wisdom, magical aptitude, respect for nature and elven customs
+**Hidden Attributes:** `lyra_respect`, `lyra_romance`, `lyra_teaches_magic`
+**Special Abilities:** Powerful elemental magic, can sense lies, knows ancient lore
+**Conflict:** Elven people distrust humans, she must choose between loyalty to player or her people
+**Challenge:** Longest romance path, most requirements, deepest magical knowledge rewards
+
+### Finn Ironforge (Male, Dwarf Artificer)
+**Role:** Master craftsman, inventor
+**Age:** 142 | **Personality:** Cheerful, clever, hides loneliness with humor
+**Appearance:** Red beard with tool decorations, calloused hands, constantly tinkering
+**Romance Factors:** Values creativity, appreciating craftsmanship, humor
+**Relationship Path:**
+- Initial: Friendly merchant, interested in player's royal artifacts
+- Friendship: Bonds over shared projects, teaches about dwarven culture
+- Romance: Sweet, genuine, requires player to value his work and spend time with him
+- Requirements: Show interest in crafting, defend dwarven interests, appreciate beauty in creation
+**Hidden Attributes:** `finn_friendship`, `finn_romance`, `finn_crafted_special_items`
+**Special Abilities:** Master blacksmith, can create magical items, rune magic expert
+**Conflict:** Dwarven neutrality vs. helping player, may need to defy his king
+
+### Zephyr (Agender, Fae Being)
+**Role:** Mysterious guide, trickster, fae emissary
+**Age:** Unknown | **Personality:** Playful, cryptic, bound by fae laws
+**Appearance:** Constantly shifting, prefers androgynous forms, shimmering skin, butterfly wings
+**Romance Factors:** Values entertainment, cleverness, keeping promises
+**Relationship Path:**
+- Initial: Appears randomly, speaks in riddles, seems to know player's future
+- Friendship: Tests player with tricks and puzzles, reveals deeper nature over time
+- Romance: Alien courtship rules, must win through wit and understanding fae customs
+- Requirements: High curiosity, clever dialogue choices, complete fae bargains honorably
+**Hidden Attributes:** `zephyr_games_won`, `zephyr_romance`, `zephyr_true_name_known`
+**Special Abilities:** Reality manipulation in Shimmerwood, can travel anywhere instantly, illusion magic
+**Conflict:** Bound by fae laws, cannot directly interfere, must work through riddles and deals
+**Unique:** Most unusual romance, focuses on mental/spiritual connection
+
+### Thorne Drake (Male, Dragon in Human Form)
+**Role:** Ancient observer, potential ally or enemy
+**Age:** 3,000+ | **Personality:** Proud, passionate, values strength and wisdom equally
+**Appearance:** Human form—tall, copper-colored eyes, radiates heat, dragon form—bronze scales
+**Romance Factors:** Values bravery, honesty, displays of both physical and moral strength
+**Relationship Path:**
+- Initial: Tests player through trials, considers them amusing mortal
+- Friendship: Begins to respect player's choices, shares ancient knowledge
+- Romance: Intense, requires proving oneself worthy of a dragon's attention
+- Requirements: Very high courage and wisdom, impress in combat and strategy, understand draconic culture
+**Hidden Attributes:** `thorne_respect`, `thorne_romance`, `thorne_flight_partner`
+**Special Abilities:** Dragon transformation, fire magic, flight, ancient knowledge, immense power
+**Conflict:** Dragons are neutral in mortal politics, pursuing romance means asking him to break neutrality
+**Challenge:** Second-hardest romance, power imbalance requires player to prove equality
+
+### Captain Marina Coralweave (Female, Merfolk Warrior)
+**Role:** Coastal guardian, naval ally
+**Age:** 34 | **Personality:** Bold, passionate, fiercely protective of ocean
+**Appearance:** Blue-green skin, flowing sea-green hair, can transform legs/tail
+**Romance Factors:** Values courage, environmental protection, mutual respect
+**Relationship Path:**
+- Initial: Suspicious of surface-dwellers, must be won over
+- Friendship: Allies through defending coast from threats, shares ocean wonders
+- Romance: Adventurous, passionate, requires bridging two worlds
+- Requirements: Protect marine life, prove trustworthy, embrace adventure
+**Hidden Attributes:** `marina_trust`, `marina_romance`, `marina_water_breathing_gift`
+**Special Abilities:** Water magic, naval warfare, underwater guidance, weather sensing
+**Conflict:** Cannot leave ocean for long, player must choose between land duties and sea visits
+**Unique:** Offers perspective of non-human fantasy race, environmental themes
+
+### Sage (Male, Human Scholar)
+**Role:** Council Member Dane's assistant, reformist intellectual
+**Age:** 24 | **Personality:** Idealistic, nervous, grows braver through journey
+**Appearance:** Messy brown hair, glasses, ink-stained fingers, warm smile
+**Romance Factors:** Values kindness, intellectual connection, shared ideals
+**Relationship Path:**
+- Initial: Shy, admires player from afar
+- Friendship: Becomes close through political work, opens up about hopes for kingdom
+- Romance: Sweet, awkward, genuine, easiest romance to pursue
+- Requirements: Show interest in reform, be kind, protect him from danger
+**Hidden Attributes:** `sage_affection`, `sage_romance`, `sage_confidence_grown`
+**Special Abilities:** Political knowledge, research skills, talented writer, inspiring speeches
+**Conflict:** Physically vulnerable, player must protect him; may oppose player if they reject reform
+
+### Shadow (Female, Former Assassin)
+**Role:** The assassin from earlier, can be spared and recruited
+**Age:** 29 | **Personality:** Guarded, sarcastic, seeking redemption
+**Appearance:** Dark hair, scars, moves like a predator, slowly adopts less threatening appearance
+**Romance Factors:** Values mercy, second chances, seeing past her darkness
+**Relationship Path:**
+- Initial: Enemy, attempts to kill player
+- Friendship: If spared, slowly learns to trust, reveals tragic backstory
+- Romance: Requires persistent compassion, proving she deserves happiness
+- Requirements: Spare her life, show consistent mercy, help her find redemption
+**Hidden Attributes:** `shadow_redeemed`, `shadow_romance`, `shadow_true_name_revealed`
+**Special Abilities:** Stealth, information gathering, knows underworld, combat skills
+**Conflict:** Her past returns, must choose between old life or new path with player
+**Challenge:** Requires specific early choice (sparing her), longest redemption arc
+
+---
+
+## ACT 1: STEPPING INTO DESTINY (Post-Discovery Political Integration)
+
+**Context:** Player has discovered their identity in Prologue. Act 1 now focuses on transitioning from adventurer to political figure, with established companions helping navigate this change.
+
+### 1. The Manor's Secrets
+**Scene ID:** `manor_exploration`
+**Location:** Silverwood Manor (now player's)
+**Description:** With identity confirmed, player explores the manor fully. Hidden chambers reveal family history, magical artifacts, journals from parents. Prologue companions react to the grandeur and political implications.
+**Key Choices:**
+- Read parents' journals (emotional connection)
+- Focus on political documents (pragmatic)
+- Explore magical artifacts (curiosity)
+- Ask companions for perspective (trust)
+**Hidden Attributes Set:** `manor_explored`, `family_history_known`, `companions_see_noble_life`
+**Companion Reactions:**
+- Vale: Fascinated by political documents, shares Reformist perspective
+- Ash: Uncomfortable with nobility, worried about player changing
+- Rook: Wants to steal something fancy, jokes to hide awe
+- Whisper: Already knows everything, watches player's reaction
+**Fantasy Element:** Find mother's grimoire with blood magic basics
+**Emotional Weight:** First time seeing life that was stolen from you
+
+### 1.5. Meeting Rowan (Official)
+**Scene ID:** `rowan_formal_introduction`
+**Location:** Manor grounds
+**Description:** Rowan Thornheart appears as official ranger guardian, sent by Agent Thorne. If met briefly in Prologue, they reference that encounter. Their job is to protect the heir and teach wilderness survival.
+**Key Choices:**
+- Welcome them warmly (if met before, recognition)
+- Question why protection is needed (suspicious)
+- Introduce prologue companions (integration)
+- Ask about their half-elf heritage (curious)
+**Hidden Attributes Set:** `rowan_bond` (starts fresh or builds on prologue meeting), `rowan_official_guardian`
+**Companion Dynamics:** 
+- Vale might know Rowan from Reformist circles
+- Ash respects fellow warrior
+- Rook finds them too serious
+- Whisper unsettles Rowan with knowledge
+**Fantasy Element:** Rowan demonstrates nature magic, offers to teach
+
+### 2. Entering the Political Arena
+**Scene ID:** `first_political_meeting`
+**Location:** Manor meeting room
+**Description:** Agent Thorne arranges meeting with representatives from all three factions. Player must present themselves as legitimate heir. Prologue companions can attend or wait outside - their presence affects perception.
+**Key Choices:**
+- Bring prologue companions (shows loyalty to friends, seen as informal)
+- Meet alone (traditional, seen as serious)
+- Bring only Rowan (compromise, appropriate guardian)
+- Ask Vale for intelligence first (strategic)
+**Hidden Attributes Set:** `first_impression_factions`, initial faction reputation values
+**Faction Reactions:**
+- Loyalists (Seraphine): Approve if traditional, warm but cautious
+- Reformists (Lord Pembroke): Interested if brought common-born friends
+- Military (Blackwood): Assesses if you brought mercenary (Ash)
+**Companion Contributions:**
+- Vale can read room, whisper advice
+- Ash's presence shows martial capability
+- Rook's presence scandalizes nobles
+- Whisper's presence unnerves everyone
+**Political Stakes:** First impression affects later negotiations
+
+### 3.5 The Spirit Guardian
+**Scene ID:** `ancestral_spirit`
+**Location:** Secret chamber
+**Description:** A ghostly figure manifests—a former royal guardian. They test player's worthiness and can answer one question about the past.
+**Key Choices:**
+- Ask about the Crystal Heart's shattering
+- Ask about surviving family
+- Ask how to awaken blood magic
+- Try to communicate with compassion
+**Hidden Attributes Set:** `spirit_blessed`, `learned_about_crystal_heart`
+**Fantasy Element:** Spirit magic, ancestral connection, gaining magical knowledge
+**Unlocks:** Different information affects later scenes
+
+### 4. The Watcher in the Shadows
+**Scene ID:** `mysterious_follower`
+**Location:** Forest path back to village
+**Description:** Player realizes someone has been following them since leaving the manor. Rowan senses them too if present.
+**Key Choices:**
+- Confront them directly (courage)
+- Set a trap with Rowan's help (tactical)
+- Try to lose them in the forest (agility)
+- Lead them somewhere public (clever)
+**Hidden Attributes Set:** `confrontational_tendency`, `aware_of_surveillance`, `rowan_bond` (if cooperated)
+**Companion Scene:** Rowan can assist in various ways if trusted
+
+### 4.5 Shadow Beast Attack
+**Scene ID:** `first_shadow_encounter`
+**Location:** Dark forest
+**Description:** A Shadow Beast emerges from a tear in reality—first sign that the Shadowrealm barrier is weakening. Player must fight or flee.
+**Key Choices:**
+- Fight with awakened blood magic (if attuned to crystal)
+- Fight with conventional weapons
+- Let Rowan protect you (builds their role as guardian)
+- Flee together (survival)
+**Hidden Attributes Set:** `faced_shadow_beast`, `combat_capable`, `rowan_saved_life`, `used_blood_magic_first_time`
+**Fantasy Combat:** Introduction to magical threats and player's potential powers
+**Companion Bonding:** Rowan's behavior in crisis affects relationship
+
+### 5. Royal Agent Revealed
+**Scene ID:** `agent_introduction`
+**Location:** Varies based on previous choice
+**Description:** The follower reveals themselves as Sir Marcus, a loyal agent who has been searching for the lost heir for 20 years. He explains the Shadow Beast was hunting for royal blood.
+**Key Choices:**
+- Trust him completely
+- Demand proof of loyalty
+- Refuse to believe
+- Ask Rowan's opinion (if present)
+**Hidden Attributes Set:** `trust_in_marcus`, `skepticism_level`, `rowan_trusts_marcus`
+**Conditional Outcomes:** Based on previous confrontation choice
+**Companion Dynamic:** Rowan and Marcus's relationship affects group dynamics
+
+### 5.5 Meeting Seraphine
+**Scene ID:** `seraphine_introduction`
+**Location:** Marcus's safe house
+**Description:** Lady Seraphine Ashford arrives, representing the Loyalists. Her formal demeanor contrasts with Rowan's casual nature, creating interesting tension.
+**Key Choices:**
+- Be formally respectful (appeals to Seraphine)
+- Be casual and authentic (appeals to Rowan)
+- Try to balance both (charisma check)
+- Focus on business only
+**Hidden Attributes Set:** `seraphine_trust` (initial), `rowan_bond` (+/-), `social_adaptability`
+**Companion Introduction:** Seraphine becomes available as companion
+**Romance Seed:** First impression significantly impacts future romance possibility
+**Interpersonal Drama:** Rowan and Seraphine clash on tradition vs. freedom
+
+---
+
+## ACT 2: THE BURDEN OF TRUTH (Political Intrigue & Magical Discovery)
+
+### 6. The Current Situation
+**Scene ID:** `kingdom_briefing`
+**Location:** Marcus's safe house
+**Description:** Marcus explains the kingdom's state and the shattered Crystal Heart. Three factions vie for power, magical creatures grow restless, and the Shadowrealm barrier weakens daily.
+**Exposition:** Introduces:
+- The Loyalists (led by Seraphine, want true heir restored)
+- The Reformists (led by Council Member Dane with assistant Sage, want democracy)
+- The Military (General Blackwood with Captain Kieran, seek control)
+- The magical races' declining trust in humans
+- The threat of complete barrier collapse
+**No major choices:** Information gathering scene
+**Hidden Attributes Set:** `knows_political_landscape`, `knows_crystal_heart_crisis`
+**Companion Present:** Seraphine and Rowan provide different perspectives
+
+### 6.5 The Magical Mentor
+**Scene ID:** `lyra_arrival`
+**Location:** Moonwhisper Grove (journey scene)
+**Description:** Seraphine arranges meeting with Lyra Starsong, elven emissary, to teach player about their blood magic and the Crystal Heart. Lyra is coldly suspicious.
+**Key Choices:**
+- Show humble respect for elven wisdom (best approach)
+- Assert your authority as heir (offends her)
+- Ask about the shard bonded to you (shows seriousness)
+- Invite Rowan to translate cultural nuances (teamwork)
+**Hidden Attributes Set:** `lyra_respect` (initial), `learning_blood_magic`, `elf_relationship_started`
+**Companion Introduction:** Lyra becomes available as companion/mentor
+**Romance Seed:** Extremely slow burn, requires cultural understanding
+**Fantasy Worldbuilding:** Learn about elven culture, ancient magic, forest spirits
+**Magical Training:** Player begins to control blood magic abilities
+
+### 7. The Three Paths Open
+**Scene ID:** `faction_introduction`
+**Location:** Capital city, neutral ground
+**Description:** Player can approach any of the three factions. Each companion has opinions: Seraphine favors Loyalists, Rowan distrusts Military, Lyra observes neutrally but notes each faction's stance on magical beings.
+**Key Choices:**
+- Meet with Loyalist leader Lady Ashford (Seraphine approves)
+- Meet with Reformist Dane and Sage (social progress)
+- Meet with General Blackwood and Kieran (practical power)
+- Refuse all and visit Moonwhisper Grove (Lyra appreciates, Rowan supports)
+**Hidden Attributes Set:** `first_faction_approached`, `independence_indicator`, companion relationship changes
+**Companion Opinions:** Each companion's approval shifts based on choice
+
+### 8. Loyalist Proposition
+**Scene ID:** `loyalist_meeting`
+**Location:** Ashford Estate
+**Description:** Lady Ashford (Seraphine's grandmother) offers full support to reclaim throne, but requires loyalty oaths and traditional rule. Ancient traditions must be honored, including royal responsibilities.
+**Key Choices:**
+- Pledge allegiance completely
+- Ask for time to consider
+- Express interest in reforms (Seraphine supports progressive tradition)
+- Decline politely
+**Hidden Attributes Set:** `loyalist_faction_rep`, `traditional_vs_progressive`, `seraphine_trust` (+/-)
+**Faction Effects:** Increases loyalist reputation
+**Companion Scene:** Seraphine reveals personal thoughts after formal meeting
+**Romance Moment:** Private conversation with Seraphine about duty vs. personal desire
+
+### 8.5 Sage's Idealism
+**Scene ID:** `meeting_sage`
+**Location:** People's Assembly Hall
+**Description:** Before meeting Dane, player encounters Sage organizing documents. He's nervous but passionate about democratic ideals, offers personal tour of reform efforts.
+**Key Choices:**
+- Engage warmly with his ideas (builds connection)
+- Be dismissive (crushes his hopes)
+- Show romantic interest (romance path begins)
+- Ask him to join your inner circle
+**Hidden Attributes Set:** `sage_affection` (initial), `sage_friendship`, `values_common_people`
+**Companion Introduction:** Sage becomes available as companion
+**Romance Seed:** Easiest romance, sweet and genuine, he admires player immediately
+**Character Development:** Shy intellectual who can grow brave with player's support
+
+### 9. Reformist Vision
+**Scene ID:** `reformist_meeting`
+**Location:** People's Assembly Hall
+**Description:** Dane proposes heir endorse democratic reforms, sharing power with the people. Sage presents research on successful democratic systems.
+**Key Choices:**
+- Embrace democracy fully (Sage is overjoyed)
+- Suggest constitutional monarchy
+- Reject as chaos (Sage is heartbroken)
+- Stay neutral
+**Hidden Attributes Set:** `reformist_faction_rep`, `democratic_tendency`, `sage_affection` (+/-)
+**Faction Effects:** Influences reformist reputation
+**Companion Reaction:** Sage's devotion or disappointment significantly affected
+
+### 9.5 Kieran's Honor
+**Scene ID:** `meeting_kieran`
+**Location:** Military training grounds
+**Description:** Before meeting Blackwood, player meets Captain Kieran during training. He's impressive in combat but shows mercy to defeated opponent—honor over brutality.
+**Key Choices:**
+- Commend his mercy (builds respect)
+- Question military softness (he defends his approach)
+- Ask about his uncle (he becomes guarded)
+- Spar with him (physical connection, romance path)
+**Hidden Attributes Set:** `kieran_loyalty` (initial), `kieran_respects_player`, `military_honor_witnessed`
+**Companion Introduction:** Kieran becomes available as companion
+**Romance Seed:** Warrior romance, bonds through shared combat and ideals
+**Foreshadowing:** Hints at his conflict with uncle's methods
+
+### 10. Military's Offer
+**Scene ID:** `military_meeting`
+**Location:** Fortress garrison
+**Description:** Blackwood suggests strategic alliance—player as figurehead while he handles "security." Kieran stands at attention but player notices his discomfort.
+**Key Choices:**
+- Accept pragmatically (Kieran disappointed)
+- Counter-offer with real power-sharing
+- Refuse on principle (Kieran approves)
+- Feign agreement to spy (Kieran conflicted if he discovers)
+- Ask Kieran's opinion directly (shows you value his judgment)
+**Hidden Attributes Set:** `military_faction_rep`, `deception_used`, `pragmatism_level`, `kieran_loyalty` (+/-)
+**Faction Effects:** Military reputation changes
+**Companion Drama:** Kieran torn between duty to uncle and conscience
+**Romance Impact:** Honest approach strengthens Kieran romance path
+
+### 10.5 The Dragon's Test
+**Scene ID:** `first_dragon_encounter`
+**Location:** Dragon's Spine mountain path
+**Description:** While traveling, player encounters Thorne Drake in human form. He's curious about the "lost heir" and issues a challenge to prove worthiness.
+**Key Choices:**
+- Accept his trial of combat (courage)
+- Accept his trial of wisdom (answer riddles)
+- Refuse and try to talk (charisma)
+- Ask why dragons care about mortal politics
+**Hidden Attributes Set:** `thorne_respect` (initial), `dragon_trial_result`, `impressed_dragon`
+**Companion Introduction:** Thorne becomes recurring character
+**Romance Seed:** Extremely challenging, requires proving equality with ancient being
+**Fantasy Encounter:** Dragon lore, shows draconic culture and power
+**Worldbuilding:** Dragons' role as observers, their neutrality is tradition not law
+
+### 11. The Common People
+**Scene ID:** `market_unrest`
+**Location:** City marketplace
+**Description:** Player witnesses poverty, Shadow Beast attacks on civilians, and fear. People don't know who the heir is yet. Sage or Rowan can provide different perspectives.
+**Key Choices:**
+- Help a struggling family personally (Sage/Rowan approve)
+- Observe quietly (tactical)
+- Ask about their needs (investigative)
+- Make impromptu speech (bold, companion reactions vary)
+- Use healing magic on injured person (if learned from Lyra)
+**Hidden Attributes Set:** `compassion_for_people`, `revealed_self_publicly`, `used_magic_publicly`, companion approvals shift
+**Conditional Text:** Different reactions based on previous faction meetings
+**Companion Bonding:** Sage shows player the reforms needed, or Rowan explains common folk's perspective
+**Fantasy Element:** Witnessing Shadow Beast threat to ordinary people
+
+### 12. The Assassination Attempt
+**Scene ID:** `assassination_plot`
+**Location:** Player's temporary lodging
+**Description:** An assassin (Shadow) strikes in the night. Unknown who sent them. Companion can help if player chose to keep them close.
+**Key Choices:**
+- Fight back with blood magic (if trained)
+- Fight conventionally
+- Call for companion's help (Kieran, Rowan, or Seraphine depending on who you're closest to)
+- Try to capture and question (risky but rewarding)
+- Flee and let companion fight
+**Hidden Attributes Set:** `survived_assassination`, `captured_assassin`, `combat_capable`, `shadow_encountered`, companion bonds affected
+**Outcomes:** Different results based on stats, companion present, and magic use
+**Romance Moment:** Companion's fear for player's safety reveals deeper feelings
+**Key Decision:** Sparing Shadow opens her redemption/romance path later
+
+### 12.5 Aftermath and Comfort
+**Scene ID:** `after_assassination`
+**Location:** Safe room
+**Description:** After the attack, companion tends to player's wounds. Vulnerability creates intimate moment for bonding and emotional connection.
+**Key Choices (varies by companion present):**
+- With Seraphine: Discuss fears about responsibility, she reveals her own doubts
+- With Rowan: They share past trauma, open up about feeling unworthy of trust
+- With Kieran: He blames himself for not being more vigilant, protective feelings emerge
+- With Sage: He's terrified but tries to help, player can comfort him
+- With Lyra: She uses healing magic, discusses mortality and elven perspective on brief lives
+**Hidden Attributes Set:** Companion-specific romance/trust attributes increase
+**Romance Progression:** Significant milestone for whichever companion is present
+**Character Development:** Vulnerable moments reveal companion's deeper character
+
+### 12.6 The Dwarf's Arrival
+**Scene ID:** `finn_introduction`
+**Location:** After assassination, at safehouse
+**Description:** Finn Ironforge arrives with defensive rune-work commissioned by Marcus. He's cheerful despite dark situation, offers to craft protective items.
+**Key Choices:**
+- Commission defensive armor
+- Ask about dwarven neutrality in politics
+- Share ale and stories (friendship building)
+- Show interest in his craft (romance seed)
+- Ask him to join your group
+**Hidden Attributes Set:** `finn_friendship` (initial), `has_rune_protection`, `dwarf_relationship_started`
+**Companion Introduction:** Finn becomes available
+**Romance Seed:** Sweet, genuine, bonds over shared appreciation of craft and beauty
+**Fantasy Crafting:** Introduction to rune magic and dwarven artifice
+**Worldbuilding:** Dwarven culture, their neutrality policy, underground cities
+
+---
+
+## ACT 3: RISING TENSIONS (Conflict, Alliance & Magical Quests)
+
+### 13. Interrogation Results  
+**Scene ID:** `assassin_confession`
+**Location:** Guard post (if captured) or investigation scene
+**Description:** If Shadow captured, she's defiant but player can earn her trust through mercy. Evidence points to faction betrayal. If Shadow escaped, investigation reveals clues.
+**Key Choices:**
+- Confront the traitor faction publicly
+- Investigate further privately
+- Use evidence as leverage
+- Forgive and seek reconciliation (if Shadow captured, show her mercy)
+- Execute Shadow (closes redemption path permanently)
+**Hidden Attributes Set:** `faction_betrayal_known`, `response_to_betrayal`, `shadow_spared`, `shadow_redeemed` (initial)
+**Conditional:** Which faction betrayed depends on player's alliances
+**Romance Path:** Sparing Shadow begins long redemption arc leading to romance
+**Companion Reactions:** Different views on mercy vs. justice
+
+### 13.5 Seeking the Crystal Shards
+**Scene ID:** `crystal_quest_begins`
+**Location:** Royal archives
+**Description:** Lyra reveals the five Crystal Heart shards must be reunited to restore the barrier. Each is held by different power: Elves, Dwarves, Dragons, Fae, and Merfolk. Player must gain each race's trust.
+**Key Choices:**
+- Prioritize diplomatic approach (recruit companions from each race)
+- Consider forceful retrieval (antagonizes magical races)
+- Seek Lyra's detailed guidance (builds trust with her)
+- Ask which shard to pursue first
+**Hidden Attributes Set:** `crystal_quest_active`, `lyra_respect` (+), `restoration_path_chosen`
+**Major Quest:** This becomes parallel to political storyline
+**Fantasy Expansion:** Opens multiple racial diplomacy storylines
+**Companion Quest:** Lyra, Finn, Thorne, Zephyr, and Marina become crucial
+
+### 14. The Elven Shard
+**Scene ID:** `moonwhisper_grove_trial`
+**Location:** Moonwhisper Grove
+**Description:** Lyra brings player before the Elven Council. They're bitter about human betrayal centuries ago but willing to test player's worthiness for the shard.
+**Key Choices:**
+- Accept trial of nature (prove respect for living things)
+- Accept trial of truth (elven magic reads your heart)
+- Negotiate for alternative proof
+- Have Lyra vouch for you (uses her reputation)
+**Hidden Attributes Set:** `elven_shard_obtained`, `lyra_respect` (+/-), `elf_faction_rep`
+**Fantasy Trial:** Navigate living forest, speak with tree spirits, demonstrate harmony with nature
+**Romance Progression:** Lyra sees player in new light if they succeed with honor
+**Companion Help:** Rowan's nature magic can assist
+**Worldbuilding:** Deep dive into elven culture, magic, and grievances
+
+### 14.5 Lyra's Confession
+**Scene ID:** `lyra_opens_up`
+**Location:** Moonwhisper Grove, private glade
+**Description:** After trial, Lyra reveals personal story—she lost someone she loved to human violence during the war. Player's actions are changing her views.
+**Key Choices:**
+- Listen with empathy (romance path advances)
+- Apologize for humanity's wrongs
+- Share your own losses
+- Offer hope for future
+**Hidden Attributes Set:** `lyra_romance` (can now progress), `lyra_shared_grief`
+**Romance Milestone:** Major moment for Lyra romance, very emotional
+**Character Depth:** Understanding her coldness came from pain
+**Conditional:** Only available if player acted honorably in elven trial
+
+### 15. The Dwarven Shard
+**Scene ID:** `ironpeak_negotiation`
+**Location:** Ironpeak Mountains, dwarven throne room
+**Description:** Finn escorts player to meet the Dwarf King. Dwarves value contracts and trades—they'll give shard for something of equal value.
+**Key Choices:**
+- Offer royal treasury access
+- Promise trade agreements
+- Offer to resolve dwarf-elf border dispute
+- Challenge to craftsmanship contest (if high crafting skill)
+- Ask Finn to negotiate (he risks his standing)
+**Hidden Attributes Set:** `dwarven_shard_obtained`, `finn_friendship` (+/-), `dwarf_faction_rep`, `finn_defied_king` (if he helped)
+**Fantasy Crafting:** Possible crafting challenge, show appreciation for dwarven art
+**Romance Progression:** Finn moved by player's efforts, his people come to respect player
+**Companion Sacrifice:** Finn may risk exile to help player
+**Worldbuilding:** Dwarven politics, their isolationist stance, underground marvels
+
+### 15.5 The Dragon's Bargain
+**Scene ID:** `dragon_shard_trial`
+**Location:** Dragon's Spine, Thorne's lair
+**Description:** Thorne Drake holds the third shard. Dragons respect power—player must prove themselves worthy through combat OR impress him with wisdom and strategy.
+**Key Choices:**
+- Duel Thorne in his dragon form (extremely difficult combat)
+- Propose strategic game of wits (chess-like challenge)
+- Offer something dragons value (ancient knowledge, magic)
+- Appeal to his curiosity about mortal courage
+- Ask to fly with him first (romance path, shows trust)
+**Hidden Attributes Set:** `dragon_shard_obtained`, `thorne_respect` (+), `dragon_faction_rep`, `thorne_romance` (if flew together)
+**Fantasy Spectacle:** Dragon combat or riding a dragon, awe-inspiring moment
+**Romance Milestone:** Flying together is intimate for dragons, major trust
+**Companion Reaction:** Other companions are in awe/afraid of dragon
+**Worldbuilding:** Dragon philosophy, their long view of history, why they stay neutral
+
+### 15.6 Thorne's Vulnerability
+**Scene ID:** `dragon_connection`
+**Location:** Mountain peak, after shard obtained
+**Description:** Thorne shows player the view from his peak, discusses the loneliness of immortality. Reveals he's watched kingdoms rise and fall, always alone.
+**Key Choices:**
+- Offer companionship despite mortality difference
+- Discuss philosophy of meaning in finite life
+- Ask about dragon emotions and connections
+- Touch his human form tenderly (romance)
+**Hidden Attributes Set:** `thorne_romance` (significant increase), `understands_dragons`
+**Romance Progression:** Thorne realizes he's developing feelings, struggles with mortal lifespan issue
+**Emotional Depth:** Ancient being finding connection after millennia alone
+**Character Arc:** Thorne considering breaking dragon neutrality for love
+
+### 16. The Fae Bargain
+**Scene ID:** `shimmerwood_games`
+**Location:** The Shimmerwood (Fae realm)
+**Description:** Zephyr appears to guide player to Fae Queen. Reality bends strangely here. Fae will give shard if player wins their games and tells no lies (they can sense falsehoods).
+**Key Choices:**
+- Play the riddle game (wit challenge)
+- Play the dance of truths (share secrets)
+- Play the maze of desires (face temptations)
+- Let Zephyr help (builds trust with them)
+**Hidden Attributes Set:** `fae_shard_obtained`, `zephyr_games_won`, `fae_faction_rep`, `zephyr_trust`
+**Fantasy Immersion:** Reality-bending environment, time flows strangely, beautiful and dangerous
+**Companion Introduction:** Zephyr reveals more of their true nature
+**Romance Seed:** Alien romance with fae being, requires understanding their nature
+**Worldbuilding:** Fae laws, their trickster nature masks deeper wisdom, importance of promises
+
+### 16.5 Zephyr's Nature
+**Scene ID:** `understanding_fae`
+**Location:** Shimmerwood, between moments
+**Description:** Zephyr stops time around player for private conversation. Explains they've been watching player's entire journey, knows their true name, and feels drawn to them.
+**Key Choices:**
+- Ask for Zephyr's true name (significant trust)
+- Share your deepest wish
+- Ask why they care about mortals
+- Admit you're drawn to them too
+**Hidden Attributes Set:** `zephyr_romance` (can progress), `zephyr_true_name_known`, `fae_courtship_begun`
+**Romance Milestone:** Knowing a fae's true name is ultimate intimacy
+**Fantasy Romance:** Most unusual romance, based on understanding alien mind
+**Character Reveal:** Zephyr chose to guide player from the beginning by fate/choice
+**Unique Mechanics:** Fae courtship has specific rules player must learn
+
+### 17. The Merfolk Shard
+**Scene ID:** `coral_palace_depths`
+**Location:** Underwater, Coral Palace
+**Description:** Marina Coralweave escorts player (water-breathing magic provided). Merfolk are angry about surface-dwellers polluting waters and stealing resources. Their Queen demands action, not promises.
+**Key Choices:**
+- Pledge to protect oceans and marine life
+- Offer to punish surface polluters
+- Propose trade agreement respecting waters
+- Ask Marina to speak for you (if built relationship)
+- Demonstrate respect by learning their language/customs
+**Hidden Attributes Set:** `merfolk_shard_obtained`, `marina_trust` (+), `merfolk_faction_rep`, `ocean_protector`
+**Fantasy Environment:** Underwater city, bioluminescent beauty, meeting sea creatures
+**Companion Introduction:** Marina becomes prominent
+**Romance Seed:** Adventurous romance bridging land and sea
+**Worldbuilding:** Merfolk society, their grievances, ocean magic, transformation between forms
+**Environmental Theme:** Responsibility to nature and non-human peoples
+
+### 17.5 Marina's World
+**Scene ID:** `swimming_with_marina`
+**Location:** Open ocean
+**Description:** Marina takes player on journey through her world—swimming with dolphins, seeing deep-sea wonders, experiencing ocean's majesty and danger.
+**Key Choices:**
+- Race her through a reef (playful bonding)
+- Ask about her people's history
+- Share your fears about ruling
+- Try to kiss her underwater (romance)
+**Hidden Attributes Set:** `marina_romance` (progresses), `loves_ocean`, `marina_shared_culture`
+**Romance Progression:** Physical adventure leads to emotional connection
+**Fantasy Spectacle:** Underwater wonders, marine life, experience of being truly in her element
+**Challenge Discussion:** How romance works when she can't leave water long, player has land duties
+**Companion Quest:** She might join surface journey but it's a sacrifice for her
+
+### 18. The Crown of Ascension
+**Scene ID:** `royal_vault_discovery`
+**Location:** Beneath the old palace
+**Description:** With all five shards gathered, the vault opens revealing the Crown of Ascension. It can bind the shards and legitimize any ruler—but also amplifies the bearer's true nature (good or corrupt).
+**Key Choices:**
+- Take it and bind shards immediately
+- Destroy crown and find another way to unite shards
+- Leave it sealed
+- Ask companions' opinions (reveals their trust in player)
+- Attempt to bind shards without crown (risky magical experiment)
+**Hidden Attributes Set:** `has_crown`, `crown_destroyed`, `power_hunger_indicator`, `shards_status`, companion opinions shift
+**Major Decision:** Significantly impacts ending possibilities
+**Companion Drama:** Companions fear corruption or support player based on relationship
+**Fantasy Culmination:** Moment of great magical power, potential transformation
+
+### 18.5 The Barrier Restoration
+**Scene ID:** `crystal_heart_restored`
+**Location:** The Starfall Ruins (First Mage site)
+**Description:** If player successfully gathered shards, they can attempt to restore the Crystal Heart at the ancient site where it was forged. Requires all magical races present.
+**Key Choices:**
+- Lead the restoration ritual yourself (claims power)
+- Ask Lyra to lead (shows humility)
+- Make it collaborative between all races (unity)
+- Use the crown's power to force it (dangerous)
+**Hidden Attributes Set:** `barrier_restored`, `crystal_heart_reforged`, `magical_races_united`, `ritual_leadership_style`
+**Fantasy Spectacle:** Massive magical ritual, representatives of all races, healing the realm
+**Companion Moment:** All romanceable companions present, see player's true character
+**Major Success:** Shadowrealm threat ended, magical creatures trust humans again
+**Worldbuilding:** First Mage history revealed, true purpose of Crystal Heart
+
+### 19. The Rival Claimant
+**Scene ID:** `false_heir_revealed`
+**Location:** Public square
+**Description:** With player grown powerful, rival "heir" appears with forged documents, backed by betrayer faction. Crystal shard reacts to player proving true bloodline.
+**Key Choices:**
+- Challenge to magical duel (show blood magic)
+- Trial by documents and historian verification
+- Let companions testify for you
+- Propose test of royal visions (only true heir has prophetic dreams)
+- Step aside if it prevents bloodshed (ultimate selflessness)
+**Hidden Attributes Set:** `faced_rival`, `legitimacy_proven`, `magical_power_revealed`, companion loyalties tested
+**Conditional:** Rival backed by faction with lowest reputation
+**Companion Support:** Romance partner particularly defensive of player
+**Fantasy Proof:** Blood magic and Crystal shard reaction proves heritage
+
+### 20. Civil War Brewing
+**Scene ID:** `tensions_peak`
+**Location:** Council chamber
+**Description:** Despite (or because of) player's successes, three factions are on brink of conflict. Magical races watch to see if humans can unity or will destroy themselves. Companions take sides based on relationships.
+**Key Choices:**
+- Side with Loyalists—traditional restoration (Seraphine's path)
+- Side with Reformists—new democracy (Sage's path)
+- Side with Military—strong order (Kieran's complicated loyalty)
+- Attempt to unite all factions (extremely difficult, requires high relationships)
+- Abdicate and leave (Rowan might leave with you)
+- Propose magical council including non-human races (Lyra's ideal)
+**Hidden Attributes Set:** `final_faction_choice`, `attempted_unity`, `abandoned_throne`, `magical_council_proposed`, companion relationships dramatically shift
+**Major Branching:** This choice heavily influences ending
+**Romance Impact:** Some romance partners might leave if choice contradicts their values
+**Companion Consequences:** Party may split based on choices
+
+### 21. The Unity Speech
+**Scene ID:** `grand_proposal` (if attempted unity)
+**Location:** Great Hall with representatives of all races
+**Description:** Player proposes compromise: constitutional monarchy with elected council, military reforms, AND magical races representation. Companions rally support based on their bonds with player.
+**Requirements:** High charisma, balanced reputation with all factions, magical races trust, companion support
+**Key Choices:**
+- Promise immediate elections
+- Promise gradual reform
+- Offer power-sharing immediately
+- Include magical beings in government (revolutionary)
+**Outcomes:** Success based on stats, hidden attributes, faction reps, AND companion advocacy
+**Hidden Attributes Set:** `unity_attempt_result`, `compromise_leader`, `new_age_begun`
+**Companion Critical:** Romance partner's speech can sway the council
+**Fantasy Integration:** Magical races agree to participate in government
+
+### 22. The Price of Power
+**Scene ID:** `personal_sacrifice`
+**Location:** Varies
+**Description:** To gain final support or save kingdom from civil war, player must sacrifice something deeply personal. Romance partner may offer to share burden.
+**Key Choices:**
+- Sacrifice wealth (distribute to people)
+- Sacrifice freedom (bind self to council's will)
+- Sacrifice your magic (seal blood magic to prove trust)
+- Sacrifice romance (political marriage for alliance, unless romanced partner agrees to political arrangement)
+- Sacrifice identity (give up claim but guide from shadows)
+**Hidden Attributes Set:** `sacrifice_made`, `sacrifice_type`, `romance_partner_sacrifice` (if they help)
+**Emotional Weight:** Consequences felt in ending
+**Romance Crisis:** Some partners will stay regardless, others need convincing, some may offer alternatives
+**Fantasy Cost:** Sealing magic is permanent and painful but proves trustworthiness
+
+---
+
+## ACT 4: THE RESOLUTION (Endings & Aftermath)
+
+### 23. Traditional Coronation (Loyalist Path)
+**Scene ID:** `traditional_coronation`
+**Location:** Royal Cathedral
+**Description:** Traditional ceremony restoring monarchy. Crown of Ascension used, Crystal Heart restored. Seraphine officiates if romanced.
+**Conditional Text:** Varies based on reforms accepted and romance
+**Multiple Variants:**
+- Pure traditional (if refused all reforms) - Seraphine conflicted if romanced
+- Progressive traditional (if embraced reforms) - Seraphine happy
+- Reluctant ruler (if showed hesitation) - duty-bound ending
+**Romance Endings:**
+- Seraphine: Rules beside you as Queen/Royal Consort, perfect partnership of duty and love
+- Rowan: Refuses official title but stays as your personal guardian, secret relationship
+- Kieran: Becomes your Knight Commander, public relationship honored
+- Others: Various states of bittersweet or hidden romance
+**Hidden Attributes Checked:** Multiple from throughout journey
+**Fantasy Resolution:** Magical races have limited representation, barrier stable
+
+### 24. The First Parliament (Reformist Path)
+**Scene ID:** `democratic_founding`
+**Location:** New Assembly Hall
+**Description:** Player oversees formation of democratic government. Sage is ecstatic. Role varies by choices.
+**Conditional Text:** Based on role player takes
+**Variants:**
+- Ceremonial monarch with elected council
+- First citizen among equals
+- Advisor to council, retired from throne
+**Romance Endings:**
+- Sage: He becomes councilmember, you support each other, pure love story
+- Rowan: They're uncomfortable with politics but stays for you, frequently "escape" to wilderness
+- Lyra: Represents elven interests in parliament, cross-cultural relationship flourishes
+- Marina: Represents merfolk, splits time between land/sea, challenging but beautiful
+**Hidden Attributes Checked:** `democratic_tendency`, `sacrifice_made`, magical race relationships
+**Fantasy Resolution:** Magical races have equal representation, revolutionary government
+
+### 25. The Military Order (Military Path)
+**Scene ID:** `order_established`
+**Location:** War room turned throne room
+**Description:** Strong centralized control. Kieran's role crucial—is he your ally or Blackwood's?
+**Conditional Text:** Based on Kieran's ultimate loyalty
+**Variants:**
+- Player rules with iron fist but just (if maintained honor)
+- Blackwood's puppet regime (if deceived)
+- Uneasy power-sharing (if neither trusts other)
+- Kieran's Coup (if he betrays both for kingdom's good)
+**Romance Endings:**
+- Kieran: If you maintained honor, he becomes your partner in creating just order
+- Kieran: If corrupted, he may have to kill you or die trying
+- Shadow: Thrives in this darker path, becomes spymaster, dangerous romance
+- Others: Most leave in this path unless deeply devoted
+**Hidden Attributes Checked:** `pragmatism_level`, `power_hunger_indicator`, `kieran_final_loyalty`
+**Fantasy Resolution:** Magical races subjugated or driven out, barrier maintained by force
+
+### 26. The United Kingdom (Unity Path - Success)
+**Scene ID:** `compromise_achieved`
+**Location:** Palace balcony overlooking diverse celebration
+**Description:** All factions AND magical races working together. New system blends best of all approaches. All companions present.
+**Requirements:** Successfully passed all unity checks, high relationship with all companions
+**Conditional Text:** Based on sacrifices made, romance partner, and faction relationships
+**Romance Endings - Best Outcomes:**
+- Seraphine: Perfect synthesis, she helps build new tradition
+- Rowan: Finally feels at peace with civilization, finds belonging
+- Kieran: Honor fulfilled, creates knightly order that serves people
+- Lyra: Bridge between humans and elves, love proves unity possible
+- Sage: His ideals realized, intellectual and emotional fulfillment
+- Finn: Dwarves open to trade and cultural exchange, he's celebrated hero
+- Zephyr: Fae become part of realm again, unique magical relationship
+- Thorne: Dragons break centuries of neutrality for love, joins realm as advisor
+- Marina: Ocean and land united, environmental protections enshrined
+- Shadow: Full redemption, becomes head of intelligence, proves anyone can change
+**Hidden Attributes Checked:** Many - this is the "best" ending requiring optimal choices
+**Fantasy Resolution:** Golden age begins, all races prosper, barrier strong, magic flourishes
+**Companion Gathering:** All companions, regardless of romance, attend celebration as friends
+
+### 27. The Civil War (Unity Path - Failure)
+**Scene ID:** `kingdom_fractures`
+**Location:** Battlefield or exile
+**Description:** Failed to unite factions, war breaks out. Companions forced to choose sides or die.
+**Conditional:** If unity attempted but failed catastrophically
+**Variants:**
+- Player leads one faction in war (tragic hero)
+- Player tries to stop war, dies doing so (martyr)
+- Player exiled, watches kingdom burn from afar (failure)
+- Companions save you, flee together (survive but kingdom lost)
+**Romance Endings:**
+- Loyal partner: Stays with you through everything, love endures despite failure
+- Idealistic partner (Sage/Lyra): May leave if can't handle violence
+- Warrior partner (Kieran/Marina): Fights alongside you
+- Magical partner (Thorne/Zephyr): Uses power to save you, flees together
+**Hidden Attributes Checked:** Combat ability, faction reps, companion loyalties
+**Fantasy Tragedy:** Barrier collapses, Shadow Beasts overrun realm, magical races retreat
+**Dark Ending:** One of several "bad" endings where everything falls apart
+
+### 28. The Wanderer's Path (Abdication Path)
+**Scene ID:** `free_from_crown`
+**Location:** Open road, Rowan beside you
+**Description:** Player walks away from throne, chooses personal freedom. What happens to kingdom varies.
+**Conditional Text:** Based on kingdom's state and who went with you
+**Variants:**
+- Kingdom finds peace without you (bittersweet relief)
+- Kingdom falls into chaos (guilt and regret)
+- Rival takes throne peacefully (acceptance)
+- Companions form council that succeeds (happy ending)
+**Romance Endings:**
+- Rowan: Ideal ending for them, adventures together forever, perfectly happy
+- Zephyr: Wander between worlds together, magical journey
+- Marina: Explore oceans together, freedom from politics
+- Thorne: Fly across world together, dragon's lifespan means eternal companionship
+- Others: Some can't abandon duty, painful separation
+**Hidden Attributes Checked:** `independence_indicator`, `compassion_for_people`, companion relationships
+**Fantasy Resolution:** Magical races go their own way, some companions travel with you
+**Personal Ending:** Found peace but at cost of responsibility
+
+### 29. The Dark Sovereign (Corruption Path)
+**Scene ID:** `shadow_throne`
+**Location:** Corrupted palace
+**Description:** If player used shadow magic, made cruel choices, accumulated ruthlessness, they become tyrant empowered by Shadowrealm. Only available if crossed specific thresholds.
+**Requirements:** High ruthless_actions, used shadow magic, made cruel choices
+**Conditional Text:** Based on how far player fell
+**Variants:**
+- Powerful but lonely tyrant, drove everyone away
+- Corrupted but some companions stay out of tragic loyalty
+- Fully shadow-consumed, barely human anymore
+**Romance Endings:**
+- Shadow: Only romance that thrives here, both dark and dangerous together
+- Kieran: Might stay trying to redeem you, tragic devotion
+- Others: Leave or die trying to stop you
+**Hidden Attributes Checked:** Shadow magic use, ruthless actions, corruption markers
+**Fantasy Tragedy:** Shadow Beasts serve you, realm in darkness, magical races hunted
+**Secret Ending:** Darkest ending, requires specific choices throughout
+
+### 30. The Magical Monarch (Mage Path)
+**Scene ID:** `archmage_ruler`
+**Location:** Starfall Ruins transformed into new capital
+**Description:** If player mastered blood magic, restored Crystal Heart without crown, united magical races, and showed wisdom, becomes magical sovereign uniting all races equally.
+**Requirements:** High wisdom, magical aptitude, learned from all magical teachers, gathered all shards peacefully
+**Conditional Text:** Based on magical teachers and racial relationships
+**Romance Endings:**
+- Lyra: Perfect ending, rules together as magical power couple, immortal love
+- Thorne: Dragon and blood mage, ultimate magical power pair
+- Zephyr: Fae and human magic merged, reality-bending romance
+- Others: Awed by magical power but love endures
+**Hidden Attributes Checked:** All magic-related attributes, racial relationship scores
+**Fantasy Utopia:** Magical renaissance, all races equal, barrier strongest ever, new age of magic
+**Secret Ending:** Requires perfect magical path, one of hardest to achieve
+
+### 31. Epilogue - Ten Years Later
+**Scene ID:** `epilogue_reflection`
+**Location:** Varies by ending achieved
+**Description:** Shows long-term consequences of all major choices. Romance partner appears if relationship endured. Children possible with some partners (not Thorne/Zephyr). Kingdom's state reflects every choice made.
+**Conditional Text:** Extremely personalized based on hidden attributes
+**Elements to Check:**
+- Which ending path was taken
+- Which faction was supported
+- Romance partner and relationship status
+- What sacrifices were made
+- Whether power corrupted
+- How magical races were treated
+- Companion fates (all of them)
+- Kingdom's prosperity and happiness
+- Player's personal happiness
+- Barrier status and Shadow Beast threat
+- Cultural renaissance or decline
+**Multiple Paragraphs:** Build comprehensive epilogue from hundreds of choices
+**Romance Resolutions:**
+- Married/life partners with children (Seraphine, Kieran, Sage, Finn, Marina if resolved sea-land issue)
+- Eternal companions (Rowan, Shadow if redeemed, Lyra if immortality granted)
+- Immortal lovers (Thorne, Zephyr, Lyra in magical ending)
+- Tragic separation (if paths diverged)
+- Bittersweet memories (if they died or left)
+**Final Emotional Note:** Reflection on journey, what was learned, who you became
+
+---
+
+## SIDE QUESTS & COMPANION MISSIONS
+
+### SQ1. Secrets of the Manor
+**Scene ID:** `manor_mysteries`
+**Location:** Silverwood Manor
+**Description:** Explore hidden passages and uncover family secrets after inheriting. Find journals, hidden treasures, portrait mysteries.
+**Key Choice:** Share findings with advisors or keep secrets
+**Rewards:** Wealth, knowledge, historical context
+**Hidden Attributes Set:** `manor_explored`, `family_secrets_known`
+**Connection:** Can reveal clues about Crystal Heart or secret lineages
+
+### SQ2. The People's Champion
+**Scene ID:** `tournament_entry`
+**Location:** Festival grounds
+**Description:** Enter tournament to prove yourself/gain popularity. Combat, archery, or charisma challenges.
+**Key Choice:** Fight honorably or pragmatically
+**Rewards:** Reputation boost, martial recognition, Kieran's respect
+**Hidden Attributes Set:** `tournament_victor`, `fighting_style`
+**Companion Involvement:** Kieran evaluates your honor, Rowan can teach archery
+
+### SQ3. The Merchant's Plight
+**Scene ID:** `trade_dispute`
+**Location:** Market district
+**Description:** Resolve trade dispute between factions threatening merchant families.
+**Key Choice:** Side with one faction, find compromise, or ignore
+**Rewards:** Economic stability, faction reputation
+**Hidden Attributes Set:** `economic_policy`, `merchant_relations`
+**Connection:** Affects kingdom's prosperity in endings
+
+### SQ4. The Haunted Watch Tower
+**Scene ID:** `ghost_tower`
+**Location:** Northern border
+**Description:** Investigate abandoned tower with supernatural activity. Shadow Beasts or actual spirits?
+**Key Choice:** Aggressive investigation or careful exploration
+**Rewards:** Uncover past battles, supernatural knowledge
+**Hidden Attributes Set:** `brave_explorer`, `supernatural_knowledge`
+**Connection:** Lore about the Shadowrealm's first incursions
+**Companion Involvement:** Lyra can sense magical residue, Rowan provides survival support
+
+### SQ5. The Underground Network
+**Scene ID:** `thieves_guild`
+**Location:** Underground passages
+**Description:** Discover network of thieves and rebels. Are they freedom fighters or criminals?
+**Key Choice:** Shut them down, work with them, ignore them, or fund them
+**Rewards:** Intel network, questionable allies, or justice served
+**Hidden Attributes Set:** `pragmatic_leader`, `thieves_guild_relation`
+**Companion Involvement:** Shadow can vouch for you or recruit from them
+
+### SQ6. The Sacred Grove
+**Scene ID:** `druid_circle`
+**Location:** Ancient forest
+**Description:** Find druids protecting old magic sites. They test your respect for nature.
+**Key Choice:** Promise environmental protection or exploit resources
+**Rewards:** Nature magic knowledge, druid support, environmental policies
+**Hidden Attributes Set:** `nature_guardian`, `environmental_stance`
+**Connection:** Affects magical races' trust, especially druids and fae
+**Companion Involvement:** Rowan's background with druids, Zephyr's nature connection
+
+### SQ7. The Shipwreck Mystery
+**Scene ID:** `coastal_wreck`
+**Location:** Rocky coast
+**Description:** Investigate mysterious shipwreck with unusual cargo.
+**Key Choice:** Claim salvage, investigate thoroughly, or report to authorities
+**Rewards:** Trade goods, maritime mystery, or legal standing
+**Hidden Attributes Set:** `maritime_policy`, `treasure_hunter`
+**Companion Involvement:** Marina knows the ship's history, ocean-based adventure
+
+### SQ8. The Border Skirmish
+**Scene ID:** `border_conflict`
+**Location:** Kingdom border
+**Description:** Address border dispute before it escalates.
+**Key Choice:** Show military force, negotiate, or delegate to commanders
+**Rewards:** Territory secured, reputation with military
+**Hidden Attributes Set:** `military_competence`, `diplomatic_approach`
+**Companion Involvement:** Kieran assesses your command ability
+
+---
+
+## COMPANION PERSONAL QUESTS
+
+### CQ1. Seraphine's Political Crisis - "The Noble's Gambit"
+**Scene ID:** `seraphine_crisis`
+**Location:** Seraphine's estate
+**Description:** Her political rival threatens her family's reputation with forged documents. Help her navigate intrigue without compromising integrity.
+**Key Choices:**
+- Confront rival publicly (risky but decisive)
+- Investigate to find truth (slow but thorough)
+- Use your authority to shut down rival (authoritarian but effective)
+- Help her forge counter-documents (unethical but saves her)
+**Romance Impact:** High - shows if you understand her values
+**Hidden Attributes:** `seraphine_trust`, `political_tactics`
+**Outcome:** Determines if she can maintain her ideals or becomes cynical
+**Romance Progression:** If successful, she lets guard down completely
+
+### CQ2. Rowan's Past - "Shadows of the Half-Blood"
+**Scene ID:** `rowan_origins`
+**Location:** Border forest where they grew up
+**Description:** Rowan's elven parent returns after abandoning them as child. Must confront identity and abandonment.
+**Key Choices:**
+- Encourage reconciliation (healing)
+- Support their anger (validation)
+- Offer to be their real family (romantic)
+- Help them seek answers about why they were abandoned
+**Romance Impact:** Critical - this is their vulnerability moment
+**Hidden Attributes:** `rowan_healed`, `rowan_romance_deep`
+**Outcome:** Determines if they find peace with dual nature
+**Romance Progression:** They confess they've never felt like they belonged until they met you
+
+### CQ3. Kieran's Oath - "The Price of Honor"
+**Scene ID:** `kieran_dilemma`
+**Location:** War memorial
+**Description:** Kieran discovers his mentor (who gave him knighthood) committed war crimes. Oath to mentor vs. oath to honor.
+**Key Choices:**
+- Expose mentor publicly (upholds justice, breaks personal oath)
+- Confront mentor privately (gives chance for redemption)
+- Keep secret to preserve Kieran's peace (complicity)
+- Help mentor face consequences with dignity (balanced)
+**Romance Impact:** Massive - determines if he trusts you with moral complexity
+**Hidden Attributes:** `kieran_honor_path`, `kieran_romance_trust`
+**Outcome:** Shapes his view of honor: absolute vs. compassionate
+**Romance Progression:** If handled well, he kneels before you not as knight to lord, but as man to beloved
+
+### CQ4. Lyra's Grief - "The Last of Her Circle"
+**Scene ID:** `lyra_memorial`
+**Location:** Elven settlement ruins
+**Description:** Return to place where her magical circle died in Shadow Beast attack 20 years ago. She's survivor's guilt personified.
+**Key Choices:**
+- Help her grieve properly (emotional support)
+- Remind her that survival means their sacrifice mattered (purpose)
+- Promise to prevent it happening again (dedication)
+- Hold ritual to honor the fallen (cultural respect)
+**Romance Impact:** Critical - she's never let anyone see her grief
+**Hidden Attributes:** `lyra_healing`, `lyra_romance_depth`, `understands_elven_grief`
+**Outcome:** Determines if she can move forward or stays trapped in past
+**Romance Progression:** She admits she's falling in love but fears your mortality; offers ritual to extend your life if you accept her as partner
+**Fantasy Element:** Elven immortality magic - she can bind your lifespans together
+
+### CQ5. Sage's Discovery - "The Forbidden Knowledge"
+**Scene ID:** `sage_library`
+**Location:** Ancient restricted library
+**Description:** Sage finds proof that historical records were falsified to justify wars. Publishing truth would destabilize kingdom during your rule.
+**Key Choices:**
+- Support publishing immediately (truth over stability)
+- Ask him to wait until kingdom is stable (pragmatism)
+- Suppress findings permanently (authoritarianism)
+- Help contextualize truth carefully (wise leadership)
+**Romance Impact:** Moderate - he respects intellectual honesty
+**Hidden Attributes:** `sage_trust`, `academic_freedom`, `historical_truth_known`
+**Outcome:** Affects relationship with scholars and historical legacy
+**Romance Progression:** If you support truth, he realizes you're perfect partner; proposes building great library together
+
+### CQ6. Finn's Masterwork - "The Forge of Stars"
+**Scene ID:** `finn_masterpiece`
+**Location:** Deep dwarf forge
+**Description:** Finn attempts to create legendary artifact (crown, weapon, or Crystal Heart repair tool) but needs rare materials and confidence.
+**Key Choices:**
+- Help gather materials (supportive partnership)
+- Commission the work officially (business arrangement)
+- Work the forge alongside him (romantic intimacy)
+- Convince him he's already a master (confidence boost)
+**Romance Impact:** High - shows if you see his worth
+**Hidden Attributes:** `finn_masterwork_complete`, `finn_confidence`, `finn_romance_bond`
+**Outcome:** Creates artifact useful in final act, Finn gains master craftsman status
+**Romance Progression:** Working forge together is intimate; he forges wedding rings "just in case"
+**Fantasy Element:** Dwarven runecraft can enhance magical or practical properties
+
+### CQ7. Zephyr's Nature - "What Is Real?"
+**Scene ID:** `zephyr_truth`
+**Location:** Shimmerwood (Fae realm)
+**Description:** Zephyr reveals they're not entirely "real" in mortal sense - they're manifestation of forest itself. Can they truly love or just mimic it?
+**Key Choices:**
+- Affirm that feelings are real regardless of origin (acceptance)
+- Question if relationship can work (doubt)
+- Explore their nature together (curiosity)
+- Prove your love is real, ask them to trust theirs is too (mutual faith)
+**Romance Impact:** Critical - this is their deepest fear
+**Hidden Attributes:** `zephyr_believes_in_love`, `fae_nature_understood`, `zephyr_romance_real`
+**Outcome:** Determines if they become more "real" through love or remain alien
+**Romance Progression:** If you choose faith, they become partially mortal for you while keeping magic; ultimate sacrifice
+**Fantasy Element:** Love transforming magical beings, echoes fairy tale logic
+
+### CQ8. Thorne's Loneliness - "The Weight of Centuries"
+**Scene ID:** `thorne_memories`
+**Location:** Dragon's lair in mountains
+**Description:** Thorne shares memories of lost dragon kin and lovers who died centuries ago. They're tired of immortality and losing everyone.
+**Key Choices:**
+- Promise to make your brief time together meaningful (acceptance of mortality)
+- Seek magical way to extend your life (desperation)
+- Suggest they could end immortality with you (sacrifice)
+- Remind them life is precious because it ends (philosophy)
+**Romance Impact:** Massive - they're asking if love is worth the pain
+**Hidden Attributes:** `thorne_hope_restored`, `thorne_romance_eternal`, `immortality_solution`
+**Outcome:** Determines if they choose to love despite inevitable loss
+**Romance Progression:** They choose to love you knowing they'll outlive you; tragic but beautiful romance
+**Fantasy Element:** Dragon philosophy about time, mortality, and meaning
+
+### CQ9. Marina's Calling - "Between Two Worlds"
+**Scene ID:** `marina_ocean_depths`
+**Location:** Underwater merfolk city
+**Description:** Marina's people ask her to return permanently - they need her. She's torn between duty to her people and love for you.
+**Key Choices:**
+- Tell her to stay with her people (selfless but loses romance)
+- Ask her to stay with you (selfish but romantic)
+- Offer to split time between worlds (compromise, requires magic)
+- Find solution to ocean peoples' problems so she can choose freely (heroic)
+**Romance Impact:** Critical - defines relationship's future
+**Hidden Attributes:** `marina_choice`, `merfolk_alliance`, `marina_romance_resolution`
+**Outcome:** Determines if you can have life together and how
+**Romance Progression:** If you solve her peoples' crisis, she chooses you freely; if you demand, relationship becomes strained
+**Fantasy Element:** Underwater sequences, merfolk politics, environmental themes
+
+### CQ10. Shadow's Redemption - "The Assassin's Conscience"
+**Scene ID:** `shadow_reckoning`
+**Location:** Site of their first kill
+**Description:** Shadow must face victim's family who are seeking vengeance. They accept they deserve death but want to choose how: execution or suicide.
+**Key Choices:**
+- Protect Shadow from vengeance (forgiveness)
+- Allow Shadow to face justice (accountability)
+- Facilitate meeting for them to seek forgiveness from family (redemption path)
+- Offer Shadow chance to make amends through service (reformation)
+**Romance Impact:** Critical - this determines if romance can be healthy
+**Hidden Attributes:** `shadow_redeemed`, `shadow_romance_possible`, `justice_served`
+**Outcome:** Determines if Shadow can truly change or remains damaged
+**Romance Progression:** Only achieves full redemption if they face justice but find forgiveness; becomes worthy partner
+**Dark Element:** Some choices lead to their death; they thank you for caring enough to let them be punished
+
+---
+
+## COMPANION ROMANCE DATES & BONDING
+
+### RD1. Stargazing with Lyra
+**Scene ID:** `lyra_stars`
+**Description:** Lyra teaches you to read magic in the stars. Intimate evening discussion about mortality, beauty, and time.
+**Romance Gate:** Moderate trust required
+**Outcome:** Learn about elven culture, she touches your hand "by accident"
+
+### RD2. Wilderness Camping with Rowan  
+**Scene ID:** `rowan_wild`
+**Description:** Escape civilization together. Hunt, camp under stars, share stories by firelight.
+**Romance Gate:** Low trust required (early romance)
+**Outcome:** They teach survival skills, you realize you feel most yourself with them
+
+### RD3. Sparring with Kieran
+**Scene ID:** `kieran_duel`
+**Description:** Private training session that becomes charged with tension. Sweat, close combat, lingering touches.
+**Romance Gate:** Moderate trust, mutual respect
+**Outcome:** Classic "pin against wall" moment, first kiss possibility
+
+### RD4. Library Evening with Sage
+**Scene ID:** `sage_books`
+**Description:** He shares favorite books and poetry. Discovers you love same obscure poet. Tentative hand-holding.
+**Romance Gate:** Low trust (easiest romance)
+**Outcome:** Sweet and gentle progression, he blushes adorably
+
+### RD5. Forge Night with Finn
+**Scene ID:** `finn_crafting`
+**Description:** He teaches you basic metalwork. His hands guide yours. Heat of forge mirrors passion.
+**Romance Gate:** Moderate trust
+**Outcome:** He makes you something personal, first kiss by firelight
+
+### RD6. Sky Dancing with Zephyr
+**Scene ID:** `zephyr_flight`
+**Description:** Zephyr uses fae magic to let you float/fly. Playful, alien, beautiful. They're testing if you can handle their nature.
+**Romance Gate:** High trust (unusual courtship)
+**Outcome:** Reality-bending experience, sealed with non-human kiss
+
+### RD7. Flight with Thorne
+**Scene ID:** `thorne_flying`
+**Description:** Ride dragonback at sunset. They share ancient dragon songs. Overwhelming and transcendent.
+**Romance Gate:** High trust and proven bravery
+**Outcome:** You realize loving them means accepting impossibility of forever
+
+### RD8. Ocean Midnight with Marina
+**Scene ID:** `marina_swim`
+**Description:** She takes you swimming in bioluminescent waters. Magic lets you breathe underwater. Explore coral palace.
+**Romance Gate:** Moderate trust, adventurous spirit
+**Outcome:** Dance underwater, experience her world, passionate embrace beneath waves
+
+### RD9. Masquerade with Seraphine
+**Scene ID:** `seraphine_ball`
+**Description:** Attend high society masquerade together. Political intrigue and stolen moments in moonlit gardens.
+**Romance Gate:** High trust and political acumen
+**Outcome:** She lets mask drop emotionally, confesses real feelings
+
+### RD10. Rooftop Shadows with Shadow
+**Scene ID:** `shadow_rooftop`
+**Description:** They teach you to move silently across rooftops. Adrenaline and danger fuel attraction.
+**Romance Gate:** Very high trust (dangerous romance)
+**Outcome:** Kiss in the shadows, both knowing this romance could be destructive
+
+---
+
+## MAGICAL TRAINING SEQUENCES
+
+### MT1. Blood Magic Basics with Lyra
+**Scene ID:** `lyra_magic_lesson_1`
+**Description:** First formal lesson in blood magic. History, ethics, basic techniques.
+**Requirements:** Trust Lyra, shown magical aptitude
+**Outcome:** Unlock basic blood magic use
+**Hidden Attributes Set:** `magic_student`, `lyra_student`
+
+### MT2. Advanced Elemental Control
+**Scene ID:** `lyra_magic_lesson_2`  
+**Description:** Learn to channel elements (fire, water, earth, air) through blood magic.
+**Requirements:** Completed basics, moderate wisdom
+**Outcome:** Combat magic, utility magic, impressive displays
+**Hidden Attributes Set:** `elemental_magic_learned`
+
+### MT3. The Rune Circle - Dwarven Magic with Finn
+**Scene ID:** `finn_runes`
+**Description:** Finn teaches dwarven runecraft. Permanent enchantments on objects.
+**Requirements:** Good relationship with Finn
+**Outcome:** Can enhance weapons, armor, useful items
+**Hidden Attributes Set:** `rune_magic_learned`
+
+### MT4. Spirit Communication - Elven Mysticism
+**Scene ID:** `spirit_communion`
+**Description:** Lyra teaches how to speak with ancestral spirits and nature spirits.
+**Requirements:** High wisdom, respect for nature
+**Outcome:** Gain advice from ancestors, nature aid
+**Hidden Attributes Set:** `spirit_magic_learned`
+
+### MT5. Shadow Walking - Dark Magic Warning
+**Scene ID:** `shadow_magic_temptation`
+**Description:** Shadow offers to teach their magic. Powerful but corrupting.
+**Requirements:** High trust with Shadow OR low morality
+**Outcome:** Powerful but dangerous magic, corruption risk
+**Hidden Attributes Set:** `shadow_magic_learned`, `corruption_risk`
+**Warning:** This path leads toward dark ending
+
+### MT6. Healing Arts - Light Magic
+**Scene ID:** `healing_magic`
+**Description:** Learn to heal wounds with magic from elven or divine source.
+**Requirements:** High compassion, healer's heart
+**Outcome:** Can heal companions, yourself, civilians
+**Hidden Attributes Set:** `healing_magic_learned`, `healer`
+
+### MT7. The Crown of Ascension - Ultimate Power
+**Scene ID:** `crown_magic_training`
+**Description:** If you claimed Crown, learn to channel its immense power safely.
+**Requirements:** Possess Crown, high wisdom
+**Outcome:** Near-godlike power but risk of corruption
+**Hidden Attributes Set:** `crown_mastered`, `great_power`
+
+---
+
+## CULTURAL IMMERSION QUESTS
+
+### CI1. Living Among Elves - "The Timeless Month"
+**Scene ID:** `elven_immersion`
+**Location:** Elven forest settlement
+**Description:** Spend time living with elves. Learn their perspective on time, mortality, nature.
+**Duration:** Implies week+ passing
+**Outcome:** Understand Lyra better, elven faction trust, learn patience
+**Hidden Attributes Set:** `lived_with_elves`, `elven_perspective`
+**Romance Boost:** Lyra (high), Zephyr (moderate)
+
+### CI2. Dwarven Forge-Life - "Stone and Fire"
+**Scene ID:** `dwarf_immersion`
+**Location:** Underground dwarf city
+**Description:** Work in forges, attend dwarf festivals, learn their songs and crafts.
+**Duration:** Implies weeks passing
+**Outcome:** Understand craftsman's pride, dwarf faction trust, practical skills
+**Hidden Attributes Set:** `lived_with_dwarves`, `craftsman_respect`
+**Romance Boost:** Finn (high)
+
+### CI3. Dragon's Hoard Philosophy - "The Long Perspective"
+**Scene ID:** `dragon_wisdom`
+**Location:** Thorne's mountain lair
+**Description:** Thorne teaches dragon philosophy. You read ancient texts, discuss meaning of existence.
+**Duration:** Implies month passing
+**Outcome:** Wisdom increase, long-term thinking, dragon faction trust
+**Hidden Attributes Set:** `dragon_wisdom_learned`, `ancient_perspective`
+**Romance Boost:** Thorne (high), affects their willingness to love mortal
+
+### CI4. Fae Wild Hunt - "The Eternal Dance"
+**Scene ID:** `fae_hunt`
+**Location:** Shimmerwood and beyond
+**Description:** Participate in fae Wild Hunt. Experience non-linear time, impossible beauty, alien joy.
+**Duration:** Feels like days but may be instant or years
+**Outcome:** Understand fae nature, accept impossibility, fae faction trust
+**Hidden Attributes Set:** `wild_hunt_survivor`, `fae_touched`
+**Romance Boost:** Zephyr (critical), necessary for deep romance
+**Warning:** Dangerous, could lose yourself
+
+### CI5. Merfolk Depths - "The Ocean's Embrace"
+**Scene ID:** `merfolk_immersion`
+**Location:** Underwater cities
+**Description:** Live underwater with merfolk for weeks. Learn ocean magic, see environmental damage, understand their perspective.
+**Duration:** Weeks underwater
+**Outcome:** Environmental awareness, merfolk faction trust, ocean magic basics
+**Hidden Attributes Set:** `lived_underwater`, `ocean_guardian`
+**Romance Boost:** Marina (critical), shows commitment to her world
+
+---
+
+## CRISIS INTERVENTION QUESTS
+
+### CR1. The Plague Outbreak
+**Scene ID:** `plague_crisis`
+**Description:** Disease strikes common quarter. Test of compassion and leadership.
+**Key Choices:**
+- Personal aid (risk infection but heroic)
+- Organize relief (administrative)
+- Quarantine harshly (pragmatic but cruel)
+- Seek magical cure (if learned healing magic)
+**Outcome:** Affects civilian reputation, may lose companions if handled poorly
+**Hidden Attributes Set:** `plague_response`, `compassion_shown`
+**Companion Reactions:** Sage/Lyra help research cure, Seraphine organizes nobles, Kieran enforces quarantine
+
+### CR2. The Mining Disaster
+**Scene ID:** `mine_collapse`
+**Description:** Dwarf mine collapses with workers trapped. Rescue operation.
+**Key Choices:**
+- Lead rescue personally (heroic but risky)
+- Send professionals (safe but distant)
+- Demand production continue elsewhere (ruthless)
+- Use magic to stabilize tunnels (if learned earth magic)
+**Outcome:** Affects dwarf relations, Finn's respect
+**Hidden Attributes Set:** `mining_disaster_response`, `dwarven_respect`
+**Companion Involvement:** Finn knows tunnels, can save lives
+
+### CR3. The Assassination Attempt on Companion
+**Scene ID:** `companion_targeted`
+**Description:** Romance partner or close companion is targeted by assassins.
+**Key Choices:**
+- Take the blade yourself (ultimate sacrifice)
+- Kill assassins (protective)
+- Capture for interrogation (strategic)
+- Let companion handle it (trust their skills)
+**Outcome:** Defines relationship, reveals plot against you
+**Hidden Attributes Set:** `protective_love`, `companion_trust_ultimate`
+**Romance Impact:** Massive - proves your commitment
+
+### CR4. The Magical Accident
+**Scene ID:** `magic_disaster`
+**Description:** Experimental magic goes wrong, threatens to destroy district.
+**Key Choices:**
+- Use your magic to contain it (heroic, risky)
+- Evacuate and let it burn out (practical)
+- Seek Lyra's help (wise delegation)
+- Sacrifice magical artifact to stop it (costly)
+**Outcome:** Shows magical responsibility
+**Hidden Attributes Set:** `magical_crisis_response`, `responsible_mage`
+
+### CR5. The Companion Kidnapping
+**Scene ID:** `companion_rescue`
+**Description:** Rival faction kidnaps companion to manipulate you.
+**Key Choices:**
+- Military rescue (violent but effective)
+- Negotiation (diplomatic but shows weakness)
+- Solo infiltration (heroic but dangerous)
+- Use companion's own skills (trust them to escape)
+**Outcome:** Affects faction relations, companion trust
+**Hidden Attributes Set:** `rescue_tactics`, specific companion trust variable
+**Romance Impact:** High - how you handle their peril matters
+
+---
+
+## SIDE QUEST IDEAS (Optional Enrichment)
+
+### A. The Oracle's Prophecy
+**Scene ID:** `oracle_consultation`
+**Description:** A mysterious oracle offers cryptic advice about the heir's destiny
+**Integration:** Can provide hints about optimal path or warnings about dangers
+**Hidden Attributes:** Can unlock special dialogue in main story
+
+### B. The Childhood Friend
+**Scene ID:** `old_friend_appears`
+**Description:** Someone from player's past recognizes them, complicating their new identity
+**Choice:** Maintain friendship or distance self for safety
+**Hidden Attributes:** Affects personal sacrifice scene
+
+### C. The Royal Tutor
+**Scene ID:** `learning_to_rule`
+**Description:** Elderly advisor teaches player about governance and history
+**Benefit:** Can increase wisdom stat and unlock better dialogue options
+**Hidden Attributes:** Affects knowledge checks in political scenes
+
+### D. The People's Champion
+**Scene ID:** `tournament_participation`
+**Description:** Underground fighting tournament where player can prove themselves
+**Benefit:** Builds reputation with common people
+**Hidden Attributes:** Combat prowess affects assassination scene
+
+### E. The Secret Society
+**Scene ID:** `shadow_council_invitation`
+**Description:** Ancient order that has protected the realm offers membership
+**Choice:** Join, refuse, or expose them
+**Hidden Attributes:** Provides alternative power base or creates new enemy
+
+### F. The Romantic Subplot
+**Scene ID:** `unexpected_love`
+**Description:** Connection forms with someone from opposing faction
+**Complication:** Love vs duty in personal sacrifice scene
+**Hidden Attributes:** Affects willingness to make certain sacrifices
+
+### G. The Magical Artifact
+**Scene ID:** `ancient_relic_discovered`
+**Description:** Find object of power from kingdom's founding
+**Choice:** Use for personal gain, destroy, or preserve in museum
+**Hidden Attributes:** Moral alignment indicator
+
+### H. The Conspiracy Unveiled
+**Scene ID:** `deeper_plot_revealed`
+**Description:** The assassination attempt was part of larger scheme
+**Twist:** One trusted ally is actually betraying player
+**Hidden Attributes:** Which ally betrays depends on player's choices
+
+---
+
+## IMPLEMENTATION NOTES FOR AUTHORS
+
+### Hidden Attributes Architecture
+
+**Personality Tracking:**
+- `approach_style`: 'direct', 'cautious', 'clever'
+- `leadership_style`: 'authoritarian', 'democratic', 'balanced'
+- `moral_alignment`: 'selfless', 'pragmatic', 'power-hungry'
+
+**Faction Reputation (use numbers 0-100):**
+- `loyalist_faction_rep`
+- `reformist_faction_rep`
+- `military_faction_rep`
+- `elf_faction_rep`
+- `dwarf_faction_rep`
+- `dragon_faction_rep`
+- `fae_faction_rep`
+- `merfolk_faction_rep`
+
+**Companion Romance Tracking (use numbers 0-100):**
+- `seraphine_romance`: Political romance, progresses through trust and shared values
+- `rowan_romance`: Free-spirit romance, progresses through adventure and acceptance
+- `kieran_romance`: Honor-bound romance, progresses through respect and moral alignment
+- `lyra_romance`: Slow-burn cross-cultural, progresses through understanding and wisdom
+- `sage_romance`: Intellectual romance, easiest path, progresses through kindness
+- `finn_romance`: Craftsman romance, progresses through appreciation and partnership
+- `zephyr_romance`: Alien romance, progresses through accepting impossibility
+- `thorne_romance`: Ancient being romance, progresses through bravery and philosophy
+- `marina_romance`: Adventurous romance, progresses through environmental care
+- `shadow_romance`: Dangerous romance, progresses through redemption arc completion
+
+**Companion Trust/Friendship (separate from romance, use numbers 0-100):**
+- `{companion_name}_trust`: Can be high even without romance
+
+**Magic Tracking:**
+- `blood_magic_level`: 0-10 (training progression)
+- `rune_magic_learned`: boolean
+- `spirit_magic_learned`: boolean
+- `shadow_magic_learned`: boolean
+- `healing_magic_learned`: boolean
+- `elemental_control`: 0-10
+- `crystal_shards_collected`: number (0-5)
+- `barrier_restored`: boolean
+- `crown_possessed`: boolean
+- `crown_mastered`: boolean
+
+**Romance State Flags:**
+- `active_romance`: string (companion name or 'none')
+- `romance_milestone_reached`: string ('confession', 'commitment', 'resolution')
+- `romance_ending_type`: string (for epilogue variations)
+
+**Story Flags:**
+- `knows_true_identity`: boolean
+- `has_crown`: boolean
+- `achieved_unity`: boolean
+- `sacrifice_type`: string ('wealth', 'love', 'freedom', 'identity', 'magic', 'none')
+
+**Behavior Counters:**
+- `compassionate_actions`: number
+- `ruthless_actions`: number
+- `diplomatic_successes`: number
+- `combat_victories`: number
+- `shadow_magic_uses`: number (corruption tracker)
+- `companions_saved`: number
+- `magical_races_helped`: number
+
+### Stat Recommendations
+
+**Key Stats to Track:**
+- Courage (for confrontations and combat)
+- Wisdom (for political decisions and magic use)
+- Charisma (for unity path and romance)
+- Combat ability (for assassination/tournament/Shadow Beast encounters)
+- Reputation (general public opinion)
+- Magical aptitude (for learning spells and using artifacts)
+
+**Romance-Specific Stats:**
+- Political acumen (Seraphine romance)
+- Adventure spirit (Rowan, Marina romance)
+- Honor/morality (Kieran romance)
+- Wisdom/patience (Lyra, Thorne romance)
+- Kindness (Sage romance)
+- Craftsmanship appreciation (Finn romance)
+- Open-mindedness (Zephyr romance)
+- Redemption belief (Shadow romance)
+
+### Conditional Text Patterns
+
+Use textVariants extensively to make each playthrough feel unique:
+- Reference specific past choices
+- Acknowledge player's approach style
+- Reflect accumulated reputation
+- Show consequences of sacrifices
+- Personalize NPC reactions
+- **Companion reactions based on romance/trust levels**
+- **Magic use affects dialogue options**
+- **Cultural knowledge affects interactions with magical races**
+- **Romance partner provides unique perspective in main story scenes**
+
+### Branching Strategy
+
+**Major Branch Points:**
+1. Scene 3 (Crystal shard bonding) - unlocks magic path
+2. Scene 14-17 (Crystal shard quests) - affects magical races relationships
+3. Scene 18 (Crown decision) - affects available endings and power level
+4. Scene 20 (Faction choice) - determines ending path
+5. Scene 22 (Personal sacrifice) - colors the ending
+6. Companion personal quests - determine romance availability
+7. Magic training choices - determine magical abilities for final act
+8. Hidden attributes throughout modify text and NPC behavior
+
+**Recommended Flow:**
+- Act 1: Fairly linear but establishes relationships and magic potential
+- Act 2: Moderate branching with companion introductions and faction meetings
+- Act 3: Heavy branching based on which Crystal quests pursued, companion relationships, magic training
+- Act 4: Multiple distinct endings (11 major variations) heavily modified by romance partner
+
+**Romance Flow:**
+- Early Act 1-2: Meet companions, establish initial rapport
+- Mid Act 2-3: Personal quests and romance dates unlock
+- Late Act 3: Romance milestones during Crystal quests
+- Act 4: Romance partner affects ending significantly, epilogue shows relationship outcome
+
+### Balance Considerations
+
+**Success Requirements for Unity Path (Hardest "Good" Ending):**
+- All human faction reps > 30
+- All magical race reps > 40
+- Charisma > 15
+- Wisdom > 12
+- At least 5 diplomatic successes
+- No ruthless actions > 5
+- Must have `compassion_for_people` = true
+- At least 3 companions with trust > 60
+- Barrier must be restored (all Crystal shards)
+
+**Success Requirements for Magical Monarch Path (Secret Ending):**
+- All Crystal shards collected peacefully
+- Learned at least 4 types of magic
+- All magical race reps > 60
+- Wisdom > 18
+- Cultural immersion with at least 3 races
+- Crown refused OR used wisely
+- `magical_aptitude` > 15
+- Lyra or Thorne romance helps but not required
+
+**Romance Success Requirements (Varies by Companion):**
+- Sage: Easiest, requires only kindness > 8, trust > 40
+- Rowan: Moderate, requires adventure spirit, trust > 50
+- Seraphine: Moderate-Hard, requires political acumen, trust > 60
+- Kieran: Hard, requires honor alignment, his personal quest completed successfully
+- Lyra: Very Hard, requires wisdom, cultural understanding, time investment, trust > 70
+- Thorne: Very Hard, requires bravery, philosophy alignment, trust > 75
+- Zephyr: Hard, requires open-mindedness, acceptance of alien nature
+- Marina: Moderate, requires environmental care, adventure spirit
+- Finn: Moderate, requires kindness, appreciation of craftsmanship
+- Shadow: Very Hard, requires redemption arc completion, moral complexity acceptance
+
+**Difficulty Curve:**
+- Early scenes: Build world and character, introduce fantasy elements
+- Middle scenes: Present difficult choices with unclear consequences, introduce companions
+- Late scenes: Choices have clear weight and impact, romance reaches critical points
+- Endings: Show full butterfly effect of decisions across political, magical, and romantic threads
+- Epilogue: Comprehensive life outcome based on hundreds of choices
+
+### Testing Checklist
+
+- [ ] Can reach all 11+ ending variations
+- [ ] Hidden attributes properly gate content
+- [ ] No dead-end paths (except intentional abdication and dark sovereign)
+- [ ] Each major choice feels impactful
+- [ ] Personality tracking feels consistent
+- [ ] Faction reputation math works correctly (both human and magical)
+- [ ] Unity path is achievable but challenging
+- [ ] Civil war path triggers appropriately
+- [ ] Epilogue reflects actual choices made
+- [ ] Each companion romance has satisfying arc
+- [ ] Romance can be avoided without penalty
+- [ ] Friendship paths work for all companions
+- [ ] Magic system is balanced and rewarding
+- [ ] Crystal shard quests can be done in any order
+- [ ] Companions provide meaningful contribution to main story
+- [ ] Cultural immersion scenes unlock appropriate dialogue
+- [ ] Magical training creates tangible gameplay differences
+- [ ] Romance partner affects ending appropriately
+- [ ] Non-romanced companions still have story resolution
+
+---
+
+## TONE & THEMES
+
+**Overall Tone:** Epic fantasy romance with political drama and personal growth
+
+**Core Themes:**
+- Identity and destiny
+- Power and responsibility
+- Individual vs collective good
+- Tradition vs progress
+- Personal sacrifice for greater good
+- **Love across cultural/species boundaries**
+- **The price of immortality and meaning of mortality**
+- **Unity through diversity**
+- **Magic as responsibility, not just power**
+- **Redemption and transformation**
+- **Duty vs. desire**
+
+**Emotional Beats:**
+- Wonder (discovering true identity and magic)
+- Burden (weight of responsibility and power)
+- Connection (forming bonds with companions)
+- Betrayal (assassination attempt)
+- Yearning (romantic tension and cultural barriers)
+- Hope (possibility of unity and love)
+- Sacrifice (what you give up for kingdom/love)
+- Triumph or Tragedy (varied endings)
+- Resolution (how love/friendship endures or fails)
+- Reflection (epilogue showing life built)
+
+**Core Themes:**
+- Identity and destiny
+- Power and responsibility
+- Individual vs collective good
+- Tradition vs progress
+- Personal sacrifice for greater good
+
+**Emotional Beats:**
+- Wonder (discovering true identity)
+- Burden (weight of responsibility)
+- Betrayal (assassination attempt)
+- Hope (possibility of unity)
+- Triumph or Tragedy (varied endings)
+- Reflection (epilogue)
+
+---
+
+## EXPANSION POSSIBILITIES
+
+The framework is already expanded with fantasy and romance, but future additions could include:
+
+1. **Prequel Content:** Playable scenes showing the original tragedy 20 years ago, King's fall, Lyra's circle death
+2. **Extended Epilogues:** 5-year, 10-year, 20-year checkpoints showing kingdom evolution and relationship development
+3. **Alternative Starts:** Different backgrounds (commoner, foreign noble, magical creature raised as human)
+4. **New Factions:** Religious orders, merchant guilds, neighboring kingdoms, Shadow Beast cult
+5. **Additional Companions:** Court jester/spy, foreign ambassador, reformed villain, magical familiar
+6. **Betrayal Routes:** Player can actively scheme, join Shadowrealm, manipulate factions
+7. **Poly Romance Option:** Carefully written ethical polyamory with specific compatible companions
+8. **New Game Plus:** Carry over magical knowledge, unlock special scenes with meta-knowledge
+9. **Companion Team Missions:** Scenes where you assign companions to tasks together, building inter-companion relationships
+10. **Political Management:** Kingdom-building mechanics between story scenes
+11. **Combat System Expansion:** Tactical combat using trained abilities and companion teamwork
+12. **Magical Artifacts Quest Chain:** Find and master legendary items beyond Crystal Heart
+13. **Secret Companion Unlock:** Hidden companion requiring perfect run (e.g., Shadow Beast you befriend)
+14. **Alternative Crystal Outcomes:** Reject Crystal Heart entirely, create new artifact, destroy all magic
+15. **Time Skip Scenarios:** Jump forward years to see consequences, then flashback to fill gaps
+
+---
+
+## FINAL NOTES FOR AUTHORS
+
+This comprehensive story framework provides a complete epic fantasy romance with political drama spanning approximately 150-175 unique scenes. The integration of companion romance systems, magical worldbuilding, and political intrigue creates a rich, replayable experience.
+
+**Key Implementation Priorities:**
+
+1. **Start with Core Path** (31 main story scenes) - This establishes the political drama backbone
+2. **Add Companion Introductions** (integrated throughout Acts 1-3) - Makes world feel populated
+3. **Implement Romance Gates** (trust/romance tracking) - Allows players to pursue relationships
+4. **Build Magic System** (7 training sequences) - Adds fantasy gameplay depth
+5. **Create Personal Quests** (10 companion quests) - Provides emotional investment
+6. **Design Endings** (11 variations + epilogue) - Rewards player choices meaningfully
+
+**Writing Philosophy:**
+
+- **Player Agency is Paramount:** Every major choice should matter, no "fake" choices
+- **Companions are People:** They have lives, opinions, agency beyond the player
+- **Romance Enhances, Doesn't Replace:** Political story stands alone, romance adds depth
+- **Magic Has Costs:** Power should come with responsibility and consequences  
+- **Diversity in Unity:** Different perspectives (human/non-human, mortal/immortal) enrich the world
+- **Tragedy and Joy Coexist:** Bittersweet moments are often most memorable
+- **Replayability Through Variation:** Each playthrough should feel different, not just branching at the end
+
+**Common Pitfalls to Avoid:**
+
+- ❌ Making one romance obviously "canon" - all companions should be equally valid
+- ❌ Punishing players for not romancing - friendship paths should be complete
+- ❌ Glossing over cultural differences - Lyra being immortal MATTERS, Thorne being a dragon MATTERS
+- ❌ Making magic too easy - blood magic should feel weighty and consequential
+- ❌ Forgetting political consequences - romance shouldn't make kingdom irrelevant
+- ❌ Rushing romance progression - trust must be earned, especially with Lyra/Thorne/Shadow
+- ❌ Info-dumping lore - reveal worldbuilding through experience and character perspective
+- ❌ Ignoring non-romanced companions - they should still have story presence
+- ❌ Making "perfect" playthrough obvious - choices should be genuinely difficult
+
+**Success Metrics:**
+
+A successful implementation should allow players to:
+- ✅ Feel genuine attachment to at least one companion
+- ✅ Experience meaningful consequences from early choices in late game
+- ✅ Replay to see drastically different story experiences
+- ✅ Feel their romance partner truly matters to the story outcome
+- ✅ Understand and care about political stakes independent of romance
+- ✅ Experience the fantasy world as rich and internally consistent
+- ✅ Face difficult moral choices without "correct" answers
+- ✅ See their chosen ending as satisfying for their specific choices
+- ✅ Want to replay to try other companions/paths/endings
+
+**Final Encouragement:**
+
+This is an ambitious story framework, but it's designed to be built incrementally. Start with the core political story, then layer in companions, then romance depth, then side content. Each layer adds replayability and richness. The hidden attributes system allows for extensive personalization without requiring exponentially more content - the same scene can feel different based on tracked player behavior.
+
+The fusion of political drama, fantasy worldbuilding, and romance creates something special: a story where love matters not because it solves everything, but because it makes the hard political choices more poignant. Where magic is wondrous but comes with responsibility. Where becoming a monarch means deciding what kind of ruler you'll be, and who you'll be with while doing it.
+
+May your implementation bring players joy, tears, and the satisfying weight of meaningful choices.
+
+---
+
+**Document Version:** Fantasy Romance Expansion v2.0  
+**Core Story:** "The Lost Heir of Silverwood"  
+**Estimated Scenes:** 150-175 unique scenes  
+**Estimated Development Time:** 200-300 hours for full implementation  
+**Replay Value:** 10+ distinct playthroughs for completion  
+**Romance Options:** 10 companions with unique arcs  
+**Endings:** 11 major variations with extensive sub-variants
+
+## WRITING TIPS
+
+**For Scene Descriptions:**
+- Be vivid but concise
+- Ground player in location quickly
+- Hint at emotional tone
+- Leave room for player interpretation
+
+**For Choices:**
+- Each option should reflect different approach/value
+- Avoid obviously "wrong" choices (make them tempting)
+- Include emotional/personal choices alongside strategic ones
+- Let some choices have delayed consequences
+
+**For NPCs:**
+- Give each faction leader distinct voice and motivation
+- Make them sympathetic even when opposing player
+- Show their reactions to player's choices
+- Let relationships evolve
+
+**For Pacing:**
+- Vary intensity (action, politics, personal moments)
+- Use information scenes to break up choice-heavy sequences
+- Build to crescendos (assassination, rival reveal, final choice)
+- Epilogue provides emotional denouement
+
+---
+
+## ESTIMATED SCENE COUNT
+
+**Prologue (Adventurer Arc):** 13 core scenes + 25 companion scenes = 38 total
+- Character creation and early adventures: 5 scenes
+- Companion introductions: 4 scenes (Vale, Ash, Rook, Whisper)
+- Capital tournament and magic discovery: 2 scenes
+- Journey to heritage reveal: 2 scenes
+- Prologue companion personal quests and dates: 16 scenes
+- Integrated bonding moments: 9 scenes
+
+**Core Story Path:** 31 main political scenes (after prologue)
+- Act 1: 6 scenes (political integration)
+- Act 2: 12 scenes (faction meetings and diplomacy)
+- Act 3: 14 scenes (Crystal shard quests)
+- Act 4: 11 ending variations + 1 epilogue
+
+**Main Story Companion Content:** 45+ companion-focused scenes
+- Personal Quests: 10 major quests (one per main story companion)
+- Romance Dates: 10 intimate bonding scenes
+- Magical Training: 7 training sequences
+- Cultural Immersion: 5 deep cultural experiences
+- Crisis Interventions: 5 emergency situations
+- Companion-integrated main story: throughout Acts 1-4
+
+**Side Quests:** 8 optional political/world quests
+
+**Total Unique Scenes:** Approximately 200-225 scenes for complete implementation
+- Prologue: 38 scenes
+- Main political story: 31 scenes
+- Main story companions: 45+ scenes
+- Fantasy world integration: 40+ scenes
+- Romance paths: 30+ scenes per companion (with branches)
+- Side content: 20+ scenes
+
+**Player Experience:** 
+- Prologue only: 8-12 hours (establish character and meet 4 companions)
+- Single focused playthrough: 50-60 scenes (prologue + main + one romance)
+- Completionist playthrough: 100-120 scenes (prologue + main + multiple companions + side)
+- Full exploration: 15+ playthroughs needed to see all content
+- Estimated time per focused playthrough: 15-20 hours (including prologue)
+- Estimated time for completionist run: 30-40 hours
+
+**Romance Paths:**
+- **14 total romance options** (4 prologue + 10 main story)
+- Prologue romances: Begin in prologue, deepen through main story, have history advantage
+- Main story romances: Begin after identity revealed, bring fresh political perspectives
+- Each companion: 6-10 dedicated scenes plus integration throughout
+- Multiple endings per romance based on choices
+- Some companions can be friended instead of romanced
+- Shadow romance requires redemption arc completion
+
+**Companion Integration:**
+- **Prologue companions** (Vale, Ash, Rook, Whisper) have shared history before politics
+- **Main story companions** (Seraphine, Rowan, Kieran, Lyra, Sage, Finn, Zephyr, Thorne, Marina, Shadow) bring perspectives tied to political/magical factions
+- Mixed companion dynamics: old friends meet new allies, potential friendships/rivalries
+- Companion dialogue changes based on when they met player (prologue vs main)
+
+**Branching Complexity:**
+- Prologue variations affect starting stats, companions, skills, reputation
+- 11 distinct ending variations with romance sub-variants
+- Each ending affected by: prologue choices, faction alignment, sacrifice type, romance partner (prologue or main), magical training, companion relationships
+- Epilogue has 150+ conditional text variants from prologue through endings
+
+**Magical Races Integration:**
+- 5 major Crystal shard quests (Elf, Dwarf, Dragon, Fae, Merfolk)
+- Cultural immersion available for each race
+- Each race can impact ending if relationship developed
+- Magical training unlocks unique dialogue and scene outcomes
+- Magic discovery in prologue creates organic progression
+
+**Prologue Benefits:**
+- 10-15 hours of character development before political story
+- 4 companions with established bonds and shared history
+- Skills and reputation earned through gameplay, not granted
+- Organic world exploration and lore discovery
+- Magic awakening feels mysterious and gradual
+- Tournament allows early character expression
+- Transition from adventurer freedom to noble duty has emotional weight
+- Romance foundations laid before politics complicate relationships
+
+**Replayability Factors:**
+- **14 romance paths** with distinct storylines and progressions
+- **Prologue variations**: Join mercenaries or not, tournament performance, companion recruitment order
+- 6 magic types to learn (can master multiple)
+- 3 human political factions + 5 magical races to ally with
+- Hidden attributes track behavior from prologue forward
+- Sacrifice choices have lasting consequences
+- Crown vs. no crown dramatically changes available scenes
+- Companion meeting order affects relationship dynamics
+
+---
+
+This massively expanded story framework provides authors with a complete epic fantasy romance with extensive prologue (38 scenes), political drama core (31 scenes), and deep companion content (90+ scenes across 14 romances). Total scope: 200-225 unique scenes offering 30-40 hours of gameplay for completionists, with exceptional replayability through 14 romance paths, multiple political endings, and prologue variations that fundamentally change the player's journey.
+
+The prologue transforms the experience from "chosen one discovers destiny" to "earned hero accepts responsibility," making the political drama more impactful because players have built a life they must now change. Companions met during adventuring days bring emotional weight to later political decisions, and the organic skill/magic development creates genuine character progression.
+
+---
+
+**Document Version:** Fantasy Romance with Extended Prologue v3.0  
+**Core Story:** "The Lost Heir of Silverwood"  
+**Estimated Total Scenes:** 200-225 unique scenes  
+**Estimated Development Time:** 400-500 hours for full implementation  
+**Prologue Length:** 10-15 hours of gameplay  
+**Complete Playthrough:** 30-40 hours for completionist  
+**Replay Value:** 15+ distinct playthroughs for completion  
+**Romance Options:** 14 companions (4 prologue + 10 main story)  
+**Endings:** 11 major variations with extensive sub-variants  
+**Key Innovation:** Extended adventurer prologue with companion bonding before political story begins

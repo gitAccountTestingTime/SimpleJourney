@@ -5,6 +5,22 @@ export type ChoiceRequirement = {
 	max?: number;
 }
 
+export type RealLifeChallenge = {
+	id: string;
+	type: 'exercise' | 'cooking' | 'creative' | 'social' | 'learning' | 'meditation' | 'physical';
+	title: string;
+	description: string;
+	instructions: string;
+	durationMinutes?: number;
+	verificationMethod: 'timer' | 'photo' | 'honor' | 'checklist';
+	checklistItems?: string[];
+	rewards?: {
+		stats?: Record<string, number | EffectOp>;
+		hiddenAttributes?: Record<string, number | string | boolean>;
+		message?: string;
+	};
+}
+
 export type OutcomeCondition = {
 	// stat based requirements (same shape as Choice.requirements)
 	stats?: Record<string, ChoiceRequirement>;
@@ -12,6 +28,17 @@ export type OutcomeCondition = {
 	hasFlags?: string[];
 	// require that certain titles are already earned
 	hasTitles?: string[];
+	// require that certain hidden attributes match specified values
+	hasHiddenAttributes?: Record<string, number | string | boolean>;
+	// custom function for complex conditions
+	custom?: () => boolean;
+}
+
+export type ConditionalText = {
+	// the text to display if conditions are met
+	text: string;
+	// conditions that must be met for this text variant
+	conditions?: OutcomeCondition;
 }
 
 export type ChoiceOutcome = {
@@ -23,6 +50,8 @@ export type ChoiceOutcome = {
 	characterEffects?: Record<string, Record<string, number | EffectOp>>;
 	// optional effects targeted at places (map of placeId -> stat changes)
 	placeEffects?: Record<string, Record<string, number | EffectOp>>;
+	// optional hidden attributes set when this outcome is selected (not shown to user)
+	hiddenEffects?: Record<string, number | string | boolean>;
 	// conditions that must be met for this outcome to be chosen
 	conditions?: OutcomeCondition;
 }
@@ -44,11 +73,18 @@ export type Choice = {
 	// optional effects targeted at characters/places when this choice is taken (fallback if outcome doesn't provide)
 	characterEffects?: Record<string, Record<string, number | EffectOp>>;
 	placeEffects?: Record<string, Record<string, number | EffectOp>>;
+	// optional hidden attributes set when this choice is taken (fallback if outcome doesn't provide)
+	hiddenEffects?: Record<string, number | string | boolean>;
+	// optional real-life challenge that must be completed to unlock this choice
+	realLifeChallenge?: RealLifeChallenge;
 }
 
 export type Scene = {
 	id: string;
+	// base text (used if no textVariants match or as fallback)
 	text: string;
+	// optional array of conditional text variants - first matching variant is used
+	textVariants?: ConditionalText[];
 	choices: Choice[];
 }
 
@@ -60,9 +96,17 @@ export type Title = {
 }
 
 let currentSceneId: string | null = null;
+let previousSceneId: string | null = null;
 let earnedTitles: Set<string> = new Set();
 // record of past choices taken (by id) to enable conditional branching
 let chosenFlags: Set<string> = new Set();
+// hidden attributes - not shown to user but available for conditional logic
+// supports number, string, or boolean values
+let hiddenAttributes: Map<string, number | string | boolean> = new Map();
+// track completed real-life challenges
+let completedChallenges: Map<string, { completedAt: number; verified: boolean }> = new Map();
+// track active challenges
+let activeChallenges: Map<string, { startedAt: number; choiceId: string }> = new Map();
 
 // Available titles in the game
 const TITLES: Record<string, Title> = {
@@ -200,222 +244,223 @@ const STAT_LIMITS: Record<keyof PlayerStats, { min: number; max: number }> = {
 	charisma: { min: 0, max: 100 }
 };
 
-const scenes: Record<string, Scene> = {
-	start: {
-		id: 'start',
-		text: 'You stand at the edge of a small village. A path leads into the forest and another to the sea.',
-		choices: [
-			// Example: flag-based and stat-based branching for the same choice
-			{
-				id: 'go-forest',
-				text: 'Take the forest path',
-				// provide multiple conditional outcomes — first matched is used
-				outcomes: [
-					// if player previously helped villagers, they are welcomed by a guide
-					{ conditions: { hasFlags: ['help-villagers'] }, next: 'forest_secret', effects: { reputation: 2 } },
-					// if player is especially courageous they find a hidden trail
-					{ conditions: { stats: { courage: { min: 3 } } }, next: 'forest', effects: { curiosity: 2, courage: 1 } },
-					// fallback outcome
-					{ next: 'forest', effects: { courage: 1, curiosity: 1 } }
-				]
-			},
-			{ id: 'go-sea', text: 'Head to the sea', next: 'sea', effects: { curiosity: 2 } },
-			// Small helpful action that sets a flag for later branching
-			{ id: 'help-villagers', text: 'Help a villager with chores (gain reputation)', next: 'start', effects: { reputation: 5 } }
-		]
-	},
-	forest: {
-		id: 'forest',
-		text: 'The trees close in. You hear a distant howl. A cabin sits under an old oak.',
-		choices: [
-			{ id: 'investigate-cabin', text: 'Investigate the cabin', next: 'cabin', effects: { curiosity: 1, reputation: 1 } },
-			{ id: 'brave-confront', text: 'Call out the howl (requires courage ≥ 2)', next: 'cabin', effects: { courage: 1, reputation: 2 }, requirements: { courage: { min: 2 } } },
-			// Example: choice that leads to different cabin outcomes depending on titles
-			{
-				id: 'search-forest',
-				text: 'Search the forest for signs',
-				outcomes: [
-					// If you are already a scholar you recognize markings and find treasure
-					{ conditions: { hasTitles: ['scholar'] }, next: 'treasure', effects: { wealth: 20, curiosity: 1 } },
-					// If not scholar but curious enough you find a map fragment
-					{ conditions: { stats: { curiosity: { min: 3 } } }, next: 'cabin', effects: { curiosity: 1 } },
-					{ next: 'forest', effects: { curiosity: 1 } }
-				]
-			},
-			{ id: 'return-village', text: 'Return to the village', next: 'start', effects: { reputation: -1 } }
-		]
-	},
-	sea: {
-		id: 'sea',
-		text: 'Waves lap the shore. A small boat rocks gently. The horizon is clear.',
-		choices: [
-			// Example: stat and prior-choice branching for boat outcomes
-			{
-				id: 'take-boat',
-				text: 'Take the boat',
-				outcomes: [
-					// rich passengers get a luxuriously crewing passage
-					{ conditions: { stats: { wealth: { min: 5 } } }, next: 'boat_luxury', effects: { curiosity: 2, wealth: -5 } },
-					// if player previously visited the forest they know a secret route
-					{ conditions: { hasFlags: ['go-forest'] }, next: 'boat', effects: { curiosity: 1 } },
-					// fallback
-					{ next: 'boat', effects: { courage: 1, wealth: -1 } }
-				]
-			},
-			{ id: 'trade-fisher', text: 'Trade with the fisher (requires wealth ≥ 1)', next: 'sea', effects: { reputation: 1, wealth: -1 }, requirements: { wealth: { min: 1 } } },
-			{ id: 'return-village', text: 'Return to the village', next: 'start', effects: { reputation: -1 } }
-		]
-	},
-	cabin: {
-		id: 'cabin',
-		text: 'Inside the cabin you find a warm fire and a map. Your journey continues elsewhere.',
-		choices: [
-			// allow searching the map which can branch depending on titles
-			{
-				id: 'search-map',
-				text: 'Examine the map closely',
-				outcomes: [
-					{ conditions: { hasTitles: ['scholar'] }, next: 'treasure', effects: { curiosity: 1, wealth: 10 } },
-					{ next: 'cabin_search', effects: { curiosity: 1 } }
-				]
-			},
-			{ id: 'end', text: 'End the demo (the story continues...)', next: null, effects: { reputation: 1 } }
-		]
-	},
-	boat: {
-		id: 'boat',
-		text: 'You row out and the wind catches the sails. The world grows wider.',
-		choices: [
-			{ id: 'end', text: 'End the demo (the story continues...)', next: null, effects: { curiosity: 1 } }
-		]
-	}
-	,
-	// Extra scenes used by outcome examples
-	village_help: {
-		id: 'village_help',
-		text: 'You assist the villager and earn their gratitude.',
-		choices: [
-			{ id: 'back-to-start', text: 'Return to the crossroads', next: 'start' }
-		]
-	},
-	forest_secret: {
-		id: 'forest_secret',
-		text: 'A friendly guide shows you a hidden glade full of ruins.',
-		choices: [
-			{ id: 'explore-ruins', text: 'Explore the ruins', next: 'treasure', effects: { curiosity: 2 } },
-			{ id: 'leave-glade', text: 'Leave the glade', next: 'forest' }
-		]
-	},
-	boat_luxury: {
-		id: 'boat_luxury',
-		text: 'You enjoy a pleasant voyage with fine food and company.',
-		choices: [
-			{ id: 'disembark', text: 'Disembark at a prosperous port', next: 'start', effects: { wealth: 0 } }
-		]
-	},
-	cabin_search: {
-		id: 'cabin_search',
-		text: 'You find a small clue on the map but its meaning eludes you.',
-		choices: [
-			{ id: 'continue', text: 'Continue your journey', next: 'start' }
-		]
-	},
-	treasure: {
-		id: 'treasure',
-		text: 'You discovered a hidden stash — fortune smiles upon you.',
-		choices: [
-			{ id: 'end', text: 'End the demo with treasure', next: null, effects: { wealth: 50 } }
-		]
-	}
-	,
+import {
+	StartScene,
+	ForestScene,
+	ForestSecretScene,
+	SeaScene,
+	BoatScene,
+	BoatLuxuryScene,
+	CabinScene,
+	CabinSearchScene,
+	TreasureScene,
+	VillageScene,
+	MarketScene,
+	TavernScene,
+	BlacksmithScene,
+	GuildScene,
+	QuestHuntScene,
+	VillageHelpScene,
+	ShrineScene
+} from './scenes';
 
-	// Marketplace and social scenes showcasing entity effects, mul/set ops, and gating
-	market: {
-		id: 'market',
-		text: 'The market bustles with merchants. You see opportunities to trade or listen for rumors.',
-		choices: [
-			// choice-level character effect: helping a merchant increases their trust
-			{ id: 'haggle', text: 'Haggle for a better price', next: 'market', effects: { wealth: -2 }, characterEffects: { 'elder': { trust: { op: 'add', value: 1 } } } },
-			{ id: 'listen-rumors', text: 'Listen for rumors (might increase curiosity)', next: 'market', effects: { curiosity: 1 } },
-			{ id: 'leave-market', text: 'Leave the market', next: 'start' }
-		]
-	},
+// Import all story scenes
+import * as PrologueScenes from './scenes/prologue/p1-humble-beginnings';
+import * as P2Scenes from './scenes/prologue/p2-meet-vale';
+import * as P3Scenes from './scenes/prologue/p3-bandit-encounter';
+import * as P4Scenes from './scenes/prologue/p4-shadow-beast';
+import * as P5Scenes from './scenes/prologue/p5-meet-ash';
+import * as P6Scenes from './scenes/prologue/p6-mercenary-training';
+import * as P7Scenes from './scenes/prologue/p7-meet-rook';
+import * as P8Scenes from './scenes/prologue/p8-tournament';
+import * as P9Scenes from './scenes/prologue/p9-magic-awakens';
+import * as P10Scenes from './scenes/prologue/p10-meet-whisper';
+import * as P11Scenes from './scenes/prologue/p11-guild-quest';
+import * as P12Scenes from './scenes/prologue/p12-road-to-silverwood';
+import * as P13Scenes from './scenes/prologue/p13-discovery';
 
-	tavern: {
-		id: 'tavern',
-		text: 'Smoky air and loud laughter. A dice game draws a crowd.',
-		choices: [
-			{ id: 'buy-drink', text: 'Buy a drink', next: 'tavern', effects: { reputation: 1, wealth: -1 }, placeEffects: { 'tavern': { prosperity: { op: 'add', value: 1 } } } },
-			{ id: 'gamble', text: 'Join the dice game (risky)', next: 'tavern', outcomes: [
-				{ conditions: { stats: { luck: { min: 8 } } }, next: 'tavern', effects: { wealth: { op: 'mul', value: 2 } } },
-				{ next: 'tavern', effects: { wealth: { op: 'add', value: -3 }, reputation: -1 } }
-			] },
-			{ id: 'ask-keeper', text: 'Ask the barkeep about work (requires reputation ≥ 2)', next: 'guild', requirements: { reputation: { min: 2 } }, onFail: 'disable' }
-		]
-	},
+import * as Act1Scenes from './scenes/act1/a1-manor-exploration';
+import * as A2Scenes from './scenes/act1/a2-rowan-introduction';
+import * as A3Scenes from './scenes/act1/a3-first-political-meeting';
+import * as A4Scenes from './scenes/act1/a4-ancestral-spirit';
+import * as A5Scenes from './scenes/act1/a5-mysterious-follower';
+import * as A6Scenes from './scenes/act1/a6-shadow-beast-attack';
+import * as A7Scenes from './scenes/act1/a7-agent-revealed';
+import * as A8Scenes from './scenes/act1/a8-seraphine-introduction';
 
-	blacksmith: {
-		id: 'blacksmith',
-		text: 'The forge glows. The smith eyes your gear.',
-		choices: [
-			// outcome-level characterEffects and fallback
-			{ id: 'buy-sword', text: 'Commission a sword', outcomes: [
-				{ conditions: { stats: { wealth: { min: 10 } } }, next: 'blacksmith', effects: { strength: { op: 'add', value: 2 }, wealth: { op: 'add', value: -10 } }, characterEffects: { 'blacksmith': { favor: { op: 'add', value: 1 } } } },
-				{ next: 'blacksmith', effects: { wealth: { op: 'add', value: -2 } } }
-			] },
-			{ id: 'repair', text: 'Ask for a quick repair', next: 'blacksmith', effects: { wealth: { op: 'add', value: -2 } } },
-			// hidden path that only appears if strength is high enough
-			{ id: 'secret-path', text: 'Squeeze through the smithy backdoor (requires strength ≥ 8)', next: 'treasure', requirements: { strength: { min: 8 } }, onFail: 'hide' }
-		]
-	},
+import * as B1Scenes from './scenes/act2/b1-kingdom-briefing';
+import * as B2Scenes from './scenes/act2/b2-lyra-arrival';
+import * as B3Scenes from './scenes/act2/b3-faction-choice';
+import * as B4Scenes from './scenes/act2/b4-faction-paths';
+import * as B5Scenes from './scenes/act2/b5-meeting-companions';
+import * as B6Scenes from './scenes/act2/b6-market-assassination';
 
-	guild: {
-		id: 'guild',
-		text: 'A noticeboard lists tasks. You can take a job that will influence townsfolk and places.',
-		choices: [
-			{ id: 'take-quest', text: 'Take a local quest (gain flags)', next: 'quest-hunt', effects: { courage: 1 } },
-			{ id: 'become-member', text: 'Apply for guild membership (requires reputation ≥ 5)', next: 'guild', requirements: { reputation: { min: 5 } }, onFail: 'disable' }
-		]
-	},
+import * as C1Scenes from './scenes/act3/c1-crystal-hunt';
+import * as C2Scenes from './scenes/act3/c2-companion-quests';
+import * as C3Scenes from './scenes/act3/c3-crystal-fragments-1';
+import * as C4Scenes from './scenes/act3/c4-crystal-fragments-2';
+import * as C5Scenes from './scenes/act3/c5-companion-quests-1';
+import * as C6Scenes from './scenes/act3/c6-companion-quests-2';
+import * as C7Scenes from './scenes/act3/c7-romance-dates';
+import * as C8Scenes from './scenes/act3/c8-side-quests';
+import * as C9Scenes from './scenes/act3/c9-magical-training';
 
-	quest_hunt: {
-		id: 'quest-hunt',
-		text: 'You accept a hunt to clear pests from nearby farms. Success will change place prosperity and village opinion.',
-		choices: [
-			{ id: 'hunt-success', text: 'Succeed in the hunt', next: 'village', effects: { reputation: 3 }, placeEffects: { 'village': { prosperity: { op: 'add', value: 5 } } } },
-			{ id: 'hunt-fail', text: 'Fail the hunt', next: 'village', effects: { reputation: -2 }, placeEffects: { 'village': { prosperity: { op: 'add', value: -2 } } } }
-		]
-	},
+import * as D1Scenes from './scenes/act4/d1-climax-endings';
+import * as D2Scenes from './scenes/act4/d2-unity-path';
+import * as D3Scenes from './scenes/act4/d3-all-endings';
+import * as D4Scenes from './scenes/act4/d4-epilogue';
 
-	shrine: {
-		id: 'shrine',
-		text: 'An ancient shrine hums with energy. Rituals here can alter stats in dramatic ways.',
-		choices: [
-			{ id: 'offerings', text: 'Leave an offering (set health to a fixed value)', next: 'shrine', effects: { health: { op: 'set', value: 20 } } },
-			{ id: 'ritual', text: 'Participate in a risky ritual', next: 'shrine', outcomes: [
-				{ conditions: { stats: { wisdom: { min: 5 } } }, next: 'shrine', effects: { charisma: { op: 'add', value: 2 } } },
-				{ next: 'shrine', effects: { health: { op: 'add', value: -5 } } }
-			] }
-		]
-	},
-
-	// Provide a connective scene back to village so examples are reachable
-	village: {
-		id: 'village',
-		text: 'You are back in the village square. People bustle about.',
-		choices: [
-			{ id: 'go-market', text: 'Visit the market', next: 'market' },
-			{ id: 'go-tavern', text: 'Go to the tavern', next: 'tavern' },
-			{ id: 'go-blacksmith', text: 'Visit the blacksmith', next: 'blacksmith' },
-			{ id: 'go-shrine', text: 'Visit the shrine', next: 'shrine' },
-			{ id: 'back-start', text: 'Return to the crossroads', next: 'start' }
-		]
-	}
-
+// Helper function to extract all exported scenes from a module
+function extractScenes(module: any): Scene[] {
+	return Object.values(module).filter((val: any) => 
+		val && typeof val === 'object' && 'id' in val && 'text' in val && 'choices' in val
+	) as Scene[];
 }
+
+// Build scene registry from all imported modules
+const storyScenes = [
+	...extractScenes(PrologueScenes),
+	...extractScenes(P2Scenes),
+	...extractScenes(P3Scenes),
+	...extractScenes(P4Scenes),
+	...extractScenes(P5Scenes),
+	...extractScenes(P6Scenes),
+	...extractScenes(P7Scenes),
+	...extractScenes(P8Scenes),
+	...extractScenes(P9Scenes),
+	...extractScenes(P10Scenes),
+	...extractScenes(P11Scenes),
+	...extractScenes(P12Scenes),
+	...extractScenes(P13Scenes),
+	...extractScenes(Act1Scenes),
+	...extractScenes(A2Scenes),
+	...extractScenes(A3Scenes),
+	...extractScenes(A4Scenes),
+	...extractScenes(A5Scenes),
+	...extractScenes(A6Scenes),
+	...extractScenes(A7Scenes),
+	...extractScenes(A8Scenes),
+	...extractScenes(B1Scenes),
+	...extractScenes(B2Scenes),
+	...extractScenes(B3Scenes),
+	...extractScenes(B4Scenes),
+	...extractScenes(B5Scenes),
+	...extractScenes(B6Scenes),
+	...extractScenes(C1Scenes),
+	...extractScenes(C2Scenes),
+	...extractScenes(C3Scenes),
+	...extractScenes(C4Scenes),
+	...extractScenes(C5Scenes),
+	...extractScenes(C6Scenes),
+	...extractScenes(C7Scenes),
+	...extractScenes(C8Scenes),
+	...extractScenes(C9Scenes),
+	...extractScenes(D1Scenes),
+	...extractScenes(D2Scenes),
+	...extractScenes(D3Scenes),
+	...extractScenes(D4Scenes)
+];
+
+// Register all scenes into a scene map
+const scenes: Record<string, Scene> = {
+	start: StartScene,
+	forest: ForestScene,
+	forest_secret: ForestSecretScene,
+	sea: SeaScene,
+	boat: BoatScene,
+	boat_luxury: BoatLuxuryScene,
+	cabin: CabinScene,
+	cabin_search: CabinSearchScene,
+	treasure: TreasureScene,
+	village: VillageScene,
+	market: MarketScene,
+	tavern: TavernScene,
+	blacksmith: BlacksmithScene,
+	guild: GuildScene,
+	'quest-hunt': QuestHuntScene,
+	village_help: VillageHelpScene,
+	shrine: ShrineScene
+};
+
+// Add all story scenes to the registry
+storyScenes.forEach(scene => {
+	scenes[scene.id] = scene;
+});
+
 export function initStory(): Scene {
-	currentSceneId = 'start';
+	currentSceneId = 'prologue_start';
+	previousSceneId = null; // no previous scene at journey start
 	return getCurrentScene();
+}
+
+/** Evaluate conditional text variants and return the first matching text, or the base text as fallback. */
+function evaluateTextVariants(scene: Scene): string {
+	if (!scene.textVariants || scene.textVariants.length === 0) {
+		return scene.text;
+	}
+	
+	for (const variant of scene.textVariants) {
+		const cond = variant.conditions;
+		if (!cond) {
+			// no conditions means this variant always matches
+			return variant.text;
+		}
+		
+		// check stats conditions
+		let statsOk = true;
+		if (cond.stats) {
+			const chk = checkRequirements(cond.stats);
+			statsOk = chk.ok;
+		}
+		
+		// check flags (previous choices)
+		let flagsOk = true;
+		if (cond.hasFlags && cond.hasFlags.length > 0) {
+			for (const f of cond.hasFlags) {
+				if (!chosenFlags.has(f)) {
+					flagsOk = false;
+					break;
+				}
+			}
+		}
+		
+		// check titles
+		let titlesOk = true;
+		if (cond.hasTitles && cond.hasTitles.length > 0) {
+			for (const t of cond.hasTitles) {
+				if (!earnedTitles.has(t)) {
+					titlesOk = false;
+					break;
+				}
+			}
+		}
+		
+		// check hidden attributes
+		let hiddenAttrsOk = true;
+		if (cond.hasHiddenAttributes) {
+			for (const [key, value] of Object.entries(cond.hasHiddenAttributes)) {
+				if (hiddenAttributes.get(key) !== value) {
+					hiddenAttrsOk = false;
+					break;
+				}
+			}
+		}
+		
+		// check custom function
+		let customOk = true;
+		if (cond.custom && typeof cond.custom === 'function') {
+			try {
+				customOk = cond.custom();
+			} catch (e) {
+			customOk = false;
+		}
+	}
+	
+	if (statsOk && flagsOk && titlesOk && hiddenAttrsOk && customOk) {
+		return variant.text;
+	}
+}	// no variants matched, return base text
+	return scene.text;
 }
 
 export function getCurrentScene(): Scene {
@@ -428,7 +473,24 @@ export function getCurrentScene(): Scene {
 		currentSceneId = 'start';
 		return scenes.start;
 	}
-	return scene;
+	// evaluate conditional text and return a scene with the resolved text
+	const resolvedText = evaluateTextVariants(scene);
+	return { ...scene, text: resolvedText };
+}
+
+/** Get the previous scene ID, or null if there is no previous scene (e.g., at journey start). */
+export function getPreviousSceneId(): string | null {
+	return previousSceneId;
+}
+
+/** Get the previous scene object, or null if there is no previous scene. */
+export function getPreviousScene(): Scene | null {
+	if (!previousSceneId || !scenes[previousSceneId]) {
+		return null;
+	}
+	const scene = scenes[previousSceneId];
+	const resolvedText = evaluateTextVariants(scene);
+	return { ...scene, text: resolvedText };
 }
 
 // Advances the story based on a choice id. Returns the new scene, or null if the choice was invalid.
@@ -496,6 +558,13 @@ export function choose(choiceId: string): Scene | null {
 		applyPlaceEffects(choice.placeEffects);
 	}
 
+	// apply hidden effects if present
+	if (selectedOutcome && selectedOutcome.hiddenEffects) {
+		applyHiddenEffects(selectedOutcome.hiddenEffects);
+	} else if (choice.hiddenEffects) {
+		applyHiddenEffects(choice.hiddenEffects);
+	}
+
 	// record that this choice was taken (for future conditional checks)
 	chosenFlags.add(choiceId);
 	// check for earned titles based on stats or choice-triggered titles
@@ -505,7 +574,8 @@ export function choose(choiceId: string): Scene | null {
 	// attach newly earned titles to the result for UI notification
 	const resolvedNext = (selectedOutcome && (selectedOutcome.next !== undefined)) ? selectedOutcome.next : choice.next;
 	if (resolvedNext === undefined || resolvedNext === null) {
-		// story end
+		// story end - track previous scene even at end
+		previousSceneId = currentSceneId;
 		currentSceneId = null;
 		const endScene: any = {
 			id: 'end',
@@ -515,6 +585,8 @@ export function choose(choiceId: string): Scene | null {
 		endScene._newlyEarnedTitles = newlyEarned.map(id => TITLES[id]);
 		return endScene;
 	}
+	// track previous scene before updating current
+	previousSceneId = currentSceneId;
 	currentSceneId = resolvedNext;
 	const nextScene: any = getCurrentScene();
 	nextScene._newlyEarnedTitles = newlyEarned.map(id => TITLES[id]);
@@ -528,11 +600,15 @@ export function saveProgress(key = STORAGE_KEY): void {
 	if (typeof window === 'undefined' || !window.localStorage) return;
 	const payload = {
 		sceneId: currentSceneId,
+		previousSceneId: previousSceneId,
 		stats: playerStats,
 		titles: Array.from(earnedTitles),
 		flags: Array.from(chosenFlags),
 		characters: characters,
-		places: places
+		places: places,
+		hiddenAttributes: Array.from(hiddenAttributes.entries()),
+		completedChallenges: Array.from(completedChallenges.entries()),
+		activeChallenges: Array.from(activeChallenges.entries())
 	};
 	window.localStorage.setItem(key, JSON.stringify(payload));
 }
@@ -543,9 +619,13 @@ export function restoreProgress(key = STORAGE_KEY): Scene {
 	const raw = window.localStorage.getItem(key);
 	if (raw) {
 		try {
-			const parsed = JSON.parse(raw) as { sceneId: string | null; stats?: PlayerStats; titles?: string[]; flags?: string[]; characters?: Record<string, Character>; places?: Record<string, Place> };
+			const parsed = JSON.parse(raw) as { sceneId: string | null; previousSceneId?: string | null; stats?: PlayerStats; titles?: string[]; flags?: string[]; characters?: Record<string, Character>; places?: Record<string, Place>; hiddenAttributes?: [string, number | string | boolean][] };
 			if (parsed && parsed.sceneId && scenes[parsed.sceneId]) {
 				currentSceneId = parsed.sceneId;
+			}
+			// restore previous scene id if present
+			if (parsed && parsed.previousSceneId !== undefined) {
+				previousSceneId = parsed.previousSceneId;
 			}
 			if (parsed && parsed.stats) {
 				playerStats = parsed.stats;
@@ -563,6 +643,17 @@ export function restoreProgress(key = STORAGE_KEY): Scene {
 			if (parsed && parsed.places && typeof parsed.places === 'object') {
 				places = parsed.places;
 			}
+			// restore hidden attributes if present
+			if (parsed && parsed.hiddenAttributes && Array.isArray(parsed.hiddenAttributes)) {
+				hiddenAttributes = new Map(parsed.hiddenAttributes);
+			}
+			// restore challenges if present
+			if (parsed && (parsed as any).completedChallenges && Array.isArray((parsed as any).completedChallenges)) {
+				completedChallenges = new Map((parsed as any).completedChallenges);
+			}
+			if (parsed && (parsed as any).activeChallenges && Array.isArray((parsed as any).activeChallenges)) {
+				activeChallenges = new Map((parsed as any).activeChallenges);
+			}
 		} catch (e) {
 			// support legacy saved value that may be a plain scene id string
 			if (raw && scenes[raw]) {
@@ -578,6 +669,7 @@ export function resetProgress(key = STORAGE_KEY): void {
 	if (typeof window === 'undefined' || !window.localStorage) return;
 	window.localStorage.removeItem(key);
 	currentSceneId = null;
+	previousSceneId = null;
 	// reset stats as well
 	playerStats = { courage: 0, curiosity: 0, empathy: 0, wealth: 0, reputation: 0, strength: 0, wisdom: 0, luck: 0, health: 10, charisma: 0 };
 	// reset titles
@@ -587,6 +679,11 @@ export function resetProgress(key = STORAGE_KEY): void {
 	// reset characters and places to defaults
 	characters = { ...defaultCharacters };
 	places = { ...defaultPlaces };
+	// reset hidden attributes
+	hiddenAttributes.clear();
+	// reset challenges
+	completedChallenges.clear();
+	activeChallenges.clear();
 }
 /** Apply a set of effects (supports numeric deltas or operation objects) to player stats. */
 export function applyEffects(effects: Record<string, number | EffectOp>): void {
@@ -795,4 +892,125 @@ function applyPlaceEffects(effectsMap?: Record<string, Record<string, number | E
 		if (!places[placeId]) places[placeId] = { id: placeId, stats: {} };
 		places[placeId].stats = updated;
 	});
+}
+
+/** Apply hidden effects - sets hidden attributes that are not shown to the user. */
+function applyHiddenEffects(effects?: Record<string, number | string | boolean>): void {
+	if (!effects) return;
+	Object.entries(effects).forEach(([key, value]) => {
+		hiddenAttributes.set(key, value);
+	});
+}
+
+/** Get a hidden attribute value, or undefined if not set. */
+export function getHiddenAttribute(key: string): number | string | boolean | undefined {
+	return hiddenAttributes.get(key);
+}
+
+/** Check if a hidden attribute exists and matches a specific value. */
+export function hasHiddenAttribute(key: string, value?: number | string | boolean): boolean {
+	if (value === undefined) {
+		return hiddenAttributes.has(key);
+	}
+	return hiddenAttributes.get(key) === value;
+}
+
+/** Set a hidden attribute programmatically (can be used in custom condition functions). */
+export function setHiddenAttribute(key: string, value: number | string | boolean): void {
+	hiddenAttributes.set(key, value);
+}
+
+/** Remove a hidden attribute. */
+export function removeHiddenAttribute(key: string): void {
+	hiddenAttributes.delete(key);
+}
+
+/** Get all hidden attributes as a plain object. */
+export function getAllHiddenAttributes(): Record<string, number | string | boolean> {
+	const result: Record<string, number | string | boolean> = {};
+	hiddenAttributes.forEach((value, key) => {
+		result[key] = value;
+	});
+	return result;
+}
+
+// --- Real-Life Challenge System ---
+
+/** Start a real-life challenge */
+export function startChallenge(challengeId: string, choiceId: string): void {
+	activeChallenges.set(challengeId, {
+		startedAt: Date.now(),
+		choiceId: choiceId
+	});
+}
+
+/** Check if a challenge is currently active */
+export function isChallengeActive(challengeId: string): boolean {
+	return activeChallenges.has(challengeId);
+}
+
+/** Get active challenge details */
+export function getActiveChallenge(challengeId: string): { startedAt: number; choiceId: string; elapsedMinutes: number } | null {
+	const challenge = activeChallenges.get(challengeId);
+	if (!challenge) return null;
+	return {
+		...challenge,
+		elapsedMinutes: Math.floor((Date.now() - challenge.startedAt) / 60000)
+	};
+}
+
+/** Complete a challenge and mark it as verified */
+export function completeChallenge(challengeId: string, challenge: RealLifeChallenge): boolean {
+	if (!activeChallenges.has(challengeId)) {
+		return false;
+	}
+	
+	const active = activeChallenges.get(challengeId)!;
+	const elapsedMinutes = Math.floor((Date.now() - active.startedAt) / 60000);
+	
+	// Check if minimum duration requirement is met
+	if (challenge.durationMinutes && elapsedMinutes < challenge.durationMinutes) {
+		return false;
+	}
+	
+	// Mark as completed
+	completedChallenges.set(challengeId, {
+		completedAt: Date.now(),
+		verified: true
+	});
+	
+	// Apply rewards if any
+	if (challenge.rewards) {
+		if (challenge.rewards.stats) {
+			applyEffects(challenge.rewards.stats);
+		}
+		if (challenge.rewards.hiddenAttributes) {
+			applyHiddenEffects(challenge.rewards.hiddenAttributes);
+		}
+	}
+	
+	// Remove from active challenges
+	activeChallenges.delete(challengeId);
+	
+	return true;
+}
+
+/** Check if a challenge has been completed */
+export function isChallengeCompleted(challengeId: string): boolean {
+	return completedChallenges.has(challengeId);
+}
+
+/** Get all completed challenges */
+export function getCompletedChallenges(): Map<string, { completedAt: number; verified: boolean }> {
+	return new Map(completedChallenges);
+}
+
+/** Get all active challenges */
+export function getActiveChallenges(): Map<string, { startedAt: number; choiceId: string }> {
+	return new Map(activeChallenges);
+}
+
+/** Cancel an active challenge */
+export function cancelChallenge(challengeId: string): void {
+	activeChallenges.delete(challengeId);
 }

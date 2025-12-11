@@ -163,9 +163,13 @@ div.next h5 {
 }
 
 .control-buttons {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   gap: 0.5rem;
   align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .control-buttons button {
@@ -208,16 +212,17 @@ div.next h5 {
 .app-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
 .intro-text {
-  font-size: 1.125rem;
-  line-height: 1.5;
-  flex: 1 1 auto;
-  margin-right: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.7;
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
 }
 
 .choices-section {
@@ -255,9 +260,13 @@ div.next h5 {
 }
 
 .control-buttons {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   gap: 0.5rem;
   align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .control-buttons button {
@@ -399,7 +408,7 @@ div.next h5 {
   color: #333;
 }
 
-/* Debug console styles (grouped UI + collapsed state) */
+/*Debug console styles (grouped UI + collapsed state)*/
 .debug-console {
   position: fixed;
   left: 1rem;
@@ -414,6 +423,11 @@ div.next h5 {
   z-index: 9999;
   font-size: 0.95rem;
   overflow: hidden;
+  visibility: hidden;
+}
+
+.debug-body{
+  visibility: hidden;
 }
 
 .debug-console .debug-header {
@@ -445,7 +459,7 @@ div.next h5 {
   max-height: 50vh;
   overflow: auto;
   background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-}
+} 
 
 /* collapsed: hide the body and reduce shadow/height to header only */
 .debug-console.collapsed .debug-body {
@@ -464,11 +478,6 @@ div.next h5 {
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden !important;
-}
-
-.debug-body .debug-console .collapsed > * {
-  display: none !important;
-  visibility: hidden !important;
 }
 
 /* fieldset groups for clearer structure */
@@ -694,4 +703,286 @@ body .debug-console.collapsed .debug-body * {
   .control-buttons {
     gap: 0.35rem;
   }
+}
+
+/* Real-Life Challenge Styles */
+.choice-challenge {
+  background: linear-gradient(135deg, rgba(255,200,100,0.1), rgba(255,150,50,0.1));
+  border: 2px solid rgba(255,200,100,0.3);
+}
+
+.choice-challenge:hover {
+  background: linear-gradient(135deg, rgba(255,200,100,0.15), rgba(255,150,50,0.15));
+  border-color: rgba(255,200,100,0.5);
+}
+
+.challenge-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+.challenge-progress {
+  font-size: 0.9rem;
+  color: rgba(255,200,100,0.9);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.challenge-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.challenge-modal-content {
+  background: linear-gradient(180deg, rgba(30,30,40,0.98), rgba(20,20,30,0.98));
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,200,100,0.2);
+}
+
+.challenge-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.challenge-type-icon {
+  font-size: 2.5rem;
+}
+
+.challenge-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #ffb347;
+}
+
+.challenge-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.challenge-close:hover {
+  color: #ffb347;
+}
+
+.challenge-body {
+  padding: 1.5rem;
+}
+
+.challenge-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.challenge-instructions,
+.challenge-duration,
+.challenge-checklist,
+.challenge-timer,
+.challenge-rewards {
+  margin-bottom: 1.5rem;
+}
+
+.challenge-instructions h3,
+.challenge-checklist h3,
+.challenge-rewards h3 {
+  color: #ffb347;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.challenge-instructions p {
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+}
+
+.challenge-duration {
+  padding: 0.75rem 1rem;
+  background: rgba(255,200,100,0.1);
+  border-left: 3px solid #ffb347;
+  border-radius: 4px;
+}
+
+.challenge-checklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.challenge-checklist li {
+  margin-bottom: 0.5rem;
+}
+
+.challenge-checklist label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.challenge-checklist label:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.challenge-checklist input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.challenge-timer {
+  padding: 1rem;
+  background: rgba(100,150,255,0.1);
+  border: 1px solid rgba(100,150,255,0.3);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.challenge-timer p {
+  margin: 0.25rem 0;
+  color: rgba(100,200,255,0.9);
+}
+
+.challenge-rewards {
+  padding: 1rem;
+  background: rgba(100,255,150,0.1);
+  border: 1px solid rgba(100,255,150,0.3);
+  border-radius: 8px;
+}
+
+.challenge-rewards p {
+  margin: 0;
+  color: rgba(150,255,200,0.9);
+}
+
+.challenge-footer {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.challenge-btn {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.challenge-start {
+  background: linear-gradient(135deg, #ffb347, #ff8c42);
+  color: #1a1a2e;
+}
+
+.challenge-start:hover {
+  background: linear-gradient(135deg, #ffc266, #ffa561);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,140,66,0.4);
+}
+
+.challenge-complete {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+}
+
+.challenge-complete:hover {
+  background: linear-gradient(135deg, #5fbf63, #4eb851);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76,175,80,0.4);
+}
+
+.challenge-cancel,
+.challenge-cancel-active {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.challenge-cancel:hover,
+.challenge-cancel-active:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.toast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 2000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.toast-success {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+}
+
+.toast-error {
+  background: linear-gradient(135deg, #f44336, #da190b);
+  color: white;
+}
+
+.toast-info {
+  background: linear-gradient(135deg, #2196F3, #0b7dda);
+  color: white;
 }
