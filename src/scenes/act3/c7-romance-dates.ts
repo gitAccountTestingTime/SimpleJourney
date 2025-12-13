@@ -2,17 +2,57 @@ import { Scene } from '../../story-manager';
 
 // Romance Date Scenes - Intimate bonding moments
 
+const hilltopStars = `Lyra takes you to a hilltop far from the palace, away from city lights. The stars are breathtaking, stretching across the sky in brilliant swaths.`;
+
+const elfNavigation = `"Elves navigate by stars," Lyra explains softly. "Every constellation tells a story spanning millennia. See there?" She points. "The Wanderer's Path. It's been guiding lost travelers for five thousand years."`;
+
+const closeProximity = `She's closer to you than usual, her shoulder touching yours as you both lie on the grass looking up. "There's a constellation my people call the Eternal Dance," she continues. "Two stars orbiting each other, bound by gravity across the void."`;
+
+const soulStars = `Lyra turns to look at you, starlight reflecting in her eyes. "Ancient elves believed that some souls are like those stars. Destined to orbit each other, drawn together by forces greater than themselves." Her voice drops to a whisper. "I used to think that was romantic nonsense. But then I met you."`;
+
+const momentStretches = `The moment stretches between you, filled with possibility and the sound of night wind through grass.`;
+
 export const LyraStargazing: Scene = {
 	id: 'lyra_stargazing',
-	text: `Lyra takes you to a hilltop far from the palace, away from city lights. The stars are breathtaking, stretching across the sky in brilliant swaths.
+	text: `${hilltopStars}
 
-"Elves navigate by stars," Lyra explains softly. "Every constellation tells a story spanning millennia. See there?" She points. "The Wanderer's Path. It's been guiding lost travelers for five thousand years."
+${elfNavigation}
 
-She's closer to you than usual, her shoulder touching yours as you both lie on the grass looking up. "There's a constellation my people call the Eternal Dance," she continues. "Two stars orbiting each other, bound by gravity across the void."
+${closeProximity}
 
-Lyra turns to look at you, starlight reflecting in her eyes. "Ancient elves believed that some souls are like those stars. Destined to orbit each other, drawn together by forces greater than themselves." Her voice drops to a whisper. "I used to think that was romantic nonsense. But then I met you."
+${soulStars}
 
-The moment stretches between you, filled with possibility and the sound of night wind through grass.`,
+${momentStretches}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['blood_magic_training:true', 'lyra_teaches_magic:true'], hasHiddenAttributes: { lyra_respect: 40 } },
+			text: `${hilltopStars}
+
+Lyra's hand finds yours as you lie in the grass together. "We've shared so much. I taught you blood magic - the deepest secrets of my people. You trusted me with your very essence."
+
+${elfNavigation}
+
+"Teaching you magic created a bond," she says softly. "Elves don't share that knowledge lightly. It requires complete trust, complete intimacy." ${closeProximity.slice(56)}
+
+${soulStars}
+
+${momentStretches}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { lyra_romance: 50 } },
+			text: `${hilltopStars}
+
+${elfNavigation}
+
+Lyra takes your hand deliberately, fingers interlacing with yours. "We've been dancing around this for so long. The tension, the almost-moments, the way we look at each other."
+
+${closeProximity}
+
+She shifts closer, her breath warm against your ear. "I'm an elf. I've lived two hundred years. I know what love feels like, and I know what we have is real." ${soulStars.slice(64)}
+
+"No more hesitation," she whispers. ${momentStretches.slice(4)}`
+		}
+	],
 	choices: [
 		{
 			id: 'kiss',
@@ -51,17 +91,59 @@ The moment stretches between you, filled with possibility and the sound of night
 	]
 };
 
+const campingTrip = `Rowan suggests a camping trip - just the two of you, in the deep wilderness beyond civilization. No palace politics, no schemes, just survival and freedom.`;
+
+const campfireRelaxed = `The first night, sitting by the campfire, Rowan is more relaxed than you've ever seen them. They've caught fish for dinner and are expertly preparing them over the flames.`;
+
+const realSelf = `"This is who I really am," Rowan says, gazing into the fire. "Not the formal royal guardian. Just someone who loves the wild, loves freedom, loves the simplicity of fire and stars and honest work."`;
+
+const seeingReal = `They look at you across the flames. "When I'm with you out here, I don't have to be anyone's protector or anyone's soldier. I can just... be." Their smile is genuine, unguarded. "You see the real me. Not many people do."`;
+
+const sharedBlankets = `Later, under shared blankets against the cold, Rowan's hand finds yours. "I've never wanted to tie myself to anyone," they admit quietly. "Always needed to stay free. But with you... freedom feels different. Like maybe being together could be its own kind of freedom."`;
+
 export const RowanWilderness: Scene = {
 	id: 'rowan_wilderness',
-	text: `Rowan suggests a camping trip - just the two of you, in the deep wilderness beyond civilization. No palace politics, no schemes, just survival and freedom.
+	text: `${campingTrip}
 
-The first night, sitting by the campfire, Rowan is more relaxed than you've ever seen them. They've caught fish for dinner and are expertly preparing them over the flames.
+${campfireRelaxed}
 
-"This is who I really am," Rowan says, gazing into the fire. "Not the formal royal guardian. Just someone who loves the wild, loves freedom, loves the simplicity of fire and stars and honest work."
+${realSelf}
 
-They look at you across the flames. "When I'm with you out here, I don't have to be anyone's protector or anyone's soldier. I can just... be." Their smile is genuine, unguarded. "You see the real me. Not many people do."
+${seeingReal}
 
-Later, under shared blankets against the cold, Rowan's hand finds yours. "I've never wanted to tie myself to anyone," they admit quietly. "Always needed to stay free. But with you... freedom feels different. Like maybe being together could be its own kind of freedom."`,
+${sharedBlankets}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['rowan_origins_visited:true', 'promised_change:true'], hasHiddenAttributes: { rowan_bond: 50 } },
+			text: `${campingTrip}
+
+Rowan leads you through wilderness paths with easy confidence. "You came with me to my destroyed village. Saw where I came from, what shaped me." Their voice softens. "Now I want to share what heals me. The wild places where I find peace."
+
+${campfireRelaxed}
+
+${realSelf}
+
+"You promised to change the system that failed my family," Rowan says. "You saw my pain and didn't turn away." ${seeingReal.slice(36)}
+
+${sharedBlankets}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { rowan_romance: 55 } },
+			text: `${campingTrip}
+
+${campfireRelaxed}
+
+Rowan looks at you with open affection. "I've been waiting for this. Time alone with you, away from duties and roles."
+
+${realSelf}
+
+${seeingReal}
+
+${sharedBlankets}
+
+Their thumb traces circles on your hand. "I love you. I've been trying not to, trying to stay professional, but I can't anymore." Their eyes search yours. "Tell me you feel it too."`
+		}
+	],
 	choices: [
 		{
 			id: 'confession',
@@ -103,19 +185,63 @@ Later, under shared blankets against the cold, Rowan's hand finds yours. "I've n
 	]
 };
 
+const morningSparring = `Kieran invites you to private sparring sessions in the early morning, before the rest of the palace wakes. It's become a ritual - just the two of you, trading blows in the training yard as dawn breaks.`;
+
+const collapseGround = `Today, after a particularly intense bout, you both collapse on the ground, breathing hard and laughing. Kieran's usual stern composure is gone, replaced by genuine joy.`;
+
+const gettingGood = `"You're getting good," Kieran admits, still catching their breath. "Really good. You almost had me there."`;
+
+const favoriteTime = `They turn their head to look at you, both of you still lying on the ground. "These mornings... they're my favorite part of the day. No duties, no watching over my shoulder, just..." They trail off, their hand moving closer to yours on the ground.`;
+
+const justUs = `"Just us," Kieran finishes quietly. "No captain and heir. Just two people who..." Their jaw tightens, as if they're fighting some internal battle. "I'm trying to maintain professional distance. But it's getting harder every day."`;
+
+const vulnerability = `Their fingers brush against yours. "Tell me to stop. Tell me this is inappropriate, and I'll lock these feelings away. Or..." They meet your eyes, vulnerable and hopeful. "Or tell me you feel it too."`;
+
 export const KieranSparring: Scene = {
 	id: 'kieran_sparring',
-	text: `Kieran invites you to private sparring sessions in the early morning, before the rest of the palace wakes. It's become a ritual - just the two of you, trading blows in the training yard as dawn breaks.
+	text: `${morningSparring}
 
-Today, after a particularly intense bout, you both collapse on the ground, breathing hard and laughing. Kieran's usual stern composure is gone, replaced by genuine joy.
+${collapseGround}
 
-"You're getting good," Kieran admits, still catching their breath. "Really good. You almost had me there."
+${gettingGood}
 
-They turn their head to look at you, both of you still lying on the ground. "These mornings... they're my favorite part of the day. No duties, no watching over my shoulder, just..." They trail off, their hand moving closer to yours on the ground.
+${favoriteTime}
 
-"Just us," Kieran finishes quietly. "No captain and heir. Just two people who..." Their jaw tightens, as if they're fighting some internal battle. "I'm trying to maintain professional distance. But it's getting harder every day."
+${justUs}
 
-Their fingers brush against yours. "Tell me to stop. Tell me this is inappropriate, and I'll lock these feelings away. Or..." They meet your eyes, vulnerable and hopeful. "Or tell me you feel it too."`,
+${vulnerability}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['kieran_dilemma_resolved:true', 'stood_with_kieran:true'], hasHiddenAttributes: { kieran_loyalty: 55 } },
+			text: `${morningSparring}
+
+${collapseGround}
+
+Kieran's expression softens with deep emotion. "You stood with me when I faced my uncle. Helped me navigate the impossible choice between family and duty."
+
+${gettingGood}
+
+"You've proven I can trust you with everything," Kieran says. "My loyalty, my heart, my future." ${favoriteTime.slice(51)}
+
+${justUs}
+
+${vulnerability}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { kieran_romance: 60 } },
+			text: `${morningSparring}
+
+${collapseGround}
+
+Kieran reaches out, brushing sweat-dampened hair from your forehead with surprising tenderness. "I've been in love with you for weeks. Maybe longer."
+
+${gettingGood}
+
+Their hand cups your cheek. "I know all the reasons this is complicated. But I don't care anymore." ${favoriteTime.slice(51)}
+
+"I need you to know," Kieran says urgently. "Not as captain to heir. Not as bodyguard to charge. As Kieran to you. I'm completely, hopelessly in love with you."`
+		}
+	],
 	choices: [
 		{
 			id: 'kiss',
@@ -158,21 +284,69 @@ Their fingers brush against yours. "Tell me to stop. Tell me this is inappropria
 	]
 };
 
+const restrictedArchives = `Sage invites you to explore a restricted section of the royal archives - ancient texts most people never see. Their excitement is infectious as they shows you rare manuscripts and forgotten histories.`;
+
+const ancientManuscript = `"Look at this!" Sage exclaims, carefully opening a leather-bound tome. "It's a first-hand account of the kingdom's founding. Written by Queen Lyanna herself!"`;
+
+const sagePassion = `They're so animated, so genuinely passionate about knowledge, that you can't help but smile. Sage notices and blushes slightly.`;
+
+const apology = `"Sorry, I'm probably boring you," they say, embarrassed. "I get too enthusiastic about books."`;
+
+const reassurance = `You assure them it's not boring at all. Sage's smile brightens the dim archives.`;
+
+const sageCloseProximity = `"You're the only person who doesn't think I'm strange for loving this stuff," Sage says softly, moving closer. "Most nobles think scholarship is boring or unimportant. But you actually listen when I talk about history and magic and..." They trail off, realizing how close you've gotten.`;
+
+const blurtedConfession = `"I'm falling in love with you," Sage blurts out, then immediately looks mortified. "I mean - I know I'm not exciting like the other companions. I'm just a scholar who rambles about books. But I can't help how I feel."`;
+
 export const SageLibraryDate: Scene = {
 	id: 'sage_library_date',
-	text: `Sage invites you to explore a restricted section of the royal archives - ancient texts most people never see. Their excitement is infectious as they shows you rare manuscripts and forgotten histories.
+	text: `${restrictedArchives}
 
-"Look at this!" Sage exclaims, carefully opening a leather-bound tome. "It's a first-hand account of the kingdom's founding. Written by Queen Lyanna herself!"
+${ancientManuscript}
 
-They're so animated, so genuinely passionate about knowledge, that you can't help but smile. Sage notices and blushes slightly.
+${sagePassion}
 
-"Sorry, I'm probably boring you," they say, embarrassed. "I get too enthusiastic about books."
+${apology}
 
-You assure them it's not boring at all. Sage's smile brightens the dim archives.
+${reassurance}
 
-"You're the only person who doesn't think I'm strange for loving this stuff," Sage says softly, moving closer. "Most nobles think scholarship is boring or unimportant. But you actually listen when I talk about history and magic and..." They trail off, realizing how close you've gotten.
+${sageCloseProximity}
 
-"I'm falling in love with you," Sage blurts out, then immediately looks mortified. "I mean - I know I'm not exciting like the other companions. I'm just a scholar who rambles about books. But I can't help how I feel."`,
+${blurtedConfession}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['values_knowledge:true', 'intellectual_pursuits:true'] },
+			text: `${restrictedArchives}
+
+Sage's eyes light up when they see your genuine interest. "You actually care about this! Not just tolerating it, but truly fascinated." They beam with joy.
+
+${ancientManuscript}
+
+"You've always valued knowledge," Sage says warmly. "Asked deep questions, pursued understanding. That's... that's incredibly attractive." They blush at their own words.
+
+${sagePassion}
+
+${apology}
+
+You remind them of conversations you've had, intellectual debates you've enjoyed. ${reassurance.slice(45)}
+
+${sageCloseProximity}
+
+${blurtedConfession}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { sage_affection: 50 } },
+			text: `${restrictedArchives}
+
+${ancientManuscript}
+
+${sagePassion}
+
+Sage suddenly takes your hand, nervous but determined. "I need to tell you something before I lose my courage."
+
+"You make me feel seen," they say earnestly. "Not as 'boring Sage' or 'the scholar.' As a person worth knowing, worth... loving." They meet your eyes. "And I do. Love you. Completely."`
+		}
+	],
 	choices: [
 		{
 			id: 'love-return',

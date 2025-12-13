@@ -1,13 +1,57 @@
 import { Scene } from '../../story-manager';
 
+const companionReady = `With fragments of the Crystal Heart in your possession, your companions begin to open up about their own struggles and dreams. Each carries burdens, secrets, and hopes for the future.`;
+
+const valeRequest = `Vale approaches you one evening. "I need your help with something personal," they say quietly. "It's about my past - and the spy network that's been using me. I need to decide who I truly serve."`;
+
+const bondDepth = `Your bonds with your companions have grown deep. Their personal stories matter as much as the kingdom's fate.`;
+
 // Sample Companion Personal Quest - Vale
 export const CompanionPersonalQuests: Scene = {
 	id: 'companion_personal_quests',
-	text: `With fragments of the Crystal Heart in your possession, your companions begin to open up about their own struggles and dreams. Each carries burdens, secrets, and hopes for the future.
+	text: `${companionReady}
 
-Vale approaches you one evening. "I need your help with something personal," they say quietly. "It's about my past - and the spy network that's been using me. I need to decide who I truly serve."
+${valeRequest}
 
-Your bonds with your companions have grown deep. Their personal stories matter as much as the kingdom's fate.`,
+${bondDepth}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['companions_most_important:true', 'independent_path_confirmed:true'] },
+			text: `${companionReady}
+
+Your independent path has meant putting companions first. They've noticed, and their trust in you is absolute.
+
+${valeRequest}
+
+There's no hesitation in your response - of course you'll help. That's who you are.
+
+${bondDepth}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { vale_trust: 25 } },
+			text: `${companionReady}
+
+Vale approaches nervously, clearly struggling with vulnerability. You've earned their trust completely, but this confession is difficult.
+
+"I need your help with something personal," they say quietly. "It's about my past - and the spy network that's been using me. I've been carrying this secret too long."
+
+They meet your eyes. "I trust you. Completely. Will you help me break free?"
+
+${bondDepth}`
+		},
+		{
+			conditions: { hasFlags: ['reformist_path_confirmed:true'], hasHiddenAttributes: { vale_trust: 20 } },
+			text: `${companionReady}
+
+Vale's Reformist background makes this conversation loaded. You chose their faction, but that doesn't mean you own their loyalty.
+
+${valeRequest}
+
+"I know you support the Reformists," they add. "But this is about me choosing for myself, not because of politics. Will you support that?"
+
+${bondDepth}`
+		}
+	],
 	choices: [
 		{
 			id: 'vale-quest',
@@ -40,24 +84,52 @@ Your bonds with your companions have grown deep. Their personal stories matter a
 	]
 };
 
+const safehouseConfrontation = `Vale leads you to a secret Reformist safehouse. Inside, their handler waits - a cold, calculating woman who sees Vale as a tool, nothing more.`;
+
+const handlerDismissal = `"Your mission is complete," she tells Vale dismissively. "The heir supports our cause. You're reassigned."`;
+
+const valeDefiance = `Vale's face hardens. "No. I'm staying with them. Not as a spy - as a companion."`;
+
+const handlerThreat = `The handler's eyes narrow. "That wasn't a request, Agent. You have your orders."`;
+
+const choiceMoment = `This is the moment Vale has been dreading - choosing between duty and friendship, between the cause they believed in and the person they've come to care for.`;
+
+const valeChoice = `Vale looks to you, seeking strength. "I choose them," they say firmly. "Find another spy."`;
+
 export const ValePersonalQuest: Scene = {
 	id: 'vale_personal_quest',
-	text: `Vale leads you to a secret Reformist safehouse. Inside, their handler waits - a cold, calculating woman who sees Vale as a tool, nothing more.
+	text: `${safehouseConfrontation}
 
-"Your mission is complete," she tells Vale dismissively. "The heir supports our cause. You're reassigned."
+${handlerDismissal}
 
-Vale's face hardens. "No. I'm staying with them. Not as a spy - as a companion."
+${valeDefiance}
 
-The handler's eyes narrow. "That wasn't a request, Agent. You have your orders."
+${handlerThreat}
 
-This is the moment Vale has been dreading - choosing between duty and friendship, between the cause they believed in and the person they've come to care for.
+${choiceMoment}
 
-Vale looks to you, seeking strength. "I choose them," they say firmly. "Find another spy."`,
+${valeChoice}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { vale_romance: 30 }
-			},
+			conditions: { hasFlags: ['reformist_path_confirmed:true', 'vale_chooses_player_freely:true'] },
+			text: `${safehouseConfrontation}
+
+The handler's surprise is evident. "You chose the Reformists. Vale's mission succeeded. Why is this even a question?"
+
+Vale steps forward. "Because I'm choosing them as a person, not because they picked the 'right' faction. They let me choose freely - now I'm choosing them."
+
+${handlerDismissal}
+
+${valeDefiance}
+
+${handlerThreat}
+
+${choiceMoment}
+
+Vale's hand finds yours. "I choose them," they say firmly, eyes on you. "Not the Reformists. Them."`
+		},
+		{
+			conditions: { hasHiddenAttributes: { vale_romance: 30 } },
 			text: `Vale leads you to the safehouse, their hand tight in yours. When their handler tries to reassign them, Vale doesn't hesitate.
 
 "I'm not your agent anymore," Vale says clearly. "I'm theirs. Completely. Because what I feel for them... it's real. More real than any cause or mission."
@@ -67,6 +139,22 @@ They turn to you, eyes vulnerable. "I choose you. Always you."
 The handler's expression sours, but she can't force loyalty. "You're making a mistake, Agent."
 
 "No," Vale says softly, looking at you. "For once, I'm making the right choice."`
+		},
+		{
+			conditions: { hasFlags: ['loyalist_path_confirmed:true'], hasHiddenAttributes: { vale_trust: 25 } },
+			text: `${safehouseConfrontation}
+
+${handlerDismissal}
+
+Vale shakes their head. "You wanted me to spy on them. But they chose the Loyalists - opposite of our cause. And yet..." They look at you. "I still choose them. Because it's not about politics anymore."
+
+The handler's face hardens. "You're betraying the Reformist cause for a traditional monarch?"
+
+"No," Vale says quietly. "I'm choosing a person I trust over a cause that uses people as pawns. There's a difference."
+
+${choiceMoment}
+
+${valeChoice}`
 		}
 	],
 	choices: [

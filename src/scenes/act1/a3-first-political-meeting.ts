@@ -1,20 +1,56 @@
 import { Scene } from '../../story-manager';
 
+const meetingSetup = `Agent Thorne has arranged a meeting at the manor - representatives from all three factions wish to meet the returned heir. You stand in the formal dining room, feeling the weight of expectation.
+
+Lady Seraphine Ashford represents the Loyalists - composed, elegant, every inch a noble. Lord Marcus Pembroke speaks for the Reformists - older, dignified, watching you with calculating interest. General Victor Blackwood commands the Military faction - imposing, scarred, radiating controlled power.`;
+
+const seraphineOpening = `Seraphine speaks first: "Your Highness, we have waited twenty years for this moment. The question now is: what kind of ruler will you become?"`;
+
 export const FirstPoliticalMeeting: Scene = {
 	id: 'first_political_meeting',
-	text: `Agent Thorne has arranged a meeting at the manor - representatives from all three factions wish to meet the returned heir. You stand in the formal dining room, feeling the weight of expectation.
-
-Lady Seraphine Ashford represents the Loyalists - composed, elegant, every inch a noble. Lord Marcus Pembroke speaks for the Reformists - older, dignified, watching you with calculating interest. General Victor Blackwood commands the Military faction - imposing, scarred, radiating controlled power.
+	text: `${meetingSetup}
 
 Behind you, Rowan stands as official guardian. But your prologue companions are here too - Vale, Ash, Rook, and possibly Whisper. Their presence in this formal setting is a statement about who you choose to be.
 
-Seraphine speaks first: "Your Highness, we have waited twenty years for this moment. The question now is: what kind of ruler will you become?"`,
+${seraphineOpening}`,
 	textVariants: [
+		{
+			conditions: { hasFlags: ['rowan_bond:12', 'companions_integrated:true'] },
+			text: `${meetingSetup}
+
+Rowan stands beside you, but not behind - you made it clear your guardian is part of your inner circle. Your other companions from the prologue are integrated seamlessly, each bringing different perspectives.
+
+The faction representatives notice this arrangement immediately. You've made a statement: your loyalty to friends won't change with your title.
+
+${seraphineOpening} Her eyes note the unconventional arrangement with interest.`
+		},
+		{
+			conditions: { hasFlags: ['rowan_respects_independence:true', 'independent_streak:true'] },
+			text: `${meetingSetup}
+
+Rowan stands at a respectful distance - you questioned whether you needed protection, and they respected that independence. You face the faction leaders on your own terms.
+
+The representatives see someone who won't be easily controlled. Good.
+
+${seraphineOpening} There's approval in her eyes for your self-assured stance.`
+		},
+		{
+			conditions: { hasFlags: ['rowan_shares_past:true', 'cultural_curiosity:true'] },
+			text: `${meetingSetup}
+
+Rowan stands as your guardian, and your earlier conversation about their heritage has created a bond. They're not just protection - they're an advisor on matters of magic and nature.
+
+The faction representatives note the easy rapport between you and your half-elf guardian. You're building bridges, not walls.
+
+${seraphineOpening}`
+		},
 		{
 			conditions: {
 				hasHiddenAttributes: { vale_trust: 20 }
 			},
-			text: `Agent Thorne has arranged a meeting at the manor. As the faction representatives assemble, Vale leans close and whispers intelligence in your ear.
+			text: `${meetingSetup}
+
+Behind you, Rowan stands as official guardian. But your prologue companions are here too, and Vale leans close to whisper intelligence in your ear.
 
 "Seraphine is genuine but bound by tradition. Pembroke is idealistic but politically naive. Blackwood is dangerous - notice how his nephew Kieran stands behind him, conflicted."
 

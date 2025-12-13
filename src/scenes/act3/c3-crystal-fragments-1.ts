@@ -1,21 +1,43 @@
 import { Scene } from '../../story-manager';
 
+const shadowInterrogation = `The assassin - a woman named Shadow - sits in the secure room, defiant despite her chains. She's professional enough to accept capture with grace, but reveals nothing easily.`;
+
+const shadowDefiance = `"You want to know who hired me?" she says coldly. "Political factions don't leave receipts, Your Highness."`;
+
+const shadowShift = `But as you talk, something shifts. Your choices matter - mercy or cruelty, understanding or condemnation. Shadow is a person, not just a weapon. Someone broken by circumstances, trained to kill, never shown another path.`;
+
+const factionBetrayal = `Evidence suggests faction betrayal - but which faction depends on your alliances. Someone fears you enough to want you dead.`;
+
 // Act 3 - Interrogation and Crystal Quest Beginning
 
 export const AssassinConfession: Scene = {
 	id: 'assassin_confession',
-	text: `The assassin - a woman named Shadow - sits in the secure room, defiant despite her chains. She's professional enough to accept capture with grace, but reveals nothing easily.
+	text: `${shadowInterrogation}
 
-"You want to know who hired me?" she says coldly. "Political factions don't leave receipts, Your Highness."
+${shadowDefiance}
 
-But as you talk, something shifts. Your choices matter - mercy or cruelty, understanding or condemnation. Shadow is a person, not just a weapon. Someone broken by circumstances, trained to kill, never shown another path.
+${shadowShift}
 
-Evidence suggests faction betrayal - but which faction depends on your alliances. Someone fears you enough to want you dead.`,
+${factionBetrayal}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { compassion_for_people: 15 }
-			},
+			conditions: { hasFlags: ['helped_commoners:true', 'compassion_for_people:10'] },
+			text: `${shadowInterrogation}
+
+Shadow watches you warily, expecting torture or execution. Instead, you speak to her as a person - the same way you spoke to struggling commoners in the market.
+
+"How did you become an assassin?" you ask.
+
+She's caught off-guard. "Does it matter?"
+
+"Yes," you say simply. "Because I can see you're more than just a killer."
+
+For the first time, her mask cracks. "I was twelve when the assassins' guild took me off the streets. They offered food, shelter, purpose. I didn't know there were other choices." She looks away. "By the time I realized, I'd done things that couldn't be undone."
+
+${factionBetrayal}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { compassion_for_people: 15 } },
 			text: `Shadow watches you warily, expecting torture or execution. Instead, you speak to her as a person.
 
 "How did you become an assassin?" you ask.
@@ -25,6 +47,38 @@ She's caught off-guard. "Does it matter?"
 "Yes," you say simply. "Because I can see you're more than just a killer."
 
 For the first time, her mask cracks. "I was twelve when the assassins' guild took me off the streets. They offered food, shelter, purpose. I didn't know there were other choices." She looks away. "By the time I realized, I'd done things that couldn't be undone."`
+		},
+		{
+			conditions: { hasFlags: ['military_path_confirmed:true', 'pragmatic_ruler:true'] },
+			text: `${shadowInterrogation}
+
+Kieran stands beside you during the interrogation. "Professional work," he observes coldly. "Military-trained, possibly one of the elite units before they went rogue."
+
+${shadowDefiance}
+
+Shadow's eyes flick to Kieran. "You know the type. We follow orders, complete missions. Personal feelings don't matter."
+
+"They should," you say, surprising both of them. "You're still a person, not just a weapon."
+
+Shadow looks genuinely confused by your compassion despite your military alliance.
+
+${factionBetrayal}`
+		},
+		{
+			conditions: { hasFlags: ['reformist_path_confirmed:true', 'progressive_ruler:true'] },
+			text: `${shadowInterrogation}
+
+Sage watches the interrogation with scholarly interest. "The assassins' guild recruits from the desperate," he murmurs. "Street children, orphans, those society abandoned. The Reformists want to change that."
+
+${shadowDefiance}
+
+You lean forward. "What if there was another way? What if we could offer people like you real choices, not just survival or death?"
+
+Shadow's defiance wavers. "Nice dream. Doesn't work in the real world."
+
+"Let me prove it does," you say. "Starting with you."
+
+${factionBetrayal}`
 		}
 	],
 	choices: [
@@ -93,13 +147,11 @@ For the first time, her mask cracks. "I was twelve when the assassins' guild too
 	]
 };
 
-export const CrystalQuestBegins: Scene = {
-	id: 'crystal_quest_begins',
-	text: `In the royal archives, Lyra spreads ancient texts before you. Her expression is grave.
+const lyraArchives = `In the royal archives, Lyra spreads ancient texts before you. Her expression is grave.`;
 
-"The Crystal Heart was shattered twenty years ago," she explains. "Five fragments scattered across the realm. Without it, the barrier between our world and the Shadowrealm weakens daily. Eventually, it will collapse completely."
+const crystalHistory = `"The Crystal Heart was shattered twenty years ago," she explains. "Five fragments scattered across the realm. Without it, the barrier between our world and the Shadowrealm weakens daily. Eventually, it will collapse completely."`;
 
-She points to locations on a map:
+const fragmentLocations = `She points to locations on a map:
 
 "The **Elven Fragment** rests with my people in Moonwhisper Grove. They won't surrender it easily - not after centuries of human betrayal.
 
@@ -109,9 +161,61 @@ The **Dragon Fragment** is guarded by Thorne Drake and his kin in Dragon's Spine
 
 The **Fae Fragment** lies within the Shimmerwood, where reality bends to their whims and truth is currency.
 
-The **Merfolk Fragment** rests beneath the waves in the Coral Palace. The sea-folk are angry about surface-dwellers harming their waters."
+The **Merfolk Fragment** rests beneath the waves in the Coral Palace. The sea-folk are angry about surface-dwellers harming their waters."`;
 
-She meets your eyes. "Each fragment requires not just retrieval, but earning the trust of its guardians. This journey will test everything you are."`,
+const lyraChallenge = `She meets your eyes. "Each fragment requires not just retrieval, but earning the trust of its guardians. This journey will test everything you are."`;
+
+export const CrystalQuestBegins: Scene = {
+	id: 'crystal_quest_begins',
+	text: `${lyraArchives}
+
+${crystalHistory}
+
+${fragmentLocations}
+
+${lyraChallenge}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['shadow_spared:true', 'merciful_leader:true'] },
+			text: `${lyraArchives}
+
+Lyra studies you with new respect. "You showed mercy to the assassin. Compassion even to those who tried to harm you." She pauses. "That will matter when you face the magical races. They judge hearts, not just words."
+
+${crystalHistory}
+
+${fragmentLocations}
+
+"Your mercy has already opened doors," she says. "Use that compassion wisely."`
+		},
+		{
+			conditions: { hasFlags: ['magical_races_priority:true', 'diplomatic_focus:true'] },
+			text: `${lyraArchives}
+
+She smiles slightly. "You prioritized alliance with magical races from the beginning. That foresight will serve you now."
+
+${crystalHistory}
+
+${fragmentLocations}
+
+"You already understand what matters: respect, genuine alliance, not just human politics. My people will see that."
+
+${lyraChallenge}`
+		},
+		{
+			conditions: { hasFlags: ['independent_path_confirmed:true', 'chosen_own_path:true'] },
+			text: `${lyraArchives}
+
+"Your independent path has earned curiosity, if not yet trust," Lyra says. "The magical races appreciate that you rejected human faction games."
+
+${crystalHistory}
+
+${fragmentLocations}
+
+"Prove your independence was about the realm, not personal power, and they'll listen."
+
+${lyraChallenge}`
+		}
+	],
 	choices: [
 		{
 			id: 'diplomatic',
@@ -162,22 +266,78 @@ She meets your eyes. "Each fragment requires not just retrieval, but earning the
 	]
 };
 
+const groveBeauty = `Moonwhisper Grove is breathtaking. Ancient trees sing with magic, their branches forming living cathedrals. The air itself shimmers with enchantment. This is the heart of elven civilization, and you're the first human allowed here in decades.`;
+
+const councilAssembles = `The Elven Council assembles. Lyra presents you formally, but their faces are cold, skeptical. The eldest speaks: "We remember human treachery. We remember broken promises. Why should we trust you with a fragment of the Crystal Heart?"`;
+
+const painfulHistory = `Another elder adds: "During the last war, humans slaughtered an entire elven settlement for resources. Lyra lost her entire magical circle. We do not forget."`;
+
+const lyraSupport = `Lyra stands beside you, supportive but silent. This is your test to pass.`;
+
+const trialOffer = `"We offer three trials," the eldest continues. "Choose one. Pass it, and we will consider your worthiness. Fail, and you leave empty-handed - if you leave at all."`;
+
 export const MoonwhisperTrial: Scene = {
 	id: 'moonwhisper_trial',
-	text: `Moonwhisper Grove is breathtaking. Ancient trees sing with magic, their branches forming living cathedrals. The air itself shimmers with enchantment. This is the heart of elven civilization, and you're the first human allowed here in decades.
+	text: `${groveBeauty}
 
-The Elven Council assembles. Lyra presents you formally, but their faces are cold, skeptical. The eldest speaks: "We remember human treachery. We remember broken promises. Why should we trust you with a fragment of the Crystal Heart?"
+${councilAssembles}
 
-Another elder adds: "During the last war, humans slaughtered an entire elven settlement for resources. Lyra lost her entire magical circle. We do not forget."
+${painfulHistory}
 
-Lyra stands beside you, supportive but silent. This is your test to pass.
+${lyraSupport}
 
-"We offer three trials," the eldest continues. "Choose one. Pass it, and we will consider your worthiness. Fail, and you leave empty-handed - if you leave at all."`,
+${trialOffer}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { lyra_respect: 25 }
-			},
+			conditions: { hasFlags: ['humble:true', 'cultural_humility:true', 'learning_blood_magic:true'] },
+			text: `${groveBeauty}
+
+Your humble approach when first meeting Lyra has not been forgotten. The Council knows you accepted their teaching with respect.
+
+${councilAssembles}
+
+The eldest studies you. "Lyra says you learned from her with humility rare in humans. That you honored our ways rather than demanding accommodation."
+
+${painfulHistory}
+
+${lyraSupport} But there's warmth in her eyes - your respect matters.
+
+"We will test you," the eldest says, "but we do so with hope, not just skepticism."`
+		},
+		{
+			conditions: { hasFlags: ['rowan-help:true', 'team_approach:true', 'cultural_awareness:true'] },
+			text: `${groveBeauty}
+
+Rowan walks beside you, their elven heritage evident in how they move through the grove. The elves notice.
+
+${councilAssembles}
+
+"You brought Rowan Thornheart," an elder observes. "Half-elven, raised by humans, yet you value their connection to both worlds. That shows wisdom."
+
+${painfulHistory}
+
+Rowan squeezes your hand supportively. Your collaboration has impressed them.
+
+${trialOffer}`
+		},
+		{
+			conditions: { hasFlags: ['magical_races_priority:true', 'diplomatic_focus:true'] },
+			text: `${groveBeauty}
+
+Word of your commitment to the magical races has reached even here. The Council's coldness is tempered by curiosity.
+
+${councilAssembles}
+
+"We have heard," the eldest says carefully, "that you rejected human faction politics to build genuine alliance with our peoples. If true, that changes much."
+
+${painfulHistory}
+
+${lyraSupport}
+
+"Prove your intentions are genuine," the eldest continues, "and we may offer more than just a fragment. We may offer true partnership."`
+		},
+		{
+			conditions: { hasHiddenAttributes: { lyra_respect: 25 } },
 			text: `The Elven Council is cold, but when Lyra speaks on your behalf, her voice carries weight.
 
 "I have traveled with this one," she says. "I have seen their heart. They are not like the humans who came before." She meets your eyes. "I stake my reputation - my very honor - on their worthiness."

@@ -73,7 +73,7 @@ Tears threaten but she fights them with practiced control. Old habits.`
 		{
 			id: 'share-own-struggle',
 			text: 'Share your own struggle with expectations and masks',
-			next: 'seraphine_bonding_2',
+			next: 'kingdom_briefing',
 			effects: { empathy: 6, wisdom: 4 },
 			hiddenEffects: {
 				seraphine_bond: 22,
@@ -85,7 +85,7 @@ Tears threaten but she fights them with practiced control. Old habits.`
 		{
 			id: 'discover-together',
 			text: 'Offer to discover who "just Seraphine" is together',
-			next: 'seraphine_bonding_2',
+			next: 'kingdom_briefing',
 			effects: { charisma: 5, empathy: 4 },
 			hiddenEffects: {
 				seraphine_bond: 20,
@@ -97,7 +97,7 @@ Tears threaten but she fights them with practiced control. Old habits.`
 		{
 			id: 'affirm-worth',
 			text: 'Affirm her worth beyond diplomatic utility',
-			next: 'seraphine_bonding_2',
+			next: 'kingdom_briefing',
 			effects: { empathy: 5, charisma: 4 },
 			hiddenEffects: {
 				seraphine_bond: 18,
@@ -108,7 +108,7 @@ Tears threaten but she fights them with practiced control. Old habits.`
 		{
 			id: 'break-protocol',
 			text: 'Break protocol deliberately - do something improper together',
-			next: 'seraphine_bonding_2',
+			next: 'kingdom_briefing',
 			effects: { courage: 5, charisma: 5 },
 			hiddenEffects: {
 				seraphine_bond: 20,
@@ -222,7 +222,7 @@ The confession is raw, vulnerable, everything Seraphine has been trained never t
 		{
 			id: 'comfort-her',
 			text: 'Hold her and insist her worth isn\'t about perfection',
-			next: 'seraphine_relationship_resolution',
+			next: 'kieran_dilemma',
 			effects: { empathy: 7, charisma: 4 },
 			hiddenEffects: {
 				seraphine_bond: 25,
@@ -234,7 +234,7 @@ The confession is raw, vulnerable, everything Seraphine has been trained never t
 		{
 			id: 'confess-feelings',
 			text: 'Confess that you care about her, not her diplomacy',
-			next: 'seraphine_romance_path',
+			next: 'kieran_dilemma',
 			effects: { charisma: 6, empathy: 5 },
 			hiddenEffects: {
 				seraphine_bond: 30,
@@ -246,7 +246,7 @@ The confession is raw, vulnerable, everything Seraphine has been trained never t
 		{
 			id: 'reframe-failure',
 			text: 'Help her reframe failure as growth, not weakness',
-			next: 'seraphine_relationship_resolution',
+			next: 'kieran_dilemma',
 			effects: { wisdom: 6, empathy: 4 },
 			hiddenEffects: {
 				seraphine_bond: 20,
@@ -257,7 +257,7 @@ The confession is raw, vulnerable, everything Seraphine has been trained never t
 		{
 			id: 'share-responsibility',
 			text: 'Share responsibility - you\'re learning together',
-			next: 'seraphine_relationship_resolution',
+			next: 'kieran_dilemma',
 			effects: { wisdom: 5, empathy: 5 },
 			hiddenEffects: {
 				seraphine_bond: 22,
@@ -268,15 +268,57 @@ The confession is raw, vulnerable, everything Seraphine has been trained never t
 	]
 };
 
+const seraphineStunned = `"You... care about me?" Seraphine looks stunned. "Not about House Brightwater's alliance? Not about my diplomatic skills? About me?"`;
+
+const seraphineLifelongWant = `When you affirm it, she makes a sound halfway between laugh and sob. "That's all I've ever wanted. My whole life, people wanted my family's support, my political connections, my perfect manners. No one ever wanted just... Seraphine."`;
+
+const seraphineReciprocates = `She stands, crossing to you with desperate courage. "I care about you too. So much it terrifies me. You're brilliant and kind and you see people - really see them - in ways nobles never do. You've shown me what it's like to be valued for who I am."`;
+
+const seraphineChoosesHappiness = `Her voice drops. "And I want this. Want you. Even if it's improper, even if it complicates everything, even if my mother would be scandalized."`;
+
+const seraphineReadyForChange = `She cups your face with trembling hands. "I spent my whole life being proper. Maybe it's time to be happy instead."`;
+
 export const SeraphineRomancePath: Scene = {
 	id: 'seraphine_romance_path',
-	text: `"You... care about me?" Seraphine looks stunned. "Not about House Brightwater's alliance? Not about my diplomatic skills? About me?"
+	text: `${seraphineStunned}
 
-When you affirm it, she makes a sound halfway between laugh and sob. "That's all I've ever wanted. My whole life, people wanted my family's support, my political connections, my perfect manners. No one ever wanted just... Seraphine."
+${seraphineLifelongWant}
 
-She stands, crossing to you with desperate courage. "I care about you too. So much it terrifies me. You're brilliant and kind and you see people - really see them - in ways nobles never do. You've shown me what it's like to be valued for who I am." Her voice drops. "And I want this. Want you. Even if it's improper, even if it complicates everything, even if my mother would be scandalized."
+${seraphineReciprocates} ${seraphineChoosesHappiness}
 
-She cups your face with trembling hands. "I spent my whole life being proper. Maybe it's time to be happy instead."`,
+${seraphineReadyForChange}`,
+	textVariants: [
+		{
+			conditions: {
+				hasHiddenAttributes: { shared_burden: true, mutual_understanding: true }
+			},
+			text: `${seraphineStunned}
+
+"You understand the weight," she continues softly. "Of being a symbol instead of a person. We're the same, you and I. Both trapped by expectations, by titles, by what everyone needs us to be."
+
+${seraphineLifelongWant}
+
+${seraphineReciprocates} "You've shown me that understanding someone completely - their fears, their burdens, their desires - is love. Real love."
+
+${seraphineChoosesHappiness} "With you, I can be both proper and happy. Both Lady Seraphine and just Seraphine."
+
+${seraphineReadyForChange}`
+		},
+		{
+			conditions: {
+				hasHiddenAttributes: { liberating_moment: true, seraphine_discovering: true }
+			},
+			text: `Seraphine laughs through tears. "You gave me street food and market adventures. You showed me I could be improper and the world wouldn't end." Her eyes shine with joy and vulnerability.
+
+${seraphineLifelongWant} "But you wanted Seraphine who laughs too loud and gets messy and doesn't always know what to say. The real me underneath the polish."
+
+${seraphineReciprocates} "Every improper adventure, every time you let me just... be... I fell a little more in love with you."
+
+${seraphineChoosesHappiness}
+
+She takes your hands, no longer trembling but sure. "You taught me to choose happiness. Now I'm choosing you."`
+		}
+	],
 	choices: [
 		{
 			id: 'kiss-her',
@@ -318,25 +360,51 @@ She cups your face with trembling hands. "I spent my whole life being proper. Ma
 	]
 };
 
+const ballDiplomacy = `You attend a formal ball together - Seraphine in her element, you learning noble politics. She's magnificent - perfect etiquette, brilliant diplomacy, commanding respect. Watching her work is like watching art.`;
+
+const staringComment = `"You're staring," she murmurs with a small smile during a dance. "Impressed by my natural habitat?"`;
+
+const marketAwkwardness = `Later, you visit Thornhaven's markets again. Here, Seraphine is awkward, uncertain, but trying. A merchant's child brings her wildflowers and she doesn't know how to respond - no protocol for this. But she crouches down, accepts them with genuine warmth, makes the child's day.`;
+
+const harderButBetter = `"This is harder than any negotiation," she admits after. "But also better. More real."`;
+
 export const SeraphineNavigatingWorlds: Scene = {
 	id: 'seraphine_navigating_worlds',
-	text: `You attend a formal ball together - Seraphine in her element, you learning noble politics. She's magnificent - perfect etiquette, brilliant diplomacy, commanding respect. Watching her work is like watching art.
+	text: `${ballDiplomacy}
 
-"You're staring," she murmurs with a small smile during a dance. "Impressed by my natural habitat?"
+${staringComment}
 
-Later, you visit Thornhaven's markets again. Here, Seraphine is awkward, uncertain, but trying. A merchant's child brings her wildflowers and she doesn't know how to respond - no protocol for this. But she crouches down, accepts them with genuine warmth, makes the child's day.
+${marketAwkwardness}
 
-"This is harder than any negotiation," she admits after. "But also better. More real."`,
+${harderButBetter}`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { seraphine_romance: true }
 			},
-			text: `"You're teaching me to exist in both worlds," Seraphine says softly, taking your hand. "To be Lady Seraphine when needed - skilled, diplomatic, powerful. But also to be just Seraphine - messy and uncertain and human."
+			text: `${ballDiplomacy}
+
+${staringComment} "Or distracted by thoughts of later?" she adds with rare playfulness.
+
+${marketAwkwardness}
+
+"You're teaching me to exist in both worlds," Seraphine says softly, taking your hand. "To be Lady Seraphine when needed - skilled, diplomatic, powerful. But also to be just Seraphine - messy and uncertain and human."
 
 She kisses you gently. "With you, I don't have to choose. I can be both. That's..." Her voice catches with emotion. "That's everything."
 
 The noble and the person. The diplomat and the lover. She's learning she can be complete.`
+		},
+		{
+			conditions: {
+				hasHiddenAttributes: { equal_partners: true }
+			},
+			text: `${ballDiplomacy} But you notice she keeps glancing at you, checking you're comfortable, including you in conversations as an equal.
+
+${staringComment} "You're not just learning - you're participating. As my partner, not my student."
+
+${marketAwkwardness}
+
+"We're bridging worlds together," Seraphine observes. "You bring me into the real world of common people. I help you navigate the complex world of nobility. Neither of us alone, both of us stronger." ${harderButBetter} "And we're doing it as true equals."`
 		}
 	],
 	choices: [
@@ -365,27 +433,55 @@ The noble and the person. The diplomat and the lover. She's learning she can be 
 	]
 };
 
+const motherArrives = `Lady Cassandra Brightwater arrives unannounced. Seraphine's mother is elegant, cold, calculating perfection. She examines Seraphine critically.`;
+
+const changedDaughter = `"You've changed," Lady Cassandra observes with disapproval. "Less controlled. More... emotional. I've heard disturbing reports. Eating street food? Visiting common markets? Sitting on floors?" Her tone suggests these are moral failings. "Have you forgotten who you are?"`;
+
+const seraphineRemembering = `"No, Mother," Seraphine says quietly but firmly. "I'm remembering."`;
+
+const motherDisapproval = `Lady Cassandra's eyes narrow. "I did not raise you to be common. You're a Brightwater. We don't have the luxury of feelings or impropriety. We are what we do, not what we want."`;
+
+const questionSatisfactory = `She looks at you. "Has my daughter been satisfactory, Your Highness? Or should I assign someone more... disciplined?"`;
+
 export const SeraphineFamilyConfrontation: Scene = {
 	id: 'seraphine_family_confrontation',
-	text: `Lady Cassandra Brightwater arrives unannounced. Seraphine's mother is elegant, cold, calculating perfection. She examines Seraphine critically.
+	text: `${motherArrives}
 
-"You've changed," Lady Cassandra observes with disapproval. "Less controlled. More... emotional. I've heard disturbing reports. Eating street food? Visiting common markets? Sitting on floors?" Her tone suggests these are moral failings. "Have you forgotten who you are?"
+${changedDaughter}
 
-"No, Mother," Seraphine says quietly but firmly. "I'm remembering."
+${seraphineRemembering}
 
-Lady Cassandra's eyes narrow. "I did not raise you to be common. You're a Brightwater. We don't have the luxury of feelings or impropriety. We are what we do, not what we want." She looks at you. "Has my daughter been satisfactory, Your Highness? Or should I assign someone more... disciplined?"`,
+${motherDisapproval} ${questionSatisfactory}`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { seraphine_romance: true }
 			},
-			text: `Lady Cassandra's gaze sharpens, reading something in the air between you and Seraphine. "Oh. I see." Her voice drops to ice. "Seraphine, you haven't been so foolish as to develop... inappropriate attachment?"
+			text: `${motherArrives}
+
+${changedDaughter}
+
+${seraphineRemembering}
+
+Lady Cassandra's gaze sharpens, reading something in the air between you and Seraphine. "Oh. I see." Her voice drops to ice. "Seraphine, you haven't been so foolish as to develop... inappropriate attachment?"
 
 Seraphine lifts her chin with newfound courage. "I love them, Mother. And they love me. Not House Brightwater. Me."
 
 "Love." Lady Cassandra says it like a curse. "Love is for common people who can afford sentimentality. We are nobles. We marry for alliances, serve for advantage, exist for duty." She turns to you. "You're manipulating my daughter with affection. Using her feelings against her. I won't allow it."
 
 It's a direct challenge to your relationship, your intentions, your worth.`
+		},
+		{
+			conditions: {
+				hasHiddenAttributes: { seraphine_discovering: true, fun_together: true }
+			},
+			text: `${motherArrives} "I've received... concerning reports about your activities, Seraphine."
+
+${changedDaughter} "I raised you to represent House Brightwater with dignity. Not to play commoner in markets."
+
+${seraphineRemembering} "I'm remembering how to be happy, Mother. How to be a person, not just a symbol."
+
+${motherDisapproval} "Happy?" Lady Cassandra scoffs. "Happiness is a distraction. You think your father and I were 'happy'? We did our duty." ${questionSatisfactory}`
 		}
 	],
 	choices: [
@@ -428,29 +524,59 @@ It's a direct challenge to your relationship, your intentions, your worth.`
 	]
 };
 
+const romanceBlossoms = `Your romance with Seraphine blossoms into something beautiful and authentic. The diplomatic mask she wore for so long comes off completely in your presence, revealing the genuine, passionate woman underneath.`;
+
+const permissionToBeReal = `"You've given me permission to be real," Seraphine says, intertwining her fingers with yours. "With you, I don't have to be Lady Seraphine the perfect diplomat. I can be messy, emotional, uncertain, and you love me anyway."`;
+
+const choosingWhatSheWants = `She smiles radiantly. "For the first time in my life, I'm choosing what I want instead of what I should want. And I want you."`;
+
+const redefiningRomance = `Together you redefine what noble romance can be - honest, passionate, built on authenticity rather than political advantage.`;
+
 export const SeraphineRomanceContinue: Scene = {
 	id: 'seraphine_romance_continue',
-	text: `Your romance with Seraphine blossoms into something beautiful and authentic. The diplomatic mask she wore for so long comes off completely in your presence, revealing the genuine, passionate woman underneath.
+	text: `${romanceBlossoms}
 
-"You've given me permission to be real," Seraphine says, intertwining her fingers with yours. "With you, I don't have to be Lady Seraphine the perfect diplomat. I can be messy, emotional, uncertain, and you love me anyway." She smiles radiantly. "For the first time in my life, I'm choosing what I want instead of what I should want. And I want you."
+${permissionToBeReal} ${choosingWhatSheWants}
 
-Together you redefine what noble romance can be - honest, passionate, built on authenticity rather than political advantage.`,
+${redefiningRomance}`,
 	textVariants: [
 		{
-			conditions: { hasFlags: ['public_declaration'] },
-			text: `Your romance with Seraphine becomes a statement that reverberates through noble society. By publicly declaring your love despite political complications, you've helped her break free from her mother's control completely.
+			conditions: { 
+				hasHiddenAttributes: { love_declared_publicly: true, stood_up_to_mother: true }
+			},
+			text: `${romanceBlossoms}
 
 "You stood beside me when I confronted my mother," Seraphine says with awe. "Declared your love publicly, showed me I'm worth fighting for." She holds your face in her hands. "I've spent my whole life being diplomatic, compromising, smoothing conflicts. You taught me some things are worth fighting for. Like love. Like freedom. Like choosing my own path."
 
-Your love is revolutionary in its authenticity and publicly declared despite all opposition.`
+${choosingWhatSheWants} "And I'll fight for us too."
+
+Your love is revolutionary in its authenticity and publicly declared despite all opposition. It becomes a statement that reverberates through noble society - that genuine connection matters more than political advantage.`
 		},
 		{
-			conditions: { hasFlags: ['emotional_intimacy'] },
-			text: `Your romance with Seraphine is built on profound emotional vulnerability. Behind closed doors, the perfect diplomat becomes the passionate, uncertain woman who lets you see every complicated feeling.
+			conditions: { 
+				hasHiddenAttributes: { mutual_vulnerability: true, deep_emotional_bond: true }
+			},
+			text: `${romanceBlossoms}
 
 "You don't need me to be perfect," Seraphine whispers during an intimate moment. "You see my doubts, my fears, my selfish desires, and you love me anyway." Tears glisten in her eyes. "That's the most freeing thing anyone's ever given me. Permission to be imperfect and still be loved."
 
-Your love is private, profound, and built on complete emotional honesty.`
+${choosingWhatSheWants} "Every imperfect, messy, vulnerable part of me."
+
+Your love is private, profound, and built on complete emotional honesty. Behind closed doors, the perfect diplomat becomes the passionate woman who lets you see every complicated feeling.`
+		},
+		{
+			conditions: {
+				hasHiddenAttributes: { equal_partners: true, shared_mission: true }
+			},
+			text: `${romanceBlossoms}
+
+${permissionToBeReal} "But more than that - you see me as an equal. Not as someone to be protected or managed, but as a partner with my own skills and strengths."
+
+"We're building something together," she continues with excitement. "Using my diplomatic expertise and your vision to create real change. I'm not just your tutor or your lover - I'm your partner in reshaping the kingdom."
+
+${choosingWhatSheWants} "And a shared mission with someone I love."
+
+${redefiningRomance} Your partnership is intellectual, romantic, and political all at once - two equals working to bridge noble and common worlds.`
 		}
 	],
 	choices: [
@@ -467,21 +593,57 @@ Your love is private, profound, and built on complete emotional honesty.`
 	]
 };
 
+const defenseBreaksControl = `Your defense of Seraphine - whether through courage, diplomacy, or declarations of love - breaks Lady Cassandra's hold. The older woman realizes she's lost control, and more importantly, that Seraphine has found something worth fighting for.`;
+
+const motherColdDeparture = `"I see," Lady Cassandra says coldly. "You've made your choice, Seraphine. Choose authenticity over duty, feeling over propriety." She turns to leave, then pauses. "I hope it's worth it. I hope they're worth throwing away everything I taught you."`;
+
+const collapseRelief = `After she's gone, Seraphine collapses against you, shaking. "I stood up to her," she whispers in wonder. "I actually stood up to her. Because of you. Because you showed me I'm allowed to want things for myself."`;
+
 export const SeraphineLiberation: Scene = {
 	id: 'seraphine_liberation',
-	text: `Your defense of Seraphine - whether through courage, diplomacy, or declarations of love - breaks Lady Cassandra's hold. The older woman realizes she's lost control, and more importantly, that Seraphine has found something worth fighting for.
+	text: `${defenseBreaksControl}
 
-"I see," Lady Cassandra says coldly. "You've made your choice, Seraphine. Choose authenticity over duty, feeling over propriety." She turns to leave, then pauses. "I hope it's worth it. I hope they're worth throwing away everything I taught you."
+${motherColdDeparture}
 
-After she's gone, Seraphine collapses against you, shaking. "I stood up to her," she whispers in wonder. "I actually stood up to her. Because of you. Because you showed me I'm allowed to want things for myself."`,
+${collapseRelief}`,
 	textVariants: [
 		{
 			conditions: {
-				hasHiddenAttributes: { seraphine_romance: true }
+				hasHiddenAttributes: { seraphine_romance: true, love_declared_publicly: true }
 			},
-			text: `"You declared us," Seraphine says through tears of joy and relief. "In front of my mother. Told her our love is real and honorable. No one has ever..." She kisses you desperately. "Thank you. For choosing me. For fighting for me. For making me believe I deserve to be happy."
+			text: `${defenseBreaksControl}
+
+${motherColdDeparture}
+
+${collapseRelief}
+
+"You declared us," Seraphine says through tears of joy and relief. "In front of my mother. Told her our love is real and honorable. No one has ever..." She kisses you desperately. "Thank you. For choosing me. For fighting for me. For making me believe I deserve to be happy."
 
 She laughs, giddy with freedom. "I'm terrified and exhilarated and I don't know what comes next but I'm choosing it. Choosing us. Choosing me."`
+		},
+		{
+			conditions: {
+				hasHiddenAttributes: { political_victory: true, mother_respects: true }
+			},
+			text: `Your diplomatic maneuvering left Lady Cassandra with no ground to stand on. You outplayed her at her own game, defending Seraphine with the very skills the mother taught her.
+
+"I see you've been well-taught," Lady Cassandra admits grudgingly before leaving. There's almost respect in her eyes. "Perhaps... Seraphine chose more wisely than I thought."
+
+${collapseRelief}
+
+"You beat her at diplomacy," Seraphine marvels. "Used my mother's own tools to defend my right to choose. That's..." She laughs in disbelief. "That's brilliant. And it means she might actually accept this eventually."`
+		},
+		{
+			conditions: {
+				hasHiddenAttributes: { courage: 60, stood_up_to_mother: true }
+			},
+			text: `Your fierce defense of Seraphine's autonomy left no room for doubt. You stood up to Lady Cassandra with unwavering conviction, protecting Seraphine's right to choose her own path.
+
+${motherColdDeparture}
+
+${collapseRelief}
+
+"You were fearless," Seraphine breathes. "When my mother tried to control me, tried to make me feel guilty, you just... stood there like a shield. Protected my choice to be myself." Her voice breaks with emotion. "No one has ever done that for me before."`
 		}
 	],
 	choices: [
@@ -498,11 +660,35 @@ She laughs, giddy with freedom. "I'm terrified and exhilarated and I don't know 
 	]
 };
 
+const relationshipSettles = `Your relationship with Seraphine settles into something genuine and sustainable. Whether romantic partners, close friends, or something developing, what matters is that Seraphine has found authenticity.`;
+
+const canBeoth = `She can be both Lady Seraphine when needed and just Seraphine when safe.`;
+
+const giftOfSelf = `"You've taught me I don't have to choose," she reflects. "I can be diplomatic and genuine. Proper and real. The mask and the person underneath can coexist." She smiles warmly. "That's a gift. Whatever form our relationship takes, you've given me myself back."`;
+
 export const SeraphineRelationshipResolution: Scene = {
 	id: 'seraphine_relationship_resolution',
-	text: `Your relationship with Seraphine settles into something genuine and sustainable. Whether romantic partners, close friends, or something developing, what matters is that Seraphine has found authenticity. She can be both Lady Seraphine when needed and just Seraphine when safe.
+	text: `${relationshipSettles} ${canBeoth}
 
-"You've taught me I don't have to choose," she reflects. "I can be diplomatic and genuine. Proper and real. The mask and the person underneath can coexist." She smiles warmly. "That's a gift. Whatever form our relationship takes, you've given me myself back."`,
+${giftOfSelf}`,
+	textVariants: [
+		{
+			conditions: {
+				hasHiddenAttributes: { seraphine_relationship: 'partners', equal_partnership: true }
+			},
+			text: `${relationshipSettles} As equal partners in reshaping the kingdom, your bond is built on mutual respect and shared vision. ${canBeoth}
+
+"We're partners," Seraphine says with quiet satisfaction. "Not romantic, but something just as important. We understand each other, support each other, challenge each other to be better." She extends her hand formally, then grins and pulls you into a warm hug. "Partners in revolution. I wouldn't want anyone else by my side."`
+		},
+		{
+			conditions: {
+				hasHiddenAttributes: { deep_friendship: true, worth_affirmed: true }
+			},
+			text: `${relationshipSettles} As close friends, you've given her something she never had - unconditional acceptance without romantic expectations. ${canBeoth}
+
+"You're my friend," Seraphine says simply, and it's clear how much that word means to her. "Real friendship, not political alliance or networking. Someone who cares about me, not what I can do for them." Her eyes shine with gratitude. ${giftOfSelf}`
+		}
+	],
 	choices: [
 		{
 			id: 'move-forward',
@@ -517,13 +703,43 @@ export const SeraphineRelationshipResolution: Scene = {
 	]
 };
 
+const fullyIntegrated = `Seraphine has fully integrated her two selves. At formal events, she's Lady Seraphine - poised, diplomatic, commanding respect. In private or among friends, she's just Seraphine - genuine, sometimes uncertain, but always real.`;
+
+const coexistenceLesson = `"I used to think authenticity and nobility were opposites," she tells you. "That being real meant abandoning propriety, or being proper meant losing authenticity. But you showed me they can coexist. I can be both noble and human. Diplomatic and genuine. Perfect when needed and messy when safe."`;
+
+const acceptanceGratitude = `She takes your hand. "Thank you for accepting all of me. The polished and the raw. The Lady and the woman. Both are real. Both are me."`;
+
 export const SeraphineIntegrationComplete: Scene = {
 	id: 'seraphine_integration_complete',
-	text: `Seraphine has fully integrated her two selves. At formal events, she's Lady Seraphine - poised, diplomatic, commanding respect. In private or among friends, she's just Seraphine - genuine, sometimes uncertain, but always real.
+	text: `${fullyIntegrated}
 
-"I used to think authenticity and nobility were opposites," she tells you. "That being real meant abandoning propriety, or being proper meant losing authenticity. But you showed me they can coexist. I can be both noble and human. Diplomatic and genuine. Perfect when needed and messy when safe."
+${coexistenceLesson}
 
-She takes your hand. "Thank you for accepting all of me. The polished and the raw. The Lady and the woman. Both are real. Both are me."`,
+${acceptanceGratitude}`,
+	textVariants: [
+		{
+			conditions: {
+				hasHiddenAttributes: { seraphine_romance: true, authentic_romance: true }
+			},
+			text: `${fullyIntegrated} And with you, she's all of it - lover, partner, diplomat, genuine woman.
+
+${coexistenceLesson}
+
+${acceptanceGratitude} "And you love both. The Lady Seraphine who dazzles at formal events, and the Seraphine who laughs at street food and sits on floors. That's everything."`
+		},
+		{
+			conditions: {
+				hasHiddenAttributes: { change_agents: true, bridge_builder: true }
+			},
+			text: `${fullyIntegrated}
+
+"We're proof it works," Seraphine observes with satisfaction. "Noble and authentic. Traditional and progressive. We're literally bridging the two worlds - me bringing diplomatic skills to common causes, you bringing common perspective to noble circles."
+
+${coexistenceLesson}
+
+${acceptanceGratitude} "Together, we're showing the kingdom that nobility and humanity aren't opposites. They can coexist. We're living proof."`
+		}
+	],
 	choices: [
 		{
 			id: 'celebrate-integration',

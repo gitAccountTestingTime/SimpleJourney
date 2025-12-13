@@ -1,28 +1,48 @@
 import { Scene } from '../../story-manager';
 
-export const DiscoveryAtSilverwood: Scene = {
-	id: 'discovery_at_silverwood',
-	text: `Silverwood Manor rises before you like a ghost from the past. Despite years of abandonment, the estate retains an air of faded grandeur. Ivy climbs ancient stone walls, and magic seems to pulse from the very foundations.
+const manorApproach = `Silverwood Manor rises before you like a ghost from the past. Despite years of abandonment, the estate retains an air of faded grandeur. Ivy climbs ancient stone walls, and magic seems to pulse from the very foundations.
 
-As you approach the entrance, your blood mark begins to glow. The great doors swing open of their own accord, recognizing something in you - someone in you.
+As you approach the entrance, your blood mark begins to glow. The great doors swing open of their own accord, recognizing something in you - someone in you.`;
 
-Inside, portraits line the walls. Generations of faces stare down at you. And then you see it - a portrait that could be your reflection. Below it, a name and title:
+const portraitRevelation = `Inside, portraits line the walls. Generations of faces stare down at you. And then you see it - a portrait that could be your reflection. Below it, a name and title:
 
 "Prince/Princess [Your Name], Heir to House Silverwood, Year 1205"
 
-But you were born in 1225. Twenty years after this portrait was painted. Twenty years after everyone believed House Silverwood had fallen.
+But you were born in 1225. Twenty years after this portrait was painted. Twenty years after everyone believed House Silverwood had fallen.`;
+
+const finalTruth = `A hidden chamber opens, revealing journals, magical artifacts, and a letter sealed with your name. Your real name. The name you were meant to have.
+
+The truth hits like a thunderbolt: You are the heir to a fallen kingdom. The last hope of a magical bloodline. And everything in your life has been leading to this moment.`;
+
+export const DiscoveryAtSilverwood: Scene = {
+	id: 'discovery_at_silverwood',
+	text: `${manorApproach}
+
+${portraitRevelation}
 
 Behind you, your companions gasp. Vale speaks softly: "The royal family had the power to see the future. They painted this portrait of you... before you were born."
 
-A hidden chamber opens, revealing journals, magical artifacts, and a letter sealed with your name. Your real name. The name you were meant to have.
-
-The truth hits like a thunderbolt: You are the heir to a fallen kingdom. The last hope of a magical bloodline. And everything in your life has been leading to this moment.`,
+${finalTruth}`,
 	textVariants: [
+		{
+			conditions: { hasFlags: ['vale_romance:20', 'journey_focus:vale'] },
+			text: `${manorApproach}
+
+Vale's hand finds yours as you enter together. The warmth of their touch grounds you as magic swirls around you.
+
+${portraitRevelation}
+
+Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess [Your Name], Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
+
+When the hidden chamber opens and you read the letter left by your parents, Vale holds you as tears fall. "You're not alone," they promise. "You've never been alone. And whatever comes next, we face it together."
+
+${finalTruth}`
+		},
 		{
 			conditions: {
 				hasHiddenAttributes: { vale_romance: 20 }
 			},
-			text: `Silverwood Manor rises before you like a ghost from the past. Despite years of abandonment, the estate retains an air of faded grandeur. Ivy climbs ancient stone walls, and magic seems to pulse from the very foundations.
+			text: `${manorApproach}
 
 Vale's hand finds yours as you approach. "Whatever we discover in there," they whisper, "changes nothing about who you are to me."
 
@@ -31,6 +51,48 @@ As you enter together, your blood mark glows and the great doors recognize you. 
 Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess [Your Name], Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
 
 When the hidden chamber opens and you read the letter left by your parents, Vale holds you as tears fall. "You're not alone," they promise. "You've never been alone. And whatever comes next, we face it together."`
+		},
+		{
+			conditions: { hasFlags: ['ash_trust:25', 'journey_focus:ash'] },
+			text: `${manorApproach}
+
+Ash positions themselves protectively as you enter, hand on weapon, scanning for threats. But the only danger here is truth.
+
+${portraitRevelation}
+
+Ash stares at the portrait in stunned silence. "This... this explains so much." They turn to you. "The blood magic, the Shadow Beast's reaction, everything."
+
+When the hidden chamber opens, Ash stands guard while you read your parents' letter. Their voice is rough when they speak: "Royalty or not, you're still you. And I'm still here. Whatever you decide to do with this... I'm with you."
+
+${finalTruth}`
+		},
+		{
+			conditions: { hasFlags: ['rook_trust:15', 'journey_focus:rook'] },
+			text: `${manorApproach}
+
+Rook whistles low. "This place is worth a fortune. But I guess it's yours now, isn't it?"
+
+${portraitRevelation}
+
+Rook's usual smirk fades. "Wait... you're actual royalty?" They look between you and the portrait. "I tried to pickpocket actual royalty. This is either the stupidest or luckiest thing I've ever done."
+
+When the hidden chamber opens, Rook helps you sort through the artifacts and journals. "For what it's worth," they say quietly, "you're the first noble who ever treated me like a person. Whatever you become, I hope you remember that."
+
+${finalTruth}`
+		},
+		{
+			conditions: { hasFlags: ['self_reflection:true', 'journey_focus:self'] },
+			text: `${manorApproach}
+
+You enter alone, companions waiting outside per your request. This moment - this truth - you need to face yourself.
+
+${portraitRevelation}
+
+You sink to your knees before the portrait. All the loneliness, all the feeling of being different, all the years of not belonging - it all makes sense now.
+
+The hidden chamber opens to your touch alone. Your parents' letter addresses you directly, explaining prophecies and sacrifices, love and duty. They knew. They always knew.
+
+${finalTruth}`
 		}
 	],
 	choices: [

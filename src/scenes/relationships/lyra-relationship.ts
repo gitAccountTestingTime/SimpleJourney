@@ -73,7 +73,7 @@ She looks at you desperately. "I just want to be seen as Lyra. Not 'that Nightsh
 		{
 			id: 'affirm-trust',
 			text: 'Affirm complete trust - she is not her ancestor',
-			next: 'lyra_bonding_2',
+			next: 'faction_choice_point',
 			effects: { empathy: 5, charisma: 4 },
 			hiddenEffects: {
 				lyra_bond: 20,
@@ -85,7 +85,7 @@ She looks at you desperately. "I just want to be seen as Lyra. Not 'that Nightsh
 		{
 			id: 'share-own-burden',
 			text: 'Share your own burden of family legacy and expectations',
-			next: 'lyra_bonding_2',
+			next: 'faction_choice_point',
 			effects: { empathy: 6, wisdom: 3 },
 			hiddenEffects: {
 				lyra_bond: 22,
@@ -97,7 +97,7 @@ She looks at you desperately. "I just want to be seen as Lyra. Not 'that Nightsh
 		{
 			id: 'practical-support',
 			text: 'Offer practical ways to improve her situation and reputation',
-			next: 'lyra_bonding_2',
+			next: 'faction_choice_point',
 			effects: { wisdom: 5, charisma: 2 },
 			hiddenEffects: {
 				lyra_bond: 15,
@@ -174,7 +174,7 @@ Her smile is small but genuine. "You've given me hope. That's a rare gift."`
 		{
 			id: 'flirt-connection',
 			text: 'Comment on the intimacy of being magically connected',
-			next: 'lyra_bonding_3',
+			next: 'marina_ocean_depths',
 			effects: { charisma: 5 },
 			hiddenEffects: {
 				lyra_bond: 14,
@@ -186,7 +186,7 @@ Her smile is small but genuine. "You've given me hope. That's a rare gift."`
 		{
 			id: 'offer-reciprocal',
 			text: 'Offer to create a reciprocal bond - true magical equality',
-			next: 'lyra_bonding_3',
+			next: 'marina_ocean_depths',
 			effects: { wisdom: 4, empathy: 4 },
 			hiddenEffects: {
 				lyra_bond: 20,
@@ -238,7 +238,7 @@ But her hands are shaking and you can see she's barely holding together.`
 		{
 			id: 'address-feelings',
 			text: 'Gently address the feelings between you',
-			next: 'lyra_romance_path',
+			next: 'marina_ocean_depths',
 			effects: { empathy: 6, charisma: 5 },
 			hiddenEffects: {
 				lyra_bond: 25,
@@ -250,7 +250,7 @@ But her hands are shaking and you can see she's barely holding together.`
 		{
 			id: 'offer-training',
 			text: 'Offer to train together - improve skills side by side',
-			next: 'lyra_bonding_crisis_resolution',
+			next: 'marina_ocean_depths',
 			effects: { wisdom: 4, empathy: 3 },
 			hiddenEffects: {
 				lyra_bond: 15,
@@ -261,7 +261,7 @@ But her hands are shaking and you can see she's barely holding together.`
 		{
 			id: 'share-vulnerability',
 			text: 'Share your own moments of feeling inadequate',
-			next: 'lyra_bonding_crisis_resolution',
+			next: 'marina_ocean_depths',
 			effects: { empathy: 7, wisdom: 3 },
 			hiddenEffects: {
 				lyra_bond: 22,

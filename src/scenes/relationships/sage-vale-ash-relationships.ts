@@ -62,7 +62,7 @@ Hours pass in debate and discussion. At one point, you're both leaning over the 
 		{
 			id: 'implement-ideas',
 			text: 'Propose implementing some of his ideas - make him advisor',
-			next: 'sage_bonding_2',
+			next: 'reformist_meeting',
 			effects: { wisdom: 6, charisma: 4 },
 			hiddenEffects: {
 				sage_bond: 25,
@@ -74,7 +74,7 @@ Hours pass in debate and discussion. At one point, you're both leaning over the 
 		{
 			id: 'challenge-refine',
 			text: 'Challenge and refine his ideas - intellectual partnership',
-			next: 'sage_bonding_2',
+			next: 'reformist_meeting',
 			effects: { wisdom: 7, empathy: 3 },
 			hiddenEffects: {
 				sage_bond: 22,
@@ -108,7 +108,7 @@ But his eyes say it clearly: he's falling in love. Terrified and hopeful in equa
 		{
 			id: 'affirm-feelings',
 			text: 'Gently affirm you feel the connection too',
-			next: 'sage_romance_path',
+			next: 'marina_ocean_depths',
 			effects: { empathy: 7, charisma: 5 },
 			hiddenEffects: {
 				sage_bond: 30,
@@ -120,7 +120,7 @@ But his eyes say it clearly: he's falling in love. Terrified and hopeful in equa
 		{
 			id: 'partnership',
 			text: 'Affirm intellectual partnership and friendship',
-			next: 'sage_bonding_3',
+			next: 'marina_ocean_depths',
 			effects: { wisdom: 6, empathy: 4 },
 			hiddenEffects: {
 				sage_bond: 22,
@@ -192,7 +192,7 @@ Vale's hand finds yours in the dim library light. "I'll help you uncover it all.
 		{
 			id: 'adventure-partners',
 			text: 'Become adventure partners - investigate everything together',
-			next: 'vale_bonding_2',
+			next: 'road_to_silverwood',
 			effects: { wisdom: 6, courage: 5 },
 			hiddenEffects: {
 				vale_bond: 20,
@@ -203,7 +203,7 @@ Vale's hand finds yours in the dim library light. "I'll help you uncover it all.
 		{
 			id: 'acknowledge-connection',
 			text: 'Acknowledge the personal connection growing between you',
-			next: 'vale_romance_path',
+			next: 'road_to_silverwood',
 			effects: { empathy: 6, charisma: 5 },
 			hiddenEffects: {
 				vale_bond: 25,
@@ -282,7 +282,7 @@ Their voice is flat, emotionless - trauma buried deep. "I was the best fighter i
 		{
 			id: 'promise-worth-it',
 			text: 'Promise to be worthy of that protection',
-			next: 'ash_bonding_2',
+			next: 'meet_rook',
 			effects: { courage: 6, empathy: 4 },
 			hiddenEffects: {
 				ash_bond: 18,
@@ -293,7 +293,7 @@ Their voice is flat, emotionless - trauma buried deep. "I was the best fighter i
 		{
 			id: 'mutual-protection',
 			text: 'Offer mutual protection - you\'ll guard each other',
-			next: 'ash_bonding_2',
+			next: 'meet_rook',
 			effects: { courage: 7, empathy: 4 },
 			hiddenEffects: {
 				ash_bond: 22,

@@ -1,12 +1,42 @@
 import { Scene } from '../../story-manager';
 
+const tournamentScene = `The capital's grand arena buzzes with excitement. A tournament is being held—combat, archery, even displays of magical aptitude. Nobles fill the premium seats while commoners pack the stands.
+
+You spot familiar faces: General Blackwood watches fighters with a calculating eye. Lady Seraphine sits in the noble section. Vale works the crowd, gathering information.`;
+
+const tournamentQuestion = `This is your chance to make a name for yourself, catch the attention of powerful figures, or simply earn prize money. What will you compete in?`;
+
 export const CapitalTournament: Scene = {
 	id: 'capital_tournament',
-	text: `The capital's grand arena buzzes with excitement. A tournament is being held—combat, archery, even displays of magical aptitude. Nobles fill the premium seats while commoners pack the stands.
+	text: `${tournamentScene} If you joined Ash's company, they're competing in the combat bracket.
 
-You spot familiar faces: General Blackwood watches fighters with a calculating eye. Lady Seraphine sits in the noble section. Vale works the crowd, gathering information. If you joined Ash's company, they're competing in the combat bracket.
+${tournamentQuestion}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['rook_trust:20'] },
+			text: `${tournamentScene} Rook is with you, pointing out which nobles are worth impressing and which competitions are rigged.
 
-This is your chance to make a name for yourself, catch the attention of powerful figures, or simply earn prize money. What will you compete in?`,
+"The magical aptitude test is legitimate," Rook whispers. "Everything else? Depends on who's watching and who you know." They grin. "Lucky for you, you know me."
+
+${tournamentQuestion}`
+		},
+		{
+			conditions: { hasFlags: ['rook_trust:15'] },
+			text: `${tournamentScene} Rook agreed to scout for you and is already moving through the crowd, gathering intelligence.
+
+"Lots of opportunity here," they report back. "Lots of danger too. Choose your competition wisely."
+
+${tournamentQuestion}`
+		},
+		{
+			conditions: { hasFlags: ['underworld_connection:hostile'] },
+			text: `${tournamentScene} You notice some suspicious glares from the crowd—word travels fast in the underworld. Turning in Rook made you enemies.
+
+The tension in the air is palpable. Whatever you choose to compete in, you'll need to watch your back.
+
+${tournamentQuestion}`
+		}
+	],
 	choices: [
 		{
 			id: 'combat-tournament',

@@ -6,24 +6,20 @@ export const PrologueStart: Scene = {
 
 You walk slowly toward the village square, the cobblestone path cool beneath your feet.  The scent of fresh bread wafts from the local bakery, mingling with the earthy aroma of dew-kissed grass.  It's the same scent that has greeted you every morning of your life here - the only home you've ever known, though you've lived alone for as long as you can remember.
 
-
-
 For years you've done odd jobs around the village to get by, each day the same as the last.  The memories of your life until now swirl somewhere in the back of your mind. You push them aside as you approach the square, which was busier than usual for this time of day.
 
-
-
-Suddenly, you hear the village elder ringing the bell in town, calling members of the village and visitors alike to hear his words.  After giving some time for folks to gather, the elder begins,
+Suddenly, you hear the village elder ringing the bell in town, calling members of the village and visitors alike to hear his words.  Curious, you make your way within hearing distance while still keeping to yourself, as per usual.  After giving some time for folks to gather, the elder begins,
 
 "Bandits have been raiding the trade routes," the elder announces, his voice carrying across the square. 
-"We need brave souls to deal with them. Payment will be fair."
+"We've been unable to get word to any of the adventurer's guilds in the area, and with our current supplies...we are running out of options.  We need brave souls to deal with them. Payment will be fair."
 
-This could be your chance to prove yourself, or to actually earn enough coin to finally leave this place.`,
+You'd heard rumors of supplies being intercepted and taken before reaching the village, but did not know that things had gotten this bad.  On the other hand, this could be your chance to prove yourself, or to actually earn enough coin to finally leave this place.  Regardless, as someone already living day to day, you could hardly sit around and hope someone else resolved the situation.`,
 	choices: [
 		{
 			id: 'volunteer-immediately',
-			text: 'Step forward without hesitation',
+			text: 'Step forward without hesitation. You have nothing to lose...and perhaps much to gain.',
 			next: 'meet_vale',
-			effects: { courage: 3 },
+			effects: { courage: 1 },
 			hiddenEffects: {
 				origin_choice: 'courageous',
 				personality_seed: 'brave'
@@ -31,9 +27,8 @@ This could be your chance to prove yourself, or to actually earn enough coin to 
 		},
 		{
 			id: 'ask-payment',
-			text: 'Ask about the payment first',
+			text: 'Ask about the payment first. You need to know it’s worth the risk.',
 			next: 'meet_vale',
-			effects: { wisdom: 2 },
 			hiddenEffects: {
 				origin_choice: 'pragmatic',
 				personality_seed: 'practical'
@@ -41,9 +36,9 @@ This could be your chance to prove yourself, or to actually earn enough coin to 
 		},
 		{
 			id: 'organize-others',
-			text: 'Suggest organizing a proper group',
+			text: 'Suggest setting up and organizing a proper group out of those willing',
 			next: 'meet_vale',
-			effects: { charisma: 3 },
+			effects: { charisma: 1 },
 			hiddenEffects: {
 				origin_choice: 'leadership',
 				personality_seed: 'leader'
@@ -51,9 +46,9 @@ This could be your chance to prove yourself, or to actually earn enough coin to 
 		},
 		{
 			id: 'alternative-solution',
-			text: 'Propose negotiating with the bandits first',
+			text: 'Propose negotiating with the bandits first. Perhaps there’s a peaceful resolution.',
 			next: 'meet_vale',
-			effects: { wisdom: 3 },
+			effects: { wisdom: 1 },
 			hiddenEffects: {
 				origin_choice: 'clever',
 				personality_seed: 'diplomatic'

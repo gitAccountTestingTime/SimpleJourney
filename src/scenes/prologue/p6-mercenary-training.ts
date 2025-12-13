@@ -1,16 +1,54 @@
 import { Scene } from '../../story-manager';
 
+const kingdomExperience = `You've escorted caravans through dangerous territory, guarded noble estates, and hunted monsters threatening villages. The kingdom is beautiful—and broken.
+
+You've seen wealth beyond imagination and poverty that breaks the heart. You've met nobles who care and nobles who don't. You've learned to fight, to lead, to survive.`;
+
+const briefEncounters = `At a noble estate, you briefly meet a striking young woman named Seraphine. In a library, a nervous scholar named Sage shows you ancient texts. At a market, you admire crafts by a dwarf named Finn. Each encounter plants seeds for the future.
+
+But tonight, you arrive in the capital for the first time. It's time to see what this kingdom is really about.`;
+
 export const MercenaryTraining: Scene = {
 	id: 'mercenary_training',
-	text: `Three months with Ash's company transforms you. You've escorted caravans through dangerous territory, guarded noble estates, and hunted monsters threatening villages. The kingdom is beautiful—and broken.
-
-You've seen wealth beyond imagination and poverty that breaks the heart. You've met nobles who care and nobles who don't. You've learned to fight, to lead, to survive.
+	text: `Three months with Ash's company transforms you. ${kingdomExperience}
 
 Ash has been a steady presence, teaching you combat while sharing hard-won wisdom. "The kingdom's failing," they tell you one night. "The barrier between our world and the Shadowrealm is crumbling. Someone needs to fix it. Maybe that someone is you."
 
-At a noble estate, you briefly meet a striking young woman named Seraphine. In a library, a nervous scholar named Sage shows you ancient texts. At a market, you admire crafts by a dwarf named Finn. Each encounter plants seeds for the future.
+${briefEncounters}`,
+	
+	textVariants: [
+		{
+			conditions: { hasFlags: ['ash_trust:25'] },
+			text: `Three months with Ash's company transforms you. Your curiosity about their past and the Shadow Beasts created deep conversations and deeper bonds.
 
-But tonight, you arrive in the capital for the first time. It's time to see what this kingdom is really about.`,
+${kingdomExperience}
+
+Ash has opened up in ways their troops say they never do. "You see me," they admit one night, voice rough with emotion. "Not just the scars, not just the commander. The kingdom's failing, the barrier to the Shadowrealm is crumbling, but... having you here makes the fight feel worth it."
+
+${briefEncounters}`
+		},
+		{
+			conditions: { hasFlags: ['ash_trust:20'] },
+			text: `Three months with Ash's company transforms you. Your immediate acceptance of their offer impressed the mercenary captain, and they've personally overseen your training.
+
+${kingdomExperience}
+
+Ash has become more than a commander—almost a mentor, perhaps something more. "You remind me why I started this company," they confide one night. "The kingdom's failing. The barrier between our world and the Shadowrealm is crumbling. But watching you grow... gives me hope."
+
+${briefEncounters}`
+		},
+		{
+			conditions: { hasFlags: ['ash_trust:10'] },
+			text: `Three months with Ash's company on negotiated terms. You got fair pay and professional training—a solid business arrangement.
+
+${kingdomExperience}
+
+Ash respects your pragmatic approach. "You're smart to negotiate," they say one night. "The kingdom's failing, and smart people will be the ones who survive what's coming. The barrier between our world and the Shadowrealm is crumbling. Keep your wits sharp."
+
+${briefEncounters}`
+		},
+		
+	],
 	choices: [
 		{
 			id: 'reflect-compassion',
@@ -49,7 +87,7 @@ But tonight, you arrive in the capital for the first time. It's time to see what
 		{
 			id: 'bond-with-ash',
 			text: 'Spend the evening bonding with Ash',
-			next: 'meet_rook',
+			next: 'ash_bonding_1',
 			effects: { charisma: 3 },
 			hiddenEffects: {
 				combat_skills: 7,

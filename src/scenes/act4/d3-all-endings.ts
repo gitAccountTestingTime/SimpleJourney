@@ -237,17 +237,65 @@ The military order is established, but at what cost to your relationships and yo
 	]
 };
 
+const balconyCelebration = `From the palace balcony, you look out over a celebration unlike any in history. Humans dance with elves. Dwarves share ale with fae. Dragons fly overhead in joyful display. Merfolk have emerged from harbors to join the festivities.`;
+
+const complexSystem = `The new system is complex - constitutional monarchy with elected parliament, military reformed to serve all equally, and magical races holding equal representation. It shouldn't work, but somehow, miraculously, it does.`;
+
+const companionsGathered = `All your companions gather on the balcony with you. Every relationship you built, every bridge you constructed, every sacrifice you made - it all led to this moment.`;
+
+const rowanWonder = `"You actually did it," Rowan says with wonder. "Created a place where even I feel I belong."`;
+
+const goldenAge = `The future won't be easy. Building true unity will take decades, maybe centuries. But you've laid the foundation. The golden age begins here.`;
+
 export const CompromiseAchieved: Scene = {
 	id: 'compromise_achieved',
-	text: `From the palace balcony, you look out over a celebration unlike any in history. Humans dance with elves. Dwarves share ale with fae. Dragons fly overhead in joyful display. Merfolk have emerged from harbors to join the festivities.
+	text: `${balconyCelebration}
 
-The new system is complex - constitutional monarchy with elected parliament, military reformed to serve all equally, and magical races holding equal representation. It shouldn't work, but somehow, miraculously, it does.
+${complexSystem}
 
-All your companions gather on the balcony with you. Every relationship you built, every bridge you constructed, every sacrifice you made - it all led to this moment.
+${companionsGathered}
 
-"You actually did it," Rowan says with wonder. "Created a place where even I feel I belong."
+${rowanWonder}
 
-The future won't be easy. Building true unity will take decades, maybe centuries. But you've laid the foundation. The golden age begins here.`,
+${goldenAge}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['all_fragments_obtained:true', 'all_races_united:true'], hasHiddenAttributes: { all_companions_loyal: true, companion_bonds: 400 } },
+			text: `${balconyCelebration}
+
+Each companion stands with you - Seraphine, Vale, Rowan, Kieran, Lyra, Finn, Marina, Shadow, Zephyr, Thorne, Sage. Not a single ally lost, not a single bridge burned. Every person you met, you connected with genuinely.
+
+${complexSystem}
+
+"This is what love looks like," Lyra says softly. "Not romantic love alone, but the love of genuine connection multiplied across entire civilizations. You loved us each individually, and taught us to love each other."
+
+${companionsGathered}
+
+${rowanWonder}
+
+Finn raises a flask. "To the heir who became the greatest diplomat in history by simply being kind, honest, and brave."
+
+${goldenAge}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { any_romance: 70 } },
+			text: `${balconyCelebration}
+
+Your romantic partner stands beside you, hand in yours. Together you built not just a kingdom, but a life of shared purpose and deep love.
+
+${complexSystem}
+
+${companionsGathered}
+
+"We did this together," your love says. "Every choice, every sacrifice, every victory. Partnership in the truest sense."
+
+${rowanWonder}
+
+${goldenAge}
+
+And you'll face that future together, as partners in every way that matters.`
+		}
+	],
 	textVariants: [
 		{
 			conditions: {

@@ -2,17 +2,63 @@ import { Scene } from '../../story-manager';
 
 // Magical Training Sequences
 
+const privateChamber = `Lyra leads you to a private chamber deep within the palace, warded against scrying and interruption. Ancient runes glow softly on the walls.`;
+
+const birthright = `"Blood magic is your birthright," Lyra begins, her teaching voice formal yet kind. "Every ruler of this kingdom has possessed it, though few trained properly. It's not about violence or sacrifice - it's about connection, life force, and will."`;
+
+const demonstration = `She demonstrates, a drop of her own blood floating in the air and glowing with ethereal light. "Your blood carries the magic of generations. It can heal, protect, empower, and even see truth. But it requires control, discipline, and respect."`;
+
+const firstLesson = `Lyra extends her hand. "The first lesson is sensing your own life force. Feel it flowing through you, recognize its power. Only then can you begin to channel it."`;
+
+const awakening = `As you concentrate, you feel something awaken - warmth spreading from your core, energy pulsing in rhythm with your heartbeat. Magic, real and potent, responding to your will.`;
+
 export const BloodMagicBasics: Scene = {
 	id: 'lyra_magic_lesson_1',
-	text: `Lyra leads you to a private chamber deep within the palace, warded against scrying and interruption. Ancient runes glow softly on the walls.
+	text: `${privateChamber}
 
-"Blood magic is your birthright," Lyra begins, her teaching voice formal yet kind. "Every ruler of this kingdom has possessed it, though few trained properly. It's not about violence or sacrifice - it's about connection, life force, and will."
+${birthright}
 
-She demonstrates, a drop of her own blood floating in the air and glowing with ethereal light. "Your blood carries the magic of generations. It can heal, protect, empower, and even see truth. But it requires control, discipline, and respect."
+${demonstration}
 
-Lyra extends her hand. "The first lesson is sensing your own life force. Feel it flowing through you, recognize its power. Only then can you begin to channel it."
+${firstLesson}
 
-As you concentrate, you feel something awaken - warmth spreading from your core, energy pulsing in rhythm with your heartbeat. Magic, real and potent, responding to your will.`,
+${awakening}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['trusts_lyra:true', 'values_magic:true'], hasHiddenAttributes: { lyra_respect: 30 } },
+			text: `${privateChamber}
+
+Lyra's usual formality softens. "I've waited for you to be ready for this. Blood magic is intimate - it requires complete trust between teacher and student."
+
+${birthright}
+
+She takes your hand gently. "You've trusted me with your safety, your secrets. Now trust me with your very essence. I will guard this knowledge, and you, with my life."
+
+${demonstration}
+
+${firstLesson}
+
+Her presence is warm, supportive, as the magic awakens. "That's it. I'm here with you. You're not alone in this."
+
+${awakening}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { lyra_romance: 40 } },
+			text: `${privateChamber}
+
+Lyra's eyes hold yours with deep emotion. "Blood magic creates a bond between teacher and student. Our life forces will touch, intertwine." She pauses. "Given what's growing between us, this will be... intimate."
+
+${birthright}
+
+${demonstration}
+
+She takes your hand, her touch lingering. "I've taught others, but never someone I..." She doesn't finish, but you understand.
+
+${firstLesson}
+
+As the magic awakens, you feel her presence within it - warm, protective, loving. The connection between you deepens beyond words.`
+		}
+	],
 	choices: [
 		{
 			id: 'heal-focus',
@@ -69,20 +115,42 @@ As you concentrate, you feel something awaken - warmth spreading from your core,
 	]
 };
 
+const gardenDawn = `Your second lesson takes place in the palace gardens at dawn. Lyra has prepared stations representing each element - a brazier for fire, a fountain for water, rich soil for earth, and open air.`;
+
+const foundation = `"Blood magic is your foundation," Lyra explains, "but it can channel through the elements. Each element requires different mindset, different approach." She demonstrates, her magic causing flames to dance, water to rise, earth to shift, and wind to swirl.`;
+
+const elementalNature = `"Fire requires passion and will. Water needs fluidity and adaptation. Earth demands patience and strength. Air seeks freedom and awareness." She looks at you seriously. "Most mages specialize in one or two elements. Masters can wield three. Legends speak of those who mastered all four."`;
+
+const chooseElement = `She gestures to the stations. "Begin with the element that calls to you. Let your instinct guide your choice."`;
+
 export const ElementalControl: Scene = {
 	id: 'lyra_magic_lesson_2',
-	text: `Your second lesson takes place in the palace gardens at dawn. Lyra has prepared stations representing each element - a brazier for fire, a fountain for water, rich soil for earth, and open air.
+	text: `${gardenDawn}
 
-"Blood magic is your foundation," Lyra explains, "but it can channel through the elements. Each element requires different mindset, different approach." She demonstrates, her magic causing flames to dance, water to rise, earth to shift, and wind to swirl.
+${foundation}
 
-"Fire requires passion and will. Water needs fluidity and adaptation. Earth demands patience and strength. Air seeks freedom and awareness." She looks at you seriously. "Most mages specialize in one or two elements. Masters can wield three. Legends speak of those who mastered all four."
+${elementalNature}
 
-She gestures to the stations. "Begin with the element that calls to you. Let your instinct guide your choice."`,
+${chooseElement}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { blood_magic_level: 5 }
-			},
+			conditions: { hasFlags: ['natural_aptitude:true', 'magical_prodigy:true'], hasHiddenAttributes: { lyra_respect: 40 } },
+			text: `${gardenDawn}
+
+Lyra's eyes shine with pride as she watches you work. "You've exceeded every expectation. Most students take months to reach your level - you've done it in weeks."
+
+${foundation}
+
+"I've trained for two hundred years," she admits. "And I've never seen anyone progress like you. You're not just talented - you're extraordinary."
+
+${elementalNature}
+
+She touches your shoulder warmly. "I'm honored to teach you. Truly honored."
+
+${chooseElement}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { blood_magic_level: 5 } },
 			text: `Your advanced blood magic training makes elemental channeling easier. Lyra notices your progress with impressed surprise.
 
 "You're progressing faster than anyone I've taught," she admits. "Your natural aptitude is remarkable. Perhaps you could master multiple elements after all."

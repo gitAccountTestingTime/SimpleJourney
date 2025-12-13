@@ -79,7 +79,7 @@ The pain is raw and real - a wound that's never healed.`
 		{
 			id: 'share-burden',
 			text: 'Share that you carry similar burdens - you\'re not alone',
-			next: 'kieran_bonding_2',
+			next: 'military_meeting',
 			effects: { empathy: 6, wisdom: 4 },
 			hiddenEffects: {
 				kieran_bond: 22,
@@ -91,7 +91,7 @@ The pain is raw and real - a wound that's never healed.`
 		{
 			id: 'affirm-trust',
 			text: 'Affirm complete trust - past mistakes made him stronger',
-			next: 'kieran_bonding_2',
+			next: 'military_meeting',
 			effects: { charisma: 5, empathy: 4 },
 			hiddenEffects: {
 				kieran_bond: 18,
@@ -173,7 +173,7 @@ His smile is small but genuine - the first real smile you've seen from him. "Tha
 		{
 			id: 'flirt-during-spar',
 			text: 'Use closeness during sparring to flirt subtly',
-			next: 'kieran_bonding_3',
+			next: 'marina_ocean_depths',
 			effects: { charisma: 5, courage: 3 },
 			hiddenEffects: {
 				kieran_bond: 14,
@@ -185,7 +185,7 @@ His smile is small but genuine - the first real smile you've seen from him. "Tha
 		{
 			id: 'ask-about-tactics',
 			text: 'Ask deeper tactical questions - engage his expertise',
-			next: 'kieran_bonding_3',
+			next: 'marina_ocean_depths',
 			effects: { wisdom: 5, strength: 2 },
 			hiddenEffects: {
 				kieran_bond: 16,
@@ -196,7 +196,7 @@ His smile is small but genuine - the first real smile you've seen from him. "Tha
 		{
 			id: 'train-together-equals',
 			text: 'Propose ongoing training as equals, not teacher/student',
-			next: 'kieran_bonding_3',
+			next: 'marina_ocean_depths',
 			effects: { strength: 4, charisma: 4 },
 			hiddenEffects: {
 				kieran_bond: 20,
@@ -241,7 +241,7 @@ The confession hangs between you, his heart pounding against yours.`
 		{
 			id: 'reassure-safety',
 			text: 'Reassure him you\'re safe because of him',
-			next: 'kieran_relationship_resolution',
+			next: 'lyra_memorial',
 			effects: { empathy: 5, charisma: 3 },
 			hiddenEffects: {
 				kieran_bond: 18,
@@ -252,7 +252,7 @@ The confession hangs between you, his heart pounding against yours.`
 		{
 			id: 'kiss-him',
 			text: 'Kiss him instead of answering with words',
-			next: 'kieran_romance_path',
+			next: 'lyra_memorial',
 			effects: { courage: 7, charisma: 5 },
 			hiddenEffects: {
 				kieran_bond: 30,
@@ -264,7 +264,7 @@ The confession hangs between you, his heart pounding against yours.`
 		{
 			id: 'acknowledge-partnership',
 			text: 'Acknowledge the partnership but need time for more',
-			next: 'kieran_relationship_resolution',
+			next: 'lyra_memorial',
 			effects: { wisdom: 5, empathy: 4 },
 			hiddenEffects: {
 				kieran_bond: 15,
@@ -276,7 +276,7 @@ The confession hangs between you, his heart pounding against yours.`
 		{
 			id: 'affirm-shield-siblings',
 			text: 'Affirm shield-sibling bond - warrior soulmates',
-			next: 'kieran_relationship_resolution',
+			next: 'lyra_memorial',
 			effects: { courage: 6, empathy: 4 },
 			hiddenEffects: {
 				kieran_bond: 25,

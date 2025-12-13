@@ -1,41 +1,101 @@
 import { Scene } from '../../story-manager';
 
-// Crystal Hunt Beginning - Converging Point for All Paths
-export const CrystalHuntStart: Scene = {
-	id: 'crystal_hunt_start',
-	text: `Whatever political path you've chosen, one truth remains: the Crystal Heart must be restored. Five fragments scattered across the realm, each in a different location, each guarded or claimed by different forces.
+const crystalTruth = `Whatever political path you've chosen, one truth remains: the Crystal Heart must be restored. Five fragments scattered across the realm, each in a different location, each guarded or claimed by different forces.`;
 
-Marcus spreads out intelligence reports. "The fragments are in:
+const marcusIntelligence = `Marcus spreads out intelligence reports. "The fragments are in:
 - Moonwhisper Grove (held by the elves)
 - Ironpeak Mountains (held by the dwarves)  
 - Dragon's Spine (guarded by dragons)
 - The Obsidian Wastes (corrupted by Shadow magic)
-- Beneath the royal palace (hidden, but politically contested)"
+- Beneath the royal palace (hidden, but politically contested)"`;
 
-Lyra adds, "Each fragment has bonded with its guardian or location. They won't be simply given up. You must prove worthy - through trial, negotiation, or sometimes both."
+const lyraWarning = `Lyra adds, "Each fragment has bonded with its guardian or location. They won't be simply given up. You must prove worthy - through trial, negotiation, or sometimes both."`;
 
-Your choice of first fragment to pursue will determine much of what follows.`,
+const decisionImportance = `Your choice of first fragment to pursue will determine much of what follows.`;
+
+// Crystal Hunt Beginning - Converging Point for All Paths
+export const CrystalHuntStart: Scene = {
+	id: 'crystal_hunt_start',
+	text: `${crystalTruth}
+
+${marcusIntelligence}
+
+${lyraWarning}
+
+${decisionImportance}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { loyalist_path_confirmed: true }
-			},
+			conditions: { hasFlags: ['loyalist_path_confirmed:true', 'seraphine_becomes_advisor:true'] },
+			text: `${crystalTruth}
+
+${marcusIntelligence}
+
+Seraphine reviews the intelligence with practiced efficiency. "As Loyalist-backed heir, we have political advantage. The elves and dwarves may negotiate more readily. But the dragons respect only strength and wisdom, regardless of politics."
+
+Lady Ashford adds, "I suggest starting with the palace fragment - securing your ancestral home sends a powerful message."
+
+${lyraWarning}
+
+${decisionImportance}`
+		},
+		{
+			conditions: { hasFlags: ['reformist_path_confirmed:true', 'sage_becomes_close_advisor:true'] },
+			text: `${crystalTruth}
+
+${marcusIntelligence}
+
+Sage leans over the map, thoughtful. "The magical races are skeptical of monarchies. But they might respect a ruler who shares power with the people. Let's start with diplomatic missions - show them we're different."
+
+Dane agrees. "Prove the new system works before claiming ancient artifacts."
+
+${lyraWarning}
+
+${decisionImportance}`
+		},
+		{
+			conditions: { hasFlags: ['military_path_confirmed:true', 'kieran_conflicted:true'] },
+			text: `${crystalTruth}
+
+${marcusIntelligence}
+
+General Blackwood scowls. "We should take them by force if necessary. The kingdom needs those fragments now, not after lengthy negotiations."
+
+Kieran shifts uncomfortably. "Uncle, the magical races are powerful allies or dangerous enemies. Perhaps diplomacy first?"
+
+The tension between their approaches is evident.
+
+${lyraWarning}
+
+${decisionImportance}`
+		},
+		{
+			conditions: { hasFlags: ['independent_path_confirmed:true', 'companions_most_important:true'] },
+			text: `${crystalTruth}
+
+${marcusIntelligence}
+
+Rowan grins. "No faction backing means the magical races might actually trust you. They're tired of human politics."
+
+Lyra nods approvingly. "Start with my people in Moonwhisper Grove. I can introduce you properly. An independent heir seeking genuine alliance? That they'll respect."
+
+Your independent path has opened doors the factions couldn't.
+
+${decisionImportance}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { loyalist_path_confirmed: true } },
 			text: `Seraphine reviews the intelligence. "As Loyalist-backed heir, we have some political advantage. The elves and dwarves may negotiate more readily. But the dragons respect only strength and wisdom, regardless of politics."
 
 Lady Ashford adds, "I suggest starting with the palace fragment - securing your ancestral home sends a powerful message."`
 		},
 		{
-			conditions: {
-				hasHiddenAttributes: { reformist_path_confirmed: true }
-			},
+			conditions: { hasHiddenAttributes: { reformist_path_confirmed: true } },
 			text: `Sage suggests, "The magical races are skeptical of monarchies. But they might respect a ruler who shares power with the people. Let's start with diplomatic missions - show them we're different."
 
 Dane agrees. "Prove the new system works before claiming ancient artifacts."`
 		},
 		{
-			conditions: {
-				hasHiddenAttributes: { independent_path_confirmed: true }
-			},
+			conditions: { hasHiddenAttributes: { independent_path_confirmed: true } },
 			text: `Rowan grins. "No faction backing means the magical races might actually trust you. They're tired of human politics."
 
 Lyra nods. "Start with my people in Moonwhisper Grove. I can introduce you properly. An independent heir seeking genuine alliance? That they'll respect."`

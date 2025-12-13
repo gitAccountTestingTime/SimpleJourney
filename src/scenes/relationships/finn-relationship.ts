@@ -76,7 +76,7 @@ He wipes his eyes roughly. "I wanted to hate you completely. But you actually li
 		{
 			id: 'promise-change',
 			text: 'Promise genuine change - no more broken hands, no more cruelty',
-			next: 'finn_bonding_2',
+			next: 'assassin_confession',
 			effects: { wisdom: 6, courage: 5 },
 			hiddenEffects: {
 				finn_bond: 25,
@@ -88,7 +88,7 @@ He wipes his eyes roughly. "I wanted to hate you completely. But you actually li
 		{
 			id: 'ask-to-teach',
 			text: 'Ask him to teach you - show you what you don\'t see',
-			next: 'finn_bonding_2',
+			next: 'assassin_confession',
 			effects: { empathy: 6, wisdom: 4 },
 			hiddenEffects: {
 				finn_bond: 22,
@@ -99,7 +99,7 @@ He wipes his eyes roughly. "I wanted to hate you completely. But you actually li
 		{
 			id: 'honor-father',
 			text: 'Ask to honor his father\'s memory properly',
-			next: 'finn_bonding_2',
+			next: 'assassin_confession',
 			effects: { empathy: 7, wisdom: 3 },
 			hiddenEffects: {
 				finn_bond: 28,
@@ -112,7 +112,7 @@ He wipes his eyes roughly. "I wanted to hate you completely. But you actually li
 		{
 			id: 'share-grief',
 			text: 'Share your own loss - grief recognizes grief',
-			next: 'finn_bonding_2',
+			next: 'assassin_confession',
 			effects: { empathy: 8 },
 			hiddenEffects: {
 				finn_bond: 30,
@@ -169,7 +169,7 @@ The challenge is real - prove yourself or lose his trust forever.`
 		{
 			id: 'immediate-aid',
 			text: 'Provide immediate aid with your own resources',
-			next: 'finn_bonding_3',
+			next: 'marina_ocean_depths',
 			effects: { empathy: 5, courage: 5 },
 			hiddenEffects: {
 				finn_bond: 18,
@@ -181,7 +181,7 @@ The challenge is real - prove yourself or lose his trust forever.`
 		{
 			id: 'plan-reforms',
 			text: 'Plan concrete reforms with Finn as advisor',
-			next: 'finn_bonding_3',
+			next: 'marina_ocean_depths',
 			effects: { wisdom: 6, empathy: 4 },
 			hiddenEffects: {
 				finn_bond: 22,
@@ -193,7 +193,7 @@ The challenge is real - prove yourself or lose his trust forever.`
 		{
 			id: 'ask-help-bridge',
 			text: 'Ask Finn to help you bridge the class divide',
-			next: 'finn_bonding_3',
+			next: 'marina_ocean_depths',
 			effects: { wisdom: 5, empathy: 5 },
 			hiddenEffects: {
 				finn_bond: 25,
@@ -239,7 +239,7 @@ The vulnerability in his eyes is raw and real - everything he's fought against a
 		{
 			id: 'acknowledge-feelings',
 			text: 'Acknowledge your growing feelings for him too',
-			next: 'finn_romance_path',
+			next: 'marina_ocean_depths',
 			effects: { empathy: 7, charisma: 6 },
 			hiddenEffects: {
 				finn_bond: 35,
@@ -251,7 +251,7 @@ The vulnerability in his eyes is raw and real - everything he's fought against a
 		{
 			id: 'value-connection',
 			text: 'Express how much his perspective and connection mean',
-			next: 'finn_relationship_resolution',
+			next: 'marina_ocean_depths',
 			effects: { empathy: 6, wisdom: 4 },
 			hiddenEffects: {
 				finn_bond: 25,
@@ -262,7 +262,7 @@ The vulnerability in his eyes is raw and real - everything he's fought against a
 		{
 			id: 'need-time',
 			text: 'Admit feelings but need time to navigate complications',
-			next: 'finn_relationship_resolution',
+			next: 'marina_ocean_depths',
 			effects: { wisdom: 6, empathy: 5 },
 			hiddenEffects: {
 				finn_bond: 20,
@@ -274,7 +274,7 @@ The vulnerability in his eyes is raw and real - everything he's fought against a
 		{
 			id: 'deflect-friendship',
 			text: 'Value him but maintain friendship boundaries',
-			next: 'finn_relationship_resolution',
+			next: 'marina_ocean_depths',
 			effects: { empathy: 5, wisdom: 4 },
 			hiddenEffects: {
 				finn_bond: 18,

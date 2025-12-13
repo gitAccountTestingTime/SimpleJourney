@@ -1,13 +1,47 @@
 import { Scene } from '../../story-manager';
 
+const rowanDescription = `A figure emerges from the forest edge as you explore the manor grounds. Half-elf, by the pointed ears and otherworldly grace, dressed in practical leathers with vine tattoos winding up their arms. Auburn hair catches the sunlight, and forest-green eyes assess you with careful neutrality.`;
+
+const rowanIntroduction = `"Your Highness," they say, the title sounding strange directed at you. "I am Rowan Thornheart, ranger of the Wildwood. Agent Thorne has assigned me as your official guardian. My task is to keep you alive and teach you to survive outside these comfortable walls."
+
+There's a hint of challenge in their voice - they're testing you, seeing if nobility has already gone to your head.`;
+
 export const RowanIntroduction: Scene = {
 	id: 'rowan_formal_introduction',
-	text: `A figure emerges from the forest edge as you explore the manor grounds. Half-elf, by the pointed ears and otherworldly grace, dressed in practical leathers with vine tattoos winding up their arms. Auburn hair catches the sunlight, and forest-green eyes assess you with careful neutrality.
+	text: `${rowanDescription}
 
-"Your Highness," they say, the title sounding strange directed at you. "I am Rowan Thornheart, ranger of the Wildwood. Agent Thorne has assigned me as your official guardian. My task is to keep you alive and teach you to survive outside these comfortable walls."
-
-There's a hint of challenge in their voice - they're testing you, seeing if nobility has already gone to your head.`,
+${rowanIntroduction}`,
 	textVariants: [
+		{
+			conditions: { hasFlags: ['companions_priority:true', 'emotional_connection:family'] },
+			text: `${rowanDescription}
+
+You're still processing the journals you read, your parents' words fresh in your mind. This ranger represents another connection to that lost world.
+
+${rowanIntroduction}
+
+Rowan notices your emotional state. "I knew them, you know. Your parents. They saved the Wildwood once. I swore then I'd protect their line." Their voice softens. "You have their eyes."`
+		},
+		{
+			conditions: { hasFlags: ['magic_focus:true', 'blood_magic_affinity:5'] },
+			text: `${rowanDescription}
+
+Your blood mark tingles as they approach - Rowan has magic too, though different. Nature magic, woven through their very being.
+
+${rowanIntroduction}
+
+Their eyes catch the glow of your mark. "Ah. Your magic recognizes mine. Good. We'll work well together - blood magic and nature magic, two halves of a whole."`
+		},
+		{
+			conditions: { hasFlags: ['political_knowledge:true', 'pragmatic_focus:true'] },
+			text: `${rowanDescription}
+
+You've been studying the political documents, understanding the complex web of alliances. This ranger represents the Wildwood faction - an important piece of the puzzle.
+
+${rowanIntroduction}
+
+You note their body language, the subtle test. A political education tells you how to read people, and Rowan is assessing whether you're a puppet or a player.`
+		},
 		{
 			conditions: {
 				hasHiddenAttributes: { rowan_met_early: true }
@@ -22,7 +56,7 @@ The formality drops from their voice. "At least now I know why you felt so impor
 			conditions: {
 				hasHiddenAttributes: { ash_trust: 20 }
 			},
-			text: `A figure emerges from the forest edge as you explore the manor grounds. Half-elf, by the pointed ears and otherworldly grace, dressed in practical leathers.
+			text: `${rowanDescription}
 
 Before they can speak, Ash steps forward protectively. "State your business."
 
@@ -72,7 +106,7 @@ Ash relaxes slightly, recognizing a fellow warrior's assessment.`
 		{
 			id: 'ask-heritage',
 			text: 'Ask about their half-elf heritage and connection to nature',
-			next: 'first_political_meeting',
+			next: 'rowan_bonding_1',
 			effects: { wisdom: 2 },
 			hiddenEffects: {
 				rowan_bond: 8,

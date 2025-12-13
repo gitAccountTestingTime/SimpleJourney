@@ -1,25 +1,89 @@
 import { Scene } from '../../story-manager';
 
+const dragonSpine = `Dragon's Spine Mountains pierce the clouds. Here, ancient dragons roost among peaks mortals rarely see. Thorne Drake leads you to the dragon council - massive beings whose scales shimmer with accumulated centuries.`;
+
+const matriarchGreeting = `The Dragon Matriarch, ancient beyond measure, regards you with eyes like molten gold.`;
+
+const dragonMemory = `"We dragons remember the First War," her voice resonates through stone. "We remember when humans and dragons fought side by side against the Shadowrealm. We also remember the betrayal that followed - humans hunting us for scales and hoards."`;
+
+const thorneCaution = `Thorne stands between you and the council, his stance protective yet neutral. "This one is different," he offers carefully.`;
+
+const matriarchChallenge = `"Then let them prove it," the Matriarch declares. "We offer two paths: Strength or Wisdom. Dragons respect both. Choose how you will be tested."`;
+
+const dragonPresence = `Around you, massive dragon forms shift - beautiful, terrifying, and utterly alien in their ancient power.`;
+
 // Act 3 - Dragon, Fae, and Merfolk Fragment Quests
 
 export const DragonTrial: Scene = {
 	id: 'dragon_trial',
-	text: `Dragon's Spine Mountains pierce the clouds. Here, ancient dragons roost among peaks mortals rarely see. Thorne Drake leads you to the dragon council - massive beings whose scales shimmer with accumulated centuries.
+	text: `${dragonSpine}
 
-The Dragon Matriarch, ancient beyond measure, regards you with eyes like molten gold.
+${matriarchGreeting}
 
-"We dragons remember the First War," her voice resonates through stone. "We remember when humans and dragons fought side by side against the Shadowrealm. We also remember the betrayal that followed - humans hunting us for scales and hoards."
+${dragonMemory}
 
-Thorne stands between you and the council, his stance protective yet neutral. "This one is different," he offers carefully.
+${thorneCaution}
 
-"Then let them prove it," the Matriarch declares. "We offer two paths: Strength or Wisdom. Dragons respect both. Choose how you will be tested."
+${matriarchChallenge}
 
-Around you, massive dragon forms shift - beautiful, terrifying, and utterly alien in their ancient power.`,
+${dragonPresence}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { thorne_respect: 30 }
-			},
+			conditions: { hasFlags: ['independent_path_confirmed:true', 'chosen_own_path:true'] },
+			text: `${dragonSpine}
+
+${matriarchGreeting}
+
+But there's curiosity in her ancient gaze. "We have heard of you. The heir who rejected human faction politics to forge an independent path."
+
+${dragonMemory}
+
+The Matriarch leans forward. "An independent ruler seeking genuine alliance with magical races? That is... refreshing. Most humans come bearing factional agendas."
+
+${thorneCaution}
+
+"Very well," the Matriarch says. "We will test you. But we do so with interest, not mere skepticism."
+
+${dragonPresence}`
+		},
+		{
+			conditions: { hasFlags: ['bold_approach:true'], hasHiddenAttributes: { thorne_respect: 20 } },
+			text: `${dragonSpine}
+
+${matriarchGreeting}
+
+Thorne's respect for your boldness is evident. "This heir challenged me personally, Matriarch. Demanded to be tested on merit, not lineage."
+
+${dragonMemory}
+
+The Matriarch's eyes gleam. "Boldness. We respect that. Too many humans cower or grovel. You stand proud."
+
+${thorneCaution}
+
+${matriarchChallenge}
+
+${dragonPresence}`
+		},
+		{
+			conditions: { hasFlags: ['ask-why:true', 'philosophical_interest:true'] },
+			text: `${dragonSpine}
+
+${matriarchGreeting}
+
+"Ah yes," she says, something like amusement in her voice. "Thorne tells me you questioned why dragons care about mortal politics. An unusual question."
+
+${dragonMemory}
+
+She studies you intently. "But it shows you think beyond immediate needs. You seek to understand, not just use. That is rare."
+
+${thorneCaution}
+
+${matriarchChallenge}
+
+${dragonPresence}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { thorne_respect: 30 } },
 			text: `The Dragon Matriarch studies you intensely. Thorne suddenly steps forward, his posture formal and deliberate.
 
 "Honored Matriarch," he says, his voice carrying weight, "I invoke the Rite of Draconic Sponsorship."
@@ -90,17 +154,77 @@ The Matriarch's expression softens almost imperceptibly. "Very well. We will tes
 	]
 };
 
+const cliffOverlook = `After the trial, Thorne leads you to a cliff edge overlooking endless mountains. The sunset paints the sky in gold and crimson. In the fading light, he seems both ancient and achingly lonely.`;
+
+const thorneQuestion = `"Do you know what it's like," he asks quietly, "to watch centuries pass? To see everyone you care about turn to dust while you endure?"`;
+
+const vulnerableConfession = `He looks at you, and for once, the ancient dragon's mask falls away completely. "I've had mortal friends before. I've even loved mortals. And I've buried every single one of them. It never gets easier."`;
+
+const timeProblem = `The vulnerability in his voice is startling. "You'll be gone in a blink of an eye," he continues. "Seventy, maybe eighty years if you're lucky. For me, that's nothing. A heartbeat. And then I'll be alone again, remembering you for the next thousand years."`;
+
+const thorneConflict = `He meets your eyes. "So why do I still feel drawn to you? Why can't I maintain the distance I should?"`;
+
 export const ThorneLoneliness: Scene = {
 	id: 'thorne_loneliness',
-	text: `After the trial, Thorne leads you to a cliff edge overlooking endless mountains. The sunset paints the sky in gold and crimson. In the fading light, he seems both ancient and achingly lonely.
+	text: `${cliffOverlook}
 
-"Do you know what it's like," he asks quietly, "to watch centuries pass? To see everyone you care about turn to dust while you endure?"
+${thorneQuestion}
 
-He looks at you, and for once, the ancient dragon's mask falls away completely. "I've had mortal friends before. I've even loved mortals. And I've buried every single one of them. It never gets easier."
+${vulnerableConfession}
 
-The vulnerability in his voice is startling. "You'll be gone in a blink of an eye," he continues. "Seventy, maybe eighty years if you're lucky. For me, that's nothing. A heartbeat. And then I'll be alone again, remembering you for the next thousand years."
+${timeProblem}
 
-He meets your eyes. "So why do I still feel drawn to you? Why can't I maintain the distance I should?"`,
+${thorneConflict}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['thorne_sponsorship:true', 'thorne_risked_everything:true'] },
+			text: `${cliffOverlook}
+
+Thorne's sponsorship at the trial cost him dearly. He risked permanent exile for you.
+
+${thorneQuestion}
+
+"I broke my own rule," he says, voice rough with emotion. "I swore never to risk my heart on a mortal again. But I sponsored you before the Matriarch. I bound my fate to yours."
+
+${vulnerableConfession}
+
+"And now I've done it again," he whispers. "Fallen for someone who'll leave me. Because I couldn't help myself."
+
+${thorneConflict}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { thorne_romance: 25 } },
+			text: `${cliffOverlook}
+
+Thorne's hand finds yours, his touch warm despite his usual heat being contained.
+
+${thorneQuestion}
+
+${vulnerableConfession}
+
+He turns to face you fully. "I told myself I wouldn't do this again. That I'd learned my lesson about loving mortals." His thumb traces your knuckles. "But you made me forget that lesson. You made me hope."
+
+${timeProblem}
+
+"Tell me I'm not foolish," he pleads softly. "Tell me it's worth it."`
+		},
+		{
+			conditions: { hasFlags: ['wisdom-trial:true', 'wisdom_dragon:true'] },
+			text: `${cliffOverlook}
+
+"You chose the path of wisdom in the trial," Thorne observes. "Now I ask you to apply that wisdom to an impossible question."
+
+${thorneQuestion}
+
+${vulnerableConfession}
+
+${timeProblem}
+
+"Is it wise to love something temporary?" he asks. "Or is wisdom understanding that all moments are temporary, and love matters anyway?"
+
+${thorneConflict}`
+		}
+	],
 	choices: [
 		{
 			id: 'embrace',

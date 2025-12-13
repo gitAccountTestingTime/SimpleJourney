@@ -1,21 +1,55 @@
 import { Scene } from '../../story-manager';
 
+const seraphineVulnerable = `Seraphine finds you in the palace garden, and for once, her perfect composure is cracked. Her hands tremble slightly as she holds a letter.`;
+
+const familyDemand = `"My family," she says, voice strained, "they're demanding I use my position with you to secure advantages for House Silverveil. They want trade monopolies, political appointments, tax exemptions." She meets your eyes. "If I refuse, they'll disown me. If I comply, I betray your trust and everything I believe in."`;
+
+const maskFallen = `You've never seen her this vulnerable. The perfect noblewoman facade has fallen away, revealing someone torn between duty to family and loyalty to principle.`;
+
+const seraphineRealization = `"My entire life," she continues quietly, "I've been trained to play political games. But you've made me want to be better than that. You've shown me there's another way." Her voice breaks. "I don't want to choose between my family and my integrity. But I know what's right."`;
+
 // Companion Personal Quests - Seraphine, Rowan, Kieran
 
 export const SeraphinePoliticalCrisis: Scene = {
 	id: 'seraphine_crisis',
-	text: `Seraphine finds you in the palace garden, and for once, her perfect composure is cracked. Her hands tremble slightly as she holds a letter.
+	text: `${seraphineVulnerable}
 
-"My family," she says, voice strained, "they're demanding I use my position with you to secure advantages for House Silverveil. They want trade monopolies, political appointments, tax exemptions." She meets your eyes. "If I refuse, they'll disown me. If I comply, I betray your trust and everything I believe in."
+${familyDemand}
 
-You've never seen her this vulnerable. The perfect noblewoman facade has fallen away, revealing someone torn between duty to family and loyalty to principle.
+${maskFallen}
 
-"My entire life," she continues quietly, "I've been trained to play political games. But you've made me want to be better than that. You've shown me there's another way." Her voice breaks. "I don't want to choose between my family and my integrity. But I know what's right."`,
+${seraphineRealization}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { seraphine_trust: 40 }
-			},
+			conditions: { hasFlags: ['loyalist_path_confirmed:true', 'seraphine_becomes_advisor:true'] },
+			text: `${seraphineVulnerable}
+
+"They know I'm your primary advisor now," she says bitterly. "They think the Loyalist path means we'll restore noble privileges. They want to exploit that."
+
+${familyDemand}
+
+"You chose tradition," she whispers, "but I know you chose it to rebuild, not to corrupt. My family doesn't understand that."
+
+${maskFallen}
+
+${seraphineRealization}`
+		},
+		{
+			conditions: { hasFlags: ['reformist_path_confirmed:true'], hasHiddenAttributes: { seraphine_trust: 30 } },
+			text: `${seraphineVulnerable}
+
+"You chose the Reformists," she says, something like pride in her voice despite her pain. "You chose progress over tradition. That took courage."
+
+${familyDemand}
+
+"They're furious I didn't steer you toward the Loyalists. But I won't manipulate you, even for family."
+
+${maskFallen}
+
+"You've shown me that integrity matters more than noble bloodlines," she says. "Now I have to prove I meant that."`
+		},
+		{
+			conditions: { hasHiddenAttributes: { seraphine_trust: 40 } },
 			text: `Seraphine stands before you, vulnerable in a way she's never allowed herself to be. She's not wearing her political mask - this is real fear, real pain.
 
 "I've fallen in love with you," she admits, the words clearly costing her everything. "Not strategically, not for political gain, but genuinely. Completely." She looks away. "My family would use even that if they knew. They'd try to manipulate me through my feelings for you."
@@ -27,7 +61,7 @@ She meets your eyes again, and there are unshed tears. "I'm choosing you. I'm ch
 		{
 			id: 'stand-with-her',
 			text: 'Stand with her completely - she won\'t face this alone',
-			next: 'rowan_origins',
+			next: 'seraphine_bonding_2',
 			effects: { charisma: 5 },
 			hiddenEffects: {
 				seraphine_trust: 50,
@@ -77,19 +111,83 @@ She meets your eyes again, and there are unshed tears. "I'm choosing you. I'm ch
 	]
 };
 
+const journeyBorderlands = `Rowan asks you to accompany them on a private journey to the Borderlands - the wild frontier where civilization meets untamed wilderness. They've been unusually quiet, almost melancholy.`;
+
+const burnedVillage = `You reach a small, burned village. Nothing remains but charred foundations and overgrown ruins.`;
+
+const rowanReveal = `"This was my home," Rowan says quietly. "Twenty years ago, Shadow Beasts came through. The kingdom's army didn't arrive in time - or chose not to. Peripheral villages weren't priority." Their jaw clenches. "My parents died holding the line so children could escape. I was twelve."`;
+
+const rowanReflection = `They walk through the ruins, touching burned timber. "The Royal Scouts found me weeks later, half-dead in the forest. They trained me, gave me purpose, made me what I am." They look at you. "I've protected the kingdom ever since, believing I was preventing what happened here from happening to others."`;
+
+const systemFailure = `Their voice hardens. "But it kept happening. Because the kingdom doesn't protect everyone equally. Borderland villages are expendable. Common people don't matter to most nobles."`;
+
+const rowanQuestion = `You see tears Rowan won't let fall. "I need to know - will you be different? Or am I protecting a system that let my parents die?"`;
+
 export const RowanOrigins: Scene = {
 	id: 'rowan_origins',
-	text: `Rowan asks you to accompany them on a private journey to the Borderlands - the wild frontier where civilization meets untamed wilderness. They've been unusually quiet, almost melancholy.
+	text: `${journeyBorderlands}
 
-You reach a small, burned village. Nothing remains but charred foundations and overgrown ruins.
+${burnedVillage}
 
-"This was my home," Rowan says quietly. "Twenty years ago, Shadow Beasts came through. The kingdom's army didn't arrive in time - or chose not to. Peripheral villages weren't priority." Their jaw clenches. "My parents died holding the line so children could escape. I was twelve."
+${rowanReveal}
 
-They walk through the ruins, touching burned timber. "The Royal Scouts found me weeks later, half-dead in the forest. They trained me, gave me purpose, made me what I am." They look at you. "I've protected the kingdom ever since, believing I was preventing what happened here from happening to others."
+${rowanReflection}
 
-Their voice hardens. "But it kept happening. Because the kingdom doesn't protect everyone equally. Borderland villages are expendable. Common people don't matter to most nobles."
+${systemFailure}
 
-You see tears Rowan won't let fall. "I need to know - will you be different? Or am I protecting a system that let my parents die?"`,
+${rowanQuestion}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['helped_commoners:true', 'compassion_for_people:15'] },
+			text: `${journeyBorderlands}
+
+${burnedVillage}
+
+${rowanReveal}
+
+Rowan looks at you with raw emotion. "You helped people in the market. Common folk with no power, no voice. You saw them as people, not subjects."
+
+${rowanReflection}
+
+"That's what my parents would have wanted," Rowan says, voice thick. "A ruler who sees everyone. Who protects everyone."
+
+${systemFailure}
+
+But there's hope in their eyes now. "You've already shown you're different. I just needed to see where I came from. To remember why it matters."`
+		},
+		{
+			conditions: { hasFlags: ['reformist_path_confirmed:true', 'progressive_ruler:true'] },
+			text: `${journeyBorderlands}
+
+${burnedVillage}
+
+${rowanReveal}
+
+${rowanReflection}
+
+Rowan's expression shifts to something like fierce pride. "You chose the Reformists. Democracy, not nobility. Power shared with the people, not hoarded by bloodlines."
+
+${systemFailure}
+
+"But you're changing that," they say firmly. "The Reformist path means villages like this will have voices, votes, protection. My parents died for nothing. Your reforms could make sure others don't."`
+		},
+		{
+			conditions: { hasHiddenAttributes: { rowan_bond: 35 } },
+			text: `${journeyBorderlands}
+
+${burnedVillage}
+
+${rowanReveal}
+
+Their hand finds yours, grip tight. "I never brought anyone here before. Never let anyone see where I came from, what shaped me."
+
+${rowanReflection}
+
+${systemFailure}
+
+Rowan turns to face you fully. "But you... you've become my family. And I need my family to understand why justice matters so much to me. Why I can't serve a ruler who doesn't see the people." Their eyes search yours. "Tell me you see them."`
+		}
+	],
 	choices: [
 		{
 			id: 'promise-change',
@@ -130,7 +228,7 @@ You see tears Rowan won't let fall. "I need to know - will you be different? Or 
 		{
 			id: 'share-pain',
 			text: 'Hold them - share their pain without empty promises',
-			next: 'kieran_dilemma',
+			next: 'rowan_bonding_3',
 			effects: { charisma: 6 },
 			hiddenEffects: {
 				rowan_bond: 55,
@@ -143,22 +241,58 @@ You see tears Rowan won't let fall. "I need to know - will you be different? Or 
 	]
 };
 
+const kieranRequest = `Captain Kieran requests a private meeting in the training yard, late at night when no one else is around. His expression is tortured, conflicted in a way you've never seen.`;
+
+const uncleReveal = `"General Blackwood is my uncle," he says without preamble. "He raised me after my father died. Taught me everything I know about honor, duty, leadership." He grips his sword hilt unconsciously. "But I've been watching him. Listening. And I think... I think he's planning a coup."`;
+
+const treasonWords = `The words hang heavy between you. This is treason to speak of, even to consider.`;
+
+const militaryPlots = `"He talks about 'necessary action for the kingdom's stability.' He's consolidating military power. Making alliances." Kieran meets your eyes, and you see anguish there. "If he moves against you, I'm oath-bound to protect you. But he's family. The only family I have left."`;
+
+const heartbreakingChoice = `His voice breaks. "How do I choose? My oath or my blood? My duty or my heart?" He steps closer. "Because it's not just duty anymore. Somewhere along the way, protecting you became... personal. Too personal for a bodyguard."`;
+
 export const KieranDilemma: Scene = {
 	id: 'kieran_dilemma',
-	text: `Captain Kieran requests a private meeting in the training yard, late at night when no one else is around. His expression is tortured, conflicted in a way you've never seen.
+	text: `${kieranRequest}
 
-"General Blackwood is my uncle," he says without preamble. "He raised me after my father died. Taught me everything I know about honor, duty, leadership." He grips his sword hilt unconsciously. "But I've been watching him. Listening. And I think... I think he's planning a coup."
+${uncleReveal}
 
-The words hang heavy between you. This is treason to speak of, even to consider.
+${treasonWords}
 
-"He talks about 'necessary action for the kingdom's stability.' He's consolidating military power. Making alliances." Kieran meets your eyes, and you see anguish there. "If he moves against you, I'm oath-bound to protect you. But he's family. The only family I have left."
+${militaryPlots}
 
-His voice breaks. "How do I choose? My oath or my blood? My duty or my heart?" He steps closer. "Because it's not just duty anymore. Somewhere along the way, protecting you became... personal. Too personal for a bodyguard."`,
+${heartbreakingChoice}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { kieran_loyalty: 50 }
-			},
+			conditions: { hasFlags: ['military_alliance_confirmed:true', 'kieran_respects_honor:true'] },
+			text: `${kieranRequest}
+
+${uncleReveal}
+
+Kieran's face twists with bitter irony. "You chose the military alliance. You trusted us, trusted the army. And now I have to tell you that trust might be misplaced."
+
+${treasonWords}
+
+${militaryPlots}
+
+"You believed in military honor," Kieran says, voice raw. "I taught you that honor matters. And now I have to prove it by betraying my own blood." ${heartbreakingChoice.slice(13)}`
+		},
+		{
+			conditions: { hasFlags: ['blackwood_mentor:true'], hasHiddenAttributes: { kieran_loyalty: 35 } },
+			text: `${kieranRequest}
+
+${uncleReveal}
+
+Kieran's expression is agonized. "You met him. He mentored you, advised you. He seemed honorable, didn't he?" His voice cracks. "That's what makes this so hard. He IS honorable, in his way. He truly believes what he's planning is best for the kingdom."
+
+${treasonWords}
+
+${militaryPlots}
+
+"But you've earned my loyalty," Kieran says firmly. "Not just as heir, but as... as someone I believe in." ${heartbreakingChoice.slice(13)}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { kieran_loyalty: 50 } },
 			text: `Kieran's composure shatters completely. "I'm in love with you," he confesses, voice raw. "I've tried to deny it, tried to maintain professional distance, but I can't anymore."
 
 He looks at you with desperate honesty. "If my uncle moves against you, I'll stand with you. Even if it means becoming oath-breaker. Even if it means killing the man who raised me." His hands shake. "But I need to know if I'm throwing away everything for someone who sees me as just a guard. Or if you feel this too."`
@@ -204,7 +338,7 @@ He looks at you with desperate honesty. "If my uncle moves against you, I'll sta
 		{
 			id: 'love-confession',
 			text: 'Confess your feelings - face everything together',
-			next: 'lyra_memorial',
+			next: 'kieran_bonding_3',
 			effects: { charisma: 6, courage: 4 },
 			hiddenEffects: {
 				kieran_loyalty: 60,

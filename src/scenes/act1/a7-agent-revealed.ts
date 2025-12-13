@@ -1,15 +1,49 @@
 import { Scene } from '../../story-manager';
 
+const marcusIdentity = `An older man, silver-haired, wearing nondescript traveling clothes that somehow suggest nobility. His movements are precise, controlled - a warrior's grace despite his years.
+
+"Forgive the deception, Your Highness," he says, bowing formally. "I am Sir Marcus Thorne, Royal Agent. I've been searching for you for twenty years."`;
+
+const marcusExplanation = `Marcus nods. "That Shadow Beast was hunting for royal blood. They've been growing bolder, searching. The longer you remain unprotected, the greater the danger." He meets your eyes. "I served your parents. Now I serve you - if you'll have me."`;
+
 export const AgentRevealed: Scene = {
 	id: 'agent_revealed',
-	text: `As the Shadow Beast's corpse dissolves into smoke, your mysterious follower emerges from the trees. An older man, silver-haired, wearing nondescript traveling clothes that somehow suggest nobility. His movements are precise, controlled - a warrior's grace despite his years.
-
-"Forgive the deception, Your Highness," he says, bowing formally. "I am Sir Marcus Thorne, Royal Agent. I've been searching for you for twenty years."
+	text: `As the Shadow Beast's corpse dissolves into smoke, your mysterious follower emerges from the trees. ${marcusIdentity}
 
 Rowan's weapons stay drawn, but there's recognition in their eyes. "Marcus. So you finally found them."
 
-Marcus nods. "That Shadow Beast was hunting for royal blood. They've been growing bolder, searching. The longer you remain unprotected, the greater the danger." He meets your eyes. "I served your parents. Now I serve you - if you'll have me."`,
+${marcusExplanation}`,
 	textVariants: [
+		{
+			conditions: { hasFlags: ['used_blood_magic_first_time:true', 'magical_fighter:true'] },
+			text: `Your blood magic fades as the Shadow Beast dissolves. The power was exhilarating and terrifying in equal measure.
+
+Your follower emerges, awe in his eyes. "Royal blood magic... I never thought I'd see it again." ${marcusIdentity}
+
+Rowan lowers weapons, recognition dawning. "Marcus. You witnessed it too?"
+
+${marcusExplanation} "And watching you wield that power... your parents would be so proud."`
+		},
+		{
+			conditions: { hasFlags: ['cooperative_combat:true', 'martial_fighter:true'] },
+			text: `As the Shadow Beast dissolves, you and Rowan stand back-to-back, breathing hard. You fought well together.
+
+Your follower emerges, respect in his eyes. "Excellent teamwork. Your guardian has trained you well." ${marcusIdentity}
+
+Rowan sheathes weapons with a slight smile. "Marcus. I should have known you'd be watching."
+
+${marcusExplanation}`
+		},
+		{
+			conditions: { hasFlags: ['rowan_saved_life:true', 'trust_in_guardian:true'] },
+			text: `As the Shadow Beast dissolves, Rowan helps you to your feet. They saved your life, positioned themselves between you and death without hesitation.
+
+Your follower emerges, relief evident. "Thank the spirits. That was too close." ${marcusIdentity}
+
+Rowan's weapons stay drawn. "Marcus. Your timing could have been better."
+
+${marcusExplanation} "And I see Rowan has already proven their worth as guardian."`
+		},
 		{
 			conditions: {
 				hasHiddenAttributes: { confrontational_tendency: true }

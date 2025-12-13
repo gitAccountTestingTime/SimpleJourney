@@ -1,18 +1,52 @@
 import { Scene } from '../../story-manager';
 
+const manorDescription = `Silverwood Manor belongs to you now. The words still feel impossible, yet here you are, standing in the great hall of your ancestral home.
+
+The manor is breathtaking - vaulted ceilings with frescoes depicting magical creatures and ancient heroes, walls lined with portraits of silver-haired ancestors, sunlight streaming through stained glass windows that cast rainbow patterns across marble floors.`;
+
 export const ManorExploration: Scene = {
 	id: 'act1_start',
-	text: `Silverwood Manor belongs to you now. The words still feel impossible, yet here you are, standing in the great hall of your ancestral home.
-
-The manor is breathtaking - vaulted ceilings with frescoes depicting magical creatures and ancient heroes, walls lined with portraits of silver-haired ancestors, sunlight streaming through stained glass windows that cast rainbow patterns across marble floors. This is the life that was stolen from you, the legacy you never knew existed.
+	text: `${manorDescription} This is the life that was stolen from you, the legacy you never knew existed.
 
 Your companions from your adventuring days explore alongside you, each reacting differently to this revelation of your true identity.`,
 	textVariants: [
 		{
+			conditions: { hasFlags: ['identity_accepted:true', 'royal_path:true'] },
+			text: `${manorDescription}
+
+You accepted your heritage at Silverwood, chose to claim your birthright. Now you stand in your ancestral home not as a visitor, but as its rightful heir. The weight of responsibility settles on your shoulders, but so does a sense of purpose.
+
+Your companions from your adventuring days explore alongside you, watching to see how power changes you.`
+		},
+		{
+			conditions: { hasFlags: ['royal_path:reluctant'] },
+			text: `${manorDescription}
+
+You accepted the truth of your heritage, but reluctantly. Standing here now, surrounded by such opulence, you feel the disconnect between who you were and who you're supposed to be.
+
+Your companions from your adventuring days explore alongside you, offering silent support as you navigate this uncomfortable new reality.`
+		},
+		{
+			conditions: { hasFlags: ['royal_path:independent'] },
+			text: `${manorDescription}
+
+You acknowledged your blood but chose your own path. This manor is your heritage, yes, but it doesn't define you. You'll use what you've inherited on your own terms.
+
+Your companions from your adventuring days explore alongside you, relieved to see that grand halls haven't changed your independent spirit.`
+		},
+		{
+			conditions: { hasFlags: ['royal_path:companion_focused'] },
+			text: `${manorDescription}
+
+You declared at Silverwood that your companions matter more than heritage. Now they're here with you, not as servants but as friends, and that matters more than any title.
+
+Vale, Ash, Rook, and the others explore alongside you, their presence a reminder of what truly matters - the people who stood by you before you knew you were royalty.`
+		},
+		{
 			conditions: {
 				hasHiddenAttributes: { vale_trust: 15 }
 			},
-			text: `Silverwood Manor belongs to you now. The words still feel impossible, yet here you are, standing in the great hall of your ancestral home.
+			text: `${manorDescription} This is the life that was stolen from you, the legacy you never knew existed.
 
 Vale walks beside you, taking in the grandeur with practiced eyes. "Your parents had excellent taste," they murmur, examining a portrait. "And look - they left everything prepared for you. These documents, the artifacts... they knew you'd return someday."
 
@@ -22,7 +56,7 @@ Their hand finds yours briefly. "You're still you, you know. The person I've tra
 			conditions: {
 				hasHiddenAttributes: { ash_trust: 20 }
 			},
-			text: `Silverwood Manor belongs to you now. The words still feel impossible, yet here you are, standing in the great hall of your ancestral home.
+			text: `${manorDescription} This is the life that was stolen from you, the legacy you never knew existed.
 
 Ash lingers near the doorway, clearly uncomfortable with the opulence. "This is... a lot," they say quietly. Their mercenary company has camped in ruins before, but nothing like this.
 
@@ -32,7 +66,7 @@ You catch them watching you with worried eyes. "Just promise me something," Ash 
 			conditions: {
 				hasHiddenAttributes: { rook_trust: 15 }
 			},
-			text: `Silverwood Manor belongs to you now. The words still feel impossible, yet here you are, standing in the great hall of your ancestral home.
+			text: `${manorDescription} This is the life that was stolen from you, the legacy you never knew existed.
 
 "Oh, I am SO stealing one of these," Rook announces, eyeing a golden candlestick before catching your look. "What? I'm joking! Mostly." They grin, but there's uncertainty beneath the bravado.
 

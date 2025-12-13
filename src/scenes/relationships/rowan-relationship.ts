@@ -82,7 +82,7 @@ They move closer. "Maybe that's why protecting you feels... different. Not just 
 		{
 			id: 'relate-personally',
 			text: 'Share your own experience of not belonging',
-			next: 'rowan_bonding_2',
+			next: 'first_political_meeting',
 			effects: { empathy: 5, wisdom: 3 },
 			hiddenEffects: {
 				rowan_bond: 15,
@@ -94,7 +94,7 @@ They move closer. "Maybe that's why protecting you feels... different. Not just 
 		{
 			id: 'validate-feelings',
 			text: 'Validate their feelings and promise they belong here',
-			next: 'rowan_bonding_2',
+			next: 'first_political_meeting',
 			effects: { charisma: 4, empathy: 3 },
 			hiddenEffects: {
 				rowan_bond: 12,
@@ -105,7 +105,7 @@ They move closer. "Maybe that's why protecting you feels... different. Not just 
 		{
 			id: 'offer-solution',
 			text: 'Suggest practical ways to address the prejudice',
-			next: 'rowan_bonding_2',
+			next: 'first_political_meeting',
 			effects: { wisdom: 4 },
 			hiddenEffects: {
 				rowan_bond: 8,
@@ -116,7 +116,7 @@ They move closer. "Maybe that's why protecting you feels... different. Not just 
 		{
 			id: 'comfortable-silence',
 			text: 'Just stay in comfortable silence, sharing the moment',
-			next: 'rowan_bonding_2',
+			next: 'first_political_meeting',
 			effects: { empathy: 4 },
 			hiddenEffects: {
 				rowan_bond: 10,
@@ -152,7 +152,7 @@ Their forest-green eyes meet yours with unexpected intensity.`
 		{
 			id: 'express-gratitude',
 			text: 'Express genuine gratitude for their teaching and perspective',
-			next: 'rowan_bonding_3',
+			next: 'agent_revealed',
 			effects: { wisdom: 3, empathy: 3 },
 			hiddenEffects: {
 				rowan_bond: 12,
@@ -163,7 +163,7 @@ Their forest-green eyes meet yours with unexpected intensity.`
 		{
 			id: 'flirt-subtle',
 			text: 'Flirt subtly - comment on their skill and grace',
-			next: 'rowan_bonding_3',
+			next: 'agent_revealed',
 			effects: { charisma: 4 },
 			hiddenEffects: {
 				rowan_bond: 10,
@@ -175,7 +175,7 @@ Their forest-green eyes meet yours with unexpected intensity.`
 		{
 			id: 'ask-deeper',
 			text: 'Ask deeper questions about their mother and elven heritage',
-			next: 'rowan_bonding_3',
+			next: 'agent_revealed',
 			effects: { empathy: 5, wisdom: 3 },
 			hiddenEffects: {
 				rowan_bond: 15,
@@ -187,7 +187,7 @@ Their forest-green eyes meet yours with unexpected intensity.`
 		{
 			id: 'demonstrate-learning',
 			text: 'Demonstrate what you\'ve learned - make them proud',
-			next: 'rowan_bonding_3',
+			next: 'agent_revealed',
 			effects: { strength: 3, wisdom: 2 },
 			hiddenEffects: {
 				rowan_bond: 10,
@@ -196,9 +196,7 @@ Their forest-green eyes meet yours with unexpected intensity.`
 			}
 		}
 	]
-};
-
-export const RowanBonding3: Scene = {
+};export const RowanBonding3: Scene = {
 	id: 'rowan_bonding_3',
 	text: `Late one evening, Rowan finds you studying maps and reports. Without a word, they set down a cup of tea and a plate of the manor's kitchen offerings.
 
@@ -233,7 +231,7 @@ They meet your eyes. "Thank you for that. For seeing me as Rowan, not as 'the ha
 		{
 			id: 'romantic-reciprocate',
 			text: 'Take their hand and reciprocate the feelings',
-			next: 'rowan_romance_path',
+			next: 'kieran_dilemma',
 			effects: { charisma: 5, empathy: 4 },
 			hiddenEffects: {
 				rowan_bond: 25,
@@ -245,7 +243,7 @@ They meet your eyes. "Thank you for that. For seeing me as Rowan, not as 'the ha
 		{
 			id: 'friendship-affirm',
 			text: 'Affirm the deep friendship without romantic element',
-			next: 'rowan_friendship_path',
+			next: 'kieran_dilemma',
 			effects: { empathy: 5, wisdom: 3 },
 			hiddenEffects: {
 				rowan_bond: 20,
@@ -257,7 +255,7 @@ They meet your eyes. "Thank you for that. For seeing me as Rowan, not as 'the ha
 		{
 			id: 'need-time',
 			text: 'Express care but need more time to sort feelings',
-			next: 'rowan_uncertain_path',
+			next: 'kieran_dilemma',
 			effects: { wisdom: 4, empathy: 3 },
 			hiddenEffects: {
 				rowan_bond: 15,
@@ -269,7 +267,7 @@ They meet your eyes. "Thank you for that. For seeing me as Rowan, not as 'the ha
 		{
 			id: 'professional-boundary',
 			text: 'Gently maintain professional boundaries',
-			next: 'rowan_professional_path',
+			next: 'kieran_dilemma',
 			effects: { wisdom: 4 },
 			hiddenEffects: {
 				rowan_bond: 10,

@@ -1,15 +1,59 @@
 import { Scene } from '../../story-manager';
 
-export const ShadowBeastAttack: Scene = {
-	id: 'shadow_beast_attack',
-	text: `Before you can deal with your follower, reality tears. 
+const beastAppearance = `Before you can deal with your follower, reality tears.
 
 A rift opens in the air itself - a wound between worlds. Through it comes nightmare made flesh: a Shadow Beast. It's larger than the one from your adventuring days, more solid, more real. The barrier weakens daily, and these creatures grow bolder.
 
-The beast's eyeless face turns toward you, sensing something. Your blood. Your magic. You're what it's hunting.
+The beast's eyeless face turns toward you, sensing something. Your blood. Your magic. You're what it's hunting.`;
 
-Rowan draws twin blades, positioning themselves between you and the creature. "Stay behind me!" But you feel your blood magic stirring, responding to the threat.`,
+const rowanDefense = `Rowan draws twin blades, positioning themselves between you and the creature. "Stay behind me!" But you feel your blood magic stirring, responding to the threat.`;
+
+export const ShadowBeastAttack: Scene = {
+	id: 'shadow_beast_attack',
+	text: `${beastAppearance}
+
+${rowanDefense}`,
 	textVariants: [
+		{
+			conditions: { hasFlags: ['confrontational_tendency:true', 'direct_approach:true'] },
+			text: `You confronted your follower directly, forcing them into the open. But before any words are exchanged, reality tears.
+
+${beastAppearance}
+
+The follower - now revealed as Sir Marcus Thorne - moves to help. "Shadow Beast! This is what I was trying to warn you about!"
+
+${rowanDefense}`
+		},
+		{
+			conditions: { hasFlags: ['tactical_mind:true', 'cooperative_combat:true'] },
+			text: `Your trap with Rowan was perfect. You were about to spring it when reality tears.
+
+${beastAppearance}
+
+The follower emerges from hiding - an older man with silver hair. "I'm on your side!" he shouts. "Shadow Beast - we need to work together!"
+
+Rowan assesses quickly. "He's right. Fight now, question later."`
+		},
+		{
+			conditions: { hasFlags: ['cautious_approach:true', 'stealth_preference:true'] },
+			text: `You lost the follower using forest paths, but something feels wrong. The woods are too quiet. Then reality tears.
+
+${beastAppearance}
+
+Your follower appears from the trees, urgency in his voice. "I was trying to protect you from this!"
+
+${rowanDefense} But now you have unexpected help.`
+		},
+		{
+			conditions: { hasFlags: ['protective_of_others:true', 'clever_tactics:true'] },
+			text: `You headed toward the village for safety, but the follower anticipated that. Then, within sight of innocent people, reality tears.
+
+${beastAppearance}
+
+The creature is between you and the village. Civilians are in danger. Your follower rushes forward. "Get the people to safety! I'll help contain it!"
+
+${rowanDefense} "The village!" Rowan shouts. "We have to keep it away from them!"`
+		},
 		{
 			conditions: {
 				hasHiddenAttributes: { blood_magic_training: true }
@@ -65,7 +109,7 @@ But this one is hunting you specifically. It ignores the mercenaries, focused en
 		{
 			id: 'conventional',
 			text: 'Fight with conventional weapons alongside Rowan',
-			next: 'agent_revealed',
+			next: 'rowan_bonding_2',
 			effects: { courage: 3 },
 			hiddenEffects: {
 				faced_shadow_beast: true,
@@ -78,7 +122,7 @@ But this one is hunting you specifically. It ignores the mercenaries, focused en
 		{
 			id: 'let-rowan-protect',
 			text: 'Trust Rowan to protect you while you support',
-			next: 'agent_revealed',
+			next: 'rowan_bonding_2',
 			effects: { wisdom: 3 },
 			hiddenEffects: {
 				faced_shadow_beast: true,

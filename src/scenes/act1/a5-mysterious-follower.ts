@@ -1,18 +1,58 @@
 import { Scene } from '../../story-manager';
 
+const forestPath = `The forest path back to the village feels longer today. Your mind churns with everything you've learned - the political factions, the ancestral spirit's wisdom, the weight of your heritage.`;
+
+const rowanWarning = `Rowan suddenly raises a hand, stopping you. "We're being followed," they whisper. "Someone skilled - I only caught them because of a broken twig."
+
+Through the trees, you catch glimpses of movement. Whoever it is has been tracking you since you left the manor. The hair on the back of your neck rises - are you in danger?`;
+
 export const MysteriousFollower: Scene = {
 	id: 'mysterious_follower',
-	text: `The forest path back to the village feels longer today. Your mind churns with everything you've learned - the political factions, the ancestral spirit's wisdom, the weight of your heritage.
+	text: `${forestPath}
 
-Rowan suddenly raises a hand, stopping you. "We're being followed," they whisper. "Someone skilled - I only caught them because of a broken twig."
-
-Through the trees, you catch glimpses of movement. Whoever it is has been tracking you since you left the manor. The hair on the back of your neck rises - are you in danger?`,
+${rowanWarning}`,
 	textVariants: [
+		{
+			conditions: { hasFlags: ['learned_crystal_heart_history:true', 'knows_betrayal:true'] },
+			text: `${forestPath} Sir Aldric revealed the Crystal Heart's shattering was no accident - betrayal from within. Someone in the kingdom wanted your family dead.
+
+That knowledge weighs on you as Rowan suddenly raises a hand. "We're being followed."
+
+Coincidence? Or is the betrayer still active, still hunting royal blood?
+
+${rowanWarning}`
+		},
+		{
+			conditions: { hasFlags: ['blood_magic_training:true', 'magical_path_priority:true'] },
+			text: `${forestPath} Sir Aldric taught you the fundamentals of blood magic control. Your power hums beneath your skin, eager to be used.
+
+${rowanWarning}
+
+Your blood mark tingles. The follower's presence feels... magical. Not threatening, but powerful. Whoever this is, they're not ordinary.`
+		},
+		{
+			conditions: { hasFlags: ['learned_family_fate:true', 'family_focused:true'] },
+			text: `${forestPath} Sir Aldric told you the truth about your family's fate - the pain, the sacrifice, the love that saved you. The emotion still raw.
+
+Rowan notices your distraction. "Focus," they say gently. "We're being followed."
+
+You snap to attention. Your family died protecting you - you won't waste that sacrifice.
+
+${rowanWarning}`
+		},
+		{
+			conditions: { hasFlags: ['healing_path:true', 'compassionate_actions:5'] },
+			text: `${forestPath} Sir Aldric's guidance on healing and leadership fills your thoughts. How to unite a broken kingdom, how to be the ruler your people need.
+
+${rowanWarning}
+
+Your first instinct isn't violence - it's understanding. Who is this follower? What do they want? Perhaps this can be resolved peacefully.`
+		},
 		{
 			conditions: {
 				hasHiddenAttributes: { ash_trust: 20 }
 			},
-			text: `The forest path back to the village feels longer today. Your mind churns with everything you've learned.
+			text: `${forestPath}
 
 Ash suddenly drops back, hand on weapon. "We have company," they murmur. Years of mercenary work have honed their instincts. "Professional. Been following us for at least a mile."
 

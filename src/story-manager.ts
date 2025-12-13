@@ -319,6 +319,14 @@ import * as D2Scenes from './scenes/act4/d2-unity-path';
 import * as D3Scenes from './scenes/act4/d3-all-endings';
 import * as D4Scenes from './scenes/act4/d4-epilogue';
 
+// Import relationship scenes
+import * as SageValeAshRelationships from './scenes/relationships/sage-vale-ash-relationships';
+import * as RowanRelationships from './scenes/relationships/rowan-relationship';
+import * as LyraRelationships from './scenes/relationships/lyra-relationship';
+import * as SeraphineRelationships from './scenes/relationships/seraphine-relationship';
+import * as KieranRelationships from './scenes/relationships/kieran-relationship';
+import * as FinnRelationships from './scenes/relationships/finn-relationship';
+
 // Helper function to extract all exported scenes from a module
 function extractScenes(module: any): Scene[] {
 	return Object.values(module).filter((val: any) => 
@@ -367,7 +375,14 @@ const storyScenes = [
 	...extractScenes(D1Scenes),
 	...extractScenes(D2Scenes),
 	...extractScenes(D3Scenes),
-	...extractScenes(D4Scenes)
+	...extractScenes(D4Scenes),
+	// Relationship scenes
+	...extractScenes(SageValeAshRelationships),
+	...extractScenes(RowanRelationships),
+	...extractScenes(LyraRelationships),
+	...extractScenes(SeraphineRelationships),
+	...extractScenes(KieranRelationships),
+	...extractScenes(FinnRelationships)
 ];
 
 // Register all scenes into a scene map

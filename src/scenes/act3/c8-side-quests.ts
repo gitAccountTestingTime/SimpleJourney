@@ -2,15 +2,51 @@ import { Scene } from '../../story-manager';
 
 // Side Quest Scenes - Optional enrichment content
 
+const hiddenPassage = `Exploring the depths of Silverwood Manor, you discover a hidden passage behind your ancestors' portrait. The air grows cold as you descend ancient stone steps lit by phantom torches.`;
+
+const sealedChamber = `At the bottom, you find a sealed chamber. Inside, ancestral artifacts pulse with dormant magic - crowns, swords, scrolls, and a mirror that shows not your reflection but shadowy figures from the past.`;
+
+const ghostlyVoice = `A ghostly voice echoes: "Heir of Silverwood, you stand where your ancestors stored their greatest treasures and darkest secrets. Each artifact holds power, but also burden. Choose wisely what you claim."`;
+
+const warningChoice = `The artifacts before you could grant significant advantages, but touching them might awaken things best left sleeping.`;
+
 export const ManorMysteries: Scene = {
 	id: 'manor_mysteries',
-	text: `Exploring the depths of Silverwood Manor, you discover a hidden passage behind your ancestors' portrait. The air grows cold as you descend ancient stone steps lit by phantom torches.
+	text: `${hiddenPassage}
 
-At the bottom, you find a sealed chamber. Inside, ancestral artifacts pulse with dormant magic - crowns, swords, scrolls, and a mirror that shows not your reflection but shadowy figures from the past.
+${sealedChamber}
 
-A ghostly voice echoes: "Heir of Silverwood, you stand where your ancestors stored their greatest treasures and darkest secrets. Each artifact holds power, but also burden. Choose wisely what you claim."
+${ghostlyVoice}
 
-The artifacts before you could grant significant advantages, but touching them might awaken things best left sleeping.`,
+${warningChoice}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['ancient_tome_researched:true', 'values_history:true'] },
+			text: `${hiddenPassage}
+
+${sealedChamber}
+
+You recognize some of these artifacts from your historical research. "The Crown of Command - Queen Elara used it to unite the warring houses. The Blessed Sword - King Aldric wielded it in the First War."
+
+${ghostlyVoice}
+
+"You know our history," the voice sounds approving. "You've sought to understand those who came before. That wisdom will guide your choice."
+
+${warningChoice}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { wisdom: 25 } },
+			text: `${hiddenPassage}
+
+${sealedChamber}
+
+${ghostlyVoice}
+
+Your wisdom lets you sense the truth - these artifacts carry both power and curse. Your ancestors sealed them not just to preserve them, but to contain them.
+
+"Each power came at great cost," the voice admits. "We paid prices you may not wish to pay. Choose knowing that all power has consequences."`
+		}
+	],
 	choices: [
 		{
 			id: 'crown-of-command',
@@ -60,20 +96,38 @@ The artifacts before you could grant significant advantages, but touching them m
 	]
 };
 
+const tournamentNews = `Word spreads of an underground fighting tournament held in the common quarter - a place where anyone can prove their worth, noble or commoner. The prize is significant gold and the respect of the city's warriors.`;
+
+const rowanWarning = `Rowan warns against it: "It's dangerous. No rules, no safety. People get hurt badly."`;
+
+const kieranConflict = `Kieran is conflicted: "The tournament builds reputation with fighters and common folk. But if you're injured, you'd be vulnerable to your enemies."`;
+
+const opportunityRisk = `The tournament represents both opportunity and risk - a chance to prove yourself to the people, but also expose yourself to danger.`;
+
 export const TournamentEntry: Scene = {
 	id: 'tournament_entry',
-	text: `Word spreads of an underground fighting tournament held in the common quarter - a place where anyone can prove their worth, noble or commoner. The prize is significant gold and the respect of the city's warriors.
+	text: `${tournamentNews}
 
-Rowan warns against it: "It's dangerous. No rules, no safety. People get hurt badly."
+${rowanWarning}
 
-Kieran is conflicted: "The tournament builds reputation with fighters and common folk. But if you're injured, you'd be vulnerable to your enemies."
+${kieranConflict}
 
-The tournament represents both opportunity and risk - a chance to prove yourself to the people, but also expose yourself to danger.`,
+${opportunityRisk}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { combat_capable: true }
-			},
+			conditions: { hasFlags: ['helped_commoners:true', 'commoner_respect:20'] },
+			text: `${tournamentNews}
+
+Word reaches you differently - common folk you've helped are excited. "The heir might actually fight alongside us! Not above us, with us!"
+
+${rowanWarning}
+
+${kieranConflict}
+
+"The people already respect you," Kieran adds. "Entering this tournament could cement that bond. They'd see you're not just another noble who views them as beneath you."`
+		},
+		{
+			conditions: { hasHiddenAttributes: { combat_capable: true } },
 			text: `You've proven yourself in combat before - against Shadow Beasts, assassins, and training opponents. The tournament shouldn't be beyond your abilities.
 
 Rowan notices your confidence and sighs. "You're going to do it anyway, aren't you? Fine. At least let me be in the crowd, ready to intervene if things go wrong."
@@ -130,17 +184,59 @@ Kieran nods approvingly. "Your combat skills have improved significantly. Just d
 	]
 };
 
+const merchantDesperation = `A prominent merchant seeks your audience in desperation. Her trading company has been systematically sabotaged - shipments stolen, warehouses burned, workers intimidated. She's on the verge of bankruptcy.`;
+
+const plea = `"Your Highness," she pleads, "I've served this kingdom faithfully for thirty years. But someone powerful is destroying me, and the city guard won't investigate." She produces evidence - a noble house's seal on threatening letters.`;
+
+const investigation = `Investigation reveals House Blackthorn is behind the sabotage, wanting to eliminate competition and seize the merchant routes. Confronting them directly would start a conflict with a powerful noble family. Ignoring it means an innocent businesswoman loses everything.`;
+
+const advisorViews = `Seraphine advises: "Politics requires careful maneuvering. We need leverage, not confrontation."
+
+Finn offers: "Or we could just break into their warehouses and recover the stolen goods. Direct action."`;
+
 export const MerchantPlight: Scene = {
 	id: 'merchant_plight',
-	text: `A prominent merchant seeks your audience in desperation. Her trading company has been systematically sabotaged - shipments stolen, warehouses burned, workers intimidated. She's on the verge of bankruptcy.
+	text: `${merchantDesperation}
 
-"Your Highness," she pleads, "I've served this kingdom faithfully for thirty years. But someone powerful is destroying me, and the city guard won't investigate." She produces evidence - a noble house's seal on threatening letters.
+${plea}
 
-Investigation reveals House Blackthorn is behind the sabotage, wanting to eliminate competition and seize the merchant routes. Confronting them directly would start a conflict with a powerful noble family. Ignoring it means an innocent businesswoman loses everything.
+${investigation}
 
-Seraphine advises: "Politics requires careful maneuvering. We need leverage, not confrontation."
+${advisorViews}`,
+	textVariants: [
+		{
+			conditions: { hasFlags: ['stands_against_corruption:true', 'justice_focused:true'] },
+			text: `${merchantDesperation}
 
-Finn offers: "Or we could just break into their warehouses and recover the stolen goods. Direct action."`,
+You recognize this pattern - you've fought corruption before, stood up for those exploited by the powerful.
+
+${plea}
+
+Her eyes plead not just for help, but for justice. "I heard you actually care about fairness. That you don't let nobles abuse their power. Was I wrong to hope?"
+
+${investigation}
+
+${advisorViews}
+
+Rowan adds quietly: "This is exactly the kind of noble exploitation that destroyed my village. If you let it stand, what were all your promises worth?"`
+		},
+		{
+			conditions: { hasHiddenAttributes: { compassion_for_people: 20 } },
+			text: `${merchantDesperation}
+
+You can see her desperation isn't just about money - it's about her life's work, her employees' livelihoods, her sense of dignity.
+
+${plea}
+
+"I have forty workers depending on me," she adds, voice breaking. "If I fail, they lose everything. Their families starve."
+
+${investigation}
+
+The compassion you've shown throughout your journey makes this choice clear - you can't let innocent people suffer for noble greed.
+
+${advisorViews}`
+		}
+	],
 	choices: [
 		{
 			id: 'public-justice',
@@ -196,24 +292,42 @@ Finn offers: "Or we could just break into their warehouses and recover the stole
 	]
 };
 
-export const HauntedTower: Scene = {
-	id: 'haunted_tower',
-	text: `On the kingdom's edge stands an ancient tower that's been abandoned for decades. Locals claim it's haunted - people hear screaming at night, see lights in windows, and those who investigate never return.
+const abandonedTower = `On the kingdom's edge stands an ancient tower that's been abandoned for decades. Locals claim it's haunted - people hear screaming at night, see lights in windows, and those who investigate never return.`;
 
-Lyra senses powerful magic from the tower. "This isn't simple haunting. There's active magical energy, possibly a rift or trapped entity."
+const lyraSenses = `Lyra senses powerful magic from the tower. "This isn't simple haunting. There's active magical energy, possibly a rift or trapped entity."`;
 
-Your investigation options include:
+const investigationOptions = `Your investigation options include:
 - Personal exploration (dangerous but direct)
 - Magical research (safer but time-consuming)
 - Military quarantine (pragmatic but leaves problem unsolved)
 - Seeking guidance from magical races
 
-The tower's mystery could hold ancient magic, dangerous threats, or both.`,
+The tower's mystery could hold ancient magic, dangerous threats, or both.`;
+
+export const HauntedTower: Scene = {
+	id: 'haunted_tower',
+	text: `${abandonedTower}
+
+${lyraSenses}
+
+${investigationOptions}`,
 	textVariants: [
 		{
-			conditions: {
-				hasHiddenAttributes: { spirit_magic_learned: true }
-			},
+			conditions: { hasFlags: ['magical_sensitivity:true', 'respects_spirits:true'] },
+			text: `${abandonedTower}
+
+You can feel the magic from here - not malevolent, but desperate. Anguished.
+
+${lyraSenses}
+
+"I sense something else," you add. "Not malice. Pain. Loneliness. Like something's been imprisoned there, crying out."
+
+Lyra looks at you with new respect. "Your magical sensitivity has grown. You're right - this feels like a prison, not a threat."
+
+${investigationOptions}`
+		},
+		{
+			conditions: { hasHiddenAttributes: { spirit_magic_learned: true } },
 			text: `With your spirit magic training, you can sense what Lyra cannot - there are indeed spirits in that tower, but they're not evil. They're crying for help.
 
 "Someone trapped spirits there," you realize. "They're suffering, have been for decades. This isn't a haunting - it's a prison."`
