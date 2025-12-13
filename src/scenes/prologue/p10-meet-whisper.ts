@@ -1,8 +1,16 @@
 import { Scene } from '../../story-manager';
 
-const whisperAppearance = `The figure emerges from the shadows so silently you don't notice until they're right beside you. Androgynous features, dark clothing that seems to absorb light, and eyes that miss nothing.`;
+const undercroftDescription = `The Undercroft. Even the name sends shivers down your spine. This network of tunnels beneath the capital is where secrets are traded like currency and information flows faster than wine.`;
 
-const whisperGreeting = `"So," a soft voice observes, "the lost royal finally awakens. How delicious." Those knowing eyes study you with unnerving intensity. "I am Whisper. I deal in secrets, truths, and the occasional convenient lie. Your blood is... interesting. Shall we discuss what it means?"`;
+const valeGuidance = `Vale led you here after your magical awakening, insisting there was someone you needed to meet. "Whisper knows things," Vale had said cryptically. "Things that might help you understand what you're becoming."`;
+
+const whisperEntrance = `The figure emerges from the shadows so silently you don't notice until they're right beside you. Androgynous features, dark clothing that seems to absorb light, and eyes that miss nothing.`;
+
+const whisperAppearance = `${whisperEntrance}`;
+
+const whisperIntroduction = `"So," a soft voice observes, "the lost royal finally awakens. How delicious." Those knowing eyes study you with unnerving intensity. "I am Whisper. I deal in secrets, truths, and the occasional convenient lie. Your blood is... interesting. Shall we discuss what it means?"`;
+
+const whisperGreeting = `${whisperIntroduction}`;
 
 export const MeetWhisper: Scene = {
 	id: 'meet_whisper',

@@ -1,10 +1,16 @@
 import { Scene } from '../../story-manager';
 
-const marcusIdentity = `An older man, silver-haired, wearing nondescript traveling clothes that somehow suggest nobility. His movements are precise, controlled - a warrior's grace despite his years.
+const marcusAppearance = `An older man, silver-haired, wearing nondescript traveling clothes that somehow suggest nobility. His movements are precise, controlled - a warrior's grace despite his years.`;
 
-"Forgive the deception, Your Highness," he says, bowing formally. "I am Sir Marcus Thorne, Royal Agent. I've been searching for you for twenty years."`;
+const marcusBow = `"Forgive the deception, Your Highness," he says, bowing formally. "I am Sir Marcus Thorne, Royal Agent. I've been searching for you for twenty years."`;
 
-const marcusExplanation = `Marcus nods. "That Shadow Beast was hunting for royal blood. They've been growing bolder, searching. The longer you remain unprotected, the greater the danger." He meets your eyes. "I served your parents. Now I serve you - if you'll have me."`;
+const marcusIdentity = `${marcusAppearance}
+
+${marcusBow}`;
+
+const beastHunting = `"That Shadow Beast was hunting for royal blood. They've been growing bolder, searching. The longer you remain unprotected, the greater the danger." He meets your eyes. "I served your parents. Now I serve you - if you'll have me."`;
+
+const marcusExplanation = `Marcus nods. ${beastHunting}`;
 
 export const AgentRevealed: Scene = {
 	id: 'agent_revealed',

@@ -1,14 +1,20 @@
 import { Scene } from '../../story-manager';
 
-const refugeeRevelation = `The forest ambush site is eerily quiet. You find the bandits' camp, but something is wrong—these aren't hardened criminals. They're families with children, refugees with hollow eyes and torn clothes.
+const forestQuiet = `The forest ambush site is eerily quiet. You find the bandits' camp, but something is wrong—these aren't hardened criminals. They're families with children, refugees with hollow eyes and torn clothes.`;
 
-A woman steps forward, hand raised in peace. "Please, we don't want trouble. Our village was destroyed by Shadow Beasts. We're just trying to survive."`;
+const womanPleads = `A woman steps forward, hand raised in peace. "Please, we don't want trouble. Our village was destroyed by Shadow Beasts. We're just trying to survive."`;
+
+const refugeeRevelation = `${forestQuiet}
+
+${womanPleads}`;
+
+const valeWhisper = `Vale whispers from beside you, "They're telling the truth. I can sense their desperation. But the village expects justice..."`;
 
 export const BanditEncounter: Scene = {
 	id: 'bandit_encounter',
 	text: `${refugeeRevelation}
 
-Vale whispers from beside you, "They're telling the truth. I can sense their desperation. But the village expects justice..."`,
+${valeWhisper}`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['vale_first_impression:open'] },

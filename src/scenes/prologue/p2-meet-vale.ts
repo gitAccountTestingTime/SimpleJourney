@@ -1,12 +1,20 @@
 import { Scene } from '../../story-manager';
 
-const tavernEncounter = `The village tavern buzzes with nervous energy the night before the mission. You sit alone, nursing a weak ale, when a striking figure slides into the seat across from you.
+const tavernBuzz = `The village tavern buzzes with nervous energy the night before the mission. You sit alone, nursing a weak ale, when a striking figure slides into the seat across from you.`;
 
-"Mind if I join you?" they ask with an easy smile. Their eyes are sharp despite the casual demeanor. "Name's Vale. I'm a traveling bard, but I couldn't help overhearing about tomorrow's little adventure. Seems like dangerous work for village volunteers."
+const valeIntroduction = `"Mind if I join you?" they ask with an easy smile. Their eyes are sharp despite the casual demeanor. "Name's Vale. I'm a traveling bard, but I couldn't help overhearing about tomorrow's little adventure. Seems like dangerous work for village volunteers."`;
 
-They lean in conspiratorially. "I've dealt with bandits before. Perhaps we could help each other?"
+const valeOffer = `They lean in conspiratorially. "I've dealt with bandits before. Perhaps we could help each other?"`;
 
-There's something charming yet calculating about Vale. Why would a bard take such interest in a bandit problem?`;
+const valeIntrigue = `There's something charming yet calculating about Vale. Why would a bard take such interest in a bandit problem?`;
+
+const tavernEncounter = `${tavernBuzz}
+
+${valeIntroduction}
+
+${valeOffer}
+
+${valeIntrigue}`;
 
 export const MeetVale: Scene = {
 	id: 'meet_vale',

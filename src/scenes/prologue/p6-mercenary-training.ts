@@ -1,8 +1,16 @@
 import { Scene } from '../../story-manager';
 
-const kingdomExperience = `You've escorted caravans through dangerous territory, guarded noble estates, and hunted monsters threatening villages. The kingdom is beautiful—and broken.
+const threeMonths = `Three months with Ash's company transforms you.`;
 
-You've seen wealth beyond imagination and poverty that breaks the heart. You've met nobles who care and nobles who don't. You've learned to fight, to lead, to survive.`;
+const kingdomSights = `You've escorted caravans through dangerous territory, guarded noble estates, and hunted monsters threatening villages. The kingdom is beautiful—and broken.`;
+
+const kingdomTruths = `You've seen wealth beyond imagination and poverty that breaks the heart. You've met nobles who care and nobles who don't. You've learned to fight, to lead, to survive.`;
+
+const kingdomExperience = `${kingdomSights}
+
+${kingdomTruths}`;
+
+const barrierWarning = `"The kingdom's failing," they tell you one night. "The barrier between our world and the Shadowrealm is crumbling. Someone needs to fix it. Maybe that someone is you."`;
 
 const briefEncounters = `At a noble estate, you briefly meet a striking young woman named Seraphine. In a library, a nervous scholar named Sage shows you ancient texts. At a market, you admire crafts by a dwarf named Finn. Each encounter plants seeds for the future.
 
@@ -10,9 +18,9 @@ But tonight, you arrive in the capital for the first time. It's time to see what
 
 export const MercenaryTraining: Scene = {
 	id: 'mercenary_training',
-	text: `Three months with Ash's company transforms you. ${kingdomExperience}
+	text: `${threeMonths} ${kingdomExperience}
 
-Ash has been a steady presence, teaching you combat while sharing hard-won wisdom. "The kingdom's failing," they tell you one night. "The barrier between our world and the Shadowrealm is crumbling. Someone needs to fix it. Maybe that someone is you."
+Ash has been a steady presence, teaching you combat while sharing hard-won wisdom. ${barrierWarning}
 
 ${briefEncounters}`,
 	

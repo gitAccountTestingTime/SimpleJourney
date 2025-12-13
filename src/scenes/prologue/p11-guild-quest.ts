@@ -1,8 +1,16 @@
 import { Scene } from '../../story-manager';
 
-const questIntroduction = `The Guild Master summons you the next morning. She's a stern woman with silver hair and knowing eyes. "I have a contract for you," she says without preamble. "Investigate strange occurrences at Silverwood Manor.`;
+const guildMasterIntro = `The Guild Master summons you the next morning. She's a stern woman with silver hair and knowing eyes.`;
 
-const questSeal = `She slides a contract across the desk. The seal catches your eye - the same symbol that glows on your arm when your power awakens.`;
+const contractOffer = `"I have a contract for you," she says without preamble. "Investigate strange occurrences at Silverwood Manor.`;
+
+const questIntroduction = `${guildMasterIntro} ${contractOffer}`;
+
+const sealPresentation = `She slides a contract across the desk. The seal catches your eye - the same symbol that glows on your arm when your power awakens.`;
+
+const questSeal = `${sealPresentation}`;
+
+const fateCoincidence = `"Interesting coincidence, isn't it?" She watches you carefully. "Almost as if fate itself is pushing you toward answers."`;
 
 export const GuildMastersRequest: Scene = {
 	id: 'guild_masters_request',
@@ -12,7 +20,7 @@ ${questIntroduction} The local lord has abandoned it, but there are reports of..
 
 ${questSeal}
 
-"Interesting coincidence, isn't it?" She watches you carefully. "Almost as if fate itself is pushing you toward answers."`,
+${fateCoincidence}`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['ash_trust:20', 'whisper_first_impression:direct'] },

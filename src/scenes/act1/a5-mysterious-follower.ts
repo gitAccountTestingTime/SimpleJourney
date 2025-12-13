@@ -1,10 +1,14 @@
 import { Scene } from '../../story-manager';
 
-const forestPath = `The forest path back to the village feels longer today. Your mind churns with everything you've learned - the political factions, the ancestral spirit's wisdom, the weight of your heritage.`;
+const mentalBurden = `The forest path back to the village feels longer today. Your mind churns with everything you've learned - the political factions, the ancestral spirit's wisdom, the weight of your heritage.`;
 
-const rowanWarning = `Rowan suddenly raises a hand, stopping you. "We're being followed," they whisper. "Someone skilled - I only caught them because of a broken twig."
+const forestPath = `${mentalBurden}`;
 
-Through the trees, you catch glimpses of movement. Whoever it is has been tracking you since you left the manor. The hair on the back of your neck rises - are you in danger?`;
+const rowanSenses = `Rowan suddenly raises a hand, stopping you. "We're being followed," they whisper. "Someone skilled - I only caught them because of a broken twig."`;
+
+const shadowPresence = `Through the trees, you catch glimpses of movement. Whoever it is has been tracking you since you left the manor. The hair on the back of your neck rises - are you in danger?`;
+
+const rowanWarning = `${rowanSenses}\n\n${shadowPresence}`;
 
 export const MysteriousFollower: Scene = {
 	id: 'mysterious_follower',

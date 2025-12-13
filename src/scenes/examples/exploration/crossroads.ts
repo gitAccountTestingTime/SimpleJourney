@@ -1,5 +1,5 @@
-import { Scene } from '../../story-manager';
-import { fromScene, isFirstScene } from '../../scene-helpers';
+import { Scene } from '../../../story-manager';
+import { fromScene, isFirstScene } from '../../../scene-helpers';
 
 /**
  * CrossroadsScene - A scene that changes based on where you came from

@@ -1,4 +1,4 @@
-import { Scene } from '../../story-manager';
+import { Scene } from '../../../story-manager';
 
 export const VillageHelpScene: Scene = {
 	id: 'village_help',

@@ -1,14 +1,24 @@
 import { Scene } from '../../story-manager';
 
-const journeyToGrove = `The journey to Moonwhisper Grove takes two days through ancient forest. Trees here are older than kingdoms, their branches singing with subtle magic. The air itself feels alive.`;
+const ancientForest = `The journey to Moonwhisper Grove takes two days through ancient forest. Trees here are older than kingdoms, their branches singing with subtle magic. The air itself feels alive.`;
 
-const lyraAppearance = `An elf materializes from the shadows - tall, graceful, with silver hair that flows like water and luminous eyes that have seen centuries pass. She wears traditional robes adorned with nature symbols, and power radiates from her like heat from flame.`;
+const journeyToGrove = `${ancientForest}`;
 
-const lyraChallenge = `"So," she says, voice melodious but cold, "the lost human heir appears at last. I am Lyra Starsong, Keeper of the Ancient Ways." Her eyes assess you with millennium-old judgment. "My people remember human treachery. Give me reason why I should teach you anything."
+const elfMaterializes = `An elf materializes from the shadows - tall, graceful, with silver hair that flows like water and luminous eyes that have seen centuries pass. She wears traditional robes adorned with nature symbols, and power radiates from her like heat from flame.`;
 
-Rowan steps forward. "Lyra, please. They're trying to help."
+const lyraAppearance = `${elfMaterializes}`;
 
-"Are they?" Lyra's gaze doesn't waver from you. "Or will they repeat their ancestors' mistakes?"`;
+const lyraIdentity = `"So," she says, voice melodious but cold, "the lost human heir appears at last. I am Lyra Starsong, Keeper of the Ancient Ways." Her eyes assess you with millennium-old judgment. "My people remember human treachery. Give me reason why I should teach you anything."`;
+
+const rowanIntercedes = `Rowan steps forward. "Lyra, please. They're trying to help."`;
+
+const lyraDoubt = `"Are they?" Lyra's gaze doesn't waver from you. "Or will they repeat their ancestors' mistakes?"`;
+
+const lyraChallenge = `${lyraIdentity}
+
+${rowanIntercedes}
+
+${lyraDoubt}`;
 
 export const LyraArrival: Scene = {
 	id: 'lyra_arrival',

@@ -371,7 +371,7 @@ Rowan warns: "Revolution means war. Blood. Chaos. Are you prepared for what that
 		{
 			id: 'begin-outreach',
 			text: 'Begin reaching out to potential allies',
-			next: 'wb_first_alliance_meeting',
+			next: 'crystal_hunt_start',
 			effects: { charisma: 3 },
 			hiddenEffects: {
 				coalition_work_begins: true
@@ -380,7 +380,7 @@ Rowan warns: "Revolution means war. Blood. Chaos. Are you prepared for what that
 		{
 			id: 'gather-more-info',
 			text: 'Gather more intelligence before making contact',
-			next: 'wb_intelligence_gathering',
+			next: 'common_people_scene',
 			effects: { wisdom: 3 },
 			hiddenEffects: {
 				cautious_approach: true
@@ -388,8 +388,8 @@ Rowan warns: "Revolution means war. Blood. Chaos. Are you prepared for what that
 		},
 		{
 			id: 'master-magic-first',
-			text: 'Master your blood magic before political maneuvering',
-			next: 'wb_blood_magic_deep_dive',
+			text: 'Master your blood magic before political moves',
+			next: 'crystal_hunt_start',
 			effects: { wisdom: 2, strength: 2 },
 			hiddenEffects: {
 				power_first: true

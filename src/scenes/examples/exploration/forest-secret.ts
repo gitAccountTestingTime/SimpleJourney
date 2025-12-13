@@ -1,4 +1,4 @@
-import { Scene } from '../../story-manager';
+import { Scene } from '../../../story-manager';
 
 export const ForestSecretScene: Scene = {
 	id: 'forest_secret',

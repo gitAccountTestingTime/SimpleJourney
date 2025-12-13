@@ -1,14 +1,22 @@
 import { Scene } from '../../story-manager';
 
-const marketScene = `The city marketplace is crowded with ordinary people - merchants hawking wares, families buying bread, children playing. But there's tension in the air. Poverty is visible in threadbare clothes and hollow eyes. Guards patrol heavily, and people speak in hushed, fearful tones.`;
+const crowdedMarket = `The city marketplace is crowded with ordinary people - merchants hawking wares, families buying bread, children playing. But there's tension in the air. Poverty is visible in threadbare clothes and hollow eyes. Guards patrol heavily, and people speak in hushed, fearful tones.`;
 
-const anonymity = `You're not yet publicly known as the heir - to them, you're just another traveler. This anonymity lets you see truth unfiltered.`;
+const marketScene = `${crowdedMarket}`;
 
-const strugglingPeople = `A woman haggles desperately over bread prices, clearly unable to afford enough to feed her family. Nearby, a man displays scars from a Shadow Beast attack, begging for coin to pay a healer. Fear and desperation permeate everything.`;
+const incognito = `You're not yet publicly known as the heir - to them, you're just another traveler. This anonymity lets you see truth unfiltered.`;
 
-const companionComments = `Sage, if present, whispers: "This is why reform matters. Look at their suffering."
+const anonymity = `${incognito}`;
 
-Rowan, if present, says quietly: "These are the people you'll rule. Remember their faces."`;
+const desperateWoman = `A woman haggles desperately over bread prices, clearly unable to afford enough to feed her family. Nearby, a man displays scars from a Shadow Beast attack, begging for coin to pay a healer. Fear and desperation permeate everything.`;
+
+const strugglingPeople = `${desperateWoman}`;
+
+const sageObservation = `Sage, if present, whispers: "This is why reform matters. Look at their suffering."`;
+
+const rowanReminder = `Rowan, if present, says quietly: "These are the people you'll rule. Remember their faces."`;
+
+const companionComments = `${sageObservation}\n\n${rowanReminder}`;
 
 // Market and Assassination Scenes
 

@@ -1,12 +1,20 @@
 import { Scene } from '../../story-manager';
 
-const beastAppearance = `Before you can deal with your follower, reality tears.
+const realityTears = `Before you can deal with your follower, reality tears.`;
 
-A rift opens in the air itself - a wound between worlds. Through it comes nightmare made flesh: a Shadow Beast. It's larger than the one from your adventuring days, more solid, more real. The barrier weakens daily, and these creatures grow bolder.
+const riftOpens = `A rift opens in the air itself - a wound between worlds. Through it comes nightmare made flesh: a Shadow Beast. It's larger than the one from your adventuring days, more solid, more real. The barrier weakens daily, and these creatures grow bolder.`;
 
-The beast's eyeless face turns toward you, sensing something. Your blood. Your magic. You're what it's hunting.`;
+const huntingBlood = `The beast's eyeless face turns toward you, sensing something. Your blood. Your magic. You're what it's hunting.`;
 
-const rowanDefense = `Rowan draws twin blades, positioning themselves between you and the creature. "Stay behind me!" But you feel your blood magic stirring, responding to the threat.`;
+const beastAppearance = `${realityTears}
+
+${riftOpens}
+
+${huntingBlood}`;
+
+const rowanStance = `Rowan draws twin blades, positioning themselves between you and the creature. "Stay behind me!" But you feel your blood magic stirring, responding to the threat.`;
+
+const rowanDefense = `${rowanStance}`;
 
 export const ShadowBeastAttack: Scene = {
 	id: 'shadow_beast_attack',

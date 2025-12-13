@@ -1,30 +1,44 @@
 import { Scene } from '../../story-manager';
 
-const manorDescription = `Silverwood Manor belongs to you now. The words still feel impossible, yet here you are, standing in the great hall of your ancestral home.
+const manorDescription = `Silverwood Manor belongs to you now. The words still feel impossible, yet here you are, standing in the great hall of your ancestral home.`;
 
-The manor is breathtaking - vaulted ceilings with frescoes depicting magical creatures and ancient heroes, walls lined with portraits of silver-haired ancestors, sunlight streaming through stained glass windows that cast rainbow patterns across marble floors.`;
+const manorGrandeur = `The manor is breathtaking - vaulted ceilings with frescoes depicting magical creatures and ancient heroes, walls lined with portraits of silver-haired ancestors, sunlight streaming through stained glass windows that cast rainbow patterns across marble floors.`;
+
+const stolenLegacy = `This is the life that was stolen from you, the legacy you never knew existed.`;
+
+const companionsExplore = `Your companions from your adventuring days explore alongside you, each reacting differently to this revelation of your true identity.`;
+
+const companionsSupportive = `Your companions from your adventuring days explore alongside you, offering silent support as you navigate this uncomfortable new reality.`;
+
+const companionsWatching = `Your companions from your adventuring days explore alongside you, watching to see how power changes you.`;
 
 export const ManorExploration: Scene = {
 	id: 'act1_start',
-	text: `${manorDescription} This is the life that was stolen from you, the legacy you never knew existed.
+	text: `${manorDescription}
 
-Your companions from your adventuring days explore alongside you, each reacting differently to this revelation of your true identity.`,
+${manorGrandeur} ${stolenLegacy}
+
+${companionsExplore}`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['identity_accepted:true', 'royal_path:true'] },
 			text: `${manorDescription}
 
+${manorGrandeur}
+
 You accepted your heritage at Silverwood, chose to claim your birthright. Now you stand in your ancestral home not as a visitor, but as its rightful heir. The weight of responsibility settles on your shoulders, but so does a sense of purpose.
 
-Your companions from your adventuring days explore alongside you, watching to see how power changes you.`
+${companionsWatching}`
 		},
 		{
 			conditions: { hasFlags: ['royal_path:reluctant'] },
 			text: `${manorDescription}
 
+${manorGrandeur}
+
 You accepted the truth of your heritage, but reluctantly. Standing here now, surrounded by such opulence, you feel the disconnect between who you were and who you're supposed to be.
 
-Your companions from your adventuring days explore alongside you, offering silent support as you navigate this uncomfortable new reality.`
+${companionsSupportive}`
 		},
 		{
 			conditions: { hasFlags: ['royal_path:independent'] },
@@ -46,7 +60,9 @@ Vale, Ash, Rook, and the others explore alongside you, their presence a reminder
 			conditions: {
 				hasHiddenAttributes: { vale_trust: 15 }
 			},
-			text: `${manorDescription} This is the life that was stolen from you, the legacy you never knew existed.
+			text: `${manorDescription}
+
+${manorGrandeur} ${stolenLegacy}
 
 Vale walks beside you, taking in the grandeur with practiced eyes. "Your parents had excellent taste," they murmur, examining a portrait. "And look - they left everything prepared for you. These documents, the artifacts... they knew you'd return someday."
 
@@ -56,7 +72,9 @@ Their hand finds yours briefly. "You're still you, you know. The person I've tra
 			conditions: {
 				hasHiddenAttributes: { ash_trust: 20 }
 			},
-			text: `${manorDescription} This is the life that was stolen from you, the legacy you never knew existed.
+			text: `${manorDescription}
+
+${manorGrandeur} ${stolenLegacy}
 
 Ash lingers near the doorway, clearly uncomfortable with the opulence. "This is... a lot," they say quietly. Their mercenary company has camped in ruins before, but nothing like this.
 

@@ -1,18 +1,28 @@
 import { Scene } from '../../story-manager';
 
-const secretRoom = `Behind a bookshelf in the library, you discover a secret room pulsing with magical energy.
+const hiddenLibrary = `Behind a bookshelf in the library, you discover a secret room pulsing with magical energy.`;
 
-Ancient runes glow on the walls. In the center, a translucent figure materializes - tall, regal, wearing armor from centuries past. The spirit's eyes are kind but piercing.`;
+const runesGlow = `Ancient runes glow on the walls. In the center, a translucent figure materializes - tall, regal, wearing armor from centuries past. The spirit's eyes are kind but piercing.`;
 
-const aldricGreeting = `"At last," the guardian spirit speaks, voice echoing as if from far away. "An heir returns to Silverwood. I am Sir Aldric, sworn to protect the royal bloodline even beyond death."
+const secretRoom = `${hiddenLibrary}
 
-The spirit studies you with ancient eyes.`;
+${runesGlow}`;
+
+const aldricIdentity = `"At last," the guardian spirit speaks, voice echoing as if from far away. "An heir returns to Silverwood. I am Sir Aldric, sworn to protect the royal bloodline even beyond death."`;
+
+const aldricStudy = `The spirit studies you with ancient eyes.`;
+
+const aldricGreeting = `${aldricIdentity}
+
+${aldricStudy}`;
+
+const oneQuestion = `"I can sense you carry questions, young one. The spirits know much, though we are bound by old laws. I may answer one question - choose wisely, for this gift I give only once."`;
 
 export const AncestralSpirit: Scene = {
 	id: 'ancestral_spirit',
 	text: `After the exhausting political meeting, you explore the manor's hidden chambers. ${secretRoom}
 
-${aldricGreeting} "I can sense you carry questions, young one. The spirits know much, though we are bound by old laws. I may answer one question - choose wisely, for this gift I give only once."`,
+${aldricGreeting} ${oneQuestion}`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['companions_at_meeting:true', 'companions_priority:true'] },

@@ -1,8 +1,12 @@
 import { Scene } from '../../story-manager';
 
-const tournamentScene = `The capital's grand arena buzzes with excitement. A tournament is being held—combat, archery, even displays of magical aptitude. Nobles fill the premium seats while commoners pack the stands.
+const arenaAtmosphere = `The capital's grand arena buzzes with excitement. A tournament is being held—combat, archery, even displays of magical aptitude. Nobles fill the premium seats while commoners pack the stands.`;
 
-You spot familiar faces: General Blackwood watches fighters with a calculating eye. Lady Seraphine sits in the noble section. Vale works the crowd, gathering information.`;
+const familiarFaces = `You spot familiar faces: General Blackwood watches fighters with a calculating eye. Lady Seraphine sits in the noble section. Vale works the crowd, gathering information.`;
+
+const tournamentScene = `${arenaAtmosphere}
+
+${familiarFaces}`;
 
 const tournamentQuestion = `This is your chance to make a name for yourself, catch the attention of powerful figures, or simply earn prize money. What will you compete in?`;
 

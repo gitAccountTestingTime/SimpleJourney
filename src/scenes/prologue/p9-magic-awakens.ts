@@ -1,10 +1,16 @@
 import { Scene } from '../../story-manager';
 
-const magicManifestation = `Your blood begins to glow—faint at first, then brilliant crimson. The wound seals itself in seconds. Heat rushes through your veins, and for a moment, you feel connected to something vast and ancient.`;
+const bloodGlows = `Your blood begins to glow—faint at first, then brilliant crimson. The wound seals itself in seconds. Heat rushes through your veins, and for a moment, you feel connected to something vast and ancient.`;
 
-const valeExplanation = `They sit beside you, voice low. "That's blood magic. Hereditary. Almost extinct. The last known practitioners were the royal family of Silverwood—wiped out twenty years ago."
+const magicManifestation = `${bloodGlows}`;
 
-They meet your eyes. "Either you're descended from a branch family no one knew about, or something more significant. We need to be careful. There are people who would kill for what you have."`;
+const royalConnection = `"That's blood magic. Hereditary. Almost extinct. The last known practitioners were the royal family of Silverwood—wiped out twenty years ago."`;
+
+const dangerWarning = `"Either you're descended from a branch family no one knew about, or something more significant. We need to be careful. There are people who would kill for what you have."`;
+
+const valeExplanation = `They sit beside you, voice low. ${royalConnection}
+
+They meet your eyes. ${dangerWarning}`;
 
 export const BloodMagicAwakens: Scene = {
 	id: 'blood_magic_awakens',

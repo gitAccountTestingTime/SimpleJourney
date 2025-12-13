@@ -1,6 +1,10 @@
 import { Scene } from '../../story-manager';
 
-const journeyDescription = `The road to Silverwood winds through ancient forests and forgotten valleys. Three days of travel, according to the Guild Master's directions. Three days to contemplate what awaits you.`;
+const roadDescription = `The road to Silverwood winds through ancient forests and forgotten valleys. Three days of travel, according to the Guild Master's directions. Three days to contemplate what awaits you.`;
+
+const journeyDescription = `${roadDescription}`;
+
+const valePresence = `Vale rides beside you, occasionally humming songs about lost kingdoms and hidden heirs. Their knowing glances suggest they understand more than they're saying.`;
 
 const campfireReflection = `Around the campfire each night, conversations deepen. Bonds strengthen. The weight of what's to come presses on everyone, but there's also hope - the hope that answers finally await.`;
 
@@ -10,7 +14,7 @@ export const RoadToSilverwood: Scene = {
 
 As you travel, you're not alone. Word of your quest has spread among those you've met. Some have chosen to accompany you, drawn by friendship, curiosity, or perhaps fate itself.
 
-Vale rides beside you, occasionally humming songs about lost kingdoms and hidden heirs. Their knowing glances suggest they understand more than they're saying.
+${valePresence}
 
 ${campfireReflection}`,
 	textVariants: [

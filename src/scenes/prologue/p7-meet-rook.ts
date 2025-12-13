@@ -1,14 +1,24 @@
 import { Scene } from '../../story-manager';
 
-const rookIntroduction = `You spin and grab a wrist—attached to a young person with mischievous eyes and quick fingers. They grin despite being caught.
+const capitalContrast = `The capital's slums are a stark contrast to the grand palace visible in the distance.`;
 
-"Nice reflexes! Most marks never notice till it's too late." They don't even try to escape. "I'm Rook. Sorry about the whole... theft thing. Occupational hazard."
+const pickpocketAttempt = `You're navigating the crowded streets when you feel a hand in your pocket.`;
 
-They size you up with interest.`;
+const rookCaught = `You spin and grab a wrist—attached to a young person with mischievous eyes and quick fingers. They grin despite being caught.`;
+
+const rookApology = `"Nice reflexes! Most marks never notice till it's too late." They don't even try to escape. "I'm Rook. Sorry about the whole... theft thing. Occupational hazard."`;
+
+const rookProposal = `They size you up with interest.`;
+
+const rookIntroduction = `${rookCaught}
+
+${rookApology}
+
+${rookProposal}`;
 
 export const MeetRook: Scene = {
 	id: 'meet_rook',
-	text: `The capital's slums are a stark contrast to the grand palace visible in the distance. You're navigating the crowded streets when you feel a hand in your pocket.
+	text: `${capitalContrast} ${pickpocketAttempt}
 
 ${rookIntroduction} "You're not from around here. Adventurer type, I'd guess. Look, I know these streets better than anyone. We could help each other out—I need protection, you need a guide. Fair trade?"`,
 	textVariants: [

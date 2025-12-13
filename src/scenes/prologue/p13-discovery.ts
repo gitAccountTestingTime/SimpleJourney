@@ -1,26 +1,36 @@
 import { Scene } from '../../story-manager';
 
-const manorApproach = `Silverwood Manor rises before you like a ghost from the past. Despite years of abandonment, the estate retains an air of faded grandeur. Ivy climbs ancient stone walls, and magic seems to pulse from the very foundations.
+const manorApproach = `Silverwood Manor rises before you like a ghost from the past. Despite years of abandonment, the estate retains an air of faded grandeur. Ivy climbs ancient stone walls, and magic seems to pulse from the very foundations.`;
 
-As you approach the entrance, your blood mark begins to glow. The great doors swing open of their own accord, recognizing something in you - someone in you.`;
+const doorsRecognize = `As you approach the entrance, your blood mark begins to glow. The great doors swing open of their own accord, recognizing something in you - someone in you.`;
 
-const portraitRevelation = `Inside, portraits line the walls. Generations of faces stare down at you. And then you see it - a portrait that could be your reflection. Below it, a name and title:
+const portraitTitle = `Inside, portraits line the walls. Generations of faces stare down at you. And then you see it - a portrait that could be your reflection.`;
 
-"Prince/Princess [Your Name], Heir to House Silverwood, Year 1205"
+const nameBelow = `Below it, a name and title:
 
-But you were born in 1225. Twenty years after this portrait was painted. Twenty years after everyone believed House Silverwood had fallen.`;
+"Prince/Princess [Your Name], Heir to House Silverwood, Year 1205"`;
 
-const finalTruth = `A hidden chamber opens, revealing journals, magical artifacts, and a letter sealed with your name. Your real name. The name you were meant to have.
+const timeParadox = `But you were born in 1225. Twenty years after this portrait was painted. Twenty years after everyone believed House Silverwood had fallen.`;
 
-The truth hits like a thunderbolt: You are the heir to a fallen kingdom. The last hope of a magical bloodline. And everything in your life has been leading to this moment.`;
+const hiddenChamber = `A hidden chamber opens, revealing journals, magical artifacts, and a letter sealed with your name. Your real name. The name you were meant to have.`;
+
+const finalTruth = `The truth hits like a thunderbolt: You are the heir to a fallen kingdom. The last hope of a magical bloodline. And everything in your life has been leading to this moment.`;
+
+const valeExplanation = `Vale speaks softly: "The royal family had the power to see the future. They painted this portrait of you... before you were born."`;
 
 export const DiscoveryAtSilverwood: Scene = {
 	id: 'discovery_at_silverwood',
 	text: `${manorApproach}
 
-${portraitRevelation}
+${doorsRecognize}
 
-Behind you, your companions gasp. Vale speaks softly: "The royal family had the power to see the future. They painted this portrait of you... before you were born."
+${portraitTitle} ${nameBelow}
+
+${timeParadox}
+
+Behind you, your companions gasp. ${valeExplanation}
+
+${hiddenChamber}
 
 ${finalTruth}`,
 	textVariants: [
@@ -30,11 +40,17 @@ ${finalTruth}`,
 
 Vale's hand finds yours as you enter together. The warmth of their touch grounds you as magic swirls around you.
 
-${portraitRevelation}
+${doorsRecognize}
+
+${portraitTitle} ${nameBelow}
+
+${timeParadox}
 
 Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess [Your Name], Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
 
-When the hidden chamber opens and you read the letter left by your parents, Vale holds you as tears fall. "You're not alone," they promise. "You've never been alone. And whatever comes next, we face it together."
+${hiddenChamber}
+
+When you read the letter left by your parents, Vale holds you as tears fall. "You're not alone," they promise. "You've never been alone. And whatever comes next, we face it together."
 
 ${finalTruth}`
 		},
@@ -46,11 +62,17 @@ ${finalTruth}`
 
 Vale's hand finds yours as you approach. "Whatever we discover in there," they whisper, "changes nothing about who you are to me."
 
-As you enter together, your blood mark glows and the great doors recognize you. Inside, the portrait waits - your face, painted twenty years before your birth. 
+${doorsRecognize}
+
+${portraitTitle} ${nameBelow}
+
+${timeParadox}
 
 Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess [Your Name], Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
 
-When the hidden chamber opens and you read the letter left by your parents, Vale holds you as tears fall. "You're not alone," they promise. "You've never been alone. And whatever comes next, we face it together."`
+${hiddenChamber}
+
+When you read the letter left by your parents, Vale holds you as tears fall. "You're not alone," they promise. "You've never been alone. And whatever comes next, we face it together."`
 		},
 		{
 			conditions: { hasFlags: ['ash_trust:25', 'journey_focus:ash'] },
@@ -58,11 +80,17 @@ When the hidden chamber opens and you read the letter left by your parents, Vale
 
 Ash positions themselves protectively as you enter, hand on weapon, scanning for threats. But the only danger here is truth.
 
-${portraitRevelation}
+${doorsRecognize}
+
+${portraitTitle} ${nameBelow}
+
+${timeParadox}
 
 Ash stares at the portrait in stunned silence. "This... this explains so much." They turn to you. "The blood magic, the Shadow Beast's reaction, everything."
 
-When the hidden chamber opens, Ash stands guard while you read your parents' letter. Their voice is rough when they speak: "Royalty or not, you're still you. And I'm still here. Whatever you decide to do with this... I'm with you."
+${hiddenChamber}
+
+Ash stands guard while you read your parents' letter. Their voice is rough when they speak: "Royalty or not, you're still you. And I'm still here. Whatever you decide to do with this... I'm with you."
 
 ${finalTruth}`
 		},

@@ -294,9 +294,7 @@ ${rowanWonder}
 ${goldenAge}
 
 And you'll face that future together, as partners in every way that matters.`
-		}
-	],
-	textVariants: [
+		},
 		{
 			conditions: {
 				hasHiddenAttributes: { seraphine_romance: 70 }

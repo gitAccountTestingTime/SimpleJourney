@@ -1,10 +1,18 @@
 import { Scene } from '../../story-manager';
 
-const rowanDescription = `A figure emerges from the forest edge as you explore the manor grounds. Half-elf, by the pointed ears and otherworldly grace, dressed in practical leathers with vine tattoos winding up their arms. Auburn hair catches the sunlight, and forest-green eyes assess you with careful neutrality.`;
+const rowanAppearance = `A figure emerges from the forest edge as you explore the manor grounds. Half-elf, by the pointed ears and otherworldly grace, dressed in practical leathers with vine tattoos winding up their arms. Auburn hair catches the sunlight, and forest-green eyes assess you with careful neutrality.`;
 
-const rowanIntroduction = `"Your Highness," they say, the title sounding strange directed at you. "I am Rowan Thornheart, ranger of the Wildwood. Agent Thorne has assigned me as your official guardian. My task is to keep you alive and teach you to survive outside these comfortable walls."
+const rowanDescription = `${rowanAppearance}`;
 
-There's a hint of challenge in their voice - they're testing you, seeing if nobility has already gone to your head.`;
+const rowanTitle = `"Your Highness," they say, the title sounding strange directed at you.`;
+
+const rowanRole = `"I am Rowan Thornheart, ranger of the Wildwood. Agent Thorne has assigned me as your official guardian. My task is to keep you alive and teach you to survive outside these comfortable walls."`;
+
+const rowanTest = `There's a hint of challenge in their voice - they're testing you, seeing if nobility has already gone to your head.`;
+
+const rowanIntroduction = `${rowanTitle} ${rowanRole}
+
+${rowanTest}`;
 
 export const RowanIntroduction: Scene = {
 	id: 'rowan_formal_introduction',

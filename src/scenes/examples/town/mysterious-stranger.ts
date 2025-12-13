@@ -6,8 +6,8 @@
  * to provide different experiences.
  */
 
-import { Scene } from '../../story-manager';
-import { hiddenAttrEquals, getHiddenAttribute } from '../../scene-helpers';
+import { Scene } from '../../../story-manager';
+import { hiddenAttrEquals, getHiddenAttribute } from '../../../scene-helpers';
 
 export const MysteriousStrangerScene: Scene = {
 	id: 'mysterious_stranger',

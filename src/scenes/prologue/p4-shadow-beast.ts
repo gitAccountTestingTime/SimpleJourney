@@ -1,18 +1,22 @@
 import { Scene } from '../../story-manager';
 
-const shadowBeastAppearance = `A bone-chilling howl echoes through the forest. The temperature drops. Vale's face goes pale.
+const beastArrival = `A bone-chilling howl echoes through the forest. The temperature drops. Vale's face goes pale.`;
 
-"Shadow Beast," they whisper. "Run. NOW."
+const valeWarning = `"Shadow Beast," they whisper. "Run. NOW."`;
 
-But it's too late. The creature emerges from the darkness—a writhing mass of shadows and teeth, eyes like dying stars. It's hunger given form, death made manifest.`;
+const tooLate = `But it's too late. The creature emerges from the darkness—a writhing mass of shadows and teeth, eyes like dying stars. It's hunger given form, death made manifest.`;
 
-const bloodAwakening = `As it lunges toward a child, something inside you ignites. Your blood burns hot, and for a split second, the beast recoils. Did it... fear you?`;
+const shadowBeastAppearance = `${beastArrival}\n\n${valeWarning}\n\n${tooLate}`;
+
+const refugeesPanic = `The refugees scream and scatter.`;
+
+const magicStirs = `As it lunges toward a child, something inside you ignites. Your blood burns hot, and for a split second, the beast recoils. Did it... fear you?`;
+
+const bloodAwakening = `${magicStirs}`;
 
 export const FirstShadowBeast: Scene = {
 	id: 'first_shadow_beast',
-	text: `${shadowBeastAppearance} The refugees scream and scatter.
-
-${bloodAwakening}`,
+	text: `${shadowBeastAppearance} ${refugeesPanic}\n\n${bloodAwakening}`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['first_moral_choice:ruthless'] },

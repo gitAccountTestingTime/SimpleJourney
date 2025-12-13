@@ -1,4 +1,4 @@
-import { Scene } from '../../story-manager';
+import { Scene } from '../../../story-manager';
 
 export const CabinSearchScene: Scene = {
 	id: 'cabin_search',

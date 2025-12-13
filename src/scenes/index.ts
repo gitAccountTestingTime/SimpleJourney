@@ -49,27 +49,27 @@ export { TraditionalCoronation, DemocraticFounding, MilitaryOrder, CompromiseAch
 export { EpilogueReflection, FinalReflection, Credits } from './act4/d4-epilogue';
 
 // Exploration scenes
-export { StartScene } from './exploration/start';
-export { ForestScene } from './exploration/forest';
-export { ForestSecretScene } from './exploration/forest-secret';
-export { SeaScene } from './exploration/sea';
-export { BoatScene } from './exploration/boat';
-export { BoatLuxuryScene } from './exploration/boat-luxury';
-export { CabinScene } from './exploration/cabin';
-export { CabinSearchScene } from './exploration/cabin-search';
-export { TreasureScene } from './exploration/treasure';
+export { StartScene } from './examples/exploration/start';
+export { ForestScene } from './examples/exploration/forest';
+export { ForestSecretScene } from './examples/exploration/forest-secret';
+export { SeaScene } from './examples/exploration/sea';
+export { BoatScene } from './examples/exploration/boat';
+export { BoatLuxuryScene } from './examples/exploration/boat-luxury';
+export { CabinScene } from './examples/exploration/cabin';
+export { CabinSearchScene } from './examples/exploration/cabin-search';
+export { TreasureScene } from './examples/exploration/treasure';
 
 // Town scenes
-export { VillageScene } from './town/village';
-export { MarketScene } from './town/market';
-export { TavernScene } from './town/tavern';
-export { BlacksmithScene } from './town/blacksmith';
-export { MysteriousStrangerScene, MysteriousStrangerDetailsScene, MysteriousStrangerAcceptedScene } from './town/mysterious-stranger';
+export { VillageScene } from './examples/town/village';
+export { MarketScene } from './examples/town/market';
+export { TavernScene } from './examples/town/tavern';
+export { BlacksmithScene } from './examples/town/blacksmith';
+export { MysteriousStrangerScene, MysteriousStrangerDetailsScene, MysteriousStrangerAcceptedScene } from './examples/town/mysterious-stranger';
 
 // Quest scenes
-export { GuildScene } from './quests/guild';
-export { QuestHuntScene } from './quests/quest-hunt';
-export { VillageHelpScene } from './quests/village-help';
+export { GuildScene } from './examples/quests/guild';
+export { QuestHuntScene } from './examples/quests/quest-hunt';
+export { VillageHelpScene } from './examples/quests/village-help';
 
 // Special location scenes
-export { ShrineScene } from './special/shrine';
+export { ShrineScene } from './examples/special/shrine';

@@ -6,9 +6,9 @@ const crisisExplanation = `"The situation is dire," he begins. "Twenty years ago
 
 const factionOverview = `Seraphine adds, "Three factions now vie for control: The Loyalists believe only a true heir can reunify the kingdom and restore the Crystal Heart. The Reformists want to abolish the monarchy and create a democratic council. And General Blackwood's Military faction seeks order through strength - with him in command."`;
 
-const magicalRacesStakes = `Rowan leans forward. "And the magical races? Elves, dwarves, dragons - they're watching to see what humanity will do. The Crystal Heart protected them too. If we fail, they may abandon us... or worse."
+const magicalRacesStakes = `Rowan leans forward. "And the magical races? Elves, dwarves, dragons - they're watching to see what humanity will do. The Crystal Heart protected them too. If we fail, they may abandon us... or worse."`;
 
-The weight settles on your shoulders. This isn't just about a throne - it's about survival itself.`;
+const weightOfResponsibility = `The weight settles on your shoulders. This isn't just about a throne - it's about survival itself.`;
 
 export const KingdomBriefing: Scene = {
 	id: 'kingdom_briefing',
@@ -18,7 +18,9 @@ ${crisisExplanation}
 
 ${factionOverview}
 
-${magicalRacesStakes}`,
+${magicalRacesStakes}
+
+${weightOfResponsibility}`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['trust_in_marcus:true', 'marcus_loyalty:100'] },
@@ -130,6 +132,17 @@ Your spirit-gained knowledge gives you confidence in this discussion.`
 				seraphine_trust: 8,
 				rowan_bond: 10,
 				marcus_loyalty: 105
+			}
+		},
+		{
+			id: 'study-history',
+			text: 'Study the kingdom\'s history in the library first',
+			next: 'library_discovery',
+			effects: { wisdom: 4 },
+			hiddenEffects: {
+				knows_political_landscape: true,
+				knows_crystal_heart_crisis: true,
+				scholar_approach: true
 			}
 		}
 	]

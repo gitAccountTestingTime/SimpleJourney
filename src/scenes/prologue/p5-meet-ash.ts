@@ -1,8 +1,14 @@
 import { Scene } from '../../story-manager';
 
-const ashIntroduction = `The speaker is a scarred warrior in their forties, short gray hair and kind eyes that have seen too much death. "Name's Ash. I run a mercenary company. We've been tracking Shadow Beast activity—it's getting worse."
+const wakingUp = `You wake in a clean bed, bandaged and sore.`;
 
-They study you with interest.`;
+const ashReveal = `"Name's Ash. I run a mercenary company. We've been tracking Shadow Beast activity—it's getting worse."`;
+
+const ashStudy = `They study you with interest.`;
+
+const ashIntroduction = `The speaker is a scarred warrior in their forties, short gray hair and kind eyes that have seen too much death. ${ashReveal}
+
+${ashStudy}`;
 
 const ashOffer = `Ash leans forward. "I could use someone with your... potential. Good pay, proper training, see the kingdom. Or you can go back to your village and pretend this never happened. Your choice."`;
 

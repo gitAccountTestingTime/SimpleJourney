@@ -404,7 +404,7 @@ Agent Thorne cautions: "You're making enemies by doing good. The system protects
 		{
 			id: 'defend-legally',
 			text: 'Defend actions through legal arguments and public opinion',
-			next: 'legal_defense',
+			next: 'crystal_hunt_start',
 			effects: { wisdom: 5, charisma: 5 },
 			hiddenEffects: {
 				legal_warrior: true,
@@ -415,7 +415,7 @@ Agent Thorne cautions: "You're making enemies by doing good. The system protects
 		{
 			id: 'negotiate-compromise',
 			text: 'Negotiate compromise with angry nobles while continuing help',
-			next: 'diplomatic_relief',
+			next: 'crystal_hunt_start',
 			effects: { wisdom: 6, charisma: 4 },
 			hiddenEffects: {
 				diplomatic_approach: true,

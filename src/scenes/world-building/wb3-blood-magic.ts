@@ -378,7 +378,7 @@ And at the center of it all - a void. The place where your parents should be, ma
 		{
 			id: 'accept-duty',
 			text: 'Accept your duty to maintain the Covenant and save the kingdom',
-			next: 'covenant_keeper_path',
+			next: 'crystal_hunt_start',
 			effects: { courage: 5, wisdom: 4 },
 			hiddenEffects: {
 				covenant_keeper: true,
@@ -389,7 +389,7 @@ And at the center of it all - a void. The place where your parents should be, ma
 		{
 			id: 'reform-covenant',
 			text: 'Vow to reform the Covenant - make it consensual, not binding',
-			next: 'covenant_reformer_path',
+			next: 'crystal_hunt_start',
 			effects: { wisdom: 6, courage: 4 },
 			hiddenEffects: {
 				covenant_reformer: true,
@@ -400,7 +400,7 @@ And at the center of it all - a void. The place where your parents should be, ma
 		{
 			id: 'break-covenant',
 			text: 'Consider breaking the Covenant entirely - free everyone, accept chaos',
-			next: 'covenant_breaker_path',
+			next: 'crystal_hunt_start',
 			effects: { courage: 7, wisdom: 3 },
 			hiddenEffects: {
 				covenant_breaker: true,
@@ -411,7 +411,7 @@ And at the center of it all - a void. The place where your parents should be, ma
 		{
 			id: 'need-time',
 			text: 'Need more time to understand before choosing a path',
-			next: 'wb_investigation_deeper',
+			next: 'crystal_hunt_start',
 			effects: { wisdom: 5 },
 			hiddenEffects: {
 				undecided: true,

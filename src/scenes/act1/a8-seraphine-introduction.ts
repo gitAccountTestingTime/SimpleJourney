@@ -1,12 +1,22 @@
 import { Scene } from '../../story-manager';
 
-const safehouseArrival = `Marcus leads you to a safe house in the nearby town - a nondescript building that conceals a well-furnished interior. "There's someone who's been waiting to meet you," he says.`;
+const marcusGuidance = `Marcus leads you to a safe house in the nearby town - a nondescript building that conceals a well-furnished interior. "There's someone who's been waiting to meet you," he says.`;
 
-const seraphineDescription = `Lady Seraphine Ashford rises from a chair, every movement graceful and controlled. Up close, she's striking - dark hair perfectly styled, sharp intelligent eyes, formal noble attire that somehow makes everyone else feel underdressed. She's younger than you expected, perhaps late twenties, but carries herself with absolute certainty.`;
+const safehouseArrival = `${marcusGuidance}`;
 
-const seraphineGreeting = `"Your Highness," she says, curtseying with perfect form. "I represent the Loyalist faction. We have waited twenty years for this moment - for your return."`;
+const seraphineRises = `Lady Seraphine Ashford rises from a chair, every movement graceful and controlled. Up close, she's striking - dark hair perfectly styled, sharp intelligent eyes, formal noble attire that somehow makes everyone else feel underdressed. She's younger than you expected, perhaps late twenties, but carries herself with absolute certainty.`;
 
-const seraphineOffer = `"We have much to discuss," Seraphine continues, "about your responsibilities, your heritage, and the kingdom's future. But first, let me say this: you are not alone. We stand ready to support you in reclaiming your birthright."`;
+const seraphineDescription = `${seraphineRises}`;
+
+const seraphineCurtsy = `"Your Highness," she says, curtseying with perfect form. "I represent the Loyalist faction. We have waited twenty years for this moment - for your return."`;
+
+const seraphineGreeting = `${seraphineCurtsy}`;
+
+const loyalistSupport = `"We have much to discuss," Seraphine continues, "about your responsibilities, your heritage, and the kingdom's future. But first, let me say this: you are not alone. We stand ready to support you in reclaiming your birthright."`;
+
+const seraphineOffer = `${loyalistSupport}`;
+
+const rowanDiscomfort = `Rowan shifts uncomfortably beside you, clearly ill at ease with such formality. The contrast between the free-spirited ranger and the polished noble is stark.`;
 
 export const SeraphineIntroduction: Scene = {
 	id: 'seraphine_introduction',
@@ -16,7 +26,7 @@ ${seraphineDescription}
 
 ${seraphineGreeting}
 
-Rowan shifts uncomfortably beside you, clearly ill at ease with such formality. The contrast between the free-spirited ranger and the polished noble is stark.
+${rowanDiscomfort}
 
 ${seraphineOffer}`,
 	textVariants: [

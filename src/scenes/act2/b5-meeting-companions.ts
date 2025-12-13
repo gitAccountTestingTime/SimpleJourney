@@ -1,12 +1,20 @@
 import { Scene } from '../../story-manager';
 
-const sageWorking = `Before the formal meeting with Council Member Dane, you encounter a young man organizing stacks of documents in the People's Assembly Hall. He's muttering to himself about democratic precedents and constitutional frameworks, utterly absorbed.`;
+const sageAbsorbed = `Before the formal meeting with Council Member Dane, you encounter a young man organizing stacks of documents in the People's Assembly Hall. He's muttering to himself about democratic precedents and constitutional frameworks, utterly absorbed.`;
 
-const sageRealization = `"Oh!" He startles when he notices you, nearly dropping his papers. "I'm so sorry, I didn't... you're..." His eyes widen in recognition. "The heir. You're really here."`;
+const sageWorking = `${sageAbsorbed}`;
 
-const sageIntroduction = `He fumbles a bow, flustered and endearing. "I'm Sage. I help Council Member Dane with research. I've been studying governance systems for years, hoping for this moment - a chance to help build something better."`;
+const sageStartles = `"Oh!" He startles when he notices you, nearly dropping his papers. "I'm so sorry, I didn't... you're..." His eyes widen in recognition. "The heir. You're really here."`;
 
-const sagePassion = `His earnest passion is palpable. Unlike the calculated politicians, this young scholar genuinely believes in the ideals he speaks of.`;
+const sageRealization = `${sageStartles}`;
+
+const sageBows = `He fumbles a bow, flustered and endearing. "I'm Sage. I help Council Member Dane with research. I've been studying governance systems for years, hoping for this moment - a chance to help build something better."`;
+
+const sageIntroduction = `${sageBows}`;
+
+const sageBelieves = `His earnest passion is palpable. Unlike the calculated politicians, this young scholar genuinely believes in the ideals he speaks of.`;
+
+const sagePassion = `${sageBelieves}`;
 
 // Act 2 Continued - Meeting Key Companions
 

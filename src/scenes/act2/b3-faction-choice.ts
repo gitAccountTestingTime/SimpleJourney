@@ -2,19 +2,25 @@ import { Scene } from '../../story-manager';
 
 const decisionMoment = `Back in the capital, the moment of decision arrives. Representatives from all three factions have made their cases. Each offers support, but each demands loyalty in return.`;
 
+const loyalistOption = `**The Loyalists** (Lady Ashford): Traditional restoration, full royal authority, ancient customs honored. Seraphine watches hopefully.`;
+
+const reformistOption = `**The Reformists** (Council Member Dane): Constitutional monarchy, shared power, democratic reforms. Sage's eyes shine with idealistic fervor.`;
+
+const militaryOption = `**The Military** (General Blackwood): Order through strength, strategic consolidation, security first. Captain Kieran stands at attention, but you notice his jaw is tight.`;
+
 const invitationsLaid = `Marcus lays out three formal invitations on the table before you:
 
-**The Loyalists** (Lady Ashford): Traditional restoration, full royal authority, ancient customs honored. Seraphine watches hopefully.
+${loyalistOption}
 
-**The Reformists** (Council Member Dane): Constitutional monarchy, shared power, democratic reforms. Sage's eyes shine with idealistic fervor.
+${reformistOption}
 
-**The Military** (General Blackwood): Order through strength, strategic consolidation, security first. Captain Kieran stands at attention, but you notice his jaw is tight.`;
+${militaryOption}`;
 
 const alternativePath = `"Or," Rowan adds quietly, "you could reject them all and forge your own path. Visit the magical races directly, build your own coalition."`;
 
-const companionInput = `Your companions all have opinions. Vale whispers intelligence about each faction's strengths and weaknesses. Ash warns about military complications. Lyra observes with elven patience, waiting to see what kind of leader you'll become.
+const companionInput = `Your companions all have opinions. Vale whispers intelligence about each faction's strengths and weaknesses. Ash warns about military complications. Lyra observes with elven patience, waiting to see what kind of leader you'll become.`;
 
-This choice will define your rule - and your story.`;
+const choiceDefinesRule = `This choice will define your rule - and your story.`;
 
 export const FactionChoicePoint: Scene = {
 	id: 'faction_choice_point',
@@ -24,7 +30,9 @@ ${invitationsLaid}
 
 ${alternativePath}
 
-${companionInput}`,
+${companionInput}
+
+${choiceDefinesRule}`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['humble:true', 'cultural_humility:true'], hasHiddenAttributes: { lyra_respect: 15 } },

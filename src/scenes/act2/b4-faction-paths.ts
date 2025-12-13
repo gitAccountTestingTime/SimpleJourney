@@ -1,12 +1,20 @@
 import { Scene } from '../../story-manager';
 
-const loyalistJoy = `Lady Ashford rises, tears of joy in her eyes. "At last. The true heir returns to claim their birthright."`;
+const ashfordJoy = `Lady Ashford rises, tears of joy in her eyes. "At last. The true heir returns to claim their birthright."`;
 
-const seraphineVow = `Seraphine approaches, kneeling formally before you. "Your Highness, the Loyalists pledge our complete support. We will restore the throne, honor the ancient traditions, and rebuild what was lost."`;
+const loyalistJoy = `${ashfordJoy}`;
 
-const companionReactions = `But you notice reactions around the room: Sage looks crushed, Vale conflicted, Rowan uncertain. This choice has cost you some allies while gaining others.`;
+const seraphineKneels = `Seraphine approaches, kneeling formally before you. "Your Highness, the Loyalists pledge our complete support. We will restore the throne, honor the ancient traditions, and rebuild what was lost."`;
 
-const loyalistNext = `"The coronation must be prepared," Lady Ashford continues. "But first, we must secure the Crystal Heart fragments. With traditional authority restored, the magical races may be willing to negotiate. Come - there is much work ahead."`;
+const seraphineVow = `${seraphineKneels}`;
+
+const alliesConcerned = `But you notice reactions around the room: Sage looks crushed, Vale conflicted, Rowan uncertain. This choice has cost you some allies while gaining others.`;
+
+const companionReactions = `${alliesConcerned}`;
+
+const coronationPrep = `"The coronation must be prepared," Lady Ashford continues. "But first, we must secure the Crystal Heart fragments. With traditional authority restored, the magical races may be willing to negotiate. Come - there is much work ahead."`;
+
+const loyalistNext = `${coronationPrep}`;
 
 // LOYALIST PATH
 export const LoyalistPathStart: Scene = {
@@ -130,7 +138,7 @@ ${reformistPath}`
 		{
 			id: 'continue',
 			text: 'Begin building the new democracy',
-			next: 'crystal_hunt_start',
+			next: 'meeting_sage',
 			effects: { wisdom: 2 },
 			hiddenEffects: {
 				reformist_path_confirmed: true,
