@@ -288,6 +288,19 @@ She cups your face with trembling hands. "I spent my whole life being proper. Ma
 				seraphine_romance_level: 2,
 				committed_relationship: true,
 				seraphine_liberated: true
+			},
+			realLifeChallenge: {
+				id: 'seraphine_authentic_talk',
+				type: 'social',
+				title: 'Drop the Masks',
+				description: 'Like Seraphine shedding her diplomatic persona, have an authentic conversation with your partner',
+				instructions: 'Spend time with your partner where you both agree to be completely authentic - no social masks, no pretending things are fine when they\'re not. Share how you really feel about something important.',
+				durationMinutes: 45,
+				verificationMethod: 'honor',
+				rewards: {
+					stats: { empathy: 4, charisma: 3 },
+					message: 'Authenticity deepened your connection, just as it did with Seraphine.'
+				}
 			}
 		},
 		{

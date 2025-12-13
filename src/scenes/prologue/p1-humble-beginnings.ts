@@ -2,11 +2,22 @@ import { Scene } from '../../story-manager';
 
 export const PrologueStart: Scene = {
 	id: 'prologue_start',
-	text: `You are an orphan in the frontier village of Thornhaven, working odd jobs to survive. The morning sun barely breaks through the mist as the village elder rings the bell, calling for volunteers.
+	text: `The early morning sun barely breaks through the mist as it slowly crests the hills surrounding Thornshaven, a small but quaint village nestled in the valley.
 
-"Bandits have been raiding the trade routes," the elder announces. "We need brave souls to deal with them. Payment will be fair."
+You walk slowly toward the village square, the cobblestone path cool beneath your feet.  The scent of fresh bread wafts from the local bakery, mingling with the earthy aroma of dew-kissed grass.  It's the same scent that has greeted you every morning of your life here - the only home you've ever known, though you've lived alone for as long as you can remember.
 
-This could be your chance to prove yourself—or earn enough coin to finally leave this place.`,
+
+
+For years you've done odd jobs around the village to get by, each day the same as the last.  The memories of your life until now swirl somewhere in the back of your mind. You push them aside as you approach the square, which was busier than usual for this time of day.
+
+
+
+Suddenly, you hear the village elder ringing the bell in town, calling members of the village and visitors alike to hear his words.  After giving some time for folks to gather, the elder begins,
+
+"Bandits have been raiding the trade routes," the elder announces, his voice carrying across the square. 
+"We need brave souls to deal with them. Payment will be fair."
+
+This could be your chance to prove yourself, or to actually earn enough coin to finally leave this place.`,
 	choices: [
 		{
 			id: 'volunteer-immediately',

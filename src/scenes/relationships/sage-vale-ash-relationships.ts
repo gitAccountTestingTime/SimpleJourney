@@ -357,6 +357,19 @@ Your relationship, whatever form it takes, is built on absolute trust and mutual
 				ash_bond: 20,
 				ash_relationship: 'battle_family',
 				unbreakable_bond: true
+			},
+			realLifeChallenge: {
+				id: 'ash_express_gratitude',
+				type: 'social',
+				title: 'Express Deep Gratitude',
+				description: 'Like Ash\'s fierce devotion, express appreciation for your partner\'s presence in your life',
+				instructions: 'Tell your partner specific things you\'re grateful for about them and your relationship. Be detailed and sincere - not just "I love you" but why, what they do, how they make your life better.',
+				durationMinutes: 20,
+				verificationMethod: 'honor',
+				rewards: {
+					stats: { empathy: 4, charisma: 2 },
+					message: 'Expressing gratitude deepened your bond, just like Ash\'s protective devotion.'
+				}
 			}
 		}
 	]
@@ -379,6 +392,19 @@ Ash's defenses crumble. They pull you into a fierce embrace. "Fuck. Okay. Okay."
 				ash_romance_level: 2,
 				fierce_devotion: true,
 				ash_healing: true
+			},
+			realLifeChallenge: {
+				id: 'ash_express_gratitude',
+				type: 'social',
+				title: 'Express Deep Gratitude',
+				description: 'Like Ash\'s fierce devotion, express appreciation for your partner\'s presence in your life',
+				instructions: 'Tell your partner specific things you\'re grateful for about them and your relationship. Be detailed and sincere - not just "I love you" but why, what they do, how they make your life better.',
+				durationMinutes: 20,
+				verificationMethod: 'honor',
+				rewards: {
+					stats: { empathy: 4, charisma: 2 },
+					message: 'Expressing gratitude deepened your bond, just like Ash\'s protective devotion.'
+				}
 			}
 		}
 	]

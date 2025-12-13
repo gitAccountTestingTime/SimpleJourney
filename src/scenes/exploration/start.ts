@@ -2,7 +2,17 @@ import { Scene } from '../../story-manager';
 
 export const StartScene: Scene = {
 	id: 'start',
-	text: 'You stand at the edge of a small village. A path leads into the forest and another to the sea.',
+	text: `Welcome, {name}.
+
+You stand at the edge of a small village, where two paths diverge before you.
+
+To your left, a worn trail disappears into the shadowy embrace of an ancient forest. The trees whisper secrets in the wind.
+
+To your right, a sandy path leads toward the sea, where you can hear the distant crash of waves against rocky shores.
+
+Your journey begins here.
+
+What will you choose?`,
 	choices: [
 		// Example: flag-based and stat-based branching for the same choice
 		{

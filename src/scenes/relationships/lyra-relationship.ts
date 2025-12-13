@@ -298,6 +298,19 @@ Lyra closes the distance, kissing you desperately - like someone drowning finall
 				soul_bonded: true,
 				magical_intimacy: true,
 				lyra_complete_trust: true
+			},
+			realLifeChallenge: {
+				id: 'lyra_create_together',
+				type: 'creative',
+				title: 'Create Something Together',
+				description: 'Like Lyra teaching you magic, create something with your partner that requires both of your skills',
+				instructions: 'Work together with your partner on a creative project - cook a new recipe, craft something, solve a puzzle, or build something. The focus is on collaboration and learning from each other.',
+				durationMinutes: 60,
+				verificationMethod: 'honor',
+				rewards: {
+					stats: { wisdom: 3, empathy: 3 },
+					message: 'Creating together deepened your bond, just like learning magic with Lyra.'
+				}
 			}
 		},
 		{

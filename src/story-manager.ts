@@ -98,11 +98,20 @@ export type Title = {
 let currentSceneId: string | null = null;
 let previousSceneId: string | null = null;
 let earnedTitles: Set<string> = new Set();
+let playerName: string = '';
 // record of past choices taken (by id) to enable conditional branching
 let chosenFlags: Set<string> = new Set();
 // hidden attributes - not shown to user but available for conditional logic
 // supports number, string, or boolean values
 let hiddenAttributes: Map<string, number | string | boolean> = new Map();
+
+export function setPlayerName(name: string): void {
+	playerName = name;
+}
+
+export function getPlayerName(): string {
+	return playerName;
+}
 // track completed real-life challenges
 let completedChallenges: Map<string, { completedAt: number; verified: boolean }> = new Map();
 // track active challenges
@@ -601,6 +610,7 @@ export function saveProgress(key = STORAGE_KEY): void {
 	const payload = {
 		sceneId: currentSceneId,
 		previousSceneId: previousSceneId,
+		playerName: playerName,
 		stats: playerStats,
 		titles: Array.from(earnedTitles),
 		flags: Array.from(chosenFlags),
@@ -619,13 +629,17 @@ export function restoreProgress(key = STORAGE_KEY): Scene {
 	const raw = window.localStorage.getItem(key);
 	if (raw) {
 		try {
-			const parsed = JSON.parse(raw) as { sceneId: string | null; previousSceneId?: string | null; stats?: PlayerStats; titles?: string[]; flags?: string[]; characters?: Record<string, Character>; places?: Record<string, Place>; hiddenAttributes?: [string, number | string | boolean][] };
+			const parsed = JSON.parse(raw) as { sceneId: string | null; previousSceneId?: string | null; playerName?: string; stats?: PlayerStats; titles?: string[]; flags?: string[]; characters?: Record<string, Character>; places?: Record<string, Place>; hiddenAttributes?: [string, number | string | boolean][] };
 			if (parsed && parsed.sceneId && scenes[parsed.sceneId]) {
 				currentSceneId = parsed.sceneId;
 			}
 			// restore previous scene id if present
 			if (parsed && parsed.previousSceneId !== undefined) {
 				previousSceneId = parsed.previousSceneId;
+			}
+			// restore player name if present
+			if (parsed && parsed.playerName) {
+				playerName = parsed.playerName;
 			}
 			if (parsed && parsed.stats) {
 				playerStats = parsed.stats;
@@ -669,6 +683,7 @@ export function resetProgress(key = STORAGE_KEY): void {
 	if (typeof window === 'undefined' || !window.localStorage) return;
 	window.localStorage.removeItem(key);
 	currentSceneId = null;
+	playerName = '';
 	previousSceneId = null;
 	// reset stats as well
 	playerStats = { courage: 0, curiosity: 0, empathy: 0, wealth: 0, reputation: 0, strength: 0, wisdom: 0, luck: 0, health: 10, charisma: 0 };

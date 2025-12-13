@@ -8,11 +8,19 @@ import { Scene } from '../../story-manager';
 
 export const RowanBonding1: Scene = {
 	id: 'rowan_bonding_1',
-	text: `After a particularly exhausting day of political meetings, you find Rowan on the manor's eastern balcony, watching the forest. They don't turn as you approach, but their posture relaxes slightly - they know your footstep.
+	text: `After a particularly exhausting day of political meetings, you find Rowan on the manor's eastern balcony, watching the forest.
 
-"I needed air," Rowan says quietly. "Too many walls, too many words. The nobles talk in circles, saying everything and nothing." They finally look at you. "How do you stand it?"
+They don't turn as you approach, but their posture relaxes slightly - they know your footstep.
 
-This is the first time Rowan has initiated personal conversation. Usually they're all business - guardian duties, security concerns, tactical assessments. This moment of openness feels significant.`,
+"I needed air," Rowan says quietly. "Too many walls, too many words. The nobles talk in circles, saying everything and nothing."
+
+They finally look at you, {name}.
+
+"How do you stand it?"
+
+This is the first time Rowan has initiated personal conversation. Usually they're all business - guardian duties, security concerns, tactical assessments.
+
+This moment of openness feels significant.`,
 	choices: [
 		{
 			id: 'admit-struggle',
@@ -299,6 +307,19 @@ When you part, Rowan rests their forehead against yours. "Whatever comes next," 
 				rowan_romance_level: 2,
 				committed_relationship: true,
 				rowan_happiness: 100
+			},
+			realLifeChallenge: {
+				id: 'rowan_vulnerable_moment',
+				type: 'social',
+				title: 'Share a Vulnerable Moment',
+				description: 'Like Rowan opening up about their feelings, share something vulnerable with your real-life partner',
+				instructions: 'Spend quality time with your partner and share something you\'ve been feeling but haven\'t expressed - a fear, hope, or dream. Practice active listening when they respond.',
+				durationMinutes: 30,
+				verificationMethod: 'honor',
+				rewards: {
+					stats: { empathy: 3, charisma: 2 },
+					message: 'Your vulnerability strengthened your real-life connection, just as it did with Rowan.'
+				}
 			}
 		},
 		{

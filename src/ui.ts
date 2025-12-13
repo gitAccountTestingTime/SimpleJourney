@@ -22,8 +22,14 @@ import {
   getActiveChallenge,
   completeChallenge,
   cancelChallenge,
+  getPlayerName,
   type RealLifeChallenge
 } from './story-manager';
+
+function replaceNamePlaceholder(text: string): string {
+  const name = getPlayerName();
+  return text.replace(/\{name\}/gi, name || 'Traveler');
+}
 
 export function clearChoicesUI() {
   const choicesList = document.getElementById('choices-list') as HTMLUListElement | null;
@@ -34,7 +40,7 @@ export function clearChoicesUI() {
 export function renderEndState() {
   const introEl = document.getElementById('intro-text') as HTMLElement | null;
   const choicesList = document.getElementById('choices-list') as HTMLUListElement | null;
-  if (introEl) introEl.textContent = 'The story ends. Thank you for playing.';
+  if (introEl) introEl.innerText = 'The story ends. Thank you for playing.';
   if (!choicesList) return;
   clearChoicesUI();
   const endLabel = document.createElement('li');
@@ -158,9 +164,9 @@ export function populateChoices(scene: ReturnType<typeof getCurrentScene>) {
 
 export function renderScene(scene: ReturnType<typeof getCurrentScene>) {
   const introEl = document.getElementById('intro-text') as HTMLElement | null;
-  if (introEl) introEl.textContent = scene.text;
+  if (introEl) introEl.innerText = replaceNamePlaceholder(scene.text);
   populateChoices(scene);
-  renderStats();
+  // Stats are now only rendered when the stats menu is open
   renderTitles();
 }
 
@@ -222,6 +228,44 @@ export function showTitleToast(title: any) {
 
 // Debug Console: create hidden console and an external open button
 export function createDebugConsole() {
+  // Create stats menu first
+  const statsMenu = document.createElement('div');
+  statsMenu.id = 'stats-menu';
+  statsMenu.className = 'stats-menu';
+  statsMenu.style.display = 'none';
+  statsMenu.innerHTML = `
+    <div class="stats-menu-header">
+      <h3>📊 Player Stats</h3>
+    </div>
+    <div class="stats-menu-body">
+      <div id="stats-panel" class="stats-panel"></div>
+    </div>
+  `;
+  document.body.appendChild(statsMenu);
+
+  const statsOpenBtn = document.createElement('button');
+  statsOpenBtn.id = 'stats-open-btn';
+  statsOpenBtn.className = 'stats-open-btn';
+  statsOpenBtn.type = 'button';
+  statsOpenBtn.setAttribute('aria-expanded', 'false');
+  statsOpenBtn.textContent = 'Stats';
+  document.body.appendChild(statsOpenBtn);
+
+  statsOpenBtn.addEventListener('click', () => {
+    const isHidden = statsMenu.style.display === 'none' || statsMenu.style.display === '';
+    if (isHidden) {
+      statsMenu.style.display = 'block';
+      statsOpenBtn.setAttribute('aria-expanded', 'true');
+      statsOpenBtn.textContent = 'Hide Stats';
+      renderStats();
+    } else {
+      statsMenu.style.display = 'none';
+      statsOpenBtn.setAttribute('aria-expanded', 'false');
+      statsOpenBtn.textContent = 'Stats';
+    }
+  });
+
+  // Create debug console
   const container = document.createElement('div');
   container.id = 'debug-console';
   container.className = 'debug-console';

@@ -283,6 +283,19 @@ The confession hangs between you, his heart pounding against yours.`
 				shield_siblings: true,
 				warrior_bond: true,
 				kieran_relationship: 'battle_family'
+			},
+			realLifeChallenge: {
+				id: 'kieran_physical_challenge',
+				type: 'exercise',
+				title: 'Physical Challenge Together',
+				description: 'Like training with Kieran, do a physical activity with your partner',
+				instructions: 'Exercise together with your partner - go for a run, work out at home, play a sport, or do yoga. Encourage each other and celebrate completing the challenge together.',
+				durationMinutes: 30,
+				verificationMethod: 'timer',
+				rewards: {
+					stats: { courage: 3, strength: 2, empathy: 2 },
+					message: 'Training together built camaraderie, just like with Kieran.'
+				}
 			}
 		}
 	]
@@ -308,6 +321,19 @@ He presses his forehead to yours. "So yes. I want this. Want you. Whatever that 
 				kieran_romance_level: 2,
 				devoted_partners: true,
 				kieran_healing_complete: true
+			},
+			realLifeChallenge: {
+				id: 'kieran_emotional_support',
+				type: 'social',
+				title: 'Provide Emotional Support',
+				description: 'Like supporting Kieran through his guilt, be there for your partner during a difficult moment',
+				instructions: 'Have a conversation with your partner about something that\'s been weighing on them. Listen without judgment, offer support without trying to fix everything. Let them know you\'re there for them.',
+				durationMinutes: 30,
+				verificationMethod: 'honor',
+				rewards: {
+					stats: { empathy: 4, wisdom: 2 },
+					message: 'Your support strengthened your bond, just as you helped Kieran heal.'
+				}
 			}
 		},
 		{

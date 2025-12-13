@@ -305,6 +305,19 @@ He pulls you close. "We'll fight for this. Together. Prove that class barriers d
 				finn_romance_level: 2,
 				revolutionary_romance: true,
 				symbol_of_change: true
+			},
+			realLifeChallenge: {
+				id: 'finn_partnership_action',
+				type: 'social',
+				title: 'Act of Partnership',
+				description: 'Like building an equal partnership with Finn, demonstrate partnership with your real-life partner',
+				instructions: 'Do something thoughtful for your partner without being asked - handle a chore they dislike, prepare their favorite meal, or help with something important to them. Focus on actions that show you notice and value them as equals.',
+				durationMinutes: 60,
+				verificationMethod: 'honor',
+				rewards: {
+					stats: { empathy: 4, charisma: 2 },
+					message: 'Partnership actions strengthened your bond, just like with Finn.'
+				}
 			}
 		},
 		{
@@ -352,6 +365,19 @@ The mural becomes your love story - two worlds meeting, bridging gaps through ar
 				mural_finished: true,
 				public_statement: true,
 				workers_inspired: true
+			},
+			realLifeChallenge: {
+				id: 'finn_creative_project',
+				type: 'creative',
+				title: 'Create Art Together',
+				description: 'Like painting the mural with Finn, create something artistic with your partner',
+				instructions: 'Work on a creative project together - paint, draw, write a story, make music, or craft something. The result matters less than the process of creating together.',
+				durationMinutes: 60,
+				verificationMethod: 'photo',
+				rewards: {
+					stats: { charisma: 3, empathy: 3, wisdom: 2 },
+					message: 'Creating together brought you closer, just like working with Finn on the mural.'
+				}
 			}
 		}
 	]
