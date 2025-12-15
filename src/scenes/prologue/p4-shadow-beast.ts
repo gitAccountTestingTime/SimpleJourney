@@ -61,28 +61,66 @@ ${bloodAwakening}`
 	],
 	choices: [
 		{
+			id: 'face-fear',
+			text: 'Face your terror - step forward despite overwhelming fear',
+			next: 'meet_ash',
+			effects: { courage: 5, wisdom: 3, reputation: 12, wealth: 25 },
+			hiddenEffects: {
+				shadow_beast_reaction: 'faced_fear',
+				magical_awakening: 'courage',
+				blood_magic_affinity: 12,
+				vale_trust: 18,
+				refugees_trust: 10,
+				fear_conquered: true,
+				shadow_beast_bounty_earned: true
+			},
+			realLifeChallenge: {
+				id: 'face_fear_challenge',
+				type: 'courage',
+				title: 'Courage in Small Things',
+				description: 'Your character faces a terrifying shadow beast - you face a fear in your own life',
+				instructions: 'Do something small that makes you uncomfortable or nervous. Make that phone call you\'ve been avoiding, speak up in a situation, try something new, address a small conflict, or take a small risk. It doesn\'t have to be dramatic - just genuine. The point is choosing courage over comfort.',
+				durationMinutes: 10,
+				verificationMethod: 'honor',
+				checklistItems: [
+					'Identify something you\'ve been avoiding',
+					'Acknowledge your discomfort',
+					'Take action despite the fear',
+					'Complete the uncomfortable task',
+					'Reflect on how it felt'
+				],
+				rewards: {
+					stats: { courage: 4, wisdom: 2, charisma: 2 },
+					hiddenAttributes: { fear_facer: 1, brave_action: true },
+					message: 'You did the thing you were avoiding. Like your character standing before the shadow beast, you chose courage over comfort. Each act of bravery, however small, makes the next one easier. You\'re building courage as a habit.'
+				}
+			}
+		},
+		{
 			id: 'stand-fight',
 			text: 'Stand your ground and fight',
 			outcomes: [
 				{
 					conditions: { stats: { courage: { min: 5 } } },
 					next: 'meet_ash',
-					effects: { courage: 3, reputation: 10 },
+					effects: { courage: 3, reputation: 10, wealth: 25 },
 					hiddenEffects: {
 						shadow_beast_reaction: 'fought_bravely',
 						magical_awakening: 'combat',
 						blood_magic_affinity: 10,
-						vale_trust: 15
+						vale_trust: 15,
+						shadow_beast_bounty_earned: true
 					}
 				},
 				{
 					next: 'meet_ash',
-					effects: { courage: 2, reputation: 5 },
+					effects: { courage: 2, reputation: 5, wealth: 15 },
 					hiddenEffects: {
 						shadow_beast_reaction: 'fought_desperately',
 						magical_awakening: 'survival',
 						blood_magic_affinity: 5,
-						vale_trust: 10
+						vale_trust: 10,
+						shadow_beast_bounty_earned: true
 					}
 				}
 			]
@@ -91,38 +129,41 @@ ${bloodAwakening}`
 			id: 'protect-others',
 			text: 'Protect the refugees while retreating',
 			next: 'meet_ash',
-			effects: { courage: 2, charisma: 3, reputation: 12 },
+			effects: { courage: 2, charisma: 3, reputation: 12, wealth: 25 },
 			hiddenEffects: {
 				shadow_beast_reaction: 'protective',
 				magical_awakening: 'selfless',
 				blood_magic_affinity: 8,
 				compassionate_actions: 5,
 				vale_trust: 20,
-				vale_romance: 15
+				vale_romance: 15,
+				shadow_beast_bounty_earned: true
 			}
 		},
 		{
 			id: 'focus-survival',
 			text: 'Focus on your own survival',
 			next: 'meet_ash',
-			effects: { wisdom: 2, reputation: -2 },
+			effects: { wisdom: 2, reputation: -2, wealth: 10 },
 			hiddenEffects: {
 				shadow_beast_reaction: 'pragmatic',
 				magical_awakening: 'instinct',
 				blood_magic_affinity: 3,
-				ruthlessness: 3
+				ruthlessness: 3,
+				shadow_beast_bounty_earned: true
 			}
 		},
 		{
 			id: 'understand-it',
 			text: 'Try to understand the creature rather than fight',
 			next: 'meet_ash',
-			effects: { wisdom: 4 },
+			effects: { wisdom: 4, wealth: 20 },
 			hiddenEffects: {
 				shadow_beast_reaction: 'curious',
 				magical_awakening: 'intellectual',
 				blood_magic_affinity: 12,
-				vale_trust: 10
+				vale_trust: 10,
+				shadow_beast_bounty_earned: true
 			}
 		}
 	]

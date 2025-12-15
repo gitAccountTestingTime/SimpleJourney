@@ -155,6 +155,18 @@ The challenge is real - prove yourself or lose his trust forever.`
 	],
 	choices: [
 		{
+			id: 'create-art-together',
+			text: 'Create art together to honor workers and express hope',
+			next: 'creative_banner_design',
+			effects: { empathy: 7, charisma: 5 },
+			hiddenEffects: {
+				finn_bond: 25,
+				artistic_connection: true,
+				finn_thrilled: true,
+				creative_solidarity: true
+			}
+		},
+		{
 			id: 'make-connections',
 			text: 'Talk with workers, learn names, make genuine connections',
 			next: 'finn_bonding_3',

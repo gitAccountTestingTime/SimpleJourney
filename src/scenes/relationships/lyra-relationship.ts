@@ -300,18 +300,32 @@ Lyra closes the distance, kissing you desperately - like someone drowning finall
 				lyra_complete_trust: true
 			},
 			realLifeChallenge: {
-				id: 'lyra_create_together',
-				type: 'creative',
-				title: 'Create Something Together',
-				description: 'Like Lyra teaching you magic, create something with your partner that requires both of your skills',
-				instructions: 'Work together with your partner on a creative project - cook a new recipe, craft something, solve a puzzle, or build something. The focus is on collaboration and learning from each other.',
-				durationMinutes: 60,
+				id: 'lyra_kiss_partner',
+				type: 'social',
+				title: 'Soul-Deep Connection',
+				description: 'Like Lyra\'s desperate, relieved kiss, share deep affection with your partner',
+				instructions: 'Kiss your partner with the same depth of feeling Lyra expresses - gratitude, love, and the relief of being truly seen and chosen.',
+				durationMinutes: 1,
 				verificationMethod: 'honor',
 				rewards: {
-					stats: { wisdom: 3, empathy: 3 },
-					message: 'Creating together deepened your bond, just like learning magic with Lyra.'
+					stats: { empathy: 4, wisdom: 2 },
+					message: 'Your heartfelt affection deepened your bond, just as Lyra\'s vulnerability created magical intimacy.'
 				}
 			}
+			// },
+			// oldRealLifeChallenge: {
+			// 	id: 'lyra_create_together',
+			// 	type: 'creative',
+			// 	title: 'Create Something Together',
+			// 	description: 'Like Lyra teaching you magic, create something with your partner that requires both of your skills',
+			// 	instructions: 'Work together with your partner on a creative project - cook a new recipe, craft something, solve a puzzle, or build something. The focus is on collaboration and learning from each other.',
+			// 	durationMinutes: 60,
+			// 	verificationMethod: 'honor',
+			// 	rewards: {
+			// 		stats: { wisdom: 3, empathy: 3 },
+			// 		message: 'Creating together deepened your bond, just like learning magic with Lyra.'
+			// 	}
+			// }
 		},
 		{
 			id: 'affirm-choice',

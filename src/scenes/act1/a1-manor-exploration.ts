@@ -93,47 +93,83 @@ You catch them watching you with worried eyes. "Just promise me something," Ash 
 	],
 	choices: [
 		{
+			id: 'organize-chambers',
+			text: 'Organize your personal chambers - make this place feel like home',
+			next: 'rowan_formal_introduction',
+			effects: { wisdom: 3, empathy: 2 },
+			hiddenEffects: {
+				manor_explored: true,
+				space_claimed: true,
+				making_it_home: true,
+				organized_mind: true
+			},
+			realLifeChallenge: {
+				id: 'organize_space_challenge',
+				type: 'physical',
+				title: 'Claim Your Space',
+				description: 'Your character organizes their ancestral manor - you bring order to your own space',
+				instructions: 'Spend 15 minutes organizing a space around you. Clean a desk, organize a closet, arrange books, tidy a room - choose any area that needs attention. Create a sense of order and ownership over your environment.',
+				durationMinutes: 15,
+				verificationMethod: 'honor',
+				checklistItems: [
+					'Choose a space to organize',
+					'Clear away clutter',
+					'Arrange items intentionally',
+					'Create a sense of order',
+					'Feel ownership of your space'
+				],
+				rewards: {
+					stats: { wisdom: 2, vitality: 2, empathy: 1 },
+					hiddenAttributes: { organized_mind: 1, space_claimed: true },
+					message: 'Your space is more organized, and so is your mind. Like your character taking ownership of Silverwood Manor, you\'ve claimed and ordered your own environment. Small acts of organization create foundations for greater things.'
+				}
+			}
+		},
+		{
 			id: 'journals',
 			text: 'Read your parents\' journals - understand who they were',
 			next: 'rowan_formal_introduction',
-			effects: { wisdom: 3 },
+			effects: { wisdom: 3, wealth: 80 },
 			hiddenEffects: {
 				manor_explored: true,
 				family_history_known: true,
 				emotional_connection: 'family',
 				vale_trust: 3,
-				compassionate_actions: 2
+				compassionate_actions: 2,
+				family_treasury_discovered: true
 			}
 		},
 		{
 			id: 'politics',
 			text: 'Study the political documents - understand the power you inherit',
 			next: 'rowan_formal_introduction',
-			effects: { wisdom: 2, charisma: 2 },
+			effects: { wisdom: 2, charisma: 2, wealth: 50 },
 			hiddenEffects: {
 				manor_explored: true,
 				political_knowledge: true,
 				pragmatic_focus: true,
-				vale_trust: 5
+				vale_trust: 5,
+				noble_funds_accessed: true
 			}
 		},
 		{
 			id: 'magic',
 			text: 'Examine the magical artifacts - understand your heritage',
 			next: 'rowan_formal_introduction',
-			effects: { wisdom: 4 },
+			effects: { wisdom: 4, wealth: 60 },
 			hiddenEffects: {
 				manor_explored: true,
 				magic_focus: true,
 				blood_magic_affinity: 5,
-				studied_grimoire: true
+				studied_grimoire: true,
+				valuable_artifacts_found: true
 			}
 		},
 		{
 			id: 'companions',
 			text: 'Spend time with your companions - ground yourself in who you are',
 			next: 'rowan_formal_introduction',
-			effects: { charisma: 3, courage: 2 },
+			effects: { charisma: 3, courage: 2, wealth: 30 },
 			hiddenEffects: {
 				manor_explored: true,
 				companions_priority: true,
@@ -141,7 +177,18 @@ You catch them watching you with worried eyes. "Just promise me something," Ash 
 				vale_trust: 5,
 				ash_trust: 5,
 				rook_trust: 5,
-				whisper_trust: 3
+				whisper_trust: 3,
+				companion_gifts_received: true
+			}
+		},
+		{
+			id: 'visit-merchant',
+			text: 'Visit the merchant who arrived at the manor gates',
+			next: 'manor_grounds_merchant',
+			effects: { wisdom: 1 },
+			hiddenEffects: {
+				manor_explored: true,
+				merchant_visit_chosen: true
 			}
 		}
 	]

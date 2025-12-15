@@ -62,44 +62,50 @@ Vale moves closer, their voice low and concerned. "They're telling the truth, lo
 			id: 'fight-them',
 			text: 'They broke the law—bring them to justice by force',
 			next: 'first_shadow_beast',
-			effects: { courage: 2, reputation: -3 },
+			effects: { courage: 2, reputation: -3, wealth: 50 },
 			hiddenEffects: {
 				first_moral_choice: 'ruthless',
 				ruthlessness: 5,
-				compassionate_actions: -1
+				compassionate_actions: -1,
+				quest_payment_received: true
 			}
 		},
 		{
 			id: 'negotiate',
 			text: 'Negotiate a peaceful solution',
 			next: 'first_shadow_beast',
-			effects: { wisdom: 3, charisma: 2, reputation: 5 },
+			effects: { wisdom: 3, charisma: 2, reputation: 5, wealth: 70 },
 			hiddenEffects: {
 				first_moral_choice: 'diplomatic',
 				compassionate_actions: 3,
-				vale_trust: 10
+				vale_trust: 10,
+				quest_payment_received: true,
+				quest_bonus_earned: true
 			}
 		},
 		{
 			id: 'help-them',
 			text: 'Offer to help them find legitimate work in Thornhaven',
 			next: 'first_shadow_beast',
-			effects: { charisma: 3, reputation: 8 },
+			effects: { charisma: 3, reputation: 8, wealth: 70 },
 			hiddenEffects: {
 				first_moral_choice: 'compassionate',
 				compassionate_actions: 5,
 				vale_trust: 15,
-				vale_romance: 10
+				vale_romance: 10,
+				quest_payment_received: true,
+				quest_bonus_earned: true
 			}
 		},
 		{
 			id: 'turn-in',
 			text: 'Turn them over to authorities—let the law decide',
 			next: 'first_shadow_beast',
-			effects: { wisdom: 2 },
+			effects: { wisdom: 2, wealth: 50 },
 			hiddenEffects: {
 				first_moral_choice: 'lawful',
-				ruthlessness: 2
+				ruthlessness: 2,
+				quest_payment_received: true
 			}
 		}
 	]

@@ -59,49 +59,89 @@ ${briefEncounters}`
 	],
 	choices: [
 		{
+			id: 'practice-skill',
+			text: 'Practice your developing skills - dedicate time to improvement',
+			next: 'meet_rook',
+			effects: { wisdom: 3, strength: 2, courage: 2, wealth: 40 },
+			hiddenEffects: {
+				dedicated_practitioner: true,
+				skill_focused: true,
+				combat_skills: 8,
+				kingdom_knowledge: 8,
+				ash_trust: 12,
+				growth_mindset: true,
+				mercenary_pay_received: true
+			},
+			realLifeChallenge: {
+				id: 'skill_practice_challenge',
+				type: 'learning',
+				title: 'Dedicated Practice',
+				description: 'Your character trains and develops skills - you practice something meaningful to you',
+				instructions: 'Spend 20 focused minutes practicing a skill you want to develop. This could be music, art, coding, language learning, a craft, writing, a sport - anything that requires practice and growth. Quality focus matters more than what you choose. Push yourself slightly beyond your comfort zone.',
+				durationMinutes: 20,
+				verificationMethod: 'honor',
+				checklistItems: [
+					'Choose a skill you want to improve',
+					'Set up your practice space',
+					'Focus fully for 20 minutes',
+					'Challenge yourself appropriately',
+					'Note your progress'
+				],
+				rewards: {
+					stats: { wisdom: 2, strength: 2, courage: 2 },
+					hiddenAttributes: { growth_mindset: 1, dedicated_practice: true },
+					message: 'You finish your practice session feeling accomplished. Like your character training with Ash\'s mercenaries, you\'ve chosen to invest in your own growth and development. Consistent practice builds mastery over time.'
+				}
+			}
+		},
+		{
 			id: 'reflect-compassion',
 			text: 'Reflect on the suffering you\'ve witnessed',
 			next: 'meet_rook',
-			effects: { wisdom: 3 },
+			effects: { wisdom: 3, wealth: 40 },
 			hiddenEffects: {
 				compassionate_actions: 5,
 				combat_skills: 5,
 				kingdom_knowledge: 10,
-				ash_trust: 15
+				ash_trust: 15,
+				mercenary_pay_received: true
 			}
 		},
 		{
 			id: 'focus-combat',
 			text: 'Focus on your combat training achievements',
 			next: 'meet_rook',
-			effects: { courage: 3 },
+			effects: { courage: 3, wealth: 40 },
 			hiddenEffects: {
 				combat_skills: 10,
 				kingdom_knowledge: 5,
-				ash_trust: 10
+				ash_trust: 10,
+				mercenary_pay_received: true
 			}
 		},
 		{
 			id: 'analyze-politics',
 			text: 'Analyze the political situation you\'ve observed',
 			next: 'meet_rook',
-			effects: { wisdom: 3, charisma: 2 },
+			effects: { wisdom: 3, charisma: 2, wealth: 40 },
 			hiddenEffects: {
 				combat_skills: 5,
 				kingdom_knowledge: 15,
-				ash_trust: 10
+				ash_trust: 10,
+				mercenary_pay_received: true
 			}
 		},
 		{
 			id: 'bond-with-ash',
 			text: 'Spend the evening bonding with Ash',
 			next: 'ash_bonding_1',
-			effects: { charisma: 3 },
+			effects: { charisma: 3, wealth: 45 },
 			hiddenEffects: {
 				combat_skills: 7,
 				kingdom_knowledge: 8,
 				ash_trust: 25,
-				ash_romance: 20
+				ash_romance: 20,
+				mercenary_pay_received: true
 			}
 		}
 	]
@@ -121,12 +161,13 @@ Tonight, you finally arrive in the great city. Time to see what opportunities aw
 			id: 'continue-independent',
 			text: 'Embrace your independent path',
 			next: 'meet_rook',
-			effects: { wisdom: 3, courage: 2 },
+			effects: { wisdom: 3, courage: 2, wealth: 35 },
 			hiddenEffects: {
 				combat_skills: 5,
 				kingdom_knowledge: 8,
 				independent_path: true,
-				vale_trust: 15
+				vale_trust: 15,
+				independent_earnings: true
 			}
 		}
 	]

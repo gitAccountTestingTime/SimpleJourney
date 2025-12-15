@@ -18,6 +18,12 @@ export const DragonTrial: Scene = {
 	id: 'dragon_trial',
 	text: `${dragonSpine}
 
+Before the trial begins, your assembled forces gather below. Word has spread - the heir faces the dragon trial. Thousands watch, waiting.
+
+Kieran stands at your side. "They need to hear from you," he says quietly. "Before you face the dragons. Give them courage for what's coming."
+
+The crowd waits in tense silence. You could rally them now, or proceed directly to the trial.
+
 ${matriarchGreeting}
 
 ${dragonMemory}
@@ -99,8 +105,18 @@ The Matriarch's expression softens almost imperceptibly. "Very well. We will tes
 	],
 	choices: [
 		{
+			id: 'battle-cry-first',
+			text: 'Give a battle cry to inspire your forces before the trial',
+			next: 'battle_preparation_cry',
+			effects: { courage: 3, charisma: 3 },
+			hiddenEffects: {
+				inspired_before_trial: true,
+				kieran_proud: true
+			}
+		},
+		{
 			id: 'wisdom-path',
-			text: 'Choose trial of wisdom - engage in philosophical contest',
+			text: 'Proceed directly - choose trial of wisdom',
 			next: 'thorne_loneliness',
 			effects: { wisdom: 6 },
 			hiddenEffects: {
@@ -113,7 +129,7 @@ The Matriarch's expression softens almost imperceptibly. "Very well. We will tes
 		},
 		{
 			id: 'strength-path',
-			text: 'Choose trial of strength - face dragon combat trial',
+			text: 'Proceed directly - choose trial of strength',
 			next: 'thorne_loneliness',
 			effects: { courage: 6 },
 			hiddenEffects: {
@@ -226,6 +242,17 @@ ${thorneConflict}`
 		}
 	],
 	choices: [
+		{
+			id: 'meditate-first',
+			text: 'Suggest meditating together to find clarity on this question',
+			next: 'meditation_before_battle',
+			effects: { wisdom: 4, empathy: 3 },
+			hiddenEffects: {
+				meditation_with_lyra_possible: true,
+				thorne_intrigued: true,
+				seeking_wisdom: true
+			}
+		},
 		{
 			id: 'embrace',
 			text: 'Embrace the connection - time together matters more than length',

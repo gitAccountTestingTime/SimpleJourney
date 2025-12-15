@@ -489,7 +489,7 @@ Finn stands firm. "Some things matter more than status, Your Majesty. Like preve
 		{
 			id: 'treasury',
 			text: 'Offer royal treasury access and trade benefits',
-			next: 'dragon_trial',
+			next: 'ironpeak_celebration',
 			effects: { charisma: 3 },
 			hiddenEffects: {
 				dwarven_shard_obtained: true,
@@ -501,7 +501,7 @@ Finn stands firm. "Some things matter more than status, Your Majesty. Like preve
 		{
 			id: 'trade-agreement',
 			text: 'Promise long-term fair trade agreements',
-			next: 'dragon_trial',
+			next: 'ironpeak_celebration',
 			effects: { wisdom: 4 },
 			hiddenEffects: {
 				dwarven_shard_obtained: true,
@@ -513,7 +513,7 @@ Finn stands firm. "Some things matter more than status, Your Majesty. Like preve
 		{
 			id: 'border-dispute',
 			text: 'Offer to resolve the dwarf-elf border dispute',
-			next: 'dragon_trial',
+			next: 'ironpeak_celebration',
 			effects: { wisdom: 5, charisma: 3 },
 			hiddenEffects: {
 				dwarven_shard_obtained: true,
@@ -526,7 +526,7 @@ Finn stands firm. "Some things matter more than status, Your Majesty. Like preve
 		{
 			id: 'craftsmanship',
 			text: 'Challenge to craftsmanship contest',
-			next: 'dragon_trial',
+			next: 'ironpeak_celebration',
 			effects: { wisdom: 3 },
 			hiddenEffects: {
 				dwarven_shard_obtained: true,
@@ -539,7 +539,7 @@ Finn stands firm. "Some things matter more than status, Your Majesty. Like preve
 		{
 			id: 'finn-help',
 			text: 'Ask Finn to negotiate on your behalf',
-			next: 'dragon_trial',
+			next: 'ironpeak_celebration',
 			effects: { charisma: 2 },
 			hiddenEffects: {
 				dwarven_shard_obtained: true,
@@ -547,6 +547,57 @@ Finn stands firm. "Some things matter more than status, Your Majesty. Like preve
 				finn_risked_standing: true,
 				finn_loyalty_deep: true,
 				dwarf_faction_rep: 30
+			}
+		}
+	]
+};
+
+export const IronpeakCelebration: Scene = {
+	id: 'ironpeak_celebration',
+	text: `The negotiation is a success! The Dwarf King grants you the Crystal Fragment with genuine respect. "You've proven yourself worthy, Your Highness. May this alliance bring prosperity to both our peoples."
+
+As the formal proceedings end, Finn approaches with a mischievous grin. "The workers in the forges want to do something special," he explains. "They heard about the diplomatic feast and want to celebrate this alliance properly."
+
+He leans in conspiratorially. "They're planning a special dessert as a gift - from the common dwarven folk to show their support. But they think it would mean more if you helped make it. Shows unity between leaders and workers, humans and dwarves."
+
+Finn's expression turns sincere. "Baking together - nobles and workers, different races side by side - sends a powerful message about what this alliance really means."
+
+The dwarven kitchen staff watches hopefully, flour-dusted and eager.`,
+	textVariants: [
+		{
+			conditions: { hasHiddenAttributes: { feast_prepared: true } },
+			text: `The negotiation is a success! The Dwarf King grants you the Crystal Fragment, and he specifically mentions your earlier feast. "You honored our customs with genuine care," he says warmly. "That meant more than any political promise could."
+
+Finn beams with pride as the formal proceedings end. "See? I told you food matters to my people." He grins mischievously. "And speaking of which... the workers in the forges heard about what you did and want to celebrate properly with you."
+
+"They're planning a special dessert as a gift - from the common folk to the heir who actually gets their hands dirty. They want you to help bake it with them. After seeing you prepare that feast, they trust you're genuine."
+
+Finn's expression turns sincere. "This is about more than dessert. It's about showing that nobles and workers, humans and dwarves, can truly work side by side as equals."
+
+The dwarven kitchen staff watches hopefully, flour-dusted and eager - already half in love with this noble who cooks.`
+		}
+	],
+	choices: [
+		{
+			id: 'bake-together',
+			text: 'Bake dessert with the dwarven workers',
+			next: 'dessert_diplomacy',
+			effects: { empathy: 6, charisma: 4 },
+			hiddenEffects: {
+				worker_solidarity: true,
+				finn_delighted: true,
+				dwarf_commoners_love: true,
+				cross_cultural_bond: true
+			}
+		},
+		{
+			id: 'politely-decline',
+			text: 'Graciously decline - move on to next fragment quest',
+			next: 'dragon_trial',
+			effects: { wisdom: 2 },
+			hiddenEffects: {
+				missed_connection: true,
+				finn_slightly_disappointed: true
 			}
 		}
 	]

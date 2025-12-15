@@ -103,6 +103,16 @@ Lyra nods. "Start with my people in Moonwhisper Grove. I can introduce you prope
 	],
 	choices: [
 		{
+			id: 'prepare-first',
+			text: 'Prepare thoroughly before starting - visit the merchant',
+			next: 'crystal_quest_merchant',
+			effects: { wisdom: 3 },
+			hiddenEffects: {
+				thorough_preparation: true,
+				merchant_consultation: true
+			}
+		},
+		{
 			id: 'elven',
 			text: 'Seek the Moonwhisper Grove fragment first',
 			next: 'elven_fragment_quest',
@@ -144,6 +154,16 @@ Lyra nods. "Start with my people in Moonwhisper Grove. I can introduce you prope
 				political_approach: true,
 				loyalist_rep: 10
 			}
+		},
+		{
+			id: 'prepare-training',
+			text: 'First, undergo intensive combat training with Kieran',
+			next: 'warrior_drills_training',
+			effects: { wisdom: 2 },
+			hiddenEffects: {
+				preparation_focused: true,
+				strategic_thinking: true
+			}
 		}
 	]
 };
@@ -170,18 +190,33 @@ export const ElvenFragmentQuest: Scene = {
 
 export const DwarvenFragmentQuest: Scene = {
 	id: 'dwarven_fragment_quest',
-	text: `The dwarves respect strength and craftsmanship. Their trials test your mettle in combat, your appreciation for fine work, and your willingness to bargain fairly.
+	text: `The journey to Ironpeak Mountains is arduous but beautiful. Finn leads the way, pride evident in his bearing as he returns home.
 
-[This would be expanded into a full quest arc with multiple scenes]`,
+Seraphine catches up to you at camp. "The dwarves value hospitality above almost all else," she explains. "Food is sacred to them - how they show respect and build trust. The delegation we're meeting will be assessing our sincerity."
+
+She hesitates. "We could prepare a diplomatic feast before arriving. Show them we understand their culture and care enough to honor it properly. Or we can rely on formal political negotiations when we arrive."
+
+Finn adds, "My people respect those who understand the value of sharing a meal. Actions speak louder than treaties."`,
 	choices: [
 		{
-			id: 'continue',
-			text: 'Continue the dwarven trials...',
-			next: 'companion_personal_quests',
-			effects: { courage: 5 },
+			id: 'prepare-feast',
+			text: 'Prepare a diplomatic feast to honor dwarven customs',
+			next: 'diplomatic_feast_prep',
+			effects: { wisdom: 4, charisma: 3 },
 			hiddenEffects: {
-				dwarven_fragment_obtained: true,
-				finn_friendship: 25
+				cultural_respect: true,
+				seraphine_approves: true,
+				finn_impressed: true
+			}
+		},
+		{
+			id: 'proceed-directly',
+			text: 'Proceed directly to Ironpeak for formal negotiations',
+			next: 'ironpeak_negotiation',
+			effects: { courage: 3 },
+			hiddenEffects: {
+				direct_approach: true,
+				finn_friendship: 15
 			}
 		}
 	]

@@ -332,16 +332,16 @@ She takes your hands, no longer trembling but sure. "You taught me to choose hap
 				seraphine_liberated: true
 			},
 			realLifeChallenge: {
-				id: 'seraphine_authentic_talk',
+				id: 'seraphine_kiss_partner',
 				type: 'social',
-				title: 'Drop the Masks',
-				description: 'Like Seraphine shedding her diplomatic persona, have an authentic conversation with your partner',
-				instructions: 'Spend time with your partner where you both agree to be completely authentic - no social masks, no pretending things are fine when they\'re not. Share how you really feel about something important.',
-				durationMinutes: 45,
+				title: 'Share Romantic Affection',
+				description: 'Share your character\'s passion and connection with your real-life partner through a meaningful kiss',
+				instructions: 'Take this chance to remind your partner through a kiss how much they mean to you, and how glad you are to have them in your life. Let it be genuine and heartfelt.',
+				durationMinutes: 1,
 				verificationMethod: 'honor',
 				rewards: {
-					stats: { empathy: 4, charisma: 3 },
-					message: 'Authenticity deepened your connection, just as it did with Seraphine.'
+					stats: { charisma: 3, empathy: 3 },
+					message: 'Your genuine affection deepened the connection, just like Seraphine\'s choice to be happy instead of just proper.'
 				}
 			}
 		},
@@ -355,6 +355,19 @@ She takes your hands, no longer trembling but sure. "You taught me to choose hap
 				seraphine_romance_level: 2,
 				equal_partners: true,
 				seraphine_valued: true
+			},
+			realLifeChallenge: {
+				id: 'seraphine_authentic_talk',
+				type: 'social',
+				title: 'Drop the Masks',
+				description: 'Like Seraphine shedding her diplomatic persona, have an authentic conversation with your partner',
+				instructions: 'Spend time with your partner where you both agree to be completely authentic - no social masks, no pretending things are fine when they\'re not. Share how you really feel about something important.',
+				durationMinutes: 45,
+				verificationMethod: 'honor',
+				rewards: {
+					stats: { empathy: 4, charisma: 3 },
+					message: 'Authenticity deepened your connection, just as it did with Seraphine.'
+				}
 			}
 		}
 	]

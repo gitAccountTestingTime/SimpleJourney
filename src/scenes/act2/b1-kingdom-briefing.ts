@@ -144,6 +144,17 @@ Your spirit-gained knowledge gives you confidence in this discussion.`
 				knows_crystal_heart_crisis: true,
 				scholar_approach: true
 			}
+		},
+		{
+			id: 'prepare-equipment',
+			text: 'Visit the capital marketplace to acquire better equipment',
+			next: 'capital_marketplace_merchant',
+			effects: { wisdom: 2 },
+			hiddenEffects: {
+				knows_political_landscape: true,
+				knows_crystal_heart_crisis: true,
+				pragmatic_preparation: true
+			}
 		}
 	]
 };

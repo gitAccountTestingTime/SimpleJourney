@@ -64,6 +64,19 @@ She shifts closer, her breath warm against your ear. "I'm an elf. I've lived two
 				first_kiss_lyra: true,
 				romantic_milestone: 'first_kiss',
 				star_blessed: true
+			},
+			realLifeChallenge: {
+				id: 'lyra_starlight_kiss',
+				type: 'social',
+				title: 'Starlit Affection',
+				description: 'Like kissing Lyra under the eternal stars, share a romantic moment with your partner',
+				instructions: 'Find a quiet moment with your partner and share a kiss. Let it be tender and meaningful, celebrating the bond you share.',
+				durationMinutes: 1,
+				verificationMethod: 'honor',
+				rewards: {
+					stats: { charisma: 3, empathy: 2 },
+					message: 'Your romantic gesture mirrored the eternal dance of souls, just like Lyra described.'
+				}
 			}
 		},
 		{

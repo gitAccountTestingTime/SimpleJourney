@@ -54,6 +54,16 @@ ${bondDepth}`
 	],
 	choices: [
 		{
+			id: 'connect-first',
+			text: 'Gather everyone for genuine connection before quests',
+			next: 'social_connection_before_battle',
+			effects: { empathy: 5, charisma: 4 },
+			hiddenEffects: {
+				bonding_moment: true,
+				all_companions_care: true
+			}
+		},
+		{
 			id: 'vale-quest',
 			text: 'Help Vale confront their past',
 			next: 'vale_personal_quest',

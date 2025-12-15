@@ -8,7 +8,7 @@ const portraitTitle = `Inside, portraits line the walls. Generations of faces st
 
 const nameBelow = `Below it, a name and title:
 
-"Prince/Princess [Your Name], Heir to House Silverwood, Year 1205"`;
+"Prince/Princess {name}, Heir to House Silverwood, Year 1205"`;
 
 const timeParadox = `But you were born in 1225. Twenty years after this portrait was painted. Twenty years after everyone believed House Silverwood had fallen.`;
 
@@ -46,7 +46,7 @@ ${portraitTitle} ${nameBelow}
 
 ${timeParadox}
 
-Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess [Your Name], Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
+Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess {name}, Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
 
 ${hiddenChamber}
 
@@ -68,7 +68,7 @@ ${portraitTitle} ${nameBelow}
 
 ${timeParadox}
 
-Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess [Your Name], Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
+Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess {name}, Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
 
 ${hiddenChamber}
 
@@ -125,13 +125,13 @@ ${finalTruth}`
 	],
 	choices: [
 		{
-			id: 'accept-destiny',
-			text: 'I am ready to claim my heritage and restore House Silverwood',
+			id: 'claim-destiny',
+			text: 'I am ready. I will claim my destiny and restore House Silverwood',
 			next: 'act1_start',
-			effects: { courage: 5, wisdom: 3 },
+			effects: { courage: 5, charisma: 4 },
 			hiddenEffects: {
 				identity_accepted: true,
-				royal_path: true,
+				royal_path: 'true',
 				restoration_goal: true,
 				prologue_completed: true,
 				nobility: 10,

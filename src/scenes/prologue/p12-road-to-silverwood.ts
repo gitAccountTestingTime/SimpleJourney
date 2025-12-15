@@ -77,9 +77,42 @@ ${campfireReflection}`
 	],
 	choices: [
 		{
+			id: 'walking-meditation',
+			text: 'Walk mindfully through the forest - experience the journey',
+			next: 'merchant_road_encounter',
+			effects: { wisdom: 4, empathy: 3, vitality: 2 },
+			hiddenEffects: {
+				mindful_traveler: true,
+				nature_connected: true,
+				present_moment: true,
+				inner_peace: 5
+			},
+			realLifeChallenge: {
+				id: 'walking_meditation_challenge',
+				type: 'meditation',
+				title: 'Mindful Journey',
+				description: 'Your character travels through ancient forests mindfully - you practice present awareness',
+				instructions: 'Go outside and walk slowly for 10 minutes, paying full attention to your surroundings. Notice sounds, smells, textures, the feeling of movement. If you can\'t go outside, walk slowly through your home observing details you usually miss. Focus on presence and awareness rather than destination.',
+				durationMinutes: 10,
+				verificationMethod: 'honor',
+				checklistItems: [
+					'Find a place to walk (outside or inside)',
+					'Walk slowly and deliberately',
+					'Notice sensory details around you',
+					'Stay present with each step',
+					'Observe without judging'
+				],
+				rewards: {
+					stats: { wisdom: 3, empathy: 2, vitality: 2 },
+					hiddenAttributes: { mindful_awareness: 1, nature_bond: true },
+					message: 'You return from your mindful walk feeling more present and aware. Like your character\'s journey through ancient forests, you\'ve practiced being fully present in the moment. This awareness is a gift you can carry forward.'
+				}
+			}
+		},
+		{
 			id: 'bonding-vale',
 			text: 'Spend time with Vale, discussing magic and heritage',
-			next: 'discovery_at_silverwood',
+			next: 'merchant_road_encounter',
 			effects: { wisdom: 2, charisma: 2 },
 			hiddenEffects: {
 				vale_trust: 10,
@@ -91,7 +124,7 @@ ${campfireReflection}`
 		{
 			id: 'bonding-ash',
 			text: 'Train with Ash and discuss leadership',
-			next: 'discovery_at_silverwood',
+			next: 'merchant_road_encounter',
 			effects: { courage: 3, combat_skills: 5 },
 			hiddenEffects: {
 				ash_trust: 10,
@@ -112,7 +145,7 @@ ${campfireReflection}`
 		{
 			id: 'bonding-rook',
 			text: 'Explore the area with Rook, sharing stories',
-			next: 'discovery_at_silverwood',
+			next: 'merchant_road_encounter',
 			effects: { charisma: 2, wisdom: 2 },
 			hiddenEffects: {
 				rook_trust: 10,
@@ -124,7 +157,7 @@ ${campfireReflection}`
 		{
 			id: 'reflect',
 			text: 'Spend time alone, preparing mentally for what\'s ahead',
-			next: 'discovery_at_silverwood',
+			next: 'merchant_road_encounter',
 			effects: { wisdom: 4 },
 			hiddenEffects: {
 				self_reflection: true,

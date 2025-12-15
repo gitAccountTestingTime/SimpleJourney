@@ -433,6 +433,18 @@ They look at you with desperate hope. "What if we could cure them instead of jus
 Then doubt creeps in. "But if I'm wrong... if I convince you to try this and it fails... thousands could die. I'm just a junior scholar. Who am I to challenge centuries of accepted truth?"`,
 	choices: [
 		{
+			id: 'study-together-first',
+			text: 'Study historical records together to validate their theory',
+			next: 'learning_war_history',
+			effects: { wisdom: 7, empathy: 4 },
+			hiddenEffects: {
+				sage_affection: 48,
+				sage_romance: 45,
+				research_partnership: true,
+				scholarly_approach: true
+			}
+		},
+		{
 			id: 'support-research',
 			text: 'Support their research fully - brilliant minds change history',
 			next: 'climax_preparation',

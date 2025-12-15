@@ -307,18 +307,32 @@ When you part, Rowan rests their forehead against yours. "Whatever comes next," 
 				rowan_happiness: 100
 			},
 			realLifeChallenge: {
-				id: 'rowan_vulnerable_moment',
+				id: 'rowan_kiss_partner',
 				type: 'social',
-				title: 'Share a Vulnerable Moment',
-				description: 'Like Rowan opening up about their feelings, share something vulnerable with your real-life partner',
-				instructions: 'Spend quality time with your partner and share something you\'ve been feeling but haven\'t expressed - a fear, hope, or dream. Practice active listening when they respond.',
-				durationMinutes: 30,
+				title: 'Affirm Your Partnership',
+				description: 'Like Rowan and you affirming your bond, share affection with your real-life partner',
+				instructions: 'Take this moment to kiss your partner and affirm your partnership. Let them know through this gesture that you face life together as equals.',
+				durationMinutes: 1,
 				verificationMethod: 'honor',
 				rewards: {
 					stats: { empathy: 3, charisma: 2 },
-					message: 'Your vulnerability strengthened your real-life connection, just as it did with Rowan.'
+					message: 'Your affection strengthened your partnership, mirroring Rowan\'s commitment to you.'
 				}
 			}
+			// ,
+			// oldRealLifeChallenge: {
+			// 	id: 'rowan_vulnerable_moment',
+			// 	type: 'social',
+			// 	title: 'Share a Vulnerable Moment',
+			// 	description: 'Like Rowan opening up about their feelings, share something vulnerable with your real-life partner',
+			// 	instructions: 'Spend quality time with your partner and share something you\'ve been feeling but haven\'t expressed - a fear, hope, or dream. Practice active listening when they respond.',
+			// 	durationMinutes: 30,
+			// 	verificationMethod: 'honor',
+			// 	rewards: {
+			// 		stats: { empathy: 3, charisma: 2 },
+			// 		message: 'Your vulnerability strengthened your real-life connection, just as it did with Rowan.'
+			// 	}
+			// }
 		},
 		{
 			id: 'discuss-challenges',

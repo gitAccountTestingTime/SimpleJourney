@@ -75,6 +75,18 @@ Ash relaxes slightly, recognizing a fellow warrior's assessment.`
 	],
 	choices: [
 		{
+			id: 'walk-gardens',
+			text: 'Walk through the manor gardens together - experience the beauty',
+			next: 'rowan_garden_walk',
+			effects: { wisdom: 3, empathy: 2 },
+			hiddenEffects: {
+				rowan_bond: 14,
+				rowan_official_guardian: true,
+				nature_appreciation: true,
+				mindful_moment: true
+			}
+		},
+		{
 			id: 'welcome-warmly',
 			text: 'Welcome them warmly - you appreciate having a guide',
 			next: 'first_political_meeting',

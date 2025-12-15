@@ -57,6 +57,16 @@ The choice weighs heavily: embrace the power you've accumulated, or trust in coo
 	],
 	choices: [
 		{
+			id: 'wellness-check',
+			text: 'Take a quick wellness break before the crucial council',
+			next: 'stretch_break',
+			effects: { wisdom: 3, vitality: 2 },
+			hiddenEffects: {
+				prepares_carefully: true,
+				kieran_suggests: true
+			}
+		},
+		{
 			id: 'unity-path',
 			text: 'Propose revolutionary unity - all factions and races working together',
 			next: 'unity_speech',
