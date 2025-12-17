@@ -95,9 +95,36 @@ export type Title = {
 	icon?: string;
 }
 
+export type RewardCondition = {
+	// reward earned by reaching a specific scene
+	sceneId?: string;
+	// reward earned by obtaining specific titles (all must be earned)
+	titles?: string[];
+	// reward earned by meeting stat thresholds (all must be met)
+	stats?: Record<string, ChoiceRequirement>;
+	// reward earned by having specific flags set
+	flags?: string[];
+	// reward earned by having specific hidden attributes
+	hiddenAttributes?: Record<string, number | string | boolean>;
+	// custom condition function
+	custom?: () => boolean;
+}
+
+export type Reward = {
+	id: string;
+	name: string;
+	description: string;
+	icon?: string;
+	// conditions that must be met to earn this reward
+	condition: RewardCondition;
+	// optional message shown when reward is earned
+	message?: string;
+}
+
 let currentSceneId: string | null = null;
 let previousSceneId: string | null = null;
 let earnedTitles: Set<string> = new Set();
+let earnedRewards: Set<string> = new Set();
 let playerName: string = '';
 // record of past choices taken (by id) to enable conditional branching
 let chosenFlags: Set<string> = new Set();
@@ -178,6 +205,120 @@ const TITLES: Record<string, Title> = {
 		name: 'Sailor',
 		description: 'Took the boat to sea',
 		icon: '⛵'
+	}
+};
+
+// Available rewards in the game
+const REWARDS: Record<string, Reward> = {
+	'coffee-machine': {
+		id: 'coffee-machine',
+		name: 'Coffee Machine (Keurig)',
+		description: 'Completed the prologue',
+		icon: '☕',
+		condition: { sceneId: 'act1_start' },
+		message: 'Congratulations! You\'ve completed the prologue. Reward unlocked: Coffee Machine (Keurig)'
+	},
+	'storage-containers': {
+		id: 'storage-containers',
+		name: 'Storage Container Variety Pack',
+		description: 'Earned 100+ gold',
+		icon: '📦',
+		condition: { stats: { wealth: { min: 100 } } },
+		message: 'Your wealth management skills are excellent! Reward unlocked: Storage Container Variety Pack (Baking Soda, Drink, Basement)'
+	},
+	'massage-relic': {
+		id: 'massage-relic',
+		name: 'Massage Relic (3 min nightly for 1 year)',
+		description: 'Completed Act 2',
+		icon: '💆',
+		condition: { sceneId: 'act3_start' },
+		message: 'You\'ve navigated the political intrigue of Act 2! Reward unlocked: Massage Relic (3 minute massage nightly on request for 1 year)'
+	},
+	'massage-30min': {
+		id: 'massage-30min',
+		name: '30 Minute Massage',
+		description: 'Reached 20+ in any stat',
+		icon: '💆',
+		condition: {
+			custom: () => {
+				const stats = getStats();
+				return Object.values(stats).some(val => val >= 20);
+			}
+		},
+		message: 'You\'ve achieved mastery in a skill! Reward unlocked: 30 Minute Massage'
+	},
+	'massage-15min': {
+		id: 'massage-15min',
+		name: '15 Minute Massage',
+		description: 'Earned three different titles',
+		icon: '💆',
+		condition: {
+			custom: () => {
+				return getEarnedTitles().length >= 3;
+			}
+		},
+		message: 'Your accomplishments are recognized! Reward unlocked: 15 Minute Massage'
+	},
+	'massage-5min': {
+		id: 'massage-5min',
+		name: '5 Minute Massage',
+		description: 'Made a romance choice',
+		icon: '💆',
+		condition: { 
+			custom: () => {
+				return chosenFlags.has('vale_romance:15') || chosenFlags.has('ash_romance:15') || 
+				       chosenFlags.has('rook_romance:15') || chosenFlags.has('vale_romance:20') || 
+				       chosenFlags.has('ash_romance:20') || chosenFlags.has('rook_romance:20');
+			}
+		},
+		message: 'You\'ve opened your heart! Reward unlocked: 5 Minute Massage'
+	},
+	'office-chair': {
+		id: 'office-chair',
+		name: 'New Chair (Office)',
+		description: 'Completed Act 3',
+		icon: '🪑',
+		condition: { sceneId: 'act4_start' },
+		message: 'You\'ve conquered the Crystal Heart quest! Reward unlocked: New Chair (Office)'
+	},
+	'headset': {
+		id: 'headset',
+		name: 'New Headset',
+		description: 'Accepted your heritage at Silverwood',
+		icon: '🎧',
+		condition: { flags: ['identity_accepted:true'] },
+		message: 'You\'ve embraced your true identity! Reward unlocked: New Headset'
+	},
+	'book-shopping': {
+		id: 'book-shopping',
+		name: 'Book Shopping Spree',
+		description: 'Explored the manor library',
+		icon: '📚',
+		condition: { sceneId: 'library_discovery' },
+		message: 'You\'ve discovered the vast knowledge within your ancestral library! Reward unlocked: Book Shopping Spree'
+	},
+	'intimate-toy': {
+		id: 'intimate-toy',
+		name: 'New Intimate Toy Purchase',
+		description: 'Achieved high romance with a companion',
+		icon: '💝',
+		condition: {
+			custom: () => {
+				const valeRomance = Number(hiddenAttributes.get('vale_romance')) || 0;
+				const ashRomance = Number(hiddenAttributes.get('ash_romance')) || 0;
+				const rookRomance = Number(hiddenAttributes.get('rook_romance')) || 0;
+				return valeRomance >= 25 || ashRomance >= 25 || rookRomance >= 25;
+			}
+		},
+		message: 'Your deep connection with your companion is special! Reward unlocked: New Intimate Toy Purchase'
+	},
+	'spending-money': {
+		id: 'spending-money',
+		name: 'Guilt-free Spending Money',
+		description: 'Began the quest for Crystal Heart fragments',
+		icon: '💸',
+		condition: { sceneId: 'crystal_hunt_start' },
+		message: 'The hunt for the Crystal Heart begins! Reward unlocked: Guilt-free Spending Money'
 	}
 };
 
@@ -518,10 +659,10 @@ export function getPreviousScene(): Scene | null {
 }
 
 // Advances the story based on a choice id. Returns the new scene, or null if the choice was invalid.
-export function choose(choiceId: string): Scene | null {
+export function choose(choiceId: string): { scene: Scene | null; newRewards: Reward[] } {
 	const scene = getCurrentScene();
 	const choice = scene.choices.find(c => c.id === choiceId);
-	if (!choice) return null;
+	if (!choice) return { scene: null, newRewards: [] };
 	// Determine outcome: support conditional outcomes that depend on stats or prior choices
 	let selectedOutcome: ChoiceOutcome | null = null;
 	if (choice.outcomes && choice.outcomes.length > 0) {
@@ -595,6 +736,10 @@ export function choose(choiceId: string): Scene | null {
 	const earnedBefore = new Set(earnedTitles);
 	checkTitleTriggers();
 	const newlyEarned = Array.from(earnedTitles).filter(id => !earnedBefore.has(id));
+	
+	// Check and award any applicable rewards
+	const newRewards = checkAndAwardRewards();
+	
 	// attach newly earned titles to the result for UI notification
 	const resolvedNext = (selectedOutcome && (selectedOutcome.next !== undefined)) ? selectedOutcome.next : choice.next;
 	if (resolvedNext === undefined || resolvedNext === null) {
@@ -607,14 +752,14 @@ export function choose(choiceId: string): Scene | null {
 			choices: []
 		};
 		endScene._newlyEarnedTitles = newlyEarned.map(id => TITLES[id]);
-		return endScene;
+		return { scene: endScene, newRewards };
 	}
 	// track previous scene before updating current
 	previousSceneId = currentSceneId;
 	currentSceneId = resolvedNext;
 	const nextScene: any = getCurrentScene();
 	nextScene._newlyEarnedTitles = newlyEarned.map(id => TITLES[id]);
-	return nextScene;
+	return { scene: nextScene, newRewards };
 }
 
 const STORAGE_KEY = 'simplejourney.currentScene';
@@ -628,6 +773,7 @@ export function saveProgress(key = STORAGE_KEY): void {
 		playerName: playerName,
 		stats: playerStats,
 		titles: Array.from(earnedTitles),
+		rewards: Array.from(earnedRewards),
 		flags: Array.from(chosenFlags),
 		characters: characters,
 		places: places,
@@ -661,6 +807,9 @@ export function restoreProgress(key = STORAGE_KEY): Scene {
 			}
 			if (parsed && parsed.titles && Array.isArray(parsed.titles)) {
 				earnedTitles = new Set(parsed.titles);
+			}
+			if (parsed && (parsed as any).rewards && Array.isArray((parsed as any).rewards)) {
+				earnedRewards = new Set((parsed as any).rewards);
 			}
 			if (parsed && (parsed as any).flags && Array.isArray((parsed as any).flags)) {
 				chosenFlags = new Set((parsed as any).flags);
@@ -704,6 +853,8 @@ export function resetProgress(key = STORAGE_KEY): void {
 	playerStats = { courage: 0, curiosity: 0, empathy: 0, wealth: 0, reputation: 0, strength: 0, wisdom: 0, luck: 0, health: 10, charisma: 0 };
 	// reset titles
 	earnedTitles.clear();
+	// reset rewards
+	earnedRewards.clear();
 	// reset choice flags
 	chosenFlags.clear();
 	// reset characters and places to defaults
@@ -819,6 +970,100 @@ export function getAllTitles(): Title[] {
 	return Object.values(TITLES);
 }
 
+// ==================== Rewards ====================
+
+export function checkRewardCondition(condition: RewardCondition): boolean {
+	// Check scene condition
+	if (condition.sceneId && currentSceneId !== condition.sceneId) {
+		return false;
+	}
+
+	// Check title conditions
+	if (condition.titles) {
+		for (const titleId of condition.titles) {
+			if (!earnedTitles.has(titleId)) {
+				return false;
+			}
+		}
+	}
+
+	// Check stat conditions
+	if (condition.stats) {
+		for (const [stat, req] of Object.entries(condition.stats)) {
+			const val = playerStats[stat as keyof PlayerStats] || 0;
+			if (req.min !== undefined && val < req.min) return false;
+			if (req.max !== undefined && val > req.max) return false;
+		}
+	}
+
+	// Check flag conditions
+	if (condition.flags) {
+		for (const flag of condition.flags) {
+			if (!chosenFlags.has(flag)) {
+				return false;
+			}
+		}
+	}
+
+	// Check hidden attribute conditions
+	if (condition.hiddenAttributes) {
+		for (const [key, expectedValue] of Object.entries(condition.hiddenAttributes)) {
+			const actualValue = hiddenAttributes.get(key);
+			if (actualValue !== expectedValue) {
+				return false;
+			}
+		}
+	}
+
+	// Check custom condition
+	if (condition.custom && !condition.custom()) {
+		return false;
+	}
+
+	return true;
+}
+
+export function checkAndAwardRewards(): Reward[] {
+	const newlyEarned: Reward[] = [];
+
+	for (const reward of Object.values(REWARDS)) {
+		// Skip if already earned
+		if (earnedRewards.has(reward.id)) {
+			continue;
+		}
+
+		// Check if conditions are met
+		if (checkRewardCondition(reward.condition)) {
+			earnedRewards.add(reward.id);
+			newlyEarned.push(reward);
+		}
+	}
+
+	return newlyEarned;
+}
+
+export function getEarnedRewards(): Reward[] {
+	return Array.from(earnedRewards)
+		.map(id => REWARDS[id])
+		.filter(Boolean);
+}
+
+export function getAllRewards(): Reward[] {
+	return Object.values(REWARDS);
+}
+
+export function awardReward(rewardId: string): boolean {
+	if (REWARDS[rewardId] && !earnedRewards.has(rewardId)) {
+		earnedRewards.add(rewardId);
+		return true;
+	}
+	return false;
+}
+
+export function removeReward(rewardId: string): boolean {
+	return earnedRewards.delete(rewardId);
+}
+
 // --- Character & Place API ---
 export function getCharacter(id: string): Character | undefined {
 	return characters[id];
@@ -929,6 +1174,11 @@ function applyHiddenEffects(effects?: Record<string, number | string | boolean>)
 	if (!effects) return;
 	Object.entries(effects).forEach(([key, value]) => {
 		hiddenAttributes.set(key, value);
+		// If the value is true and the key contains a colon, also add it as a flag
+		// This allows flags like 'origin_choice:courageous' to work with hasFlags conditions
+		if (value === true && key.includes(':')) {
+			chosenFlags.add(key);
+		}
 	});
 }
 

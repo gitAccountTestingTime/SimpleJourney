@@ -23,7 +23,10 @@ import {
   completeChallenge,
   cancelChallenge,
   getPlayerName,
-  type RealLifeChallenge
+  getEarnedRewards,
+  getAllRewards,
+  type RealLifeChallenge,
+  type Reward
 } from './story-manager';
 
 function replaceNamePlaceholder(text: string): string {
@@ -47,6 +50,44 @@ export function renderEndState() {
   endLabel.textContent = '— End —';
   endLabel.setAttribute('aria-hidden', 'true');
   choicesList.appendChild(endLabel);
+}
+
+export function showRewardNotification(reward: Reward) {
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = 'reward-notification';
+  notification.setAttribute('role', 'dialog');
+  notification.setAttribute('aria-live', 'assertive');
+  notification.setAttribute('aria-modal', 'true');
+  
+  const icon = reward.icon || '🎉';
+  const message = reward.message || `You earned: ${reward.name}!`;
+  
+  notification.innerHTML = `
+    <div class="reward-notification-content">
+      <div class="reward-icon">${icon}</div>
+      <div class="reward-info">
+        <div class="reward-title">Reward Unlocked!</div>
+        <div class="reward-name">${reward.name}</div>
+        <div class="reward-message">${message}</div>
+        <button class="reward-confirm-btn" type="button">Acknowledge</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(notification);
+  
+  // Trigger animation
+  setTimeout(() => notification.classList.add('show'), 10);
+  
+  // Find and attach confirm button handler
+  const confirmBtn = notification.querySelector('.reward-confirm-btn');
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', () => {
+      notification.classList.remove('show');
+      setTimeout(() => notification.remove(), 300);
+    });
+  }
 }
 
 export function populateChoices(scene: ReturnType<typeof getCurrentScene>) {
@@ -146,16 +187,24 @@ export function populateChoices(scene: ReturnType<typeof getCurrentScene>) {
     }
 
     btn.addEventListener('click', () => {
-      const next = choose(c.id);
-      if (!next) {
+      const result = choose(c.id);
+      if (!result || !result.scene) {
         renderEndState();
         return;
       }
-      renderScene(next);
-      const newlyEarned = (next as any)._newlyEarnedTitles || [];
+      renderScene(result.scene);
+      const newlyEarned = (result.scene as any)._newlyEarnedTitles || [];
       newlyEarned.forEach((title: any) => {
         showTitleToast(title);
       });
+      // Show reward notifications
+      if (result.newRewards && result.newRewards.length > 0) {
+        result.newRewards.forEach((reward, index) => {
+          setTimeout(() => {
+            showRewardNotification(reward);
+          }, index * 300); // Stagger notifications
+        });
+      }
     });
     li.appendChild(btn);
     choicesList.appendChild(li);
@@ -200,6 +249,24 @@ export function renderTitles() {
     badge.setAttribute('title', t.description);
     badge.innerHTML = `<span class="title-icon">${t.icon || '⭐'}</span> <span class="title-name">${t.name}</span>`;
     titlesDisplay.appendChild(badge);
+  });
+}
+
+export function renderRewards() {
+  const rewardsDisplay = document.getElementById('rewards-display') as HTMLElement | null;
+  if (!rewardsDisplay) return;
+  const rewards = getEarnedRewards();
+  rewardsDisplay.innerHTML = '';
+  if (rewards.length === 0) {
+    rewardsDisplay.innerHTML = '<p style="color: rgba(255,255,255,0.5);">No rewards unlocked yet</p>';
+    return;
+  }
+  rewards.forEach((r) => {
+    const badge = document.createElement('div');
+    badge.className = 'title-badge';
+    badge.setAttribute('title', r.description);
+    badge.innerHTML = `<span class="title-icon">${r.icon || '🏆'}</span> <span class="title-name">${r.name}</span>`;
+    rewardsDisplay.appendChild(badge);
   });
 }
 
@@ -288,6 +355,14 @@ export function createDebugConsole() {
         <div id="debug-titles-editor"></div>
       </fieldset>
       <fieldset class="debug-group">
+        <legend>Rewards Unlocked</legend>
+        <div id="debug-rewards-display"></div>
+      </fieldset>
+      <fieldset class="debug-group">
+        <legend>Manage Rewards (Read-Only)</legend>
+        <div id="debug-rewards-editor"></div>
+      </fieldset>
+      <fieldset class="debug-group">
         <legend>Characters</legend>
         <div id="debug-characters-editor"></div>
         <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
@@ -344,10 +419,14 @@ export function updateDebugConsole() {
   const stats = getStats();
   const allTitles = getAllTitles();
   const earnedTitles = new Set(getEarnedTitles().map((t) => t.id));
+  const allRewards = getAllRewards();
+  const earnedRewardsSet = new Set(getEarnedRewards().map((r) => r.id));
 
   const sceneEl = debugConsole.querySelector('#debug-scene');
   const statsEditor = debugConsole.querySelector('#debug-stats-editor');
   const titlesEditor = debugConsole.querySelector('#debug-titles-editor');
+  const rewardsDisplay = debugConsole.querySelector('#debug-rewards-display');
+  const rewardsEditor = debugConsole.querySelector('#debug-rewards-editor');
   const charsEditor = debugConsole.querySelector('#debug-characters-editor');
   const placesEditor = debugConsole.querySelector('#debug-places-editor');
 
@@ -404,6 +483,40 @@ export function updateDebugConsole() {
       label.appendChild(document.createTextNode(` ${t.icon || '⭐'} ${t.name}`));
       row.appendChild(label);
       titlesEditor.appendChild(row);
+    });
+  }
+
+  if (rewardsDisplay) {
+    rewardsDisplay.innerHTML = '';
+    const earnedRewards = getEarnedRewards();
+    if (earnedRewards.length === 0) {
+      rewardsDisplay.innerHTML = '<p style="color: rgba(255,255,255,0.5); font-size: 0.9em;">No rewards unlocked yet</p>';
+    } else {
+      earnedRewards.forEach((r) => {
+        const badge = document.createElement('div');
+        badge.className = 'debug-reward-badge';
+        badge.style.cssText = 'padding: 0.5rem; margin: 0.25rem 0; background: rgba(139, 92, 246, 0.2); border-radius: 4px; border-left: 3px solid #8b5cf6;';
+        badge.innerHTML = `<span style="font-size: 1.2em;">${r.icon || '🏆'}</span> <strong>${r.name}</strong><br><small style="color: rgba(255,255,255,0.7);">${r.description}</small>`;
+        rewardsDisplay.appendChild(badge);
+      });
+    }
+  }
+
+  if (rewardsEditor) {
+    rewardsEditor.innerHTML = '';
+    allRewards.forEach((r) => {
+      const row = document.createElement('div');
+      row.className = 'debug-title-row';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = earnedRewardsSet.has(r.id);
+      checkbox.disabled = true; // Rewards are earned through gameplay, not toggled
+      const label = document.createElement('label');
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(` ${r.icon || '🏆'} ${r.name}`));
+      label.title = r.description;
+      row.appendChild(label);
+      rewardsEditor.appendChild(row);
     });
   }
 
@@ -652,12 +765,20 @@ function showChallengeModal(challenge: RealLifeChallenge, choiceId: string): voi
         closeModal();
         // Automatically proceed with the choice now that challenge is complete
         const next = choose(choiceId);
-        if (next) {
-          renderScene(next);
-          const newlyEarned = (next as any)._newlyEarnedTitles || [];
+        if (next && next.scene) {
+          renderScene(next.scene);
+          const newlyEarned = (next.scene as any)._newlyEarnedTitles || [];
           newlyEarned.forEach((title: any) => {
             showTitleToast(title);
           });
+          // Show reward notifications
+          if (next.newRewards && next.newRewards.length > 0) {
+            next.newRewards.forEach((reward, index) => {
+              setTimeout(() => {
+                showRewardNotification(reward);
+              }, index * 300); // Stagger notifications
+            });
+          }
         }
       } else {
         const activeInfo = getActiveChallenge(challenge.id);

@@ -1,0 +1,12 @@
+Below are the list of Rewards that should be present:
+- Coffee Machine (Keurig)
+- Storage Container Variety Pack (Baking Soda, Drink, Basement)
+- Massage Relic (3 minute massage nightly on request for 1 year)
+- 30 minute massage
+- 15 minute massage
+- 5 minute massage
+- New Chair (Office)
+- New Headset
+- Book Shopping Spree
+- New Intimate Toy Purchase
+- Guilt-free Spending Money

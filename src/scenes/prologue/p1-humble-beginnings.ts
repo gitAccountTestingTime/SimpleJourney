@@ -29,21 +29,21 @@ ${elderAnnouncement}
 ${situationRealization}`,
 	choices: [
 		{
-			id: 'volunteer-immediately',
+			id: 'meet-vale',
 			text: 'Step forward without hesitation. You have nothing to lose...and perhaps much to gain.',
 			next: 'meet_vale',
 			effects: { courage: 1 },
 			hiddenEffects: {
-				origin_choice: 'courageous',
+				'origin_choice:courageous': true,
 				personality_seed: 'brave'
 			}
 		},
 		{
 			id: 'ask-payment',
-			text: 'Ask about the payment first. You need to know it’s worth the risk.',
+			text: 'Ask about the payment first. You need to know it\'s worth the risk.',
 			next: 'meet_vale',
 			hiddenEffects: {
-				origin_choice: 'pragmatic',
+				'origin_choice:pragmatic': true,
 				personality_seed: 'practical'
 			}
 		},
@@ -53,17 +53,17 @@ ${situationRealization}`,
 			next: 'meet_vale',
 			effects: { charisma: 1 },
 			hiddenEffects: {
-				origin_choice: 'leadership',
+				'origin_choice:leadership': true,
 				personality_seed: 'leader'
 			}
 		},
 		{
 			id: 'alternative-solution',
-			text: 'Propose negotiating with the bandits first. Perhaps there’s a peaceful resolution.',
+			text: 'Propose negotiating with the bandits first. Perhaps there\'s a peaceful resolution.',
 			next: 'meet_vale',
 			effects: { wisdom: 1 },
 			hiddenEffects: {
-				origin_choice: 'clever',
+				'origin_choice:clever': true,
 				personality_seed: 'diplomatic'
 			}
 		}

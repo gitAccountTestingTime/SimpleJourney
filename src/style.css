@@ -519,6 +519,105 @@ div.next h5 {
   color: #333;
 }
 
+/* Reward notification styles */
+.reward-notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.95), rgba(168, 85, 247, 0.9));
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.6), 0 0 100px rgba(168, 85, 247, 0.4);
+  z-index: 10001;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  max-width: 450px;
+  color: white;
+}
+
+.reward-notification.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.reward-notification-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.reward-icon {
+  font-size: 4rem;
+  flex-shrink: 0;
+  animation: rewardPulse 1s ease-in-out infinite;
+}
+
+@keyframes rewardPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.reward-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reward-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fef3c7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.reward-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.reward-message {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.reward-confirm-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1f2937;
+  border: 2px solid #fef3c7;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+}
+
+.reward-confirm-btn:hover {
+  background: linear-gradient(135deg, #fcd34d, #fbbf24);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(251, 191, 36, 0.6);
+}
+
+.reward-confirm-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+}
+
 /*Debug console styles (grouped UI + collapsed state)*/
 .debug-console {
   position: fixed;

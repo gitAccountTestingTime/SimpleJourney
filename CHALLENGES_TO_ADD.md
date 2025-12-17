@@ -45,23 +45,12 @@ These challenges fit naturally into the early game when the player is building t
 - **Description:** Connect with your character's emotions by writing to someone important
 - **Instructions:** Write a short letter (digital or physical) to someone you care about. It could be thanking them, sharing good news, expressing appreciation, or just checking in. Actually send it if appropriate, or keep it as a journal entry.
 - **Verification:** Honor System
-- **Story Integration:** Prologue - after meeting Vale/companions, before the dangerous journey; or Act 1 - after discovering heritage, writing to Thornhaven villagers
+- **Story Integration:** After finding the letters left by user's parents
 - **Thematic Fit:** Reflects character's emotional ties and growth; mirrors the letters your parents left for you
 
 ---
 
-### Help Someone Nearby
-- **Type:** Social/Service
-- **Duration:** 15 minutes
-- **Description:** Your character helps villagers - you help someone in your real life
-- **Instructions:** Do something helpful for someone around you. Help with chores, offer to assist a neighbor, teach someone something, listen to someone who needs to talk, or perform a small act of service. Genuine helpfulness matters.
-- **Verification:** Honor System
-- **Story Integration:** Prologue - before leaving Thornhaven, helping villagers one last time; Act 1 - adjusting to nobility by remembering to serve others
-- **Thematic Fit:** Reinforces character's connection to common folk and servant leadership philosophy
-
----
-
-### Forest Walking Meditation
+### Walking Meditation
 - **Type:** Meditation/Physical
 - **Duration:** 10 minutes
 - **Description:** Your character travels through ancient forests - experience mindful movement in nature (or your space)
@@ -109,7 +98,7 @@ These challenges fit naturally into the early game when the player is building t
 - **Type:** Courage/Personal Growth
 - **Duration:** 5-10 minutes
 - **Description:** Your character faces shadow beasts and political danger - you face a small fear
-- **Instructions:** Do something small that makes you uncomfortable. Make that phone call you've been avoiding, speak up in a situation, try something new, address a small conflict, or take a small risk. It doesn't have to be dramatic - just genuine.
+- **Instructions:** Do something small that makes you uncomfortable. Make that phone call you've been avoiding, speak up in a situation, try something new, address a small conflict, or take a small risk. It doesn't have to be dramatic, just genuine.
 - **Verification:** Honor System
 - **Story Integration:** Prologue - facing shadow beasts or standing up to mercenaries; Act 1 - first political meeting or confronting nobles
 - **Thematic Fit:** Directly mirrors character's courage development; reinforces brave choices
@@ -131,7 +120,7 @@ These challenges fit naturally into the early game when the player is building t
 - **Type:** Social/Wellness
 - **Duration:** 15 minutes
 - **Description:** Your character shares meals with companions - you eat mindfully or socially
-- **Instructions:** Eat a meal with full attention (alone or with others). If alone, truly taste your food, eat slowly, appreciate nourishment. If with others, engage genuinely in conversation. No phones or distractions. Just presence.
+- **Instructions:** Eat a meal with full attention (alone or with others). Engage genuinely in conversation. No phones or distractions. Just presence.
 - **Verification:** Honor System
 - **Story Integration:** Prologue - campfire meals with early companions; Act 1 - formal dining at manor or casual meals with companions
 - **Thematic Fit:** Mirrors companion bonding through shared meals; represents building community

@@ -94,27 +94,31 @@ Ash stands guard while you read your parents' letter. Their voice is rough when 
 
 ${finalTruth}`
 		},
-		{
-			conditions: { hasFlags: ['rook_trust:15', 'journey_focus:rook'] },
-			text: `${manorApproach}
+	{
+		conditions: { hasFlags: ['rook_trust:15', 'journey_focus:rook'] },
+		text: `${manorApproach}
 
 Rook whistles low. "This place is worth a fortune. But I guess it's yours now, isn't it?"
 
-${portraitRevelation}
+${doorsRecognize}
+
+${portraitTitle} ${nameBelow}
+
+${timeParadox}
 
 Rook's usual smirk fades. "Wait... you're actual royalty?" They look between you and the portrait. "I tried to pickpocket actual royalty. This is either the stupidest or luckiest thing I've ever done."
 
 When the hidden chamber opens, Rook helps you sort through the artifacts and journals. "For what it's worth," they say quietly, "you're the first noble who ever treated me like a person. Whatever you become, I hope you remember that."
 
 ${finalTruth}`
-		},
+	},
 		{
 			conditions: { hasFlags: ['self_reflection:true', 'journey_focus:self'] },
 			text: `${manorApproach}
 
 You enter alone, companions waiting outside per your request. This moment - this truth - you need to face yourself.
 
-${portraitRevelation}
+${portraitTitle} ${nameBelow}
 
 You sink to your knees before the portrait. All the loneliness, all the feeling of being different, all the years of not belonging - it all makes sense now.
 
