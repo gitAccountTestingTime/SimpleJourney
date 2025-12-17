@@ -43,7 +43,7 @@ export function clearChoicesUI() {
 export function renderEndState() {
   const introEl = document.getElementById('intro-text') as HTMLElement | null;
   const choicesList = document.getElementById('choices-list') as HTMLUListElement | null;
-  if (introEl) introEl.innerText = 'The story ends. Thank you for playing.';
+  if (introEl) introEl.innerHTML = 'The story ends. Thank you for playing.';
   if (!choicesList) return;
   clearChoicesUI();
   const endLabel = document.createElement('li');
@@ -213,7 +213,11 @@ export function populateChoices(scene: ReturnType<typeof getCurrentScene>) {
 
 export function renderScene(scene: ReturnType<typeof getCurrentScene>) {
   const introEl = document.getElementById('intro-text') as HTMLElement | null;
-  if (introEl) introEl.innerText = replaceNamePlaceholder(scene.text);
+  if (introEl) {
+    const text = replaceNamePlaceholder(scene.text);
+    // Convert newlines to <br> tags for proper line break display with innerHTML
+    introEl.innerHTML = text.replace(/\n/g, '<br>');
+  }
   populateChoices(scene);
   // Stats are now only rendered when the stats menu is open
   renderTitles();

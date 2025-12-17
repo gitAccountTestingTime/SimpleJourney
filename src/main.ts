@@ -98,7 +98,7 @@ if (restartBtn) {
         // Clear the current scene display
         const introEl = document.getElementById('intro-text') as HTMLElement | null;
         const choicesList = document.getElementById('choices-list') as HTMLUListElement | null;
-        if (introEl) introEl.innerText = '';
+        if (introEl) introEl.innerHTML = '';
         if (choicesList) choicesList.innerHTML = '';
         // Show name modal for restart
         if (nameModal && playerNameInput) {

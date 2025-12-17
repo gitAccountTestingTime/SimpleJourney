@@ -12,7 +12,7 @@ const valeIntroduction = `"Mind if I join you?" they ask with an easy smile. The
 
 "The same thing that drives everyone to make decisions like this," you answer. "An opportunity."
 
-"An opportunity," Vale muses, eyes glinting with interest. "Well, as a bard, I do appreciate a good story - and this sounds like one worth being part of. Perhaps I could accompany you? My skills might come in handy... and who knows, maybe we could both find what we're looking for."`;
+"An opportunity," Vale muses, eyes glinting with interest. "Well, as a bard, I do appreciate a good story and <i>this</i> sounds like the start of one worth being part of. Perhaps I could accompany you? My skills might come in handy... and who knows, maybe we could both find what we're looking for."`;
 
 const valeOffer = `They lean in conspiratorially. "I've also dealt with bandits before, and do spend quite a bit of my time judging people and situations. Perhaps we could help each other?"`;
 
@@ -82,7 +82,7 @@ ${tavernEncounter}`
 			},
 			text: `"Have we tried talking to them?" you ask as several heads turn your way. "Bandits usually want something specific. If we understand what they need, maybe we can find a solution that doesn't involve bloodshed."
 
-The elder strokes his beard thoughtfully. "An interesting perspective. Though I fear these particular bandits have shown little interest in negotiation—they strike hard and fast, taking everything."
+The elder strokes his beard thoughtfully. "An interesting perspective. Though I fear these particular bandits have shown little interest in negotiation. From everything we know, they strike hard and fast, taking everything."
 
 "Then at least we should try to understand their movements, their motives," you press. "Information can be more valuable than steel."
 
