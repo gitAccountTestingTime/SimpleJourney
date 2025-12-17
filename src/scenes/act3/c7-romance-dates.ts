@@ -57,7 +57,7 @@ She shifts closer, her breath warm against your ear. "I'm an elf. I've lived two
 		{
 			id: 'kiss',
 			text: 'Kiss her under the stars',
-			next: 'rowan_wilderness',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 5 },
 			hiddenEffects: {
 				lyra_romance: 70,
@@ -82,7 +82,7 @@ She shifts closer, her breath warm against your ear. "I'm an elf. I've lived two
 		{
 			id: 'hold-hand',
 			text: 'Take her hand - no need to rush',
-			next: 'rowan_wilderness',
+			next: 'crystal_hunt_continued',
 			effects: { wisdom: 4, charisma: 3 },
 			hiddenEffects: {
 				lyra_romance: 65,
@@ -93,7 +93,7 @@ She shifts closer, her breath warm against your ear. "I'm an elf. I've lived two
 		{
 			id: 'philosophy',
 			text: 'Discuss the philosophy of eternal bonds',
-			next: 'rowan_wilderness',
+			next: 'crystal_hunt_continued',
 			effects: { wisdom: 5 },
 			hiddenEffects: {
 				lyra_romance: 68,
@@ -161,7 +161,7 @@ Their thumb traces circles on your hand. "I love you. I've been trying not to, t
 		{
 			id: 'confession',
 			text: 'Confess you feel the same - freedom together',
-			next: 'kieran_sparring',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 6, courage: 3 },
 			hiddenEffects: {
 				rowan_bond: 70,
@@ -174,7 +174,7 @@ Their thumb traces circles on your hand. "I love you. I've been trying not to, t
 		{
 			id: 'kiss',
 			text: 'Answer with a kiss',
-			next: 'kieran_sparring',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 5 },
 			hiddenEffects: {
 				rowan_bond: 68,
@@ -186,7 +186,7 @@ Their thumb traces circles on your hand. "I love you. I've been trying not to, t
 		{
 			id: 'appreciate',
 			text: 'Express gratitude for seeing their true self',
-			next: 'kieran_sparring',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 4, wisdom: 3 },
 			hiddenEffects: {
 				rowan_bond: 65,
@@ -259,7 +259,7 @@ Their hand cups your cheek. "I know all the reasons this is complicated. But I d
 		{
 			id: 'kiss',
 			text: 'Close the distance - kiss them',
-			next: 'sage_library_date',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 6, courage: 4 },
 			hiddenEffects: {
 				kieran_loyalty: 75,
@@ -272,7 +272,7 @@ Their hand cups your cheek. "I know all the reasons this is complicated. But I d
 		{
 			id: 'confess',
 			text: 'Confess you\'ve been fighting the same feelings',
-			next: 'sage_library_date',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 5 },
 			hiddenEffects: {
 				kieran_loyalty: 72,
@@ -284,7 +284,7 @@ Their hand cups your cheek. "I know all the reasons this is complicated. But I d
 		{
 			id: 'professional',
 			text: 'Acknowledge feelings but suggest staying professional',
-			next: 'sage_library_date',
+			next: 'crystal_hunt_continued',
 			effects: { wisdom: 5 },
 			hiddenEffects: {
 				kieran_loyalty: 65,
@@ -418,7 +418,7 @@ Finn's hand finds yours, calloused and warm. "I could be happy spending my life 
 		{
 			id: 'acceptance',
 			text: 'Tell them you\'d be honored to be theirs',
-			next: 'zephyr_sky_dance',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 6 },
 			hiddenEffects: {
 				finn_friendship: 75,
@@ -431,7 +431,7 @@ Finn's hand finds yours, calloused and warm. "I could be happy spending my life 
 		{
 			id: 'kiss',
 			text: 'Kiss them with forge-fire warmth',
-			next: 'zephyr_sky_dance',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 5 },
 			hiddenEffects: {
 				finn_friendship: 72,
@@ -443,7 +443,7 @@ Finn's hand finds yours, calloused and warm. "I could be happy spending my life 
 		{
 			id: 'toast',
 			text: 'Toast to partnership and love',
-			next: 'zephyr_sky_dance',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 4 },
 			hiddenEffects: {
 				finn_friendship: 70,
@@ -474,7 +474,7 @@ The moon illuminates Zephyr's face as they lean closer. "Would you take an impos
 		{
 			id: 'kiss-in-air',
 			text: 'Kiss them while floating under the moon',
-			next: 'thorne_dragon_flight',
+			next: 'crystal_hunt_continued',
 			effects: { courage: 5, charisma: 5 },
 			hiddenEffects: {
 				zephyr_friendship: 75,
@@ -487,7 +487,7 @@ The moon illuminates Zephyr's face as they lean closer. "Would you take an impos
 		{
 			id: 'embrace-impossible',
 			text: 'Say you believe in impossible things because of them',
-			next: 'thorne_dragon_flight',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 6 },
 			hiddenEffects: {
 				zephyr_friendship: 73,
@@ -499,7 +499,7 @@ The moon illuminates Zephyr's face as they lean closer. "Would you take an impos
 		{
 			id: 'dance-more',
 			text: 'Request another dance - savor the moment',
-			next: 'thorne_dragon_flight',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 4 },
 			hiddenEffects: {
 				zephyr_friendship: 70,
@@ -528,7 +528,7 @@ Thorne lands on a mountain peak, transforming to human form so he can stand besi
 		{
 			id: 'eternal-moment',
 			text: 'One moment together is worth eternity alone',
-			next: 'marina_ocean_swim',
+			next: 'crystal_hunt_continued',
 			effects: { wisdom: 6, charisma: 5 },
 			hiddenEffects: {
 				thorne_respect: 75,
@@ -541,7 +541,7 @@ Thorne lands on a mountain peak, transforming to human form so he can stand besi
 		{
 			id: 'kiss',
 			text: 'Kiss him under the stars on the mountain peak',
-			next: 'marina_ocean_swim',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 6, courage: 4 },
 			hiddenEffects: {
 				thorne_respect: 73,
@@ -553,7 +553,7 @@ Thorne lands on a mountain peak, transforming to human form so he can stand besi
 		{
 			id: 'promise',
 			text: 'Promise to make every moment count',
-			next: 'marina_ocean_swim',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 5, wisdom: 4 },
 			hiddenEffects: {
 				thorne_respect: 72,
@@ -582,7 +582,7 @@ Marina's expression is vulnerable, hopeful. "Could you love someone who's half i
 		{
 			id: 'love-confession',
 			text: 'Tell her you love all of her - sea and surface both',
-			next: 'seraphine_masquerade',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 7 },
 			hiddenEffects: {
 				marina_friendship: 77,
@@ -595,7 +595,7 @@ Marina's expression is vulnerable, hopeful. "Could you love someone who's half i
 		{
 			id: 'kiss',
 			text: 'Kiss her in the glowing grotto',
-			next: 'seraphine_masquerade',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 6 },
 			hiddenEffects: {
 				marina_friendship: 75,
@@ -607,7 +607,7 @@ Marina's expression is vulnerable, hopeful. "Could you love someone who's half i
 		{
 			id: 'swim-together',
 			text: 'Dive back underwater together - express love through action',
-			next: 'seraphine_masquerade',
+			next: 'crystal_hunt_continued',
 			effects: { courage: 4, charisma: 4 },
 			hiddenEffects: {
 				marina_friendship: 73,
@@ -634,7 +634,7 @@ She removes both your masks, wanting to see your real face. "I'm done pretending
 		{
 			id: 'love-confession',
 			text: 'Tell her you love her too - the real her',
-			next: 'shadow_rooftop',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 7 },
 			hiddenEffects: {
 				seraphine_trust: 80,
@@ -647,7 +647,7 @@ She removes both your masks, wanting to see your real face. "I'm done pretending
 		{
 			id: 'kiss',
 			text: 'Kiss her as the music swells',
-			next: 'shadow_rooftop',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 6 },
 			hiddenEffects: {
 				seraphine_trust: 78,
@@ -659,7 +659,7 @@ She removes both your masks, wanting to see your real face. "I'm done pretending
 		{
 			id: 'dance-forever',
 			text: 'Ask to dance like this forever',
-			next: 'shadow_rooftop',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 5 },
 			hiddenEffects: {
 				seraphine_trust: 75,
@@ -688,7 +688,7 @@ They cup your face gently, as if you're something precious. "Tell me I'm not wro
 		{
 			id: 'love-confession',
 			text: 'Tell them you love them - all of them, light and dark',
-			next: 'climax_preparation',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 7, wisdom: 4 },
 			hiddenEffects: {
 				shadow_redeemed: 100,
@@ -701,7 +701,7 @@ They cup your face gently, as if you're something precious. "Tell me I'm not wro
 		{
 			id: 'kiss',
 			text: 'Kiss them under the stars',
-			next: 'climax_preparation',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 6, courage: 4 },
 			hiddenEffects: {
 				shadow_redeemed: 95,
@@ -713,7 +713,7 @@ They cup your face gently, as if you're something precious. "Tell me I'm not wro
 		{
 			id: 'promise-light',
 			text: 'Promise to be their light when darkness comes',
-			next: 'climax_preparation',
+			next: 'crystal_hunt_continued',
 			effects: { charisma: 6, wisdom: 3 },
 			hiddenEffects: {
 				shadow_redeemed: 92,

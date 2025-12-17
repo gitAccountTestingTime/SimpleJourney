@@ -204,6 +204,17 @@ export const ValeQuestComplete: Scene = {
 Your bond has deepened into something unbreakable. Whatever comes next, you face it together.`,
 	choices: [
 		{
+			id: 'romantic-moment',
+			text: 'Take a moment to be alone with someone special (if romance active)',
+			next: 'early_romance_opportunity',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				vale_quest_complete: true,
+				vale_full_companion: true
+			},
+			conditions: { hasHiddenAttributes: { any_romance_active: 35 } }
+		},
+		{
 			id: 'continue',
 			text: 'Return to the quest for the Crystal Heart',
 			next: 'crystal_hunt_continued',
@@ -211,6 +222,73 @@ Your bond has deepened into something unbreakable. Whatever comes next, you face
 			hiddenEffects: {
 				vale_quest_complete: true,
 				vale_full_companion: true
+			}
+		}
+	]
+};
+
+export const EarlyRomanceOpportunity: Scene = {
+	id: 'early_romance_opportunity',
+	text: `After the intensity of Vale's quest, you find yourself with a brief moment of peace. The bonds you've been building with your companions have grown deeper, more meaningful.
+
+Perhaps this is the right time to strengthen one of those connections - to show someone they matter to you beyond duty and strategy.`,
+	textVariants: [
+		{
+			conditions: { hasHiddenAttributes: { lyra_romance: 35 } },
+			text: `Lyra finds you in the garden, moonlight making her seem almost otherworldly. "Walk with me?" she asks softly.`
+		},
+		{
+			conditions: { hasHiddenAttributes: { kieran_romance: 35 } },
+			text: `Kieran is in the training yard, working late into the night. They pause when they see you, vulnerability flickering across their usually guarded face.`
+		},
+		{
+			conditions: { hasHiddenAttributes: { sage_romance: 35 } },
+			text: `Sage waves you over excitedly. "I found something in the archives you'll love. Come see!" Their enthusiasm is infectious.`
+		}
+	],
+	choices: [
+		{
+			id: 'lyra-early',
+			text: 'Spend time with Lyra (requires romance 35+)',
+			next: 'lyra_stargazing',
+			effects: { charisma: 1 },
+			conditions: { hasHiddenAttributes: { lyra_romance: 35 } }
+		},
+		{
+			id: 'rowan-early',
+			text: 'Go on a short walk with Rowan (requires romance 30+)',
+			next: 'rowan_wilderness',
+			effects: { charisma: 1 },
+			conditions: { hasHiddenAttributes: { rowan_romance: 30 } }
+		},
+		{
+			id: 'kieran-early',
+			text: 'Join Kieran for training (requires romance 35+)',
+			next: 'kieran_sparring',
+			effects: { charisma: 1 },
+			conditions: { hasHiddenAttributes: { kieran_romance: 35 } }
+		},
+		{
+			id: 'sage-early',
+			text: 'Explore the archives with Sage (requires romance 30+)',
+			next: 'sage_library_date',
+			effects: { charisma: 1 },
+			conditions: { hasHiddenAttributes: { sage_romance: 30 } }
+		},
+		{
+			id: 'finn-early',
+			text: 'Visit Finn at the forge (requires friendship 30+)',
+			next: 'finn_forge_date',
+			effects: { charisma: 1 },
+			conditions: { hasHiddenAttributes: { finn_friendship: 30 } }
+		},
+		{
+			id: 'no-time',
+			text: 'No time for personal matters - continue the mission',
+			next: 'crystal_hunt_continued',
+			effects: { wisdom: 2 },
+			hiddenEffects: {
+				romance_declined: true
 			}
 		}
 	]
@@ -250,15 +328,177 @@ export const CrystalHuntContinued: Scene = {
 
 The Shadow Beast incursions grow worse daily. The barrier crumbles. You must act fast.
 
-[This leads into additional fragment collection scenes, political conflicts, and eventual restoration of the Crystal Heart]`,
+Yet in the midst of crisis, you've also built deep bonds with those around you. Some relationships have grown into something more than friendship. Perhaps there's time for a meaningful moment before the next challenge.`,
+	textVariants: [
+		{
+			conditions: { hasHiddenAttributes: { lyra_romance: 50 } },
+			text: `With fragments collected and allies secured, you have a brief respite. Lyra has been watching you with those ancient, knowing eyes. There's something she wants to share with you - something personal, away from the politics and battles.`
+		},
+		{
+			conditions: { hasHiddenAttributes: { rowan_romance: 45 } },
+			text: `Rowan has been restless lately, suggesting you both need time away from the palace. "Just for a night," they say. "The wilderness calls, and I want to share it with you."`
+		},
+		{
+			conditions: { hasHiddenAttributes: { kieran_romance: 50 } },
+			text: `Kieran's morning training sessions have become something special - moments where professional boundaries blur. They've been looking at you differently, with barely contained feelings they're struggling to express.`
+		},
+		{
+			conditions: { hasHiddenAttributes: { sage_romance: 45 } },
+			text: `Sage invited you to explore the restricted archives. Their excitement was purely intellectual at first, but lately there's been something more in their glances, their careful touches when reaching for the same book.`
+		}
+	],
+	choices: [
+		{
+			id: 'lyra-moment',
+			text: 'Spend time with Lyra under the stars (requires romance 50+)',
+			next: 'lyra_stargazing',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { lyra_romance: 50 } }
+		},
+		{
+			id: 'rowan-moment',
+			text: 'Take Rowan up on their wilderness offer (requires romance 45+)',
+			next: 'rowan_wilderness',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { rowan_romance: 45 } }
+		},
+		{
+			id: 'kieran-moment',
+			text: 'Meet Kieran for private training (requires romance 50+)',
+			next: 'kieran_sparring',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { kieran_romance: 50 } }
+		},
+		{
+			id: 'sage-moment',
+			text: 'Join Sage in the archives (requires romance 45+)',
+			next: 'sage_library_date',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { sage_romance: 45 } }
+		},
+		{
+			id: 'finn-moment',
+			text: 'Visit Finn at the forge (requires romance 40+)',
+			next: 'finn_forge_date',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { finn_romance: 40 } }
+		},
+		{
+			id: 'zephyr-moment',
+			text: 'Accept Zephyr\'s mysterious midnight invitation (requires romance 45+)',
+			next: 'zephyr_sky_dance',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { zephyr_romance: 45 } }
+		},
+		{
+			id: 'thorne-moment',
+			text: 'Fly with Thorne under the stars (requires romance 50+)',
+			next: 'thorne_dragon_flight',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { thorne_respect: 50 } }
+		},
+		{
+			id: 'marina-moment',
+			text: 'Swim with Marina in her hidden cove (requires romance 45+)',
+			next: 'marina_ocean_swim',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { marina_romance: 45 } }
+		},
+		{
+			id: 'seraphine-moment',
+			text: 'Attend Seraphine\'s private masquerade (requires romance 50+)',
+			next: 'seraphine_masquerade',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { seraphine_romance: 50 } }
+		},
+		{
+			id: 'shadow-moment',
+			text: 'Meet Shadow on the rooftop (requires redemption 60+)',
+			next: 'shadow_rooftop',
+			effects: { charisma: 2 },
+			hiddenEffects: {
+				romantic_moment_taken: true
+			},
+			conditions: { hasHiddenAttributes: { shadow_redeemed: 60 } }
+		},
+		{
+			id: 'continue-mission',
+			text: 'Focus on the mission - no time for personal moments',
+			next: 'act3_final_preparations',
+			effects: { wisdom: 3 },
+			hiddenEffects: {
+				mission_focused: true,
+				nearing_climax: true
+			}
+		}
+	]
+};
+
+export const Act3FinalPreparations: Scene = {
+	id: 'act3_final_preparations',
+	text: `The Crystal Heart fragments are nearly complete. Your alliances are forged. Your companions stand ready. The final confrontation approaches.
+
+The Shadow Beast incursions have reached critical levels. The barrier between worlds grows thin. Whatever comes next will determine the fate of the entire realm.
+
+You gather your closest allies for one last council before the storm.`,
+	textVariants: [
+		{
+			conditions: { hasHiddenAttributes: { romantic_moment_taken: true } },
+			text: `The Crystal Heart fragments are nearly complete. Your alliances are forged. Your companions stand ready.
+
+That moment you shared with someone special still resonates - a reminder that you're fighting for more than just duty. You're fighting for love, for connection, for the future you want to build together.
+
+The Shadow Beast incursions have reached critical levels. The barrier between worlds grows thin. Whatever comes next will determine the fate of the entire realm.
+
+You gather your closest allies for one last council before the storm.`
+		},
+		{
+			conditions: { hasHiddenAttributes: { all_companions_loyal: true } },
+			text: `The Crystal Heart fragments are nearly complete. Your alliances are forged. Every companion you've gathered stands ready to follow you into whatever darkness awaits.
+
+The bonds you've built - some romantic, some fraternal, all genuine - give you strength beyond mere magical power.
+
+The Shadow Beast incursions have reached critical levels. The barrier between worlds grows thin. Whatever comes next will determine the fate of the entire realm.
+
+You gather your closest allies for one last council before the storm.`
+		}
+	],
 	choices: [
 		{
 			id: 'continue',
-			text: 'Continue the main quest...',
+			text: 'Prepare for the final battle',
 			next: 'act4_climax',
-			effects: { wisdom: 3 },
+			effects: { courage: 5, wisdom: 4 },
 			hiddenEffects: {
-				nearing_climax: true
+				act3_complete: true,
+				ready_for_climax: true
 			}
 		}
 	]
