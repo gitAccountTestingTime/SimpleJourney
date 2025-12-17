@@ -102,7 +102,7 @@ ${tavernEncounter}`
 			next: 'bandit_encounter',
 			effects: { charisma: 1 },
 			hiddenEffects: {
-				vale_first_impression: 'open',
+				'vale_first_impression:open': true,
 				vale_trust: 20,
 				vale_romance: 5
 			}
@@ -112,7 +112,7 @@ ${tavernEncounter}`
 			text: 'Be polite, but cautious. Keep your distance until you know more about them.',
 			next: 'bandit_encounter',
 			hiddenEffects: {
-				vale_first_impression: 'cautious',
+				'vale_first_impression:cautious': true,
 				vale_trust: 5
 			}
 		},
@@ -122,7 +122,7 @@ ${tavernEncounter}`
 			next: 'bandit_encounter',
 			effects: { wisdom: 1 },
 			hiddenEffects: {
-				vale_first_impression: 'investigative',
+				'vale_first_impression:investigative': true,
 				vale_trust: 10
 			}
 		},
@@ -132,7 +132,7 @@ ${tavernEncounter}`
 			next: 'bandit_encounter',
 			effects: { charisma: 2 },
 			hiddenEffects: {
-				vale_first_impression: 'flirtatious',
+				'vale_first_impression:flirtatious': true,
 				vale_trust: 15,
 				vale_romance: 10
 			}

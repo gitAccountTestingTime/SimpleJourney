@@ -98,7 +98,7 @@ Marcus's eyes glisten briefly. "Your parents saved my life once. I've spent twen
 			next: 'seraphine_introduction',
 			effects: { wisdom: 4 },
 			hiddenEffects: {
-				skepticism_level: 'high',
+				'skepticism_level:high': true,
 				marcus_respect: true,
 				trust_in_marcus: true,
 				marcus_loyalty: 95,
@@ -111,7 +111,7 @@ Marcus's eyes glisten briefly. "Your parents saved my life once. I've spent twen
 			next: 'seraphine_introduction',
 			effects: { courage: 2 },
 			hiddenEffects: {
-				skepticism_level: 'very_high',
+				'skepticism_level:very_high': true,
 				marcus_must_prove_himself: true,
 				trust_in_marcus: false,
 				marcus_loyalty: 85,

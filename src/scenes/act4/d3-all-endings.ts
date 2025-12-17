@@ -50,7 +50,7 @@ Even Sage, initially disappointed you didn't choose democracy, nods appreciative
 			next: 'epilogue_reflection',
 			effects: { wisdom: 8, charisma: 7 },
 			hiddenEffects: {
-				ending_achieved: 'traditional_progressive',
+				'ending_achieved:traditional_progressive': true,
 				reforms_implemented: true,
 				balanced_approach: true
 			}
@@ -61,7 +61,7 @@ Even Sage, initially disappointed you didn't choose democracy, nods appreciative
 			next: 'epilogue_reflection',
 			effects: { wisdom: 5, courage: 4 },
 			hiddenEffects: {
-				ending_achieved: 'traditional_conservative',
+				'ending_achieved:traditional_conservative': true,
 				status_quo_maintained: true,
 				stability_preserved: true
 			}
@@ -72,7 +72,7 @@ Even Sage, initially disappointed you didn't choose democracy, nods appreciative
 			next: 'epilogue_reflection',
 			effects: { wisdom: 7 },
 			hiddenEffects: {
-				ending_achieved: 'traditional_reluctant',
+				'ending_achieved:traditional_reluctant': true,
 				burden_of_duty: true,
 				personal_cost: true
 			}
@@ -128,7 +128,7 @@ She takes your hand. "Our relationship mirrors this government - two different w
 			next: 'epilogue_reflection',
 			effects: { wisdom: 10, charisma: 6 },
 			hiddenEffects: {
-				ending_achieved: 'democratic_ceremonial',
+				'ending_achieved:democratic_ceremonial': true,
 				pure_democracy: true,
 				humble_leadership: true
 			}
@@ -139,7 +139,7 @@ She takes your hand. "Our relationship mirrors this government - two different w
 			next: 'epilogue_reflection',
 			effects: { wisdom: 8, charisma: 8 },
 			hiddenEffects: {
-				ending_achieved: 'democratic_active',
+				'ending_achieved:democratic_active': true,
 				guided_democracy: true,
 				influential_leader: true
 			}
@@ -150,7 +150,7 @@ She takes your hand. "Our relationship mirrors this government - two different w
 			next: 'epilogue_reflection',
 			effects: { wisdom: 9 },
 			hiddenEffects: {
-				ending_achieved: 'democratic_retired',
+				'ending_achieved:democratic_retired': true,
 				elder_statesman: true,
 				peaceful_transition: true
 			}
@@ -204,7 +204,7 @@ The military order is established, but at what cost to your relationships and yo
 			next: 'epilogue_reflection',
 			effects: { courage: 9, wisdom: 7 },
 			hiddenEffects: {
-				ending_achieved: 'military_just',
+				'ending_achieved:military_just': true,
 				honorable_strength: true,
 				kieran_loyal: true,
 				protected_realm: true
@@ -216,7 +216,7 @@ The military order is established, but at what cost to your relationships and yo
 			next: 'epilogue_reflection',
 			effects: { courage: 7, wisdom: 3 },
 			hiddenEffects: {
-				ending_achieved: 'military_authoritarian',
+				'ending_achieved:military_authoritarian': true,
 				tyranny_begun: true,
 				kieran_conflicted: true,
 				companions_leave: true
@@ -228,7 +228,7 @@ The military order is established, but at what cost to your relationships and yo
 			next: 'epilogue_reflection',
 			effects: { courage: 4 },
 			hiddenEffects: {
-				ending_achieved: 'military_puppet',
+				'ending_achieved:military_puppet': true,
 				blackwood_controls: true,
 				power_lost: true,
 				kieran_betrayed: true
@@ -323,7 +323,7 @@ The crowd below cheers as he kisses you publicly, scandalizing traditionalists b
 			next: 'epilogue_reflection',
 			effects: { wisdom: 12, charisma: 12, courage: 10 },
 			hiddenEffects: {
-				ending_achieved: 'unity_perfect',
+				'ending_achieved:unity_perfect': true,
 				golden_age_achieved: true,
 				legendary_ruler: true,
 				best_ending: true
@@ -335,7 +335,7 @@ The crowd below cheers as he kisses you publicly, scandalizing traditionalists b
 			next: 'epilogue_reflection',
 			effects: { wisdom: 9, charisma: 8 },
 			hiddenEffects: {
-				ending_achieved: 'unity_fragile',
+				'ending_achieved:unity_fragile': true,
 				ongoing_challenges: true,
 				hopeful_future: true
 			}
@@ -379,7 +379,7 @@ It's a way out - abandoning the kingdom to save yourself and those you love.`
 			next: 'epilogue_reflection',
 			effects: { courage: 10 },
 			hiddenEffects: {
-				ending_achieved: 'civil_war_martyr',
+				'ending_achieved:civil_war_martyr': true,
 				died_trying: true,
 				tragic_hero: true
 			}
@@ -390,7 +390,7 @@ It's a way out - abandoning the kingdom to save yourself and those you love.`
 			next: 'epilogue_reflection',
 			effects: { wisdom: 7, courage: 5 },
 			hiddenEffects: {
-				ending_achieved: 'civil_war_exile',
+				'ending_achieved:civil_war_exile': true,
 				kingdom_lost: true,
 				companions_saved: true,
 				survival: true
@@ -402,7 +402,7 @@ It's a way out - abandoning the kingdom to save yourself and those you love.`
 			next: 'epilogue_reflection',
 			effects: { charisma: 9, wisdom: 7 },
 			hiddenEffects: {
-				ending_achieved: 'civil_war_peacemaker',
+				'ending_achieved:civil_war_peacemaker': true,
 				fragile_ceasefire: true,
 				partial_redemption: true
 			}
@@ -456,7 +456,7 @@ At least you're happy, even if you sometimes wonder what might have been.`
 			next: 'epilogue_reflection',
 			effects: { wisdom: 8, charisma: 6 },
 			hiddenEffects: {
-				ending_achieved: 'wanderer_peaceful',
+				'ending_achieved:wanderer_peaceful': true,
 				found_happiness: true,
 				duty_abandoned: true
 			}
@@ -467,7 +467,7 @@ At least you're happy, even if you sometimes wonder what might have been.`
 			next: 'epilogue_reflection',
 			effects: { wisdom: 9 },
 			hiddenEffects: {
-				ending_achieved: 'wanderer_regret',
+				'ending_achieved:wanderer_regret': true,
 				haunted_by_choice: true,
 				melancholy_freedom: true
 			}
@@ -513,7 +513,7 @@ Your magical power has altered your lifespan. You'll live for ages alongside him
 			next: 'epilogue_reflection',
 			effects: { wisdom: 15, courage: 10, charisma: 12 },
 			hiddenEffects: {
-				ending_achieved: 'archmage_perfect',
+				'ending_achieved:archmage_perfect': true,
 				magical_renaissance: true,
 				legendary_ending: true,
 				immortality_achieved: true
@@ -525,7 +525,7 @@ Your magical power has altered your lifespan. You'll live for ages alongside him
 			next: 'epilogue_reflection',
 			effects: { wisdom: 12, courage: 8 },
 			hiddenEffects: {
-				ending_achieved: 'archmage_burdened',
+				'ending_achieved:archmage_burdened': true,
 				powerful_but_isolated: true,
 				price_of_power: true
 			}
@@ -561,7 +561,7 @@ Even your darkest companion, your partner in shadows, is preparing to leave. You
 			next: 'epilogue_reflection',
 			effects: { courage: 12 },
 			hiddenEffects: {
-				ending_achieved: 'shadow_complete',
+				'ending_achieved:shadow_complete': true,
 				fully_corrupted: true,
 				dark_god: true,
 				everyone_gone: true
@@ -573,7 +573,7 @@ Even your darkest companion, your partner in shadows, is preparing to leave. You
 			next: 'epilogue_reflection',
 			effects: { courage: 10, wisdom: 8 },
 			hiddenEffects: {
-				ending_achieved: 'shadow_redemption',
+				'ending_achieved:shadow_redemption': true,
 				fighting_corruption: true,
 				desperate_salvation: true
 			}

@@ -135,7 +135,7 @@ ${finalTruth}`
 			effects: { courage: 5, charisma: 4 },
 			hiddenEffects: {
 				identity_accepted: true,
-				royal_path: 'true',
+				'royal_path:true': true,
 				restoration_goal: true,
 				prologue_completed: true,
 				nobility: 10,
@@ -149,8 +149,8 @@ ${finalTruth}`
 			effects: { wisdom: 5 },
 			hiddenEffects: {
 				identity_accepted: true,
-				royal_path: 'reluctant',
-				restoration_goal: 'uncertain',
+				'royal_path:reluctant': true,
+				'restoration_goal:uncertain': true,
 				prologue_completed: true,
 				nobility: 5,
 				cautious_approach: true
@@ -163,7 +163,7 @@ ${finalTruth}`
 			effects: { courage: 4, charisma: 3 },
 			hiddenEffects: {
 				identity_accepted: true,
-				royal_path: 'independent',
+				'royal_path:independent': true,
 				restoration_goal: false,
 				prologue_completed: true,
 				nobility: 3,
@@ -177,8 +177,8 @@ ${finalTruth}`
 			effects: { charisma: 5, wisdom: 2 },
 			hiddenEffects: {
 				identity_accepted: true,
-				royal_path: 'companion_focused',
-				restoration_goal: 'conditional',
+				'royal_path:companion_focused': true,
+				'restoration_goal:conditional': true,
 				prologue_completed: true,
 				nobility: 5,
 				companion_priority: true,

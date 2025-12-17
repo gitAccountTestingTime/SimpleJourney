@@ -29,13 +29,6 @@ The garden seems almost magical, sunlight filtering through leaves in patterns t
 				instructions: 'Spend 10 minutes truly experiencing something beautiful. Watch a sunset, observe plants or flowers, stargaze, appreciate art, listen to moving music, or simply sit with something that touches you aesthetically. Be fully present with the beauty, letting it affect you.',
 				durationMinutes: 10,
 				verificationMethod: 'honor',
-				checklistItems: [
-					'Find something beautiful to experience',
-					'Give it your full attention',
-					'Notice details and nuances',
-					'Let yourself feel moved',
-					'Be grateful for the beauty'
-				],
 				rewards: {
 					stats: { wisdom: 3, empathy: 2, vitality: 2 },
 					hiddenAttributes: { beauty_seeker: 1, aesthetic_appreciation: true },

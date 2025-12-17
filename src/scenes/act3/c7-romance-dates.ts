@@ -62,7 +62,7 @@ She shifts closer, her breath warm against your ear. "I'm an elf. I've lived two
 			hiddenEffects: {
 				lyra_romance: 70,
 				first_kiss_lyra: true,
-				romantic_milestone: 'first_kiss',
+				'romantic_milestone:first_kiss': true,
 				star_blessed: true
 			},
 			realLifeChallenge: {

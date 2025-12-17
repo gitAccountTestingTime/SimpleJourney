@@ -35,7 +35,7 @@ ${situationRealization}`,
 			effects: { courage: 1 },
 			hiddenEffects: {
 				'origin_choice:courageous': true,
-				personality_seed: 'brave'
+				'personality_seed:brave': true
 			}
 		},
 		{
@@ -44,7 +44,7 @@ ${situationRealization}`,
 			next: 'meet_vale',
 			hiddenEffects: {
 				'origin_choice:pragmatic': true,
-				personality_seed: 'practical'
+				'personality_seed:practical': true
 			}
 		},
 		{
@@ -54,7 +54,7 @@ ${situationRealization}`,
 			effects: { charisma: 1 },
 			hiddenEffects: {
 				'origin_choice:leadership': true,
-				personality_seed: 'leader'
+				'personality_seed:leader': true
 			}
 		},
 		{
@@ -64,7 +64,7 @@ ${situationRealization}`,
 			effects: { wisdom: 1 },
 			hiddenEffects: {
 				'origin_choice:clever': true,
-				personality_seed: 'diplomatic'
+				'personality_seed:diplomatic': true
 			}
 		}
 	]

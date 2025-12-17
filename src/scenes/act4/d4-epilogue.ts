@@ -194,7 +194,7 @@ Perhaps that's enough - not perfection, but persistent effort toward something b
 			next: 'final_reflection',
 			effects: { wisdom: 10 },
 			hiddenEffects: {
-				final_sentiment: 'satisfied',
+				'final_sentiment:satisfied': true,
 				peace_achieved: true
 			}
 		},
@@ -204,7 +204,7 @@ Perhaps that's enough - not perfection, but persistent effort toward something b
 			next: 'final_reflection',
 			effects: { wisdom: 8 },
 			hiddenEffects: {
-				final_sentiment: 'regretful',
+				'final_sentiment:regretful': true,
 				lessons_learned: true
 			}
 		},
@@ -214,7 +214,7 @@ Perhaps that's enough - not perfection, but persistent effort toward something b
 			next: 'final_reflection',
 			effects: { courage: 8, wisdom: 7 },
 			hiddenEffects: {
-				final_sentiment: 'determined',
+				'final_sentiment:determined': true,
 				ongoing_mission: true
 			}
 		},
@@ -224,7 +224,7 @@ Perhaps that's enough - not perfection, but persistent effort toward something b
 			next: 'final_reflection',
 			effects: { charisma: 10, wisdom: 8 },
 			hiddenEffects: {
-				final_sentiment: 'proud',
+				'final_sentiment:proud': true,
 				triumphant_legacy: true
 			}
 		}

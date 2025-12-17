@@ -87,7 +87,7 @@ ${valeExplanation}`
 				magic_revealed: true,
 				vale_knows_secret: true,
 				magical_path_unlocked: true,
-				magic_reaction: 'fear'
+				'magic_reaction:fear': true
 			}
 		},
 		{
@@ -99,7 +99,7 @@ ${valeExplanation}`
 				magic_revealed: true,
 				vale_knows_secret: true,
 				magical_path_unlocked: true,
-				magic_reaction: 'curiosity',
+				'magic_reaction:curiosity': true,
 				vale_trust: 5
 			}
 		},
@@ -112,7 +112,7 @@ ${valeExplanation}`
 				magic_revealed: true,
 				vale_knows_secret: true,
 				magical_path_unlocked: true,
-				magic_reaction: 'trust',
+				'magic_reaction:trust': true,
 				vale_trust: 15,
 				vale_romance: 10
 			}
@@ -126,7 +126,7 @@ ${valeExplanation}`
 				magic_revealed: true,
 				vale_knows_secret: true,
 				magical_path_unlocked: true,
-				magic_reaction: 'assertive',
+				'magic_reaction:assertive': true,
 				vale_trust: -5
 			}
 		}

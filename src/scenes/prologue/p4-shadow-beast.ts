@@ -66,8 +66,8 @@ ${bloodAwakening}`
 			next: 'meet_ash',
 			effects: { courage: 5, wisdom: 3, reputation: 12, wealth: 25 },
 			hiddenEffects: {
-				shadow_beast_reaction: 'faced_fear',
-				magical_awakening: 'courage',
+				'shadow_beast_reaction:faced_fear': true,
+				'magical_awakening:courage': true,
 				blood_magic_affinity: 12,
 				vale_trust: 18,
 				refugees_trust: 10,
@@ -105,9 +105,9 @@ ${bloodAwakening}`
 					next: 'meet_ash',
 					effects: { courage: 3, reputation: 10, wealth: 25 },
 					hiddenEffects: {
-						shadow_beast_reaction: 'fought_bravely',
-						magical_awakening: 'combat',
-						blood_magic_affinity: 10,
+						'shadow_beast_reaction:fought_bravely': true,
+						'magical_awakening:combat': true,
+						blood_magic_affinity: 8,
 						vale_trust: 15,
 						shadow_beast_bounty_earned: true
 					}
@@ -116,8 +116,8 @@ ${bloodAwakening}`
 					next: 'meet_ash',
 					effects: { courage: 2, reputation: 5, wealth: 15 },
 					hiddenEffects: {
-						shadow_beast_reaction: 'fought_desperately',
-						magical_awakening: 'survival',
+						'shadow_beast_reaction:fought_desperately': true,
+						'magical_awakening:survival': true,
 						blood_magic_affinity: 5,
 						vale_trust: 10,
 						shadow_beast_bounty_earned: true
@@ -131,8 +131,8 @@ ${bloodAwakening}`
 			next: 'meet_ash',
 			effects: { courage: 2, charisma: 3, reputation: 12, wealth: 25 },
 			hiddenEffects: {
-				shadow_beast_reaction: 'protective',
-				magical_awakening: 'selfless',
+				'shadow_beast_reaction:protective': true,
+				'magical_awakening:selfless': true,
 				blood_magic_affinity: 8,
 				compassionate_actions: 5,
 				vale_trust: 20,
@@ -146,8 +146,8 @@ ${bloodAwakening}`
 			next: 'meet_ash',
 			effects: { wisdom: 2, reputation: -2, wealth: 10 },
 			hiddenEffects: {
-				shadow_beast_reaction: 'pragmatic',
-				magical_awakening: 'instinct',
+				'shadow_beast_reaction:pragmatic': true,
+				'magical_awakening:instinct': true,
 				blood_magic_affinity: 3,
 				ruthlessness: 3,
 				shadow_beast_bounty_earned: true
@@ -159,8 +159,8 @@ ${bloodAwakening}`
 			next: 'meet_ash',
 			effects: { wisdom: 4, wealth: 20 },
 			hiddenEffects: {
-				shadow_beast_reaction: 'curious',
-				magical_awakening: 'intellectual',
+				'shadow_beast_reaction:curious': true,
+				'magical_awakening:intellectual': true,
 				blood_magic_affinity: 12,
 				vale_trust: 10,
 				shadow_beast_bounty_earned: true

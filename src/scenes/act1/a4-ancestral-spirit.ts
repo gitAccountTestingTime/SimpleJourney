@@ -109,7 +109,7 @@ A translucent figure materializes - tall, regal, wearing armor from centuries pa
 			effects: { wisdom: 2, charisma: 3 },
 			hiddenEffects: {
 				spirit_blessed: true,
-				spirit_guidance: 'compassion',
+				'spirit_guidance:compassion': true,
 				healing_path: true,
 				compassionate_actions: 5,
 				rowan_bond: 5

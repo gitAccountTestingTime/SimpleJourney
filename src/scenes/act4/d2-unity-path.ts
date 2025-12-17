@@ -73,7 +73,7 @@ The choice weighs heavily: embrace the power you've accumulated, or trust in coo
 			effects: { wisdom: 10, charisma: 10 },
 			hiddenEffects: {
 				attempted_unity: true,
-				final_faction_choice: 'unity',
+				'final_faction_choice:unity': true,
 				revolutionary_vision: true
 			}
 		},
@@ -83,7 +83,7 @@ The choice weighs heavily: embrace the power you've accumulated, or trust in coo
 			next: 'traditional_coronation',
 			effects: { wisdom: 6, charisma: 5 },
 			hiddenEffects: {
-				final_faction_choice: 'loyalist',
+				'final_faction_choice:loyalist': true,
 				traditional_restored: true,
 				seraphine_path: true
 			}
@@ -94,7 +94,7 @@ The choice weighs heavily: embrace the power you've accumulated, or trust in coo
 			next: 'democratic_founding',
 			effects: { wisdom: 8, charisma: 7 },
 			hiddenEffects: {
-				final_faction_choice: 'reformist',
+				'final_faction_choice:reformist': true,
 				democracy_chosen: true,
 				sage_path: true
 			}
@@ -105,7 +105,7 @@ The choice weighs heavily: embrace the power you've accumulated, or trust in coo
 			next: 'military_order',
 			effects: { courage: 8, wisdom: 4 },
 			hiddenEffects: {
-				final_faction_choice: 'military',
+				'final_faction_choice:military': true,
 				military_state: true,
 				kieran_test: true
 			}
@@ -116,7 +116,7 @@ The choice weighs heavily: embrace the power you've accumulated, or trust in coo
 			next: 'wanderer_path',
 			effects: { wisdom: 7 },
 			hiddenEffects: {
-				final_faction_choice: 'abdication',
+				'final_faction_choice:abdication': true,
 				throne_abandoned: true,
 				rowan_ideal: true
 			}
@@ -127,7 +127,7 @@ The choice weighs heavily: embrace the power you've accumulated, or trust in coo
 			next: 'archmage_ruler',
 			effects: { wisdom: 12, courage: 8 },
 			hiddenEffects: {
-				final_faction_choice: 'magical',
+				'final_faction_choice:magical': true,
 				archmage_path: true,
 				magical_renaissance: true
 			}
@@ -209,8 +209,8 @@ ${explosiveDebate}`
 			next: 'personal_sacrifice',
 			effects: { charisma: 8 },
 			hiddenEffects: {
-				speech_style: 'passionate',
-				unity_approach: 'emotional'
+				'speech_style:passionate': true,
+				'unity_approach:emotional': true
 			}
 		},
 		{
@@ -219,8 +219,8 @@ ${explosiveDebate}`
 			next: 'personal_sacrifice',
 			effects: { wisdom: 8 },
 			hiddenEffects: {
-				speech_style: 'logical',
-				unity_approach: 'rational'
+				'speech_style:logical': true,
+				'unity_approach:rational': true
 			}
 		},
 		{
@@ -229,8 +229,8 @@ ${explosiveDebate}`
 			next: 'personal_sacrifice',
 			effects: { charisma: 10 },
 			hiddenEffects: {
-				speech_style: 'testimonial',
-				unity_approach: 'personal',
+				'speech_style:testimonial': true,
+				'unity_approach:personal': true,
 				companions_advocate: true
 			}
 		},
@@ -240,8 +240,8 @@ ${explosiveDebate}`
 			next: 'personal_sacrifice',
 			effects: { courage: 8, wisdom: 6 },
 			hiddenEffects: {
-				speech_style: 'demonstration',
-				unity_approach: 'magical',
+				'speech_style:demonstration': true,
+				'unity_approach:magical': true,
 				spectacular_display: true
 			}
 		}
@@ -312,7 +312,7 @@ His uncle, General Blackwood, speaks up. "You'd defend them even against me, nep
 			next: 'unity_result',
 			effects: { charisma: 7, wisdom: 5 },
 			hiddenEffects: {
-				sacrifice_type: 'wealth',
+				'sacrifice_type:wealth': true,
 				wealth_redistributed: true,
 				economic_equality: true,
 				commoner_respect: 50
@@ -324,7 +324,7 @@ His uncle, General Blackwood, speaks up. "You'd defend them even against me, nep
 			next: 'unity_result',
 			effects: { wisdom: 9, charisma: 6 },
 			hiddenEffects: {
-				sacrifice_type: 'power',
+				'sacrifice_type:power': true,
 				power_limited: true,
 				democratic_commitment: true,
 				trust_earned: true
@@ -336,7 +336,7 @@ His uncle, General Blackwood, speaks up. "You'd defend them even against me, nep
 			next: 'unity_result',
 			effects: { courage: 10, wisdom: 7 },
 			hiddenEffects: {
-				sacrifice_type: 'magic',
+				'sacrifice_type:magic': true,
 				magic_sealed: true,
 				ultimate_trust: true,
 				lyra_respect: 30,
@@ -349,7 +349,7 @@ His uncle, General Blackwood, speaks up. "You'd defend them even against me, nep
 			next: 'unity_result',
 			effects: { wisdom: 8, charisma: 7 },
 			hiddenEffects: {
-				sacrifice_type: 'freedom',
+				'sacrifice_type:freedom': true,
 				servant_leader: true,
 				humble_authority: true,
 				sage_affection: 30
@@ -361,7 +361,7 @@ His uncle, General Blackwood, speaks up. "You'd defend them even against me, nep
 			next: 'unity_result',
 			effects: { charisma: 9, wisdom: 6 },
 			hiddenEffects: {
-				sacrifice_type: 'shared',
+				'sacrifice_type:shared': true,
 				companion_sacrifices: true,
 				unity_in_action: true,
 				all_companions_bonded: true

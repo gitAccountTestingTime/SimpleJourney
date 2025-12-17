@@ -103,7 +103,7 @@ ${seraphineDescription} Her eyes widen slightly seeing your adventuring companio
 			effects: { charisma: 3 },
 			hiddenEffects: {
 				seraphine_trust: 15,
-				seraphine_first_impression: 'proper_noble',
+				'seraphine_first_impression:proper_noble': true,
 				rowan_bond: -2,
 				formal_personality: true
 			}
@@ -115,7 +115,7 @@ ${seraphineDescription} Her eyes widen slightly seeing your adventuring companio
 			effects: { charisma: 2 },
 			hiddenEffects: {
 				seraphine_trust: 5,
-				seraphine_first_impression: 'authentic_untrained',
+				'seraphine_first_impression:authentic_untrained': true,
 				rowan_bond: 8,
 				authentic_personality: true,
 				seraphine_intrigued: true
@@ -128,7 +128,7 @@ ${seraphineDescription} Her eyes widen slightly seeing your adventuring companio
 			effects: { charisma: 4, wisdom: 2 },
 			hiddenEffects: {
 				seraphine_trust: 10,
-				seraphine_first_impression: 'diplomatic_adaptable',
+				'seraphine_first_impression:diplomatic_adaptable': true,
 				rowan_bond: 5,
 				social_adaptability: true,
 				seraphine_impressed: true
@@ -141,7 +141,7 @@ ${seraphineDescription} Her eyes widen slightly seeing your adventuring companio
 			effects: { wisdom: 3 },
 			hiddenEffects: {
 				seraphine_trust: 12,
-				seraphine_first_impression: 'serious_focused',
+				'seraphine_first_impression:serious_focused': true,
 				rowan_bond: 3,
 				pragmatic_leader: true,
 				seraphine_respects_efficiency: true

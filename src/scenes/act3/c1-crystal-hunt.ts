@@ -118,7 +118,7 @@ Lyra nods. "Start with my people in Moonwhisper Grove. I can introduce you prope
 			next: 'elven_fragment_quest',
 			effects: { wisdom: 3 },
 			hiddenEffects: {
-				first_fragment_choice: 'elven',
+				'first_fragment_choice:elven': true,
 				lyra_respect: 10,
 				diplomatic_approach: true
 			}
@@ -129,7 +129,7 @@ Lyra nods. "Start with my people in Moonwhisper Grove. I can introduce you prope
 			next: 'dwarven_fragment_quest',
 			effects: { courage: 3 },
 			hiddenEffects: {
-				first_fragment_choice: 'dwarven',
+				'first_fragment_choice:dwarven': true,
 				pragmatic_approach: true
 			}
 		},
@@ -139,7 +139,7 @@ Lyra nods. "Start with my people in Moonwhisper Grove. I can introduce you prope
 			next: 'dragon_fragment_quest',
 			effects: { courage: 5 },
 			hiddenEffects: {
-				first_fragment_choice: 'dragon',
+				'first_fragment_choice:dragon': true,
 				bold_approach: true,
 				thorne_respect: 10
 			}
@@ -150,7 +150,7 @@ Lyra nods. "Start with my people in Moonwhisper Grove. I can introduce you prope
 			next: 'palace_fragment_quest',
 			effects: { wisdom: 2, courage: 2 },
 			hiddenEffects: {
-				first_fragment_choice: 'palace',
+				'first_fragment_choice:palace': true,
 				political_approach: true,
 				loyalist_rep: 10
 			}

@@ -76,7 +76,7 @@ ${questSeal}
 			hiddenEffects: {
 				guild_master_impressed: true,
 				quest_accepted_eager: true,
-				preparation_level: 'minimal'
+				'preparation_level:minimal': true
 			}
 		},
 		{
@@ -86,7 +86,7 @@ ${questSeal}
 			effects: { wisdom: 3 },
 			hiddenEffects: {
 				quest_accepted_prepared: true,
-				preparation_level: 'thorough',
+				'preparation_level:thorough': true,
 				supplies: 20
 			}
 		},
@@ -97,7 +97,7 @@ ${questSeal}
 			effects: { charisma: 2 },
 			hiddenEffects: {
 				quest_accepted_with_group: true,
-				preparation_level: 'group',
+				'preparation_level:group': true,
 				vale_joining: true,
 				rook_joining: true
 			}
@@ -110,7 +110,7 @@ ${questSeal}
 			hiddenEffects: {
 				quest_accepted_informed: true,
 				guild_master_respect: true,
-				preparation_level: 'informed',
+				'preparation_level:informed': true,
 				silverwood_knowledge: true
 			}
 		}

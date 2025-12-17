@@ -76,7 +76,7 @@ Seraphine speaks first: "Your Highness, we have waited twenty years. The questio
 			next: 'ancestral_spirit',
 			effects: { courage: 3, charisma: 2 },
 			hiddenEffects: {
-				first_impression_factions: 'informal_loyal',
+				'first_impression_factions:informal_loyal': true,
 				companions_at_meeting: true,
 				loyalist_rep: -5,
 				reformist_rep: 10,
@@ -92,7 +92,7 @@ Seraphine speaks first: "Your Highness, we have waited twenty years. The questio
 			next: 'ancestral_spirit',
 			effects: { courage: 4 },
 			hiddenEffects: {
-				first_impression_factions: 'traditional_serious',
+				'first_impression_factions:traditional_serious': true,
 				met_factions_alone: true,
 				loyalist_rep: 10,
 				reformist_rep: -5,
@@ -106,7 +106,7 @@ Seraphine speaks first: "Your Highness, we have waited twenty years. The questio
 			next: 'ancestral_spirit',
 			effects: { wisdom: 3 },
 			hiddenEffects: {
-				first_impression_factions: 'balanced_appropriate',
+				'first_impression_factions:balanced_appropriate': true,
 				rowan_at_meeting: true,
 				loyalist_rep: 5,
 				reformist_rep: 3,
@@ -120,9 +120,9 @@ Seraphine speaks first: "Your Highness, we have waited twenty years. The questio
 			next: 'ancestral_spirit',
 			effects: { wisdom: 4, charisma: 2 },
 			hiddenEffects: {
-				first_impression_factions: 'strategic_advised',
+				'first_impression_factions:strategic_advised': true,
 				vale_advising: true,
-				vale_role_established: 'advisor',
+				'vale_role_established:advisor': true,
 				loyalist_rep: 3,
 				reformist_rep: 8,
 				military_rep: 2,

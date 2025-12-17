@@ -101,7 +101,7 @@ The ritual requires everything you are - your magic, your dreams, your very soul
 			next: 'ending_traditional_restoration',
 			effects: { courage: 5 },
 			hiddenEffects: {
-				ending_choice: 'traditional',
+				'ending_choice:traditional': true,
 				restored_monarchy: true
 			}
 		},
@@ -111,7 +111,7 @@ The ritual requires everything you are - your magic, your dreams, your very soul
 			next: 'ending_reformed_kingdom',
 			effects: { wisdom: 5 },
 			hiddenEffects: {
-				ending_choice: 'reformed',
+				'ending_choice:reformed': true,
 				constitutional_monarchy: true
 			}
 		},
@@ -121,7 +121,7 @@ The ritual requires everything you are - your magic, your dreams, your very soul
 			next: 'ending_new_order',
 			effects: { wisdom: 6 },
 			hiddenEffects: {
-				ending_choice: 'new_order',
+				'ending_choice:new_order': true,
 				revolutionary_change: true
 			}
 		},
@@ -131,7 +131,7 @@ The ritual requires everything you are - your magic, your dreams, your very soul
 			next: 'ending_abdication',
 			effects: { wisdom: 5, courage: 4 },
 			hiddenEffects: {
-				ending_choice: 'abdicate',
+				'ending_choice:abdicate': true,
 				chose_freedom: true
 			}
 		},
@@ -141,7 +141,7 @@ The ritual requires everything you are - your magic, your dreams, your very soul
 			next: 'ending_shared_power',
 			effects: { wisdom: 7, charisma: 5 },
 			hiddenEffects: {
-				ending_choice: 'shared',
+				'ending_choice:shared': true,
 				magical_coalition: true
 			}
 		}

@@ -45,7 +45,7 @@ ${rookIntroduction} "Independent operator, aren't you? I can tell. No company co
 			effects: { reputation: 3 },
 			hiddenEffects: {
 				rook_trust: -10,
-				underworld_connection: 'hostile'
+				'underworld_connection:hostile': true
 			}
 		},
 		{
@@ -55,7 +55,7 @@ ${rookIntroduction} "Independent operator, aren't you? I can tell. No company co
 			effects: { wisdom: 2 },
 			hiddenEffects: {
 				rook_trust: 5,
-				underworld_connection: 'neutral'
+				'underworld_connection:neutral': true
 			}
 		},
 		{
@@ -66,7 +66,7 @@ ${rookIntroduction} "Independent operator, aren't you? I can tell. No company co
 			hiddenEffects: {
 				rook_trust: 20,
 				rook_romance: 10,
-				underworld_connection: 'friendly',
+				'underworld_connection:friendly': true,
 				compassionate_actions: 3
 			}
 		},
@@ -78,7 +78,7 @@ ${rookIntroduction} "Independent operator, aren't you? I can tell. No company co
 			hiddenEffects: {
 				rook_trust: 15,
 				rook_romance: 5,
-				underworld_connection: 'allied'
+				'underworld_connection:allied': true
 			}
 		}
 	]

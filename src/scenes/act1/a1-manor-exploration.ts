@@ -133,7 +133,7 @@ You catch them watching you with worried eyes. "Just promise me something," Ash 
 			hiddenEffects: {
 				manor_explored: true,
 				family_history_known: true,
-				emotional_connection: 'family',
+				'emotional_connection:family': true,
 				vale_trust: 3,
 				compassionate_actions: 2,
 				family_treasury_discovered: true

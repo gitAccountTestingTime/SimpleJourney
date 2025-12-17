@@ -70,7 +70,7 @@ ${whisperAppearance}
 			next: 'guild_masters_request',
 			effects: { wisdom: 2 },
 			hiddenEffects: {
-				whisper_first_impression: 'direct',
+				'whisper_first_impression:direct': true,
 				whisper_trust: 5,
 				information_network_access: true,
 				learned_heritage: true
@@ -82,7 +82,7 @@ ${whisperAppearance}
 			next: 'guild_masters_request',
 			effects: { wisdom: 3 },
 			hiddenEffects: {
-				whisper_first_impression: 'cautious',
+				'whisper_first_impression:cautious': true,
 				whisper_trust: 10,
 				whisper_respect: true,
 				information_network_access: true,
@@ -95,7 +95,7 @@ ${whisperAppearance}
 			next: 'guild_masters_request',
 			effects: { charisma: 2 },
 			hiddenEffects: {
-				whisper_first_impression: 'pragmatic',
+				'whisper_first_impression:pragmatic': true,
 				whisper_trust: 8,
 				information_network_access: true,
 				whisper_owes_favor: false,
@@ -109,7 +109,7 @@ ${whisperAppearance}
 			next: 'guild_masters_request',
 			effects: { charisma: 3 },
 			hiddenEffects: {
-				whisper_first_impression: 'charming',
+				'whisper_first_impression:charming': true,
 				whisper_trust: 7,
 				whisper_romance: 5,
 				information_network_access: true,

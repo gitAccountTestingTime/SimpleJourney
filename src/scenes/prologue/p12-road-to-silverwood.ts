@@ -118,7 +118,7 @@ ${campfireReflection}`
 				vale_trust: 10,
 				vale_romance: 10,
 				magic_understanding: 5,
-				journey_focus: 'vale'
+				'journey_focus:vale': true
 			}
 		},
 		{
@@ -130,7 +130,7 @@ ${campfireReflection}`
 				ash_trust: 10,
 				ash_romance: 10,
 				leadership_insight: true,
-				journey_focus: 'ash'
+				'journey_focus:ash': true
 			},
 			outcomes: [
 				{
@@ -151,7 +151,7 @@ ${campfireReflection}`
 				rook_trust: 10,
 				rook_romance: 10,
 				area_secrets_discovered: true,
-				journey_focus: 'rook'
+				'journey_focus:rook': true
 			}
 		},
 		{
@@ -162,7 +162,7 @@ ${campfireReflection}`
 			hiddenEffects: {
 				self_reflection: true,
 				mental_preparation: true,
-				journey_focus: 'self',
+				'journey_focus:self': true,
 				inner_strength: 5
 			}
 		}

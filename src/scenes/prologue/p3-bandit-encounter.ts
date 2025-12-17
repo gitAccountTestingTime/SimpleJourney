@@ -64,7 +64,7 @@ Vale moves closer, their voice low and concerned. "They're telling the truth, lo
 			next: 'first_shadow_beast',
 			effects: { courage: 2, reputation: -3, wealth: 50 },
 			hiddenEffects: {
-				first_moral_choice: 'ruthless',
+				'first_moral_choice:ruthless': true,
 				ruthlessness: 5,
 				compassionate_actions: -1,
 				quest_payment_received: true
@@ -76,7 +76,7 @@ Vale moves closer, their voice low and concerned. "They're telling the truth, lo
 			next: 'first_shadow_beast',
 			effects: { wisdom: 3, charisma: 2, reputation: 5, wealth: 70 },
 			hiddenEffects: {
-				first_moral_choice: 'diplomatic',
+				'first_moral_choice:diplomatic': true,
 				compassionate_actions: 3,
 				vale_trust: 10,
 				quest_payment_received: true,
@@ -89,7 +89,7 @@ Vale moves closer, their voice low and concerned. "They're telling the truth, lo
 			next: 'first_shadow_beast',
 			effects: { charisma: 3, reputation: 8, wealth: 70 },
 			hiddenEffects: {
-				first_moral_choice: 'compassionate',
+				'first_moral_choice:compassionate': true,
 				compassionate_actions: 5,
 				vale_trust: 15,
 				vale_romance: 10,
@@ -103,7 +103,7 @@ Vale moves closer, their voice low and concerned. "They're telling the truth, lo
 			next: 'first_shadow_beast',
 			effects: { wisdom: 2, wealth: 50 },
 			hiddenEffects: {
-				first_moral_choice: 'lawful',
+				'first_moral_choice:lawful': true,
 				ruthlessness: 2,
 				quest_payment_received: true
 			}

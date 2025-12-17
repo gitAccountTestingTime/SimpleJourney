@@ -69,7 +69,7 @@ ${bondDepth}`
 			next: 'vale_personal_quest',
 			effects: { charisma: 3 },
 			hiddenEffects: {
-				companion_quest_active: 'vale',
+				'companion_quest_active:vale': true,
 				vale_trust: 10
 			}
 		},

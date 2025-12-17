@@ -62,7 +62,7 @@ ${tournamentQuestion}`
 					next: 'blood_magic_awakens',
 					effects: { courage: 2, reputation: 8, wealth: 50 },
 					hiddenEffects: {
-						tournament_participant: 'combat',
+						'tournament_participant:combat': true,
 						general_blackwood_noticed: true
 					}
 				}
@@ -74,7 +74,7 @@ ${tournamentQuestion}`
 			next: 'blood_magic_awakens',
 			effects: { wisdom: 2, reputation: 8, wealth: 30 },
 			hiddenEffects: {
-				tournament_participant: 'archery'
+				'tournament_participant:archery': true
 			}
 		},
 		{
@@ -95,7 +95,7 @@ ${tournamentQuestion}`
 					next: 'blood_magic_awakens',
 					effects: { wisdom: 2, reputation: 6, wealth: 40 },
 					hiddenEffects: {
-						tournament_participant: 'magic',
+						'tournament_participant:magic': true,
 						magical_aptitude: 8
 					}
 				}
@@ -107,7 +107,7 @@ ${tournamentQuestion}`
 			next: 'blood_magic_awakens',
 			effects: { wisdom: 3, reputation: 10, wealth: 60 },
 			hiddenEffects: {
-				tournament_participant: 'strategy',
+				'tournament_participant:strategy': true,
 				seraphine_noticed: true
 			}
 		},
@@ -117,7 +117,7 @@ ${tournamentQuestion}`
 			next: 'blood_magic_awakens',
 			effects: { charisma: 3, reputation: 5, wealth: 20 },
 			hiddenEffects: {
-				tournament_participant: 'none',
+				'tournament_participant:none': true,
 				social_connections: 10
 			}
 		}

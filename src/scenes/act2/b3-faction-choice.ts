@@ -108,7 +108,7 @@ The revelation adds weight to the decision ahead.`
 			next: 'loyalist_path_start',
 			effects: { courage: 3, charisma: 3 },
 			hiddenEffects: {
-				faction_choice: 'loyalist',
+				'faction_choice:loyalist': true,
 				loyalist_rep: 50,
 				reformist_rep: -20,
 				military_rep: 10,
@@ -123,7 +123,7 @@ The revelation adds weight to the decision ahead.`
 			next: 'reformist_path_start',
 			effects: { wisdom: 4, charisma: 3 },
 			hiddenEffects: {
-				faction_choice: 'reformist',
+				'faction_choice:reformist': true,
 				loyalist_rep: -15,
 				reformist_rep: 50,
 				military_rep: -10,
@@ -139,7 +139,7 @@ The revelation adds weight to the decision ahead.`
 			next: 'military_path_start',
 			effects: { courage: 4, wisdom: 2 },
 			hiddenEffects: {
-				faction_choice: 'military',
+				'faction_choice:military': true,
 				loyalist_rep: 10,
 				reformist_rep: -25,
 				military_rep: 50,
@@ -154,7 +154,7 @@ The revelation adds weight to the decision ahead.`
 			next: 'independent_path_start',
 			effects: { courage: 5, wisdom: 4 },
 			hiddenEffects: {
-				faction_choice: 'independent',
+				'faction_choice:independent': true,
 				loyalist_rep: -10,
 				reformist_rep: -10,
 				military_rep: -15,

@@ -226,7 +226,7 @@ ${lyraChallenge}`
 				crystal_quest_active: true,
 				diplomatic_approach: true,
 				lyra_respect: 15,
-				first_fragment: 'elven'
+				'first_fragment:elven': true
 			}
 		},
 		{
@@ -238,7 +238,7 @@ ${lyraChallenge}`
 				crystal_quest_active: true,
 				lyra_respect: 20,
 				learned_racial_customs: true,
-				first_fragment: 'elven'
+				'first_fragment:elven': true
 			}
 		},
 		{
@@ -248,7 +248,7 @@ ${lyraChallenge}`
 			effects: { wisdom: 3 },
 			hiddenEffects: {
 				crystal_quest_active: true,
-				first_fragment: 'elven',
+				'first_fragment:elven': true,
 				lyra_trust_building: true
 			}
 		},
@@ -260,7 +260,7 @@ ${lyraChallenge}`
 			hiddenEffects: {
 				crystal_quest_active: true,
 				strategic_planning: true,
-				first_fragment: 'elven'
+				'first_fragment:elven': true
 			}
 		}
 	]
@@ -354,7 +354,7 @@ She doesn't hesitate. "I accept that risk."`
 			next: 'lyra_confession',
 			effects: { wisdom: 4 },
 			hiddenEffects: {
-				elven_trial_chosen: 'nature',
+				'elven_trial_chosen:nature': true,
 				lyra_respect: 10,
 				rowan_bond: 10,
 				nature_affinity: true
@@ -366,7 +366,7 @@ She doesn't hesitate. "I accept that risk."`
 			next: 'lyra_confession',
 			effects: { courage: 5 },
 			hiddenEffects: {
-				elven_trial_chosen: 'truth',
+				'elven_trial_chosen:truth': true,
 				lyra_respect: 15,
 				heart_proven_pure: true,
 				brave_vulnerability: true
@@ -378,7 +378,7 @@ She doesn't hesitate. "I accept that risk."`
 			next: 'lyra_confession',
 			effects: { charisma: 4 },
 			hiddenEffects: {
-				elven_trial_chosen: 'negotiated',
+				'elven_trial_chosen:negotiated': true,
 				lyra_respect: 8,
 				diplomatic_skill: true
 			}
@@ -389,7 +389,7 @@ She doesn't hesitate. "I accept that risk."`
 			next: 'lyra_confession',
 			effects: { charisma: 3 },
 			hiddenEffects: {
-				elven_trial_chosen: 'vouched',
+				'elven_trial_chosen:vouched': true,
 				lyra_respect: 20,
 				lyra_risked_status: true,
 				lyra_trust_deep: true
