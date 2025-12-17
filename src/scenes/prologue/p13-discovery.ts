@@ -46,7 +46,7 @@ ${portraitTitle} ${nameBelow}
 
 ${timeParadox}
 
-Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess {name}, Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
+Vale reads the inscription aloud, voice trembling with emotion: "Princess {name}, Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
 
 ${hiddenChamber}
 
@@ -68,7 +68,7 @@ ${portraitTitle} ${nameBelow}
 
 ${timeParadox}
 
-Vale reads the inscription aloud, voice trembling with emotion: "Prince/Princess {name}, Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
+Vale reads the inscription aloud, voice trembling with emotion: "Princess {name}, Heir to House Silverwood. Beloved of the kingdom. Hope of the future."
 
 ${hiddenChamber}
 

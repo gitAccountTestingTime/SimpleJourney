@@ -12,7 +12,7 @@ const elderBellRings = `Suddenly, you hear the village elder ringing the bell in
 
 const elderAnnouncement = `"Bandits have been raiding the trade routes," the elder announces, his voice carrying across the square. "We've been unable to get word to any of the adventurer's guilds in the area, and with our current supplies...we are running out of options. We need brave souls to deal with them. Payment will be fair."`;
 
-const situationRealization = `You'd heard rumors of supplies being intercepted and taken before reaching the village, but did not know that things had gotten this bad. On the other hand, this could be your chance to prove yourself, or to actually earn enough coin to finally leave this place. Regardless, as someone already living day to day, you could hardly sit around and hope someone else resolved the situation.`;
+const situationRealization = `You'd heard rumors of supplies being intercepted and taken before reaching the village, but did not know that things had gotten this bad. On the other hand, this could be your chance to prove yourself, or to actually earn enough coin to finally leave this place. Regardless, as someone already living day to day, you can hardly sit around and hope someone else resolved the situation.`;
 
 export const PrologueStart: Scene = {
 	id: 'prologue_start',
@@ -31,7 +31,7 @@ ${situationRealization}`,
 		{
 			id: 'meet-vale',
 			text: 'Step forward without hesitation. You have nothing to lose...and perhaps much to gain.',
-			next: 'meet_vale',
+			next: 'weapon_choice',
 			effects: { courage: 1 },
 			hiddenEffects: {
 				'origin_choice:courageous': true,
@@ -41,7 +41,7 @@ ${situationRealization}`,
 		{
 			id: 'ask-payment',
 			text: 'Ask about the payment first. You need to know it\'s worth the risk.',
-			next: 'meet_vale',
+			next: 'weapon_choice',
 			hiddenEffects: {
 				'origin_choice:pragmatic': true,
 				'personality_seed:practical': true
@@ -50,7 +50,7 @@ ${situationRealization}`,
 		{
 			id: 'organize-others',
 			text: 'Suggest setting up and organizing a proper group out of those willing',
-			next: 'meet_vale',
+			next: 'weapon_choice',
 			effects: { charisma: 1 },
 			hiddenEffects: {
 				'origin_choice:leadership': true,
@@ -60,7 +60,7 @@ ${situationRealization}`,
 		{
 			id: 'alternative-solution',
 			text: 'Propose negotiating with the bandits first. Perhaps there\'s a peaceful resolution.',
-			next: 'meet_vale',
+			next: 'weapon_choice',
 			effects: { wisdom: 1 },
 			hiddenEffects: {
 				'origin_choice:clever': true,

@@ -1,12 +1,19 @@
-import { Scene } from '../../story-manager';
+import { Scene} from '../../story-manager';
+import { AuthorUtils } from '../../author-utils';
 
-const beastArrival = `A bone-chilling howl echoes through the forest. The temperature drops. Vale's face goes pale.`;
+const weaponType = AuthorUtils.getStartingWeapon();
+
+const beastArrival = `Suddenly, a bone-chilling howl echoes through the forest. The temperature drops. Vale's face goes pale.`;
 
 const valeWarning = `"Shadow Beast," they whisper. "Run. NOW."`;
 
 const tooLate = `But it's too late. The creature emerges from the darkness—a writhing mass of shadows and teeth, eyes like dying stars. It's hunger given form, death made manifest.`;
 
-const shadowBeastAppearance = `${beastArrival}\n\n${valeWarning}\n\n${tooLate}`;
+const shadowBeastAppearance = `${beastArrival}
+
+${valeWarning}
+
+${tooLate}`;
 
 const refugeesPanic = `The refugees scream and scatter.`;
 
@@ -16,13 +23,25 @@ const bloodAwakening = `${magicStirs}`;
 
 export const FirstShadowBeast: Scene = {
 	id: 'first_shadow_beast',
-	text: `${shadowBeastAppearance} ${refugeesPanic}\n\n${bloodAwakening}`,
+	text: `${shadowBeastAppearance} ${refugeesPanic}
+	
+	${bloodAwakening}`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['first_moral_choice:ruthless'] },
-			text: `Your confrontation with the refugees ended in violence. Some fled, some were captured. Now karma arrives in shadow form.
+			text: `Though not what you originally envisioned, you know that you don't have any real choice in the matter. These people took the supplies that Thornshaven relies on to survive. They likely cost other's lives just to extend their own.
+			
+			They made their choice when they attacked the village. Now you make yours.
 
----
+			You raise your hand, hearing the volunteers behind you readying themselves as you do.  You give the order to attack. 
+			
+			While your volunteer forces may not be close to any type of formal armed group, it is quickly clear that the makeshift bandits are no match. A few fight back, but most are quickly subdued.  
+
+			While a few managed to flee in the chaos, most are captured or neutralized.  There are limited injuries on your side, but the remaining refugees are clearly shaken.
+			
+			You begin the work of securing the survivors in order to turn them in when you return, when the cries of couple bandits that managed to flee cut through the sullen silence.
+
+			You look to those of your group, but none seem to be missing. Whatever found the fleeing bandits was not part of your group. But what strikes you the most is the looks of pure terror on the faces of the remaining refugees. It is almost as if -
 
 ${shadowBeastAppearance} The refugees you subdued are helpless, still bound. Your ruthless efficiency left them unable to flee.
 
@@ -76,21 +95,13 @@ ${bloodAwakening}`
 			},
 			realLifeChallenge: {
 				id: 'face_fear_challenge',
-				type: 'courage',
+				type: 'learning',
 				title: 'Courage in Small Things',
 				description: 'Your character faces a terrifying shadow beast - you face a fear in your own life',
 				instructions: 'Do something small that makes you uncomfortable or nervous. Make that phone call you\'ve been avoiding, speak up in a situation, try something new, address a small conflict, or take a small risk. It doesn\'t have to be dramatic - just genuine. The point is choosing courage over comfort.',
-				durationMinutes: 10,
 				verificationMethod: 'honor',
-				checklistItems: [
-					'Identify something you\'ve been avoiding',
-					'Acknowledge your discomfort',
-					'Take action despite the fear',
-					'Complete the uncomfortable task',
-					'Reflect on how it felt'
-				],
 				rewards: {
-					stats: { courage: 4, wisdom: 2, charisma: 2 },
+					stats: { courage: 3, wisdom: 1, charisma: 1 },
 					hiddenAttributes: { fear_facer: 1, brave_action: true },
 					message: 'You did the thing you were avoiding. Like your character standing before the shadow beast, you chose courage over comfort. Each act of bravery, however small, makes the next one easier. You\'re building courage as a habit.'
 				}

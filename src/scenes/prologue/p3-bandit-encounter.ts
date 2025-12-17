@@ -107,7 +107,7 @@ ${valeFinal}`
 	choices: [
 		{
 			id: 'fight-them',
-			text: 'No matter their situation, they attacked your village and must be dealt with accordingly.  Tough decisions must be made for Thornshaven\'s safety.',
+			text: 'No matter their situation, they attacked your village and must be dealt with accordingly.  Tough decisions must be made for Thornshaven\'s safety. Give the order to attack.',
 			next: 'first_shadow_beast',
 			effects: { courage: 1, reputation: -3, wealth: 50 },
 			hiddenEffects: {
@@ -117,6 +117,37 @@ ${valeFinal}`
 				quest_payment_received: true,
 				vale_trust: -10,
 				vale_romance: -10
+			}
+		},
+		{
+			id: 'intimidate',
+			text: '[Strength] Demonstrate your physical prowess to intimidate them into compliance without the need for violence.',
+			next: 'first_shadow_beast',
+			requirements: {
+				strength: { min: 4 }
+			},
+			effects: { reputation: 2, wealth: 50, strength: 1 },
+			hiddenEffects: {
+				'first_moral_choice:intimidating': true,
+				ruthlessness: 2,
+				quest_payment_received: true,
+				vale_trust: -2
+			}
+		},
+		{
+			id: 'disarm',
+			text: '[Dexterity] Use quick reflexes to disarm their leaders, showing you could harm them but choose not to.',
+			next: 'first_shadow_beast',
+			requirements: {
+				dexterity: { min: 4 }
+			},
+			effects: { reputation: 4, wealth: 60, dexterity: 1 },
+			hiddenEffects: {
+				'first_moral_choice:dexterous': true,
+				compassionate_actions: 1,
+				quest_payment_received: true,
+				vale_trust: 5,
+				vale_romance: 3
 			}
 		},
 		{

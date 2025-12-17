@@ -329,10 +329,12 @@ export type PlayerStats = {
 	wealth: number;
 	reputation: number;
 	strength: number;
+	dexterity: number;
 	wisdom: number;
 	luck: number;
 	health: number;
 	charisma: number;
+	magical_intelligence: number;
 }
 
 let playerStats: PlayerStats = {
@@ -342,10 +344,12 @@ let playerStats: PlayerStats = {
 	wealth: 0,
 	reputation: 0,
 	strength: 0,
+	dexterity: 0,
 	wisdom: 0,
 	luck: 0,
 	health: 10,
-	charisma: 0
+	charisma: 0,
+	magical_intelligence: 0
 };
 
 // --- Characters and Places ---
@@ -388,10 +392,12 @@ const STAT_LIMITS: Record<keyof PlayerStats, { min: number; max: number }> = {
 	wealth: { min: -1000, max: 100000 },
 	reputation: { min: -100, max: 100 },
 	strength: { min: 0, max: 100 },
+	dexterity: { min: 0, max: 100 },
 	wisdom: { min: 0, max: 100 },
 	luck: { min: 0, max: 100 },
 	health: { min: 0, max: 100 },
-	charisma: { min: 0, max: 100 }
+	charisma: { min: 0, max: 100 },
+	magical_intelligence: { min: 0, max: 100 }
 };
 
 import {
@@ -416,6 +422,7 @@ import {
 
 // Import all story scenes
 import * as PrologueScenes from './scenes/prologue/p1-humble-beginnings';
+import * as P1bScenes from './scenes/prologue/p1b-weapon-choice';
 import * as P2Scenes from './scenes/prologue/p2-meet-vale';
 import * as P3Scenes from './scenes/prologue/p3-bandit-encounter';
 import * as P4Scenes from './scenes/prologue/p4-shadow-beast';
@@ -478,6 +485,7 @@ function extractScenes(module: any): Scene[] {
 // Build scene registry from all imported modules
 const storyScenes = [
 	...extractScenes(PrologueScenes),
+	...extractScenes(P1bScenes),
 	...extractScenes(P2Scenes),
 	...extractScenes(P3Scenes),
 	...extractScenes(P4Scenes),
@@ -850,7 +858,7 @@ export function resetProgress(key = STORAGE_KEY): void {
 	playerName = '';
 	previousSceneId = null;
 	// reset stats as well
-	playerStats = { courage: 0, curiosity: 0, empathy: 0, wealth: 0, reputation: 0, strength: 0, wisdom: 0, luck: 0, health: 10, charisma: 0 };
+	playerStats = { courage: 0, curiosity: 0, empathy: 0, wealth: 0, reputation: 0, strength: 0, dexterity: 0, wisdom: 0, luck: 0, health: 10, charisma: 0, magical_intelligence: 0 };
 	// reset titles
 	earnedTitles.clear();
 	// reset rewards
