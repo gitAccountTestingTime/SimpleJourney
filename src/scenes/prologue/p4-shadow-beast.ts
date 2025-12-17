@@ -114,9 +114,11 @@ ${bloodAwakening}`
 			effects: { courage: 5, reputation: 7},
 			hiddenEffects: {
 				'shadow_beast_reaction:faced_fear': true,
+				'shadow_beast_reaction:fought_bravely': true,
 				'magical_awakening:courage': true,
 				blood_magic_affinity: 5,
 				vale_trust: 5,
+				ash_trust: 5,
 				refugees_trust: 10,
 				fear_conquered: true,
 				shadow_beast_bounty_earned: true
@@ -148,6 +150,7 @@ ${bloodAwakening}`
 						'magical_awakening:combat': true,
 						blood_magic_affinity: 3,
 						vale_trust: 5,
+						ash_trust: 5,
 						refugees_trust: 5,
 						shadow_beast_bounty_earned: true
 					}
@@ -161,6 +164,7 @@ ${bloodAwakening}`
 						'magical_awakening:combat': true,
 						blood_magic_affinity: 3,
 						vale_trust: 5,
+						ash_trust: 5,
 						refugees_trust: 5,
 						shadow_beast_bounty_earned: true
 					}
@@ -173,6 +177,7 @@ ${bloodAwakening}`
 						'magical_awakening:survival': true,
 						blood_magic_affinity: 3,
 						vale_trust: 3,
+						ash_trust: 5,
 						refugees_trust: 3,
 						shadow_beast_bounty_earned: true
 					}
@@ -190,6 +195,7 @@ ${bloodAwakening}`
 				blood_magic_affinity: 1,
 				compassionate_actions: 3,
 				vale_trust: 12,
+				ash_trust: 5,
 				vale_romance: 7,
 				shadow_beast_bounty_earned: true
 			}

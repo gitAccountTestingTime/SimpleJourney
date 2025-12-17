@@ -1,64 +1,77 @@
 import { Scene } from '../../story-manager';
 
-const wakingUp = `You wake in a clean bed, bandaged and sore.`;
+const ashReveal = `"Name's Ash. I run a mercenary company, Inferno. 
 
-const ashReveal = `"Name's Ash. I run a mercenary company. We've been tracking Shadow Beast activity—it's getting worse."`;
+We typically operate on the fringes of the kingdom, taking contracts others won't touch. Recently, we've been tracking Shadow Beast activity, which led us to this area. We'd been tracking your particular beast after hearing rumors of a village not far away that had been destroyed.
 
-const ashStudy = `They study you with interest.`;
+Those creatures are dangerous, unpredictable, and deadly. Not many survive an encounter. Yet here you are..."`;
 
-const ashIntroduction = `The speaker is a scarred warrior in their forties, short gray hair and kind eyes that have seen too much death. ${ashReveal}
+const ashStudy = `She studies you with interest, as if she can almost see something beyond the villager you present as.`;
+
+const ashIntroduction = 
+`The speaker is a scarred warrior, perhaps in her forties, with short gray hair and kind eyes that have clearly seen too much death. She carries herself with the confidence of someone used to command, and has the armor and weapons to match.  This is no casual volunteer, but a seasoned mercenary captain.
+
+${ashReveal}
 
 ${ashStudy}`;
 
-const ashOffer = `Ash leans forward. "I could use someone with your... potential. Good pay, proper training, see the kingdom. Or you can go back to your village and pretend this never happened. Your choice."`;
+const ashOffer = `Ash leans forward. "I could use someone with your... potential. I can offer you good pay, proper training, a chance to see the kingdom. An opportunity for something more. Or if you prefer, you can go back to your village. Pretend this never happened. Go back to your old life. The choice is yours."`;
 
 export const MeetAsh: Scene = {
 	id: 'meet_ash',
-	text: `You wake in a clean bed, bandaged and sore. A gruff voice speaks from the corner.
-
-"You're lucky my company was passing through. That Shadow Beast would have killed you all." 
-
-${ashIntroduction} "You fought well. Or at least, you tried. More importantly, I saw your blood glow when that thing got close. That's not normal."
-
-${ashOffer}`,
+	text: '',
 	textVariants: [
 		{
 			conditions: { hasFlags: ['shadow_beast_reaction:fought_bravely'] },
-			text: `You wake in a clean bed, bandaged and sore. The battle is a blur of claws, shadows, and your own burning blood.
+			text: `You wake in a clean bed, bandaged and sore. The battle is a blur of claws, shadows, and your own burning blood. You raise a hand to your head trying to recall the details, but very little is clear.  Very little, that is, except that you are somehow alive.
 
-A gruff voice speaks from the corner. "Brave. Reckless. Impressive." 
+A gruff voice speaks from the corner. "Untrained. Reckless. and yet...brave. Almost impressive. And surprisingly effective." 
 
-${ashIntroduction} "You stood your ground against a Shadow Beast. Most veterans run. And that glow in your blood when you fought—I've never seen anything like it."
+${ashIntroduction} "You stood your ground against a Shadow Beast. Even most veterans run when confronted with them alone. And that glow in your blood when you fought, well...I've never seen anything like it.
+
+While you clearly have a lot to learn, you did well for someone with no training."
+
+${ashOffer}`
+		},
+		{
+			conditions: { hasFlags: ['shadow_beast_reaction:fought_desperately'] },
+			text: `You wake in a clean bed, bandaged and sore. The battle is a blur of claws, shadows, and your own burning blood. You raise a hand to your head trying to recall the details, but very little is clear.  Very little, that is, except that you are somehow alive.
+
+A gruff voice speaks from the corner. "Untrained. Reckless. and yet...brave, if nothing else." 
+
+${ashIntroduction} "You stood your ground against a Shadow Beast. Even most veterans run when confronted with them alone. And that glow in your blood when you fought, well...I've never seen anything like it.
+
+While you clearly have a lot to learn, you did well for someone with no training."
 
 ${ashOffer}`
 		},
 		{
 			conditions: { hasFlags: ['shadow_beast_reaction:protective'] },
-			text: `You wake in a clean bed, bandaged and sore. Your last memory is shielding the refugees' children, preparing for death that never came.
+			text: `You wake in a clean bed, bandaged and sore. Your last memory is being forced back while shielding the refugees' children who were too scared to flee and were abandoned by the others. You recall preparing for death...a death that apparently never came.
 
-A gruff voice speaks with respect. "You protected them. All of them. Nearly died doing it." 
+A gruff voice speaks with respect. "You protected them. Almost all of them. And nearly died doing it." 
 
-${ashIntroduction} "The way you put others first, even facing certain death... that's rare. And when your blood glowed, the beast actually hesitated. You've got something special."
+${ashIntroduction} "The way you put others first, even when faced with certain death... you're certainly a strange one. But then again, everyone in Inferno is a little 'strange' as well."
 
 ${ashOffer}`
 		},
 		{
 			conditions: { hasFlags: ['shadow_beast_reaction:pragmatic'] },
-			text: `You wake in a clean bed, bandaged and sore. Survival instinct saved you—you fought smart, not brave.
+			text: `You wake in a clean bed, bandaged and sore. Your Survival instinct saved you.
 
-A gruff voice sounds almost amused. "Smart fighter. You knew when to retreat, when to strike. Stayed alive." 
+A gruff voice sounds almost amused. "A smart fighter knows when to retreat. Knows to stay alive. A dead warrior wins no fights." 
 
-${ashIntroduction} "Your tactical sense is sound. But what's really interesting is how your blood reacted to that creature. That's the difference between surviving and winning."
+${ashIntroduction} "Your tactical sense is sound. But what's really interesting is how the creature almost seemed to hesitate when it came to you. That may be the difference between surviving...and someday winning."
 
 ${ashOffer}`
 		},
 		{
 			conditions: { hasFlags: ['shadow_beast_reaction:curious'] },
-			text: `You wake in a clean bed, bandaged and sore. Your mind races with questions about the creature—what it was, why your blood affected it.
+			text: `You wake in a clean bed, bandaged and sore. Your mind races with questions about the creature...what it was, why your blood affected it. For now though, you are simply grateful to be alive.
 
-A gruff voice sounds intrigued. "You tried to understand it. Most people just scream." 
+A gruff voice sounds intrigued, bordering on laughter. "You were trying to... understand it? Talk to it? Communicate? Honestly, most people just scream. Whatever it was you were doing, you managed to buy time if nothing else. In this case, that likely saved your life, and the lives of others."
 
-${ashIntroduction} "That curiosity could get you killed... or make you extraordinarily valuable. Your blood reacted to that Shadow Beast in ways I've only read about in ancient texts."
+${ashIntroduction} "That curiosity of yours could easily get you killed... or make you extraordinarily valuable. Your blood reacted to that Shadow Beast in ways I've never heard of."
 
 ${ashOffer}`
 		}
@@ -66,41 +79,42 @@ ${ashOffer}`
 	choices: [
 		{
 			id: 'join-immediately',
-			text: 'Accept the offer—time for adventure',
+			text: 'Accept the offer without hesitation. It is time for adventure!',
 			next: 'mercenary_training',
-			effects: { courage: 3, reputation: 5 },
+			effects: { courage: 2, reputation: 5 },
 			hiddenEffects: {
 				ash_trust: 20,
-				mercenary_life_chosen: true,
-				ash_romance: 5
+				ash_romance: 7,
+				mercenary_life_chosen: true
 			}
 		},
 		{
 			id: 'negotiate-terms',
-			text: 'Negotiate the terms of employment',
+			text: 'Negotiate the terms of employment. It seems like a good opportunity, but you want to be sure this is the right fit.',
 			next: 'mercenary_training',
-			effects: { wisdom: 3 },
+			effects: { wisdom: 2 },
 			hiddenEffects: {
-				ash_trust: 10,
+				ash_trust: 15,
+				ash_romance: 5,
 				mercenary_life_chosen: true
 			}
 		},
 		{
 			id: 'ask-about-past',
-			text: 'Ask about their past and the Shadow Beasts',
+			text: 'Agree in exchange for information about Ash, Inferno, and the Shadow Beasts. Ash seems like someone who has much to teach, and you are in desperate need of knowledge.',
 			next: 'mercenary_training',
-			effects: { wisdom: 2, charisma: 2 },
+			effects: { wisdom: 1, charisma: 1 },
 			hiddenEffects: {
-				ash_trust: 25,
+				ash_trust: 12,
 				mercenary_life_chosen: true,
 				ash_romance: 10
 			}
 		},
 		{
 			id: 'decline-stay-touch',
-			text: 'Decline for now, but stay in touch',
-			next: 'meet_rook',
-			effects: { wisdom: 2 },
+			text: 'Decline for now, but offer to stay in touch.  You want to forge your own path.',
+			next: 'independent_adventuring',
+			effects: { wisdom: 1 },
 			hiddenEffects: {
 				ash_trust: 5,
 				mercenary_life_chosen: false,
