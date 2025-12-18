@@ -92,7 +92,7 @@ ${ashOffer}`
 			id: 'negotiate-terms',
 			text: 'Negotiate the terms of employment. It seems like a good opportunity, but you want to be sure this is the right fit.',
 			next: 'mercenary_training',
-			effects: { wisdom: 2 },
+			effects: { wisdom: 2, wealth: 50 },
 			hiddenEffects: {
 				ash_trust: 15,
 				ash_romance: 5,
@@ -105,7 +105,7 @@ ${ashOffer}`
 			next: 'mercenary_training',
 			effects: { wisdom: 1, charisma: 1 },
 			hiddenEffects: {
-				ash_trust: 12,
+				ash_trust: 10,
 				mercenary_life_chosen: true,
 				ash_romance: 10
 			}
