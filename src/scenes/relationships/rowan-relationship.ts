@@ -8,19 +8,19 @@ import { Scene } from '../../story-manager';
 
 export const RowanBonding1: Scene = {
 	id: 'rowan_bonding_1',
-	text: `After a particularly exhausting day of political meetings, you find Rowan on the manor's eastern balcony, watching the forest.
+	text: `After particularly exhausting day of political meetings that stretched interminably, you find Rowan on manor's eastern balcony overlooking forest, watching tree line with quiet intensity. Evening breeze carries scent of pine and earth, cool against skin after stuffy council chambers.
 
-They don't turn as you approach, but their posture relaxes slightly - they know your footstep.
+They don't turn as you approach with footsteps echoing softly on stone, but their posture relaxes slightly - subtle shift in shoulders, easing of tension in spine. They know your footstep intimately after months of guarding you, can distinguish it from any other in manor.
 
-"I needed air," Rowan says quietly. "Too many walls, too many words. The nobles talk in circles, saying everything and nothing."
+"I needed air," Rowan says quietly with voice carrying relief mixed with frustration. "Too many walls closing in, too many words saying nothing. The nobles talk in endless circles, saying everything and nothing simultaneously. All performance, no substance."
 
-They finally look at you, {name}.
+They finally look at you with forest-green eyes reflecting twilight, {name}, and you see exhaustion there mixed with something else - kinship perhaps, or understanding.
 
-"How do you stand it?"
+"How do you stand it day after day?" The question carries weight beyond casual conversation.
 
-This is the first time Rowan has initiated personal conversation. Usually they're all business - guardian duties, security concerns, tactical assessments.
+This is first time Rowan has initiated personal conversation beyond duty. Usually they're all business - guardian duties executed flawlessly, security concerns addressed immediately, tactical assessments delivered with precision. Professional distance maintained religiously.
 
-This moment of openness feels significant.`,
+This moment of openness feels significant, like door cracking open to reveal what's usually kept hidden.`,
 	choices: [
 		{
 			id: 'admit-struggle',
@@ -59,23 +59,23 @@ This moment of openness feels significant.`,
 
 export const RowanBonding1B: Scene = {
 	id: 'rowan_bonding_1b',
-	text: `Rowan is quiet for a long moment, then: "I don't belong in either world. The forest elves see me as too human - my father's blood 'diluting' the pure line. The humans see me as too elven - mystical, foreign, not quite trustworthy." 
+	text: `Rowan is quiet for long moment stretching uncomfortably as they gather courage to voice thoughts usually kept locked away. Then: "I don't belong in either world completely," they say with voice carrying old pain. "The forest elves see me as too human - my father's blood 'diluting' the pure elven line they pride themselves on. They let me visit but never truly welcomed me as one of them. The humans see me as too elven - mystical, foreign, not quite trustworthy with their secrets. Other, always other."
 
-They trace a pattern on the balcony railing. "I became a ranger because the wilderness doesn't care about bloodlines. The forest accepts everyone who respects it. Trees don't judge."
+They trace absent pattern on balcony railing with calloused finger, studying movement rather than meeting your eyes. "I became ranger because wilderness doesn't care about bloodlines or purity. The forest accepts everyone who respects it with open arms. Trees don't judge your parentage. Deer don't care if you're half-blood. Rivers flow the same for everyone."
 
-The vulnerability in their voice is raw. This is clearly something they don't share often.
+The vulnerability in their voice is raw and painful, clearly something they don't share often. Each word costs them.
 
-"But now I'm here, in a human manor, serving a human noble - well, mostly human. The Thornwood relatives who barely acknowledge my existence are watching, judging. Waiting for me to fail and prove that half-breeds can't be trusted with important duties."
+"But now I'm here, in human manor serving nobility, surrounded by political machinations," they continue with frustration bleeding through. "The Thornwood relatives who barely acknowledge my existence publicly are watching from shadows, judging every move. Waiting for me to fail spectacularly and prove that half-breeds can't be trusted with important duties. That mixing blood produces inferior results."
 
-They look at you directly. "So yes, I struggle. Every day. But my struggles aren't about politics or power. They're about belonging nowhere and wondering if that will ever change."`,
+They look at you directly finally, forest-green eyes holding yours. "So yes, I struggle with it. Every single day. But my struggles aren't about politics or power games you navigate. They're about belonging nowhere completely and wondering if that will ever change, if I'll ever find place where I fit."`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { authentic_connection: true }
 			},
-			text: `Rowan sees your genuine understanding and continues more openly: "You know what it's like, don't you? Growing up as an orphan in Thornhaven, never quite fitting in. Then discovering you're secretly royal - that must have been jarring. Neither world fully yours."
+			text: `Rowan sees your genuine understanding reflected in expression and continues more openly, walls lowering: "You know what it's like intimately, don't you?" they say with recognition dawning. "Growing up as orphan in Thornhaven, never quite fitting in with other children. Then discovering you're secretly royal - that must have been profoundly jarring. Neither world fully yours to claim. Always between."
 
-They move closer. "Maybe that's why protecting you feels... different. Not just duty. You actually understand what it means to be between worlds. To carry two identities that don't easily reconcile."`
+They move closer, closing distance with deliberate intent. "Maybe that's why protecting you feels... different from other assignments," they admit quietly. "Not just duty assigned. You actually understand deeply what it means to be between worlds. To carry two identities that don't easily reconcile. To feel like imposter in both places claiming you." Their voice warms with connection found.`
 		}
 	],
 	choices: [
@@ -129,23 +129,23 @@ They move closer. "Maybe that's why protecting you feels... different. Not just 
 
 export const RowanBonding2: Scene = {
 	id: 'rowan_bonding_2',
-	text: `Days later, Rowan invites you to train in the forest. "You need to understand the wilderness if you're going to rule a kingdom that's half forest and mountain," they say. "Besides, the rangers will respect you more if you're not completely helpless outside city walls."
+	text: `Days later after initial opening, Rowan invites you to train in forest surrounding manor. "You need to understand wilderness intimately if you're going to rule kingdom that's half forest and mountain," they say with practical logic. "Besides, the rangers will respect you more if you're not completely helpless outside city walls where they operate. Competence matters to them."
 
-The training is intense but rewarding. Rowan teaches you to move quietly, to read tracks, to sense the forest's rhythms. They're patient but demanding, pushing you to improve while never making you feel inadequate.
+The training is intense but rewarding in ways court lessons never are. Rowan teaches you to move quietly through undergrowth without snapping twigs, to read animal tracks in soft earth, to sense forest's rhythms and patterns - when birds fall silent signaling predator, how wind shifts before storm. They're patient but demanding, pushing you to improve steadily while never making you feel inadequate for starting behind. Encouragement balanced with correction.
 
-"You're better at this than most nobles," they admit during a break. "Most are too proud to learn from a half-elf ranger. They'd rather die stupidly in the woods than accept help from someone they see as beneath them."
+"You're better at this than most nobles I've trained," they admit during water break, genuine surprise coloring voice. "Most are too proud to learn from half-elf ranger, too convinced of superiority. They'd rather die stupidly in woods than accept help from someone they see as beneath them socially."
 
-There's old hurt in those words, masked by casual delivery.`,
+There's old hurt in those words that cuts deep, masked by casual delivery and practical tone.`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { shared_understanding: true }
 			},
-			text: `Rowan is more open during training, sharing stories about growing up in the forest. "My mother taught me to track before I could read. My father taught me human customs and language. I got the best of both worlds... and belonged to neither."
+			text: `Rowan is more open during training sessions, sharing stories about growing up between worlds. "My mother taught me to track before I could read written language," they say while demonstrating proper stance. "My father taught me human customs and courtly language. I got best of both worlds in skills and knowledge..." Pause, pain flickering across features. "And belonged fully to neither. Always guest, never home."
 
-They pause, adjusting your stance for better balance. Their hands linger a moment longer than necessary. "But with you, I feel less... divided. Like maybe being between worlds isn't a curse. It's a perspective. Understanding multiple truths at once."
+They pause mid-demonstration, adjusting your stance for better balance with hands gentle but firm. Their hands linger moment longer than strictly necessary for instruction, warmth seeping through fabric. "But with you, I feel less... divided," they admit quietly, vulnerability showing. "Like maybe being between worlds isn't curse to escape. It's perspective to value. Understanding multiple truths simultaneously instead of being trapped in one view."
 
-Their forest-green eyes meet yours with unexpected intensity.`
+Their forest-green eyes meet yours with unexpected intensity that makes breath catch, something unspoken passing between you.`
 		}
 	],
 	choices: [
@@ -198,33 +198,33 @@ Their forest-green eyes meet yours with unexpected intensity.`
 	]
 };export const RowanBonding3: Scene = {
 	id: 'rowan_bonding_3',
-	text: `Late one evening, Rowan finds you studying maps and reports. Without a word, they set down a cup of tea and a plate of the manor's kitchen offerings.
+	text: `Late one evening when moon hangs full outside windows, Rowan finds you studying maps and reports spread across desk. Without word spoken, they set down cup of tea still steaming and plate of manor's kitchen offerings - bread, cheese, dried fruit.
 
-"You're pushing too hard," they say quietly. "You can't solve everything in one night. The kingdom took centuries to build and seventeen years to damage. Give yourself time."
+"You're pushing too hard," they say quietly with concern evident. "You can't solve everything in one night through force of will. The kingdom took centuries to build and seventeen years to damage under incompetent regency. Give yourself time to breathe."
 
-They hesitate, then add: "Your parents understood that. They worked tirelessly but also knew when to rest. When to just... be human." A slight smile. "Well, mostly human with some magical bloodline complications."
+They hesitate, then add with careful words: "Your parents understood that balance. They worked tirelessly for kingdom but also knew when to rest. When to just... be human." Slight smile tugs lips. "Well, mostly human with some magical bloodline complications thrown in for interest."
 
-This care feels different from guardian duty. More personal. More intimate.`,
+This care feels different from guardian duty executed professionally. More personal. More intimate. Like friend caring for friend, or something even deeper.`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { rowan_romance_seed: true, shared_understanding: true }
 			},
-			text: `Rowan sits beside you, closer than strictly necessary. "I worry about you," they admit. "Not just because it's my duty to protect you. Because... I care. About you. The person, not just the heir."
+			text: `Rowan sits beside you at desk, closer than strictly necessary for professional guardian, close enough to feel their warmth. "I worry about you," they admit with voice carrying weight beyond duty. "Not just because it's my assigned duty to protect you from physical threats. Because... I care deeply. About you specifically. The person behind title, not just heir to throne."
 
-They look vulnerable and uncertain - so different from their usual confident ranger persona. "I know this is inappropriate. Guardian falling for their charge. But spending every day with you, seeing your genuine care for people, your willingness to learn, your kindness..." They trail off.
+They look vulnerable and uncertain in ways you've never seen - so different from their usual confident ranger persona that commands respect. "I know this is inappropriate confession," they say quickly. "Guardian falling for their charge. All the protocols violated. But spending every day with you, seeing your genuine care for people you barely know, your willingness to learn from half-elf ranger, your kindness shown freely..." They trail off, unable to finish.
 
-"I'm not asking for anything," Rowan says quickly. "Just... wanted you to know. That you matter. To me. Personally."
+"I'm not asking for anything," Rowan says quickly, words tumbling. "Just... wanted you to know truth. That you matter tremendously. To me. Personally. Beyond duty or obligation."
 
-Their hand rests on the table between you, not quite touching yours but the invitation is clear.`
+Their hand rests on table between you, not quite touching yours but invitation is clear - distance that could be closed with simple movement.`
 		},
 		{
 			conditions: {
 				hasHiddenAttributes: { deep_connection_formed: true }
 			},
-			text: `Rowan sits with you in comfortable silence, the kind that only exists between people who truly understand each other. "You know what I realized?" they say eventually. "For the first time in my life, I feel like I belong somewhere. Not because of blood or heritage or duty. Because of choice. Connection."
+			text: `Rowan sits with you in comfortable silence that only exists between people who truly understand each other's souls, the kind that doesn't need filling with empty words. "You know what I realized recently?" they say eventually, breaking silence with revelation. "For first time in my entire life, I feel like I belong somewhere completely. Not because of blood proving heritage or birthright claiming position. Not because duty assigned me here. Because of choice freely made. Connection earned through understanding."
 
-They meet your eyes. "Thank you for that. For seeing me as Rowan, not as 'the half-elf guardian' or 'Thornwood's embarrassment.' Just... me."`
+They meet your eyes with warmth transforming features. "Thank you for that profound gift. For seeing me as Rowan - individual person with worth. Not as 'the half-elf guardian' or 'Thornwood's embarrassment' or any label. Just... me. Wholly and completely." Gratitude shines through words.`
 		}
 	],
 	choices: [
@@ -281,19 +281,19 @@ They meet your eyes. "Thank you for that. For seeing me as Rowan, not as 'the ha
 
 export const RowanRomancePath: Scene = {
 	id: 'rowan_romance_path',
-	text: `Your hand covers Rowan's. "I feel it too," you admit. "I've been trying to convince myself it was just gratitude or admiration for your skills, but..." You meet their eyes. "It's more. You're more."
+	text: `Your hand covers Rowan's, warmth spreading from contact. "I feel it too," you admit with honesty that costs courage. "I've been trying desperately to convince myself it was just gratitude for protection or admiration for your skills, but..." You meet their forest-green eyes directly. "It's more. You're more to me than duty or respect."
 
-Rowan's breath catches. "I shouldn't want this. It complicates everything. Guardian and ward, noble and ranger, all the protocols..." But even as they speak, they're turning their hand to intertwine fingers with yours.
+Rowan's breath catches audibly, eyes widening. "I shouldn't want this," they say even as fingers curl around yours. "It complicates everything impossibly. Guardian and ward, noble and ranger, all the protocols violated..." But even as they speak words of caution, they're turning their hand to intertwine fingers with yours properly, grip firm and warm. Actions contradicting words.
 
-"Protocols can wait," you say softly. "Right now, I just want this moment. With you. As equals. As people who care about each other."
+"Protocols can wait," you say softly but firmly. "Right now, I just want this moment. With you. As equals. As two people who care about each other beyond roles assigned."
 
-Rowan stands, pulling you up with them. You're close now, close enough to see the ring of darker green around their irises, close enough to feel their breath.
+Rowan stands, pulling you up with them gently but deliberately. You're close now, close enough to see ring of darker green around their irises like forest depths, close enough to feel their breath warm against skin, close enough to count heartbeats.
 
-"May I kiss you?" Rowan asks, formal even in intimacy, always respectful.
+"May I kiss you?" Rowan asks with formal courtesy even in intimacy, always respectful of boundaries and consent.
 
-Your answer comes not in words but in the closing of distance between you. The kiss is gentle at first - tentative, questioning. Then deeper as certainty replaces uncertainty.
+Your answer comes not in words but in closing of distance between you, eliminating space. The kiss is gentle at first - tentative and questioning, testing boundaries. Then deeper as certainty replaces uncertainty, as desire overcomes hesitation. Their lips taste of forest and tea, familiar and new simultaneously.
 
-When you part, Rowan rests their forehead against yours. "Whatever comes next," they whisper, "we face it together. Not guardian and heir. Partners."`,
+When you part finally, Rowan rests their forehead against yours with eyes closed. "Whatever comes next," they whisper like sacred vow, "we face it together. Not guardian and heir following hierarchy. Partners. Equals."`,
 	choices: [
 		{
 			id: 'affirm-partnership',
@@ -351,27 +351,27 @@ When you part, Rowan rests their forehead against yours. "Whatever comes next," 
 
 export const RowanRomanceContinue: Scene = {
 	id: 'rowan_romance_continue',
-	text: `Your romantic relationship with Rowan deepens as you navigate noble duties and wilderness excursions together. They teach you tracking in the morning, you practice diplomacy in the afternoon, and in the evenings you find moments of intimacy away from prying eyes.
+	text: `Your romantic relationship with Rowan deepens as you navigate noble duties and wilderness excursions together, finding balance between two worlds. They teach you advanced tracking in morning mist, you practice diplomacy in afternoon meetings, and in evenings you find stolen moments of intimacy away from prying eyes that judge and whisper.
 
-"I never thought I'd have this," Rowan admits during one such evening. "Someone who understands the wildness in me and the duty that binds me. Someone who sees both the ranger and the person." They kiss you softly. "You make me whole in ways I didn't know I needed."
+"I never thought I'd have this," Rowan admits during one such evening stolen from obligations, moonlight filtering through windows. "Someone who understands the wildness in me that calls to forest and the duty that binds me to service. Someone who sees both the ranger tracking prey and the person beneath role." They kiss you softly with tenderness that makes heart ache. "You make me whole in ways I didn't know I needed. Complete instead of divided."
 
-Your relationship becomes a model of balance - wilderness and civilization, duty and desire, strength and tenderness intertwined.`,
+Your relationship becomes model of balance for others to observe - wilderness and civilization merged, duty and desire intertwined, strength and tenderness woven together seamlessly.`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['committed_relationship'] },
-			text: `Your romantic relationship with Rowan deepens into something profound and lasting. They introduce you to their ranger network as their partner - an acknowledgment that speaks volumes in their community.
+			text: `Your romantic relationship with Rowan deepens into something profound and lasting that transforms both. They introduce you to their ranger network as their partner - acknowledgment that speaks volumes in their community where partnerships are sacred, where bonds are judged by action not words.
 
-"You've given me permission to be whole," Rowan says, arms around you under the stars. "Guardian and lover. Wild and civilized. Duty and devotion all at once." They hold you close. "I thought I had to choose. You showed me I could be everything."
+"You've given me permission to be whole," Rowan says with arms wrapped around you under stars scattered across sky like diamonds. "Guardian and lover simultaneously. Wild and civilized both. Duty and devotion all at once without choosing." They hold you close with strength and gentleness balanced. "I thought I had to choose between worlds, sacrifice one identity for other. You showed me I could be everything. All of me."
 
-Your love is built on mutual respect, shared adventures, and absolute trust.`
+Your love is built on foundation of mutual respect earned through trials, shared adventures testing limits, and absolute trust that doesn't waver.`
 		},
 		{
 			conditions: { hasFlags: ['realistic_romance'] },
-			text: `Your romantic relationship with Rowan faces challenges but grows stronger for them. Court whispers about propriety, questions about their ranger background, the complexities of guardian and heir becoming lovers.
+			text: `Your romantic relationship with Rowan faces challenges but grows stronger for overcoming them together. Court whispers about propriety violated, questions about their ranger background lacking nobility, complexities of guardian and heir becoming lovers breaking protocols.
 
-But you face each obstacle together with honesty and planning. "We knew this wouldn't be easy," Rowan says pragmatically. "But nothing worthwhile is. And you're worth every complication, every negotiation, every raised eyebrow from stuffy nobles."
+But you face each obstacle together with honesty and strategic planning, tackling problems as team. "We knew this wouldn't be easy path," Rowan says pragmatically while holding your hand. "But nothing worthwhile ever is. And you're worth every complication we navigate, every negotiation required, every raised eyebrow from stuffy nobles who judge what they don't understand."
 
-Your love is built on realistic expectations, shared problem-solving, and choosing each other daily despite difficulties.`
+Your love is built on realistic expectations consciously maintained, shared problem-solving through difficulties, and choosing each other daily despite obstacles that would break weaker bonds.`
 		}
 	],
 	choices: [
@@ -390,13 +390,13 @@ Your love is built on realistic expectations, shared problem-solving, and choosi
 
 export const RowanFriendshipPath: Scene = {
 	id: 'rowan_friendship_path',
-	text: `You squeeze Rowan's hand warmly. "You're incredibly important to me," you say honestly. "One of the most important people in my life. But I value what we have as friends - this deep understanding, this trust. I don't want romantic complications to risk losing that."
+	text: `You squeeze Rowan's hand warmly, conveying affection without romance. "You're incredibly important to me," you say with complete honesty. "One of most important people in my entire life. But I value what we have as friends so deeply - this understanding that goes beyond words, this trust built through shared struggles. I don't want romantic complications to risk losing that foundation."
 
-You see a flash of disappointment in Rowan's eyes, but they manage a genuine smile. "I understand," they say. "And honestly? Having you as a true friend, someone who actually sees me... that's rarer and maybe more valuable than romance."
+You see flash of disappointment in Rowan's forest-green eyes like shadow passing over sun, but they manage genuine smile despite hurt. "I understand," they say with voice steady. "And honestly? Having you as true friend, someone who actually sees me completely... that's rarer and maybe more valuable than romance could ever be. Romance is common. This understanding isn't."
 
-They grip your hand firmly before releasing it. "No awkwardness, no distance. We're still partners in this impossible task of saving a kingdom. Still the people who understand each other's struggles. Just... friends who would die for each other rather than lovers. I can live with that."
+They grip your hand firmly before releasing it with deliberate care. "No awkwardness, no distance between us," they promise. "We're still partners in this impossible task of saving kingdom from corruption. Still the people who understand each other's struggles intimately. Just... friends who would die for each other rather than lovers. I can live with that. I can thrive with that."
 
-The tension in the room eases into something comfortable and solid. "Actually," Rowan adds with growing certainty, "I'm glad we talked about this. Clear communication, honest feelings, mutual respect. This is what real friendship looks like."`,
+The tension in room eases into something comfortable and solid as stone. "Actually," Rowan adds with growing certainty warming voice, "I'm glad we talked about this openly. Clear communication, honest feelings expressed, mutual respect maintained. This is what real friendship looks like when done right."`,
 	choices: [
 		{
 			id: 'cement-friendship',
@@ -415,13 +415,13 @@ The tension in the room eases into something comfortable and solid. "Actually," 
 
 export const RowanUncertainPath: Scene = {
 	id: 'rowan_uncertain_path',
-	text: `"I care about you deeply," you say carefully. "But there's so much happening - the kingdom, the conspiracy, everything. I need time to understand my own feelings before making promises I might not be able to keep."
+	text: `"I care about you deeply," you say carefully, choosing words with precision. "But there's so much happening simultaneously - kingdom in chaos, conspiracy threatening everything, responsibilities crushing. I need time to understand my own feelings properly before making promises I might not be able to keep. That wouldn't be fair to either of us."
 
-Rowan nods slowly, processing. "That's fair," they say after a moment. "Honest, at least. I'd rather have truth than false hope." They manage a small smile. "And patient waiting is something rangers are good at. We can track prey for days without rushing."
+Rowan nods slowly, processing words with visible thought. "That's fair," they say after moment of consideration. "Honest, at least. I'd rather have truth than false hope or empty promises." They manage small smile despite vulnerability. "And patient waiting is something rangers are exceptionally good at. We can track prey for days without rushing, observing patterns, waiting for right moment."
 
-"This isn't a hunt," you protest gently.
+"This isn't hunt," you protest gently, uncomfortable with comparison.
 
-"No," Rowan agrees, "but it is about being present and alert. Noticing when things change. I can do that." They touch your hand briefly. "Take your time. I'll be here, as your guardian, your friend, and... whatever else we might become."`,
+"No," Rowan agrees quickly, "but it is about being present and alert. Noticing when things change naturally. Reading signs. I can do that without pressure." They touch your hand briefly, contact light and fleeting. "Take your time. I'll be here, as your guardian protecting you, your friend supporting you, and... whatever else we might become if paths align." Their patience feels generous rather than resigned.`,
 	choices: [
 		{
 			id: 'grateful',
@@ -439,15 +439,15 @@ Rowan nods slowly, processing. "That's fair," they say after a moment. "Honest, 
 
 export const RowanProfessionalPath: Scene = {
 	id: 'rowan_professional_path',
-	text: `"I value you as my guardian and advisor," you say carefully. "But I think maintaining professional boundaries is best for both of us. The position is complicated enough without personal entanglements."
+	text: `"I value you as my guardian and advisor," you say carefully, each word chosen with precision. "But I think maintaining professional boundaries is best for both of us. The position is complicated enough without personal entanglements muddying responsibilities."
 
-Rowan goes very still, then nods once, sharply. "Understood." Their voice is level but you catch the hurt beneath. "I apologize for overstepping. It won't happen again."
+Rowan goes very still like deer sensing danger, then nods once sharply. "Understood." Their voice is level but you catch hurt beneath surface like wound covered by thin ice. "I apologize for overstepping boundaries. It won't happen again." Professional mask slams back into place.
 
-"Rowan, I didn't mean—"
+"Rowan, I didn't mean to—"
 
-"No, you're right," they interrupt, standing. "Clear boundaries are professional. I'll maintain them." They bow formally - something they haven't done in weeks. "Is there anything else you need, Your Highness?"
+"No, you're right," they interrupt, standing abruptly. "Clear boundaries are professional. I'll maintain them." They bow formally with military precision - something they haven't done in weeks since relationship grew comfortable. "Is there anything else you need, Your Highness?" Title used deliberately, creating distance.
 
-The distance they've put between you feels vast and cold. But they're respecting your choice, even as it clearly pains them.`,
+The distance they've put between you feels vast and cold as winter, chasm opened suddenly. But they're respecting your choice explicitly, even as it clearly pains them. Walls rebuilt higher than before.`,
 	choices: [
 		{
 			id: 'accept-distance',
@@ -465,25 +465,25 @@ The distance they've put between you feels vast and cold. But they're respecting
 
 export const RowanTrainingSession: Scene = {
 	id: 'rowan_training_advanced',
-	text: `Weeks after your initial lessons, Rowan suggests advanced wilderness training. "You've mastered basics," they say. "Now let's see if you can survive three days in the deep forest. Just you, me, and what we can carry."
+	text: `Weeks after your initial lessons mastering basics, Rowan suggests advanced wilderness training with serious expression. "You've mastered basics admirably," they say with approval. "Now let's see if you can survive three days in deep forest. Just you, me, and what we can carry. No servants, no guards, no safety net."
 
-This is a test, but also an adventure. Three days alone in the wilderness together.`,
+This is test of skills learned, but also adventure - opportunity for three days alone in wilderness together away from everything.`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { rowan_romance: true }
 			},
-			text: `"Three days," Rowan says with a meaningful look. "Away from the manor, from politics, from everyone watching and judging. Just us and the forest." The romantic possibility hangs unspoken but electric in the air.
+			text: `"Three days," Rowan says with meaningful look that carries weight beyond words. "Away from manor, from politics, from everyone watching and judging every move. Just us and forest." The romantic possibility hangs unspoken but electric in air between you, charged with potential.
 
-"We'll need to camp," they add, a hint of nervousness beneath the ranger confidence. "Share a fire. Share... space." They meet your eyes. "If that's alright with you."`
+"We'll need to camp," they add, hint of nervousness beneath ranger confidence they usually project. "Share fire for warmth. Share... space." They meet your eyes directly. "If that's alright with you. If you're comfortable with that intimacy." Seeking permission.`
 		},
 		{
 			conditions: {
 				hasHiddenAttributes: { rowan_relationship: 'best_friend' }
 			},
-			text: `"Three days," Rowan grins. "Remember when you could barely walk quietly? Now you're ready for serious wilderness survival. I'm proud of you, friend."
+			text: `"Three days," Rowan grins with genuine excitement lighting features. "Remember when you could barely walk quietly through undergrowth? Now you're ready for serious wilderness survival. I'm proud of you, friend. Genuinely."
 
-They clap your shoulder affectionately. "This'll be fun. No servants, no nobles, no expectations. Just two people who trust each other completely, testing skills and enjoying the forest. Like the adventure we both needed."`
+They clap your shoulder affectionately with warmth. "This'll be fun. No servants fussing, no nobles judging, no expectations weighing. Just two people who trust each other completely, testing skills and enjoying forest. Like the adventure we both needed for sanity." Enthusiasm is infectious.`
 		}
 	],
 	choices: [
@@ -514,43 +514,43 @@ They clap your shoulder affectionately. "This'll be fun. No servants, no nobles,
 
 export const RowanForestExpedition: Scene = {
 	id: 'rowan_forest_expedition',
-	text: `The deep forest is magnificent and humbling. Ancient trees tower overhead, sunlight filtering through in golden shafts. Rowan moves through this world like a dancer, at perfect ease, and you do your best to follow.
+	text: `The deep forest is magnificent and humbling in scope. Ancient trees tower overhead reaching toward sky, sunlight filtering through canopy in golden shafts that illuminate dust motes dancing. Rowan moves through this world like dancer at home, at perfect ease with environment, and you do your best to follow using skills learned.
 
-By evening of the first day, you've set camp by a clear stream. Rowan builds the fire with practiced efficiency while you gather water and prepare food. The partnership feels natural, each contributing skills without need for discussion.
+By evening of first day, you've set camp by clear stream with water burbling over stones. Rowan builds fire with practiced efficiency born from years of experience while you gather water in containers and prepare food from packs. The partnership feels natural and balanced, each contributing skills without need for discussion or direction. Complementary.
 
-As stars emerge overhead, Rowan leans back against a log, genuinely relaxed in a way you rarely see at the manor. "This is home," they say quietly. "Not buildings or politics. This. Trees, stars, earth beneath you, fire for warmth. Everything else is just... noise."
+As stars emerge overhead in breathtaking display rarely seen from cities, Rowan leans back against fallen log, genuinely relaxed in way you rarely see at manor. "This is home," they say quietly with contentment. "Not buildings or politics or social expectations. This. Trees ancient and wise, stars watching, earth solid beneath you, fire for warmth and comfort. Everything else is just... noise."
 
-Over the next three days, you and Rowan grow even closer. Whether romantic partners, best friends, or something developing, the time in the wilderness cements your bond. You learn to read each other's movements, communicate with glances, trust completely in dangerous situations.
+Over next three days, you and Rowan grow even closer through shared experience. Whether romantic partners exploring intimacy, best friends cementing bond, or something developing toward definition, time in wilderness cements your connection. You learn to read each other's movements instinctively, communicate with glances when silence is needed, trust completely in dangerous situations requiring cooperation.
 
-By the time you return to the manor, something fundamental has shifted. Your relationship - whatever form it takes - is unshakeable.`,
+By time you return to manor, something fundamental has shifted permanently. Your relationship - whatever form it takes - is unshakeable as ancient trees.`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { rowan_romance: true }
 			},
-			text: `Under the stars, Rowan moves closer, fingers finding yours. "I needed this," they admit. "Time with you without guards or advisors or responsibilities. Just... us."
+			text: `Under stars scattered across sky like scattered jewels, Rowan moves closer with deliberate intent, fingers finding yours and intertwining. "I needed this," they admit with vulnerability. "Time with you without guards or advisors or responsibilities pressing. Just... us being ourselves."
 
-The firelight catches their features, making them look almost ethereal. "Thank you for trusting me enough to come out here. For wanting to understand my world." They lean in, kissing you softly. "For being someone I can truly be myself with."
+The firelight catches their features, making them look almost ethereal - elven heritage visible in delicate bone structure. "Thank you for trusting me enough to come out here alone," they say softly. "For wanting to understand my world where I'm most myself. For being someone I can truly be myself with without masks."
 
-The three days become a honeymoon of sorts - stolen kisses by the stream, falling asleep wrapped in each other's arms, waking to birdsong and gentle touches. You return to the manor changed, your romance deepened into something unbreakable.`
+They lean in, kissing you softly with tenderness that makes heart ache. The three days become honeymoon of sorts - stolen kisses by stream, falling asleep wrapped in each other's arms under stars, waking to birdsong and gentle touches expressing affection. You return to manor changed profoundly, your romance deepened into something unbreakable as ancient oaks.`
 		},
 		{
 			conditions: {
 				hasHiddenAttributes: { rowan_relationship: 'soul_friend' }
 			},
-			text: `Rowan offers you some dried fruit from their pack. "You know what's amazing?" they say. "We can sit in silence or talk for hours, and both feel equally comfortable. That's rare. Most people need constant noise or get awkward with quiet."
+			text: `Rowan offers you some dried fruit from their pack with easy generosity. "You know what's amazing?" they say with warmth. "We can sit in comfortable silence or talk for hours, and both feel equally comfortable. That's rare gift. Most people need constant noise or get awkward with quiet."
 
-They smile at you warmly. "You're one of my favorite people. Just wanted you to know that."
+They smile at you warmly, affection clear without romance. "You're one of my favorite people in entire world. Just wanted you to know that."
 
-Over the three days, you share stories, fears, hopes. You become the kind of friends who know each other's souls - platonic soulmates who would face anything together.`
+Over three days, you share stories, fears, hopes for future. You become kind of friends who know each other's souls intimately - platonic soulmates who would face anything together without hesitation.`
 		},
 		{
 			conditions: {
 				hasHiddenAttributes: { rowan_relationship: 'professional' }
 			},
-			text: `Despite the earlier professional boundary discussion, being in Rowan's natural element makes the distance harder to maintain. You see them fully relaxed and authentic in ways the manor doesn't allow.
+			text: `Despite earlier professional boundary discussion creating distance, being in Rowan's natural element makes distance harder to maintain. You see them fully relaxed and authentic in ways manor doesn't allow - laughing freely, moving with grace, speaking without careful word selection.
 
-The training is exceptional, and you both maintain appropriate conduct. But there are moments - catching each other's eyes across the fire, working in perfect synchrony - where you wonder if you made the right choice. Still, boundaries remain respected.`
+The training is exceptional, and you both maintain appropriate conduct professionally. But there are moments - catching each other's eyes across fire, working in perfect synchrony - where you wonder if you made right choice. Still, boundaries remain respected carefully despite temptation.`
 		}
 	],
 	choices: [

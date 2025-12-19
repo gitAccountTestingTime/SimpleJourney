@@ -46,6 +46,25 @@ Inside, preserved by magic or fate or desperate hope, lie the treasures of your 
 
 const valeExplanation = `Vale speaks softly, their voice trembling with emotion and understanding: \"The Silverwood royal family possessed unique gifts beyond blood magic. They could see threads of possibility, glimpse futures not yet written, perceive destinies waiting to unfold. They painted this portrait of you... before you were born. They knew. Somehow, they knew you would come.\"`;
 
+// Reusable text components for variants
+const manorApproach = `${arrivalAtSilverwood}
+
+${manorArchitecture}
+
+${approachingEntrance}`;
+
+const doorsRecognize = `${doorRecognition}
+
+${entryHall}
+
+${portraitSearch}`;
+
+const portraitTitle = thePortrait;
+
+const nameBelow = `${inscription}
+
+${timeParadox}`;
+
 const finalTruth = `The truth hits like a thunderbolt, like awakening from a dream, like remembering something you've always known but couldn't articulate:
 
 You are not an orphan who stumbled into magic.

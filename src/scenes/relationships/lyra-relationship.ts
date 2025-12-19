@@ -8,13 +8,13 @@ import { Scene } from '../../story-manager';
 
 export const LyraBonding1: Scene = {
 	id: 'lyra_bonding_1',
-	text: `You find Lyra in the manor's healing chamber, surrounded by herbs and potions. She's muttering healing incantations, but there's tension in her shoulders that suggests she's using work to avoid something.
+	text: `You find Lyra in manor's healing chamber late into evening, surrounded by carefully arranged herbs drying on racks and potions bubbling in delicate glass vessels that catch candlelight with prismatic effect. Sharp scent of medicinal plants fills air - sage and nightshade mixed with something sweeter, almost floral. She's muttering healing incantations under breath with practiced cadence, violet eyes focused on work before her, but there's visible tension in her shoulders that suggests she's using work to avoid confronting something painful lurking beneath surface.
 
-"Your Highness," she says formally when she notices you, immediately bowing. Always so proper, always keeping distance.
+"Your Highness," she says formally with immediate respect when she notices your presence, bowing deeply as protocol demands. Always so proper in her demeanor, always keeping careful distance as if afraid proximity might contaminate you with her family's shame. The formality feels like armor protecting wounded heart.
 
-"Just checking on you," you say. "You've been working long hours. Are you alright?"
+"Just checking on you," you say gently, stepping into chamber filled with soft glow of enchanted candles. "You've been working excessively long hours recently. Are you alright?"
 
-Lyra's mask of composure cracks slightly. "I'm... managing." Her hands tremble as she sets down a vial. "I apologize. I should be more composed."`,
+Lyra's carefully maintained mask of composure cracks slightly like ice under pressure, vulnerability bleeding through professional facade. "I'm... managing," she says with voice barely steady, unconvincing even to herself. Her hands tremble noticeably as she sets down crystalline vial containing luminescent liquid, fingers shaking despite years of steady healing work. "I apologize for weakness. I should be more composed and controlled."`,
 	choices: [
 		{
 			id: 'sit-with-her',
@@ -54,19 +54,19 @@ Lyra's mask of composure cracks slightly. "I'm... managing." Her hands tremble a
 
 export const LyraBonding1B: Scene = {
 	id: 'lyra_bonding_1b',
-	text: `Lyra is quiet for a long moment, then speaks barely above a whisper: "Every day I work in this manor, I feel Morgaine's shadow. My ancestor nearly destroyed everything the Silverwoods built. Your grandmother showed mercy to my family when she could have executed us all."
+	text: `Lyra is quiet for long moment that stretches uncomfortably, gathering courage to voice thoughts usually kept buried deep. Then she speaks barely above whisper, words trembling with vulnerability: "Every single day I work in this manor serving your family, I feel Morgaine's shadow looming over me like curse I can't escape. My ancestor nearly destroyed everything the Silverwoods built over generations through betrayal and dark magic. Your grandmother showed mercy to my family when she had every legal right to execute us all publicly as traitors deserving death."
 
-She looks at you with those striking violet eyes. "I serve you to atone for her sins. But sometimes I wonder... is that enough? Can three generations of loyal service ever erase what she did? Or will Nightshades always be the family that betrayed?"
+She looks at you with those striking violet eyes that mark Nightshade bloodline, expression mixing shame with desperate hope. "I serve you faithfully to atone for her sins that aren't mine but I inherit regardless. But sometimes I wonder with crushing doubt... is that enough? Can three generations of loyal service and dedication ever erase what she did with her betrayal? Or will Nightshades always be the cursed family that betrayed kingdom's trust when needed most?"
 
-Tears threaten but she fights them back. "Lady Aelindra watches me constantly, waiting for signs of corruption. The other mages whisper when I pass. And you..." She swallows. "You're kind to me. But do you trust me? Really? Or do you also wonder if darkness runs in my blood?"`,
+Tears threaten to spill but she fights them back with visible effort, jaw clenching. "Lady Aelindra watches me constantly with suspicious eyes, waiting for signs of corruption manifesting. The other mages whisper when I pass in corridors, conversations dying abruptly. And you..." She swallows hard. "You're kind to me when you don't have to be. But do you actually trust me? Really trust me deep down? Or do you also wonder privately if darkness runs in my blood like hereditary disease, waiting to emerge?"`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { lyra_feels_understood: true }
 			},
-			text: `Seeing your genuine understanding, Lyra's composure finally breaks. "I'm so tired," she admits through tears. "Tired of apologizing for existing. Tired of working twice as hard to be seen as half as worthy. Tired of carrying shame for choices I never made."
+			text: `Seeing your genuine understanding reflected in eyes, Lyra's carefully maintained composure finally breaks completely like dam collapsing. "I'm so tired," she admits through tears flowing freely now, voice cracking with exhaustion that goes far beyond physical. "Tired of apologizing endlessly for existing. Tired of working twice as hard to be seen as half as worthy as someone without cursed name. Tired of carrying crushing shame for choices I never made, sins committed before my birth."
 
-She looks at you desperately. "I just want to be seen as Lyra. Not 'that Nightshade girl.' Not a walking reminder of betrayal. Just... me. The healer who wants to help people. The mage who loves learning. The person who..." She stops, vulnerable and exposed.`
+She looks at you desperately with violet eyes swimming in tears, pleading for understanding. "I just want to be seen as Lyra - individual person with value. Not 'that Nightshade girl carrying tainted blood.' Not walking reminder of betrayal that happened generations ago. Just... me. The healer who wants desperately to help people and ease suffering. The mage who loves learning new techniques. The person who..." She stops abruptly, vulnerable and exposed, unable to finish confession hovering on lips.`
 		}
 	],
 	choices: [
@@ -123,29 +123,29 @@ She looks at you desperately. "I just want to be seen as Lyra. Not 'that Nightsh
 
 export const LyraBonding2: Scene = {
 	id: 'lyra_bonding_2',
-	text: `Days later, Lyra seeks you out. "I wanted to thank you," she says, "for the other day. For listening. For... caring." She's still formal but there's warmth beneath the propriety now.
+	text: `Days later after vulnerable conversation, Lyra seeks you out with purposeful determination rather than her usual hesitant approach. "I wanted to thank you," she says with formality softened by genuine warmth, "for the other day when I broke down. For listening without judgment. For... caring about me as person rather than just useful servant." She's still formal in speech patterns but there's warmth beneath propriety now, ice beginning to thaw.
 
-"I made something for you," she adds, producing a small crystal vial with iridescent liquid. "It's a ward against magical detection. If someone tries to spy on you with magic, this will alert you." She hesitates. "It's also... a Nightshade family recipe. One of the few useful things my ancestor left behind besides infamy."
+"I made something for you," she adds, producing small crystal vial from pocket containing iridescent liquid that shifts colors mesmerizingly in light - blues and purples and silver swirling together. "It's protective ward against magical detection and spying. If someone tries to spy on you with scrying magic, this will alert you immediately with warning." She hesitates, fingers tightening on vial. "It's also... a Nightshade family recipe passed down through generations. One of few useful things my ancestor left behind besides infamy and shame. Sharing it means trusting you with family secrets."
 
-The gesture is significant - sharing family magic, trusting you with Nightshade secrets.`,
+The gesture carries profound significance - offering family magic jealously guarded, trusting you with Nightshade secrets that could be used against her if you chose betrayal.`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { mutual_understanding: true, lyra_romance_seed: true }
 			},
-			text: `Lyra hands you the vial, fingers brushing yours. She doesn't immediately pull away. "Making this required blood magic," she explains softly. "My blood, specifically. So it's attuned to you through me. If danger threatens, you'll feel it through our connection."
+			text: `Lyra hands you vial carefully, her slender fingers brushing yours with contact that sends tingle of magic through skin. She doesn't immediately pull away like usual, allowing touch to linger. "Making this required blood magic," she explains softly with voice gone lower, almost intimate. "My blood specifically mixed with reagents. So it's attuned to you through me - connected through my essence. If danger threatens, you'll feel it through our connection like phantom touch."
 
-She meets your eyes. "That means there's a thread between us now. A small one, but real. You'll be able to sense when I'm nearby, and I'll sense you. I thought... I hoped that would be alright."
+She meets your eyes directly with violet gaze intense and vulnerable. "That means there's magical thread between us now binding our essences. A small one but real and permanent. You'll be able to sense when I'm nearby instinctively, and I'll sense you with same awareness. I thought... I hoped that would be alright with you." Nervousness colors her words. "Blood magic creates bonds some consider too intimate."
 
-The magical intimacy she's describing is profound - a deliberate tethering of your essences.`
+The magical intimacy she's describing is profound - deliberate tethering of your essences that goes beyond mere friendship or professional relationship into something deeper.`
 		},
 		{
 			conditions: {
 				hasHiddenAttributes: { deep_trust_established: true }
 			},
-			text: `"This represents more than just protection magic," Lyra says quietly. "It's me saying that I trust you with Nightshade secrets. That I believe you're different from those who condemned my family. That maybe together, we can write a new chapter - not defined by old betrayals but by new loyalty."
+			text: `"This represents more than just protection magic against enemies," Lyra says quietly with weight of significance in every word. "It's me saying explicitly that I trust you with Nightshade secrets passed down through blood. That I believe you're different from those who condemned my family to perpetual shame. That maybe together, we can write new chapter in both our stories - not defined by old betrayals and ancestral sins but by new loyalty freely given and mutual respect."
 
-Her smile is small but genuine. "You've given me hope. That's a rare gift."`
+Her smile is small but genuine and precious like rare flower. "You've given me hope when I thought I'd lost capacity for it. That's rare gift beyond price." Gratitude shines in violet eyes.`
 		}
 	],
 	choices: [
@@ -200,27 +200,27 @@ Her smile is small but genuine. "You've given me hope. That's a rare gift."`
 
 export const LyraBonding3: Scene = {
 	id: 'lyra_bonding_3',
-	text: `Late one night, you're awakened by distress through the magical connection with Lyra. Following the thread, you find her in the healing chamber, surrounded by scattered grimoires, clearly having a crisis.
+	text: `Late one night when manor sleeps in darkness, you're awakened by sharp distress pulsing through magical connection with Lyra - wave of crushing self-doubt and fear that jolts you from sleep like physical blow. Following thread of connection that pulls like invisible string, you find her in healing chamber surrounded by scattered grimoires lying open with pages torn, herbs spilled across floor, clearly having emotional crisis that's destroyed usual meticulous organization.
 
-"I can't do this," she's muttering. "I'm not strong enough, not skilled enough. Lady Aelindra is right - I'm a mediocre healer pretending to serve a crown."
+"I can't do this," she's muttering to herself with voice breaking repeatedly, tears streaming down face. "I'm not strong enough magically, not skilled enough technically. Lady Aelindra is right about me - I'm mediocre healer at best pretending to serve crown, coasting on pity rather than earning place through merit."
 
-She jumps when she sees you. "I'm sorry! I didn't mean to wake you. The connection - I should have shielded better." She's embarrassed and distraught.`,
+She jumps violently when she sees you standing in doorway, spinning around with hand to chest. "I'm sorry! I didn't mean to wake you through bond. The connection - I should have shielded better and maintained control." She's embarrassed and distraught simultaneously, emotions warring across features. "I failed at that too."`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { magical_pair_bond: true }
 			},
-			text: `Through your reciprocal bond, you feel Lyra's emotions clearly: crushing self-doubt, fear of inadequacy, desperate need to prove worth. But also - surprisingly - her feelings for you, deep and complicated and carefully hidden until now.
+			text: `Through reciprocal bond you established together, you feel Lyra's roiling emotions with crystalline clarity impossible to misinterpret: crushing self-doubt eating at confidence, fear of inadequacy proving Aelindra right, desperate need to prove worth through perfection. But also - surprisingly and unmistakably - her feelings for you running deep and complicated and carefully hidden until magical connection betrayed secret: affection bordering on love, longing she's suppressed, terror of rejection.
 
-"You can feel it," she realizes, horror and vulnerability washing over her face. "Through the bond. All of it. My insecurities, my fears, my..." She stops, unable to say it. Her feelings for you, obvious now through magical connection, hang between you unspoken but undeniable.`
+"You can feel it all," she realizes with horror and vulnerability washing over face like cold water, eyes going wide. "Through the bond we share. All of it laid bare. My insecurities destroying me, my fears consuming me, my..." She stops abruptly, unable to say it aloud. Her feelings for you, obvious now through magical connection exposing every hidden emotion, hang between you unspoken but undeniable as gravity. "Gods, I've ruined everything."`
 		},
 		{
 			conditions: {
 				hasHiddenAttributes: { lyra_romance_advancing: true }
 			},
-			text: `"It's not just professional pressure," Lyra admits quietly. "It's... personal. I care what you think of me. More than I should. More than is appropriate for a healer and her charge." She looks away. "I'm sorry. I'm making this awkward."
+			text: `"It's not just professional pressure from Aelindra's expectations," Lyra admits quietly with voice barely audible, looking down at hands twisting together nervously. "It's... personal and complicated. I care what you think of me far too much. More than I should as healer serving charge. More than is appropriate for someone in my position with your status." She looks away, unable to meet your eyes. "I'm sorry. I'm making this awkward and crossing boundaries. Ruining professional relationship with inappropriate feelings."
 
-But her hands are shaking and you can see she's barely holding together.`
+But her hands are shaking visibly and you can see she's barely holding together emotionally, teetering on edge of complete breakdown.`
 		}
 	],
 	choices: [
@@ -275,17 +275,17 @@ But her hands are shaking and you can see she's barely holding together.`
 
 export const LyraRomancePath: Scene = {
 	id: 'lyra_romance_path',
-	text: `You step closer to Lyra. "I feel it too," you say softly. "Through the bond and without it. You're brilliant, dedicated, kind. How could I not develop feelings?"
+	text: `You step closer to Lyra, closing distance between you with deliberate intent. "I feel it too," you say softly but firmly, making sure she hears every word. "Through magical bond and without it both. You're brilliant with magic beyond your own estimation, dedicated beyond what's required, kind despite carrying such burden. How could I not develop feelings for someone like you?"
 
-Lyra's breath catches. "But I'm... I'm Nightshade. Tainted bloodline. You could have anyone - nobles, heroes, people without cursed ancestors. Why would you choose someone carrying such shame?"
+Lyra's breath catches audibly, eyes going wide with disbelief. "But I'm... I'm Nightshade bearing cursed name," she protests weakly, voice trembling. "Tainted bloodline everyone whispers about. You could have anyone - nobles offering alliances, heroes seeking your hand, people without ancestors who betrayed kingdom. Why would you possibly choose someone carrying such ancestral shame?"
 
-"Because you're not your ancestor," you say firmly. "You're Lyra. The healer who stays up late perfecting potions to help people. The mage who teaches me with such patience. The woman who bears incredible burdens with grace." You take her hands. "I see you. All of you. And I want this. If you do."
+"Because you're not your ancestor," you say firmly, taking her trembling hands in yours. "You're Lyra - individual person I've come to care for deeply. The healer who stays up late perfecting potions to help people without expecting recognition. The mage who teaches me with such patience despite own insecurities. The woman who bears incredible burdens with grace I admire." You squeeze her hands gently. "I see you. All of you - strengths and vulnerabilities. And I want this. If you do."
 
-Tears stream down Lyra's face. "I do. Gods help me, I do. I've tried not to, tried to stay professional, but..." She lets out a shaky laugh. "The bond made hiding impossible. You feel what I feel. You know."
+Tears stream down Lyra's face unchecked, violet eyes shimmering. "I do want this," she admits through sobs. "Gods help me, I do desperately. I've tried not to, tried to stay professional and appropriate, but..." She lets out shaky laugh mixed with crying. "The bond made hiding impossible. You feel what I feel. You know the truth already."
 
-"I know," you confirm. "And I'm here, choosing you, knowing everything."
+"I know," you confirm gently. "And I'm here, choosing you freely, knowing everything about your history and fears."
 
-Lyra closes the distance, kissing you desperately - like someone drowning finally finding air. When you part, she whispers: "Thank you. For seeing me. For choosing me. For making me feel like maybe I deserve something good after all."`,
+Lyra closes distance desperately, kissing you with intensity like someone drowning finally finding air after too long underwater. When you part gasping, she whispers: "Thank you. For seeing me beyond the name. For choosing me despite everything. For making me feel like maybe I deserve something good after lifetime of shame."`,
 	choices: [
 		{
 			id: 'deepen-bond',
@@ -344,27 +344,27 @@ Lyra closes the distance, kissing you desperately - like someone drowning finall
 
 export const LyraRomanceContinue: Scene = {
 	id: 'lyra_romance_continue',
-	text: `Your romance with Lyra transforms both your lives. The magical bond between you deepens into something sacred - not just mage and student but soulmates in the truest sense.
+	text: `Your romance with Lyra transforms both your lives in ways neither anticipated. The magical bond between you deepens into something sacred and unbreakable - not just mage teaching student, but soulmates in truest sense recognizing each other across distance and circumstance.
 
-Lyra's confidence grows as your relationship becomes known. "You stand beside me publicly," she says with wonder. "You don't hide what we have despite my Nightshade heritage. You've given me permission to be proud of myself."
+Lyra's confidence grows visibly as your relationship becomes known throughout manor and beyond. "You stand beside me publicly despite judgment," she says with wonder coloring voice, still slightly disbelieving. "You don't hide what we have despite my Nightshade heritage giving people reason to whisper. You've given me permission to be proud of myself for first time, to hold head high."
 
-Together you work to change perceptions of blood magic, to honor Nightshade legacy while forging new understanding. Your love becomes proof that bloodlines don't define destiny.`,
+Together you work tirelessly to change perceptions of blood magic from dark art to neutral tool, to honor Nightshade legacy's useful aspects while forging new understanding. Your love becomes living proof that bloodlines don't define destiny - that choices matter more than ancestry.`,
 	textVariants: [
 		{
 			conditions: { hasFlags: ['soul_bonded'] },
-			text: `Your romance with Lyra reaches its ultimate expression through the soul bond. The magical connection between you becomes permanent, unbreakable - two souls intertwined across space and distance.
+			text: `Your romance with Lyra reaches its ultimate expression through soul bond ritual - most intimate magic Nightshades possess. The magical connection between you becomes permanent and unbreakable as steel - two souls intertwined completely across space and distance, woven together at fundamental level.
 
-"I feel you always now," Lyra whispers, pressing her hand to your chest where the bond glows faintly. "Your emotions, your presence, even when we're apart. We're never alone again." Tears of joy stream down her face. "I never dreamed I'd have this. Soul bonding is Nightshade magic at its most intimate, and you chose it. Chose me. Forever."
+"I feel you always now," Lyra whispers with voice full of awe, pressing her hand to your chest where bond glows faintly beneath skin with violet light. "Your emotions flowing through connection, your presence in my awareness, even when we're apart physically. We're never truly alone again - always connected." Tears of pure joy stream down her face unchecked. "I never dreamed I'd have this. Soul bonding is Nightshade magic at its most intimate, and you chose it willingly. Chose me. Forever."
 
-Your love transcends physical boundaries, magical and eternal.`
+Your love transcends physical boundaries and temporal limitations, magical connection eternal.`
 		},
 		{
 			conditions: { hasFlags: ['devoted_relationship'] },
-			text: `Your romance with Lyra becomes the foundation both of you build your lives upon. You defend her publicly against those who judge her bloodline, she supports you through political complexities.
+			text: `Your romance with Lyra becomes foundation both of you build your lives upon with unshakeable commitment. You defend her publicly against those who judge bloodline with fierce determination, she supports you through political complexities with strategic wisdom and unwavering loyalty.
 
-"You fight for me," Lyra says, voice thick with emotion. "Not just with words but with actions. You've shown me I deserve devotion, deserve someone who'll stand beside me against the world's judgment." She kisses you deeply. "I'll spend my life earning that faith. Proving I'm worth what you see in me."
+"You fight for me," Lyra says with voice thick with emotion bordering on overwhelming gratitude. "Not just with words that cost nothing, but with actions that have consequences. You've shown me I deserve devotion rather than mere tolerance, deserve someone who'll stand beside me against world's judgment without flinching." She kisses you deeply with passion and gratitude mingled. "I'll spend my life earning that faith you've placed in me. Proving I'm worth what you see when you look at me."
 
-Your love is fierce, devoted, and publicly declared despite all opposition.`
+Your love is fierce and devoted and publicly declared despite all opposition from those who disapprove.`
 		}
 	],
 	choices: [
@@ -383,19 +383,19 @@ Your love is fierce, devoted, and publicly declared despite all opposition.`
 
 export const LyraMagicLesson: Scene = {
 	id: 'lyra_magic_lesson_advanced',
-	text: `Lyra offers to teach you advanced blood magic - techniques beyond what she's shown before. "Nightshade family magic," she explains. "Normally I wouldn't share it, but... you're different. And I trust you."
+	text: `Lyra offers to teach you advanced blood magic - techniques far beyond what she's shown before in basic lessons. "Nightshade family magic passed down through generations," she explains with gravity. "Normally I wouldn't share it with outsiders, but... you're different from others. And I trust you completely now."
 
-She leads you to a private chamber with complex wards. "This is healing through soul-touch," she says. "Beyond physical wounds into emotional and spiritual damage. It's intimate magic - requires absolute trust and vulnerability from both caster and recipient."`,
+She leads you to private chamber deep in manor with complex wards glowing along walls, protective magic keeping secrets contained. "This is healing through soul-touch," she says with voice gone soft and almost reverent. "Beyond physical wounds into emotional and spiritual damage that conventional healing can't reach. It's intimate magic requiring absolute trust and vulnerability from both caster and recipient - barriers down completely."`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { lyra_romance: true }
 			},
-			text: `"Soul-touch magic between bonded partners is especially powerful," Lyra says, voice soft. "Our existing connection makes it easier but also more intense. When I heal your wounds, you'll feel not just my magic but my emotions. And I'll feel yours."
+			text: `"Soul-touch magic between bonded partners is especially powerful and overwhelming," Lyra says with voice soft and intimate, cheeks flushing. "Our existing connection makes it easier to establish but also more intense in experience. When I heal your wounds, you'll feel not just my magic flowing through but my emotions toward you laid bare. And I'll feel yours in return with same clarity."
 
-She looks nervous but determined. "It's the most intimate magic I know. More intimate than..." She blushes. "Well. Very intimate. Are you comfortable with that level of connection?"
+She looks nervous but determined, vulnerability mixed with desire. "It's most intimate magic I know. More intimate than..." She blushes deeper. "Well. Very intimate in ways physical touch can't match. Are you comfortable with that level of connection, knowing I'll feel everything you feel?"  
 
-The magical and emotional vulnerability she's describing would bind you closer than any physical act.`
+The magical and emotional vulnerability she's describing would bind you closer than any physical act could, souls touching directly.`
 		}
 	],
 	choices: [
@@ -428,21 +428,21 @@ The magical and emotional vulnerability she's describing would bind you closer t
 
 export const LyraConfrontingPast: Scene = {
 	id: 'lyra_confronting_past',
-	text: `Lyra receives a summons from Lady Aelindra Moonwhisper - a formal review of her service to you. She's terrified.
+	text: `Lyra receives formal summons from Lady Aelindra Moonwhisper - official review of her service to you conducted by highest authority. She's terrified to point of trembling, paper shaking in hands.
 
-"Aelindra controls my family's fate," Lyra explains, hands shaking. "If she deems my service inadequate, I'll be recalled to Moonwhisper and assigned... elsewhere. Probably locked in a library or healing ward where I can't 'embarrass' the house."
+"Aelindra controls my family's fate completely," Lyra explains with voice barely steady, panic bleeding through words. "If she deems my service inadequate or inappropriate, I'll be recalled immediately to Moonwhisper estate and assigned... elsewhere. Probably locked in library cataloging ancient texts or healing ward where I can't 'embarrass' house Moonwhisper with Nightshade associations."
 
-She looks at you desperately. "I don't want to leave. This position, serving you, working beside you... it's the first time I've felt valued for what I can do rather than tolerated despite my name."`,
+She looks at you desperately with violet eyes wide with fear. "I don't want to leave this place. This position, serving you, working beside you learning and growing... it's first time I've felt genuinely valued for what I can contribute rather than merely tolerated despite name I carry."`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { lyra_romance: true }
 			},
-			text: `Lyra grips your hands. "If Aelindra takes me away, we..." Tears threaten. "We just found each other. Found this. I can't lose you. I can't go back to being a shameful secret hidden in Moonwhisper's towers."
+			text: `Lyra grips your hands desperately, fingers digging in. "If Aelindra takes me away from here, we..." Tears threaten to spill, voice breaking. "We just found each other finally. Found this connection. I can't lose you now. I can't go back to being shameful secret hidden in Moonwhisper's towers, pretending this never happened."
 
-Her voice breaks. "Tell me you'll fight for me. That this isn't just... convenient. That you want me to stay not because I'm useful but because I'm... because we're..."
+Her voice breaks completely on sob. "Tell me you'll fight for me. That this isn't just... convenient arrangement. That you want me to stay not because I'm useful magically but because I'm..." She can't finish, choking on words. "Because we're..."
 
-She can't finish, but the question is clear: Does she truly matter to you?`
+She can't finish sentence, but question is painfully clear: Does she truly matter to you personally, or just professionally?`
 		}
 	],
 	choices: [
@@ -487,13 +487,13 @@ She can't finish, but the question is clear: Does she truly matter to you?`
 
 export const LyraAelindraConfrontation: Scene = {
 	id: 'lyra_aelindra_confrontation',
-	text: `Lady Aelindra receives you in Starfall Spire's highest chamber. The ancient elf examines Lyra with critical eyes, then turns to you.
+	text: `Lady Aelindra receives you in Starfall Spire's highest chamber overlooking kingdom spread below, ancient elf examining Lyra with critical eyes that have witnessed centuries. The ancient elf examines Lyra with penetrating gaze that misses nothing, then turns attention to you with expression unreadable.
 
-"I'm told you've become quite... attached to your Nightshade healer," Aelindra says coolly. "Some whisper it's inappropriate. That she's using family magic to manipulate your emotions. That Nightshades are showing their true colors - seduction and control."
+"I'm told you've become quite... attached to your Nightshade healer," Aelindra says coolly with voice like winter frost. "Some whisper it's inappropriate relationship. That she's using family blood magic to manipulate your emotions and loyalty. That Nightshades are showing their true colors through seduction and control just like ancestor."
 
-Lyra goes pale but you feel fury through your bond. Not at the accusation - she expected it. But at the injustice, the assumption that any care shown to a Nightshade must be manipulation.
+Lyra goes pale as death but you feel fury through bond - not at accusation itself, she expected it. But at profound injustice, at assumption that any care shown to Nightshade must be manipulation rather than genuine affection earned.
 
-"So I will ask directly, young Silverwood: Does Lyra Nightshade serve you well? Or should I remove her and assign someone less... complicated?"`,
+"So I will ask directly, young Silverwood heir," Aelindra continues with eyes boring into you. "Does Lyra Nightshade serve you well and honorably? Or should I remove her immediately and assign someone less... complicated and tainted?"`,
 	choices: [
 		{
 			id: 'defend-completely',
@@ -538,19 +538,19 @@ Lyra goes pale but you feel fury through your bond. Not at the accusation - she 
 
 export const LyraVindication: Scene = {
 	id: 'lyra_vindication',
-	text: `Your defense of Lyra is unwavering. Whether through diplomatic skill or bold defiance, you make it clear that she stays, that she's chosen, that her Nightshade name doesn't define her worth.
+	text: `Your defense of Lyra is unwavering and absolute. Whether through diplomatic skill navigating politics or bold defiance challenging authority directly, you make it crystal clear that she stays, that she's chosen freely, that her Nightshade name doesn't define her worth to you.
 
-Lady Aelindra studies you both for a long, tense moment. Finally, she inclines her head slightly. "Very well. If the Silverwood heir vouches for a Nightshade with such conviction, who am I to interfere?" Her eyes narrow. "But know this: the magical community watches. Nightshade redemption must be earned continuously, not assumed."
+Lady Aelindra studies you both for long, tense moment that stretches uncomfortably. Finally, she inclines her head slightly in acknowledgment. "Very well. If Silverwood heir vouches for Nightshade with such conviction and passion, who am I to interfere with royal prerogative?" Her eyes narrow calculating. "But know this clearly: the magical community watches this situation closely. Nightshade redemption must be earned continuously through actions, not assumed simply because you speak for her."
 
-After Aelindra departs, Lyra collapses against you, shaking with relief. "You stood up for me," she whispers. "Against Lady Aelindra. Against centuries of prejudice. You chose me."`,
+After Aelindra departs in swirl of robes, Lyra collapses against you with legs giving out, shaking with relief so profound it's almost violent. "You stood up for me," she whispers with voice broken by emotion. "Against Lady Aelindra who terrifies me. Against centuries of prejudice and suspicion. You chose me over easy path."`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { relationship_public: true }
 			},
-			text: `"You declared us," Lyra says through tears of joy. "Publicly. Despite the scandal, despite the judgment. You told the most powerful mage in the kingdom that you love a Nightshade and don't care who knows it."
+			text: `"You declared us publicly," Lyra says through tears of joy streaming unchecked down face, voice shaking with overwhelming emotion. "Publicly in front of most powerful authority. Despite scandal it will cause, despite judgment from those who matter politically. You told most powerful mage in entire kingdom that you love a Nightshade and don't care who knows or what they think."
 
-She kisses you desperately. "I'm yours. Completely. And you're mine. Let them whisper. Let them judge. We have each other, and that's everything."`
+She kisses you desperately with passion and gratitude and relief mingled. "I'm yours completely and forever. And you're mine equally. Let them whisper behind hands. Let them judge harshly. We have each other, and that's everything I need."`
 		}
 	],
 	choices: [
@@ -569,13 +569,13 @@ She kisses you desperately. "I'm yours. Completely. And you're mine. Let them wh
 
 export const LyraBondingCrisisResolution: Scene = {
 	id: 'lyra_bonding_crisis_resolution',
-	text: `After the crisis passes, Lyra finds steadier footing. Your support - whether reassurance, partnership, or shared vulnerability - helps her see past the immediate failure to the larger truth: she's valuable, skilled, and deserving of her place.
+	text: `After emotional crisis passes like storm clearing, Lyra finds steadier footing through your support. Your support - whether reassurance of abilities, partnership in training, or shared vulnerability connecting you - helps her see past immediate failure to larger truth: she's valuable, skilled, and deserving of place she's earned.
 
-"I let one mistake define everything," she reflects. "But you showed me that's not how it works. We're allowed to be imperfect. Allowed to struggle without losing worth."
+"I let one mistake define everything about myself," she reflects with clearer perspective, sitting beside you in calmer state. "But you showed me that's not how worth works. We're allowed to be imperfect humans. Allowed to struggle without losing fundamental worth or value."
 
-She takes your hand. "Thank you for being patient with me. For not abandoning ship when I spiral. That means more than you know."
+She takes your hand gently, squeezing with gratitude. "Thank you for being patient with me during spiral. For not abandoning ship when I lose control. That means more than you know - being seen at worst and not rejected."
 
-Your relationship deepens, whether as trusted magical partners, close friends, or something more developing over time.`,
+Your relationship deepens naturally, whether as trusted magical partners learning together, close friends supporting each other, or something more developing over time into romance.`,
 	choices: [
 		{
 			id: 'continue-forward',
@@ -592,19 +592,19 @@ Your relationship deepens, whether as trusted magical partners, close friends, o
 
 export const LyraMagicDeepening: Scene = {
 	id: 'lyra_magic_deepening',
-	text: `Learning soul-touch magic with Lyra creates an intimacy beyond words. As she guides you through the techniques, you feel her essence completely - her dedication, her fears, her hopes, her feelings for you laid bare through magical connection.
+	text: `Learning soul-touch magic with Lyra creates intimacy beyond words can describe. As she guides you through intricate techniques with patient instruction, you feel her essence completely through magical connection - her dedication driving her forward, her fears she hides from others, her hopes for future, her feelings for you laid bare through magical connection that can't lie or hide.
 
-The vulnerability is profound and mutual. She senses your emotions just as clearly. There's nowhere to hide, no masks to maintain. Just two souls touching completely.
+The vulnerability is profound and completely mutual in way few experiences achieve. She senses your emotions just as clearly as you sense hers. There's nowhere to hide behind masks, no personas to maintain. Just two souls touching completely and honestly, seeing each other with absolute clarity.
 
-When the lesson concludes, you're both changed. The magical bond between you has deepened into something unbreakable, whether as magical partners, devoted friends, or lovers bound by more than just physical attraction.`,
+When lesson concludes after hours of intense work, you're both fundamentally changed by experience. The magical bond between you has deepened into something unbreakable as diamond, whether as magical partners committed to learning together, devoted friends bonded by shared vulnerability, or lovers bound by more than just physical attraction - connection of souls.`,
 	textVariants: [
 		{
 			conditions: {
 				hasHiddenAttributes: { lyra_romance: true }
 			},
-			text: `The soul-touch magic between romantic partners is overwhelmingly intimate. You feel Lyra's love for you as clearly as your own heartbeat. She feels yours in return. The magical connection mirrors and amplifies the emotional one.
+			text: `The soul-touch magic between romantic partners is overwhelmingly intimate in intensity impossible to prepare for. You feel Lyra's love for you as clearly as your own heartbeat pulsing - warm and constant and absolute. She feels yours in return with same crystalline clarity. The magical connection mirrors and amplifies emotional one, creating feedback loop of intimacy.
 
-"This is forever," Lyra whispers, tears streaming. "Soul-bonds don't break. We're connected now in ways even death can't fully sever." She kisses you softly. "I'm glad it's you. Glad it's us."`
+"This is forever," Lyra whispers with tears streaming down face, voice thick with emotion. "Soul-bonds don't break easily. We're connected now in ways even death can't fully sever according to ancient texts." She kisses you softly with tenderness. "I'm glad it's you. Glad it's us bound together like this. Couldn't imagine better person to share soul with." Her smile is radiant despite tears.`
 		}
 	],
 	choices: [
