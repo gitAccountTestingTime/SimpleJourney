@@ -15,7 +15,7 @@ const getTavernBuzz = (): string => {
 
 const valeIntroduction = `"Mind if I join you?" they ask with an easy smile. Their eyes are sharp despite the casual demeanor. "Name's Vale. I'm a traveling bard, but I couldn't help overhearing about tomorrow's little adventure... Seems like dangerous work for village volunteers."
 
-"And yet, someone has to do it," you reply cautiously, looking taking in your sudden drinking companion.
+"And yet, someone has to do it," you reply cautiously, looking across the table and taking in your sudden drinking companion.
 
 "True enough," Vale nods. "But why volunteer? What's in it for you?"
 
