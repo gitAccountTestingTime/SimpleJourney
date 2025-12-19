@@ -10,6 +10,7 @@ import {
     getPlayerName,
 } from './story-manager';
 import { createDebugConsole, renderScene, updateDebugConsole } from './ui';
+import { createSaveSlotsModal, showSaveModal, showLoadModal } from './save-slots-ui';
 
 // Render app skeleton
 // @ts-ignore
@@ -35,6 +36,7 @@ document.querySelector('#app').innerHTML = `
         </section>
         <div class="control-buttons">
             <button id="save-btn" type="button">Save</button>
+            <button id="load-btn" type="button">Load</button>
             <button id="restart-btn" type="button">Restart</button>
             <span id="status-msg" aria-live="polite" class="status-msg"></span>
         </div>
@@ -45,7 +47,11 @@ document.querySelector('#app').innerHTML = `
 // Ensure debug console exists and wire debug controls
 const debugConsole = createDebugConsole();
 
+// Create save slots modal
+createSaveSlotsModal();
+
 const saveBtn = document.getElementById('save-btn') as HTMLButtonElement | null;
+const loadBtn = document.getElementById('load-btn') as HTMLButtonElement | null;
 const statusMsg = document.getElementById('status-msg') as HTMLElement | null;
 const restartBtn = document.getElementById('restart-btn') as HTMLButtonElement | null;
 
@@ -112,13 +118,13 @@ if (restartBtn) {
 
 if (saveBtn) {
     saveBtn.addEventListener('click', () => {
-        saveProgress();
-        if (statusMsg) {
-            statusMsg.textContent = 'Progress saved.';
-            setTimeout(() => {
-                if (statusMsg) statusMsg.textContent = '';
-            }, 2000);
-        }
+        showSaveModal();
+    });
+}
+
+if (loadBtn) {
+    loadBtn.addEventListener('click', () => {
+        showLoadModal();
     });
 }
 

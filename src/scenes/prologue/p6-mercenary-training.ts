@@ -1,10 +1,6 @@
 import { Scene } from '../../story-manager';
 import { AuthorUtils } from '../../author-utils';
 
-const weaponType = AuthorUtils.getStartingWeapon();
-
-const valeRomance = AuthorUtils.getValeRomance();
-
 const valeInfo_neutral = `Vale has sent occasional messages, sharing news and rumors. "The capital might have work for someone like you," the latest letter stated. "Your reputation is growing, and there are opportunities that come along with that."`;
 
 const valeInfo_close = `Vale has been in regular contact, sharing news and rumors through letters, or occassionally tracking you down to share a drink and swap stories. 
@@ -13,13 +9,16 @@ const valeInfo_close = `Vale has been in regular contact, sharing news and rumor
 
 const sixMonths = `Six months as part of Inferno transforms you.`;
 
-const kingdomSights = `You've escorted caravans through dangerous territory, guarded noble estates, and hunted monsters threatening villages. 
+const getKingdomSights = (): string => {
+	const weaponType = AuthorUtils.getStartingWeapon();
+	return `You've escorted caravans through dangerous territory, guarded noble estates, and hunted monsters threatening villages. 
 
 Ash put you in touch with an old friend of hers, who was able to fix up your ${weaponType}, though they were insistent they'd never seen anything quite like it. 
 
 You've fought alongside soldiers, mages, and other mercenaries. Along the way, you've made, and lost, friends. 
 
 The kingdom is beautiful...and broken. And there is more than just the ever-present rumors of Shadow Beasts to blame.`;
+};
 
 const kingdomTruths = `You've seen wealth beyond imagination and poverty that breaks the heart.  You've seen the corruption that having everything can bring, and the hatred that wanting what you can never have can breed. 
 
@@ -35,81 +34,89 @@ And you've met those who are selfish, cruel, and desperate. Who put themselves a
 
 Through it all, you've learned to fight, to lead, to survive. You scarcely recognize the person you were six months ago.`;
 
-var kingdomExperience = 
-`${kingdomSights}
+const getKingdomExperience = (): string => {
+	const valeRomance = AuthorUtils.getValeRomance();
+	let kingdomExperience = `${getKingdomSights()}
 
 ${kingdomTruths}`;
 
-if(valeRomance >= 15) {
-
-	kingdomExperience += `
+	if(valeRomance >= 15) {
+		kingdomExperience += `
 	${valeInfo_close}`
-
-} else {
-	kingdomExperience += `
+	} else {
+		kingdomExperience += `
 	${valeInfo_neutral}`
-}
+	}
+
+	return kingdomExperience;
+};
 
 const barrierWarning = `"The kingdom's failing," they tell you one night. "The barrier between our world and the Shadowrealm is crumbling. Someone needs to fix it. Maybe that someone is you."`;
 
 const briefEncounters = `  Tonight, you arrive in the capital for the first time. It's time to see what this kingdom is really about.`;
 
-const reflection = `Over the past six months, you've learned and witnessed much.  One thing that you heavily focused on was...`;
+const reflection = `Over the past six months, you've learned and witnessed much.  One thing you wish to do before beginning your journey in the capital is...`;
 
 
 export const MercenaryTraining: Scene = {
 	id: 'mercenary_training',
-	text: `${sixMonths} 
+	get text() {
+		return `${sixMonths} 
 	
-	${kingdomExperience}
+	${getKingdomExperience()}
 
 Ash has been a steady presence, teaching you combat while sharing hard-won wisdom. ${barrierWarning}
 
 ${briefEncounters}
 
-${reflection}`,
+${reflection}`;
+	},
 	
 	textVariants: [
 		{
 			conditions: { hasFlags: ['ash_romance:10'] },
-			text: 
-			`Six months with Ash's company transforms you. 
+			get text() {
+				return `Six months with Ash's company transforms you. 
 			
 			In addition to the teachings your daily life gives you as a mercenary, your curiosity about Ash's past and the Shadow Beasts eventually led to deep conversations and deeper bonds. Ash has personally overseen your training, and spends time with you often.
 
-${kingdomExperience}
+${getKingdomExperience()}
 
 Ash has opened up in ways their troops claim she never does. 
 
 "You see me," they admit one night as Inferno makes for the capital, her voice rough with emotion. "Not just the scars, not just the commander. And I didn't realize that something I was lacking before. Thank you." 
 
-Returning to her normal, more serious composure, she continues. "We all know the kingdom's failing. Society is fracturing. Unrest grows on every side. Even the barrier to the Shadowrealm is crumbling. Yet here you are, fighting alongside me. And who knows? Maybe some day you'll be the one to finally fix it." She finished with a rare smile.
+Returning to her normal, more serious composure, she clears her throat and continues. "We all know the kingdom's failing. Society is fracturing. Unrest grows on every side. Even the barrier to the Shadowrealm is crumbling. Yet here you are, fighting alongside me. And who knows? Maybe some day you'll be the one to finally fix it." She finished with a rare smile.
 
 ${briefEncounters}
 
-${reflection}`
+${reflection}`;
+			}
 		},
 		{
 			conditions: { hasFlags: ['ash_trust:20'] },
-			text: `Six months with Ash's company transforms you. Your immediate acceptance of their offer impressed Ash, and they've personally overseen your training.  You've quickly become a trusted member of Inferno, becoming a squad leader and one of Ash's closest confidants.
+			get text() {
+				return `Six months with Ash's company transforms you. Your immediate acceptance of their offer impressed Ash, and they've personally overseen your training.  You've quickly become a trusted member of Inferno, becoming a squad leader and one of Ash's closest confidants.
 
-${kingdomExperience}
+${getKingdomExperience()}
 
 Ash has quickly become more than just your commander. She's also a mentor, perhaps on some level also something more. 
 
 "You remind me why I started this company," they confide one night, as Inferno makes for the capital. "And with all the chaos in the kingdom right now, that's a reminder I am always grateful for."
 
-Returning to her normal, more serious composure, she continues. "The kingdom's failing. The barrier between our world and the Shadowrealm is crumbling. Someone needs to fix it. Maybe that someone is you."
+Returning to her normal, more serious composure, she clears her throat and continues. "The kingdom's failing. The barrier between our world and the Shadowrealm is crumbling. Someone needs to fix it. Maybe that someone is you."
 
 ${briefEncounters}
 
-${reflection}`
+${reflection}`;
+			}
 		},
 		{
 			conditions: { hasFlags: ['ash_trust:10'] },
-			text: `Six months with Ash's company on negotiated terms transforms you. You got fair pay and, even more valuably, professional training.
+			get text() {
+				return `Six months with Ash's company on negotiated terms transforms you. You got fair pay and, even more valuably, professional training.
 
-${kingdomExperience}
+${getKingdomExperience()}
 
 Ash respects your pragmatic approach. "You were smart to negotiate," they say one night, as Inferno makes for the capital. 
 
@@ -117,16 +124,17 @@ Ash respects your pragmatic approach. "You were smart to negotiate," they say on
 
 ${briefEncounters}
 
-${reflection}`
+${reflection}`;
+			}
 		},
 		
 	],
 	choices: [
 		{
 			id: 'practice-skill',
-			text: 'Practice your developing skills - dedicate time to improvement',
+			text: 'Practice your developing skill. Dedicate this time to improving yourself.',
 			next: 'meet_rook',
-			effects: { wisdom: 3, strength: 2, courage: 2, wealth: 40 },
+			effects: { wisdom: 2, strength: 2, courage: 2, wealth: 40 },
 			hiddenEffects: {
 				dedicated_practitioner: true,
 				skill_focused: true,
@@ -153,11 +161,11 @@ ${reflection}`
 		},
 		{
 			id: 'reflect-compassion',
-			text: 'Reflect on the suffering you\'ve witnessed',
+			text: 'Reflect on the suffering you\'ve witnessed. Remember the \'why\' behind your fight, not just the \'how\'.',
 			next: 'meet_rook',
 			effects: { wisdom: 3, wealth: 40 },
 			hiddenEffects: {
-				compassionate_actions: 5,
+				compassionate_actions: 1,
 				combat_skills: 5,
 				kingdom_knowledge: 10,
 				ash_trust: 15,
@@ -166,11 +174,11 @@ ${reflection}`
 		},
 		{
 			id: 'focus-combat',
-			text: 'Focus on your combat training achievements',
+			text: 'Focus on your combat training achievements. Take the time to further ingrain those lessons into your body and mind.',
 			next: 'meet_rook',
 			effects: { courage: 3, wealth: 40 },
 			hiddenEffects: {
-				combat_skills: 10,
+				combat_skills: 12,
 				kingdom_knowledge: 5,
 				ash_trust: 10,
 				mercenary_pay_received: true
@@ -178,9 +186,9 @@ ${reflection}`
 		},
 		{
 			id: 'analyze-politics',
-			text: 'Analyze the political situation you\'ve observed',
+			text: 'Analyze the political situations you\'ve observed.  Organize your thoughts on how you might navigate them going forward, especially here in the capital.',
 			next: 'meet_rook',
-			effects: { wisdom: 3, charisma: 2, wealth: 40 },
+			effects: { wisdom: 3, charisma: 1, wealth: 40 },
 			hiddenEffects: {
 				combat_skills: 5,
 				kingdom_knowledge: 15,
@@ -190,12 +198,12 @@ ${reflection}`
 		},
 		{
 			id: 'bond-with-ash',
-			text: 'Spend the evening bonding with Ash',
+			text: 'Spend the evening bonding with Ash. Who knows what the future holds, you\'d hate to later regret not taking this time together.',
 			next: 'ash_bonding_1',
 			effects: { charisma: 3, wealth: 45 },
 			hiddenEffects: {
-				combat_skills: 7,
-				kingdom_knowledge: 8,
+				combat_skills: 5,
+				kingdom_knowledge: 5,
 				ash_trust: 25,
 				ash_romance: 20,
 				mercenary_pay_received: true
@@ -206,11 +214,13 @@ ${reflection}`
 
 export const IndependentAdventuring: Scene = {
 	id: 'independent_adventuring',
-	text: `You chose the independent path, taking odd jobs and building your reputation. Without Ash's company, progress is slower but you answer to no one but yourself.
+	get text() {
+		return `You chose the independent path, taking odd jobs and building your reputation. Without Ash's company, progress is slower but you answer to no one but yourself.
 
-You've seen the kingdom's beauty and its darkness. You've helped where you could and learned to survive. The path has been difficult, but it has been yours.
+${getKingdomExperience()}
 
-Vale has checked in occasionally, sharing news and rumors. "You're building quite a reputation," they say with approval. "The capital might have work for someone like you."`,
+You've seen and learned much. It is time to track down your next adventure in the capital city itself.`;
+	},
 	choices: [
 		{
 			id: 'continue-independent',

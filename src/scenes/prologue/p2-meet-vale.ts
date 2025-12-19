@@ -6,11 +6,12 @@ const getWeaponType = (): string => {
 	return typeof startingWeapon === 'string' ? startingWeapon : 'weapon';
 };
 
-const weaponType = getWeaponType();
-
 const previousDayEnd = `With not much else to prepare, you turn to the local tavern for a final drink to steady your now ever-increasing nerves.`;
 
-const tavernBuzz = `The village tavern buzzes with nervous energy the night before the mission. You sit alone in one corner, your ${weaponType} set on the window sill beside you. As you nurse a weak ale, a striking figure you don't recognizeslides into the seat across from you.`;
+const getTavernBuzz = (): string => {
+	const weaponType = getWeaponType();
+	return `The village tavern buzzes with nervous energy the night before the mission. You sit alone in one corner, your ${weaponType} set on the window sill beside you. As you nurse a weak ale, a striking figure you don't recognizeslides into the seat across from you.`;
+};
 
 const valeIntroduction = `"Mind if I join you?" they ask with an easy smile. Their eyes are sharp despite the casual demeanor. "Name's Vale. I'm a traveling bard, but I couldn't help overhearing about tomorrow's little adventure... Seems like dangerous work for village volunteers."
 
@@ -26,19 +27,21 @@ const valeOffer = `They lean in conspiratorially. "I've also dealt with bandits 
 
 const valeIntrigue = `There's something charming yet calculating about Vale. You look him in the eyes, but it is clear that he is very practiced at dealing with people, and his face and body language give nothing more away. Why would a bard take such interest in a bandit problem? And yet, you're hardly in a position to refuse experienced help...`;
 
-const tavernEncounter = `${previousDayEnd}
+const getTavernEncounter = (): string => {
+	return `${previousDayEnd}
 
-${tavernBuzz}
+${getTavernBuzz()}
 
 ${valeIntroduction}
 
 ${valeOffer}
 
 ${valeIntrigue}`;
+};
 
 export const MeetVale: Scene = {
 	id: 'meet_vale',
-	text: `${tavernEncounter}`,
+	get text() { return getTavernEncounter(); },
 	choices: [
 		{
 			id: 'share-drinks',

@@ -53,41 +53,10 @@ export function renderEndState() {
 }
 
 export function showRewardNotification(reward: Reward) {
-  // Create notification element
-  const notification = document.createElement('div');
-  notification.className = 'reward-notification';
-  notification.setAttribute('role', 'dialog');
-  notification.setAttribute('aria-live', 'assertive');
-  notification.setAttribute('aria-modal', 'true');
-  
   const icon = reward.icon || '🎉';
   const message = reward.message || `You earned: ${reward.name}!`;
   
-  notification.innerHTML = `
-    <div class="reward-notification-content">
-      <div class="reward-icon">${icon}</div>
-      <div class="reward-info">
-        <div class="reward-title">Reward Unlocked!</div>
-        <div class="reward-name">${reward.name}</div>
-        <div class="reward-message">${message}</div>
-        <button class="reward-confirm-btn" type="button">Acknowledge</button>
-      </div>
-    </div>
-  `;
-  
-  document.body.appendChild(notification);
-  
-  // Trigger animation
-  setTimeout(() => notification.classList.add('show'), 10);
-  
-  // Find and attach confirm button handler
-  const confirmBtn = notification.querySelector('.reward-confirm-btn');
-  if (confirmBtn) {
-    confirmBtn.addEventListener('click', () => {
-      notification.classList.remove('show');
-      setTimeout(() => notification.remove(), 300);
-    });
-  }
+  alert(`${icon} Reward Unlocked!\n\n${reward.name}\n\n${message}`);
 }
 
 export function populateChoices(scene: ReturnType<typeof getCurrentScene>) {
@@ -275,23 +244,8 @@ export function renderRewards() {
 }
 
 export function showTitleToast(title: any) {
-  const toast = document.createElement('div');
-  toast.className = 'title-toast';
-  toast.innerHTML = `
-    <div class="toast-content">
-      <span class="toast-icon">${title.icon || '⭐'}</span>
-      <div class="toast-text">
-        <div class="toast-title">Title Earned!</div>
-        <div class="toast-name">${title.name}</div>
-        <div class="toast-desc">${title.description}</div>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(toast);
-  setTimeout(() => {
-    toast.classList.add('fade-out');
-    setTimeout(() => toast.remove(), 500);
-  }, 4000);
+  const icon = title.icon || '⭐';
+  alert(`${icon} Title Earned!\n\n${title.name}\n\n${title.description}`);
 }
 
 // Expose story-manager's checkRequirements to UI so main can call it

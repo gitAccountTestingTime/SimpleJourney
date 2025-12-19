@@ -771,6 +771,190 @@ export function choose(choiceId: string): { scene: Scene | null; newRewards: Rew
 }
 
 const STORAGE_KEY = 'simplejourney.currentScene';
+const SAVE_SLOTS_KEY = 'simplejourney.saveSlots';
+const MAX_SAVE_SLOTS = 10;
+
+export interface SaveSlot {
+	id: number;
+	name: string;
+	timestamp: number;
+	sceneId: string;
+	sceneName?: string;
+	playerName: string;
+	playerLevel?: number;
+	data: {
+		sceneId: string | null;
+		previousSceneId?: string | null;
+		playerName?: string;
+		stats?: PlayerStats;
+		titles?: string[];
+		rewards?: string[];
+		flags?: string[];
+		characters?: Record<string, Character>;
+		places?: Record<string, Place>;
+		hiddenAttributes?: [string, number | string | boolean][];
+		completedChallenges?: [string, any][];
+		activeChallenges?: [string, any][];
+	};
+}
+
+/** Get all save slots */
+export function getSaveSlots(): SaveSlot[] {
+	if (typeof window === 'undefined' || !window.localStorage) return [];
+	const raw = window.localStorage.getItem(SAVE_SLOTS_KEY);
+	if (!raw) return [];
+	try {
+		const slots = JSON.parse(raw) as SaveSlot[];
+		return Array.isArray(slots) ? slots : [];
+	} catch {
+		return [];
+	}
+}
+
+/** Save progress to a specific slot */
+export function saveToSlot(slotId: number, customName?: string): SaveSlot {
+	if (typeof window === 'undefined' || !window.localStorage) {
+		throw new Error('localStorage not available');
+	}
+
+	const data = {
+		sceneId: currentSceneId,
+		previousSceneId: previousSceneId,
+		playerName: playerName,
+		stats: playerStats,
+		titles: Array.from(earnedTitles),
+		rewards: Array.from(earnedRewards),
+		flags: Array.from(chosenFlags),
+		characters: characters,
+		places: places,
+		hiddenAttributes: Array.from(hiddenAttributes.entries()),
+		completedChallenges: Array.from(completedChallenges.entries()),
+		activeChallenges: Array.from(activeChallenges.entries())
+	};
+
+	// Get current scene for metadata
+	const currentScene = getCurrentScene();
+	const sceneDisplayName = currentScene.id.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+	// Generate a meaningful save name if not provided
+	let saveName = customName;
+	if (!saveName) {
+		const date = new Date();
+		const timeStr = date.toLocaleString('en-US', { 
+			month: 'short', 
+			day: 'numeric', 
+			hour: '2-digit', 
+			minute: '2-digit'
+		});
+		saveName = `${playerName || 'Traveler'} - ${sceneDisplayName} (${timeStr})`;
+	}
+
+	const saveSlot: SaveSlot = {
+		id: slotId,
+		name: saveName,
+		timestamp: Date.now(),
+		sceneId: currentSceneId || 'prologue_start',
+		sceneName: sceneDisplayName,
+		playerName: playerName,
+		playerLevel: playerStats.courage + playerStats.wisdom + playerStats.charisma, // Simple level calculation
+		data: data
+	};
+
+	// Get existing slots
+	const slots = getSaveSlots();
+	
+	// Replace or add the slot
+	const existingIndex = slots.findIndex(s => s.id === slotId);
+	if (existingIndex >= 0) {
+		slots[existingIndex] = saveSlot;
+	} else {
+		slots.push(saveSlot);
+		slots.sort((a, b) => a.id - b.id);
+	}
+
+	// Save back to localStorage
+	window.localStorage.setItem(SAVE_SLOTS_KEY, JSON.stringify(slots));
+	
+	return saveSlot;
+}
+
+/** Load progress from a specific slot */
+export function loadFromSlot(slotId: number): Scene {
+	const slots = getSaveSlots();
+	const slot = slots.find(s => s.id === slotId);
+	
+	if (!slot) {
+		console.warn(`Save slot ${slotId} not found`);
+		return initStory();
+	}
+
+	try {
+		const parsed = slot.data;
+		
+		if (parsed && parsed.sceneId && scenes[parsed.sceneId]) {
+			currentSceneId = parsed.sceneId;
+		}
+		if (parsed && parsed.previousSceneId !== undefined) {
+			previousSceneId = parsed.previousSceneId;
+		}
+		if (parsed && parsed.playerName) {
+			playerName = parsed.playerName;
+		}
+		if (parsed && parsed.stats) {
+			playerStats = parsed.stats;
+		}
+		if (parsed && parsed.titles && Array.isArray(parsed.titles)) {
+			earnedTitles = new Set(parsed.titles);
+		}
+		if (parsed && parsed.rewards && Array.isArray(parsed.rewards)) {
+			earnedRewards = new Set(parsed.rewards);
+		}
+		if (parsed && parsed.flags && Array.isArray(parsed.flags)) {
+			chosenFlags = new Set(parsed.flags);
+		}
+		if (parsed && parsed.characters && typeof parsed.characters === 'object') {
+			characters = parsed.characters;
+		}
+		if (parsed && parsed.places && typeof parsed.places === 'object') {
+			places = parsed.places;
+		}
+		if (parsed && parsed.hiddenAttributes && Array.isArray(parsed.hiddenAttributes)) {
+			hiddenAttributes = new Map(parsed.hiddenAttributes);
+		}
+		if (parsed && parsed.completedChallenges && Array.isArray(parsed.completedChallenges)) {
+			completedChallenges = new Map(parsed.completedChallenges);
+		}
+		if (parsed && parsed.activeChallenges && Array.isArray(parsed.activeChallenges)) {
+			activeChallenges = new Map(parsed.activeChallenges);
+		}
+
+		return getCurrentScene();
+	} catch (e) {
+		console.error('Error loading from slot:', e);
+		return initStory();
+	}
+}
+
+/** Delete a specific save slot */
+export function deleteSlot(slotId: number): void {
+	if (typeof window === 'undefined' || !window.localStorage) return;
+	
+	const slots = getSaveSlots();
+	const filtered = slots.filter(s => s.id !== slotId);
+	
+	window.localStorage.setItem(SAVE_SLOTS_KEY, JSON.stringify(filtered));
+}
+
+/** Get next available slot ID */
+export function getNextAvailableSlotId(): number {
+	const slots = getSaveSlots();
+	for (let i = 1; i <= MAX_SAVE_SLOTS; i++) {
+		if (!slots.find(s => s.id === i)) {
+			return i;
+		}
+	}
+	return 1; // If all slots full, return 1 to allow overwrite
+}
 
 /** Save current progress (current scene id) to localStorage */
 export function saveProgress(key = STORAGE_KEY): void {

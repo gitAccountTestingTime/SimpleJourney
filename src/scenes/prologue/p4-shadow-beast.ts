@@ -1,8 +1,6 @@
 import { Scene} from '../../story-manager';
 import { AuthorUtils } from '../../author-utils';
 
-const weaponType = AuthorUtils.getStartingWeapon();
-
 const beastArrival = `Suddenly, a bone-chilling howl echoes through the forest. 
 
 The makeshift camp falls silent as an eerie fog rolls into the clearing. Goosebumps crawl across your skin as you feel the temperature actively dropping. 
@@ -33,7 +31,9 @@ const refugeesPanic = `The refugees are the first to react.  They scream and sca
 
 Your volunteer group scrambles to respond, but they are not a trained force. Some try to shield the refugees, others prepare to fight back, and still others flee along with those that run.`;
 
-const magicStirs = `The Shadow Beast takes its time, occasionally grabbing a victim and ending them, as though they were naught but toys. 
+const getMagicStirs = (): string => {
+	const weaponType = AuthorUtils.getStartingWeapon();
+	return `The Shadow Beast takes its time, occasionally grabbing a victim and ending them, as though they were naught but toys. 
 
 You try to rally the volunteers, but it is too late.  As you turn, you notice the beast as it prepare to lunge towards a crying child who had fallen to the ground admist the chaos.
 
@@ -46,18 +46,22 @@ As the beast begins to charge you, you let loose a cry and move to meet it.  You
 Time seems to slow, and right before you and the beast clash, something inside you seems to ignite. Your blood burns hot, and the world seems to grow sharper and clearer. The strange sensation seems to flare outward from you, and for a split second the beast recoils and halts its charge. Did it... fear you?
 
 You skid to a halt yourself, heart racing. The beast snarls, clearly unsettled now but unwilling to give up its hunt. It eyes you warily, as if reassessing you.  But the danger is far from over...`;
+};
 
-const bloodAwakening = `${magicStirs}`;
+const getBloodAwakening = (): string => getMagicStirs();
 
 export const FirstShadowBeast: Scene = {
 	id: 'first_shadow_beast',
-	text: `${shadowBeastAppearance} ${refugeesPanic}
+	get text() { 
+		return `${shadowBeastAppearance} ${refugeesPanic}
 	
-	${bloodAwakening}`,
+	${getBloodAwakening()}`;
+	},
 	textVariants: [
 		{
 			conditions: { hasFlags: ['first_moral_choice:ruthless'] },
-			text: `Though not what you originally envisioned, you know that you don't have any real choice in the matter. These people took the supplies that Thornshaven relies on to survive. They likely cost other's lives just to extend their own.
+			get text() {
+				return `Though not what you originally envisioned, you know that you don't have any real choice in the matter. These people took the supplies that Thornshaven relies on to survive. They likely cost other's lives just to extend their own.
 			
 			They made their choice when they attacked the village. Now you make yours.
 
@@ -73,37 +77,44 @@ export const FirstShadowBeast: Scene = {
 
 ${shadowBeastAppearance} 
 
-${bloodAwakening}`
+${getBloodAwakening()}`;
+			}
 		},
 		{
 			conditions: { hasFlags: ['first_moral_choice:diplomatic'] },
-			text: `Your negotiation with the refugees established trust and cooperation. They agreed to return peacefully. Then everything changed.
+			get text() {
+				return `Your negotiation with the refugees established trust and cooperation. They agreed to return peacefully. Then everything changed.
 
 ---
 
 ${shadowBeastAppearance} The refugees react with practiced terror—they've faced these before. They move to protect their children while searching for escape.
 
-${bloodAwakening}`
+${getBloodAwakening()}`;
+			}
 		},
 		{
 			conditions: { hasFlags: ['first_moral_choice:compassionate'] },
-			text: `Your offer of help created hope in the refugees' eyes. Finally, someone who understood. Then the nightmare that destroyed their village returned.
+			get text() {
+				return `Your offer of help created hope in the refugees' eyes. Finally, someone who understood. Then the nightmare that destroyed their village returned.
 
 ---
 
 ${shadowBeastAppearance} The refugees scream—not just in fear, but in recognition and despair. "Not again!" the woman cries. "Please, not the children!"
 
-${bloodAwakening}`
+${getBloodAwakening()}`;
+			}
 		},
 		{
 			conditions: { hasFlags: ['first_moral_choice:lawful'] },
-			text: `You decided to let the authorities handle the refugees. But before you could escort them back, fate intervened.
+			get text() {
+				return `You decided to let the authorities handle the refugees. But before you could escort them back, fate intervened.
 
 ---
 
 ${shadowBeastAppearance} The refugees recognize it immediately. "It followed us," one breathes. "It always finds us."
 
-${bloodAwakening}`
+${getBloodAwakening()}`;
+			}
 		}
 	],
 	choices: [

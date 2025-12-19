@@ -1,46 +1,122 @@
 import { Scene } from '../../story-manager';
 
-const capitalContrast = `The capital's slums are a stark contrast to the grand palace visible in the distance.`;
+const capitalArrival = `The capital city of Valdris rises before you like a monument to contrasts. Towering spires and gleaming domes catch the afternoon sun, their gold and silver leaf work visible even from the slums where you find yourself. The grand palace dominates the skyline, a symbol of power and wealth that seems to mock the poverty spreading at its feet.`;
 
-const pickpocketAttempt = `You're navigating the crowded streets when you feel a hand in your pocket.`;
+const slumsDescription = `The streets here are narrow and choked with refuse. Children dart between makeshift market stalls, their faces gaunt and eyes sharp with premature wisdom. The air carries the scent of desperation—unwashed bodies, rotting vegetables, and the acrid smoke from cook fires burning whatever can be found.
 
-const rookCaught = `You spin and grab a wrist—attached to a young person with mischievous eyes and quick fingers. They grin despite being caught.`;
+You've seen poverty before, but the sheer scale of it here in the capital is staggering. These people live in the shadow of unimaginable wealth, close enough to see it, far enough to never touch it.`;
 
-const rookApology = `"Nice reflexes! Most marks never notice till it's too late." They don't even try to escape. "I'm Rook. Sorry about the whole... theft thing. Occupational hazard."`;
+const crowdedStreets = `The streets are packed with people—merchants hawking dubious wares, beggars calling out for coin, workers trudging home after long shifts. You navigate carefully, keeping your hand near your coin purse. Despite your caution, you feel the lightest brush against your side.`;
 
-const rookProposal = `They size you up with interest.`;
+const catchingRook = `Instinct takes over. Your hand shoots out and catches a wrist—thin but wiry, attached to a young person who can't be more than eighteen or nineteen. They freeze for just a moment, then their expression shifts from alarm to something almost like admiration.
 
-const rookIntroduction = `${rookCaught}
+Mischievous brown eyes meet yours, unrepentant despite being caught red-handed with their fingers in your pocket. A crooked grin spreads across their face, revealing a chipped front tooth. They're dressed in layers of mismatched clothing, practical for concealing stolen goods, and their dark hair is cut short and messy.`;
+
+const rookApology = `"Nice reflexes!" they say, making no attempt to pull away or make excuses. "Most marks never notice till it's too late, and by then I'm three streets away." They speak with the casual confidence of someone who's talked their way out of trouble before. "Name's Rook. Sorry about the whole... theft thing. Occupational hazard, you know how it is."
+
+You don't release their wrist. "Actually, I don't know how it is."
+
+Rook shrugs, still grinning. "Fair enough. But hey, you caught me clean, which means you've got skills. And I've got skills too, just different ones."`;
+
+const rookAssessment = `They tilt their head, studying you with the same intensity you've seen from traders evaluating merchandise. But there's more to it than that—you can see them reading your stance, your gear, the calluses on your hands. Making calculations.
+
+"You're not from around here," Rook says finally. It's not a question. "Adventurer type, I'd guess. Got that look about you—capable, but not city-trained. You're going to get eaten alive in this place without a guide."`;
+
+const rookProposal = `They lean in slightly, voice dropping to something more genuine beneath the street-smart bravado. "Look, I know these streets better than anyone. Every shortcut, every safe house, every guard patrol route. I know which nobles are generous and which ones will have you arrested for breathing wrong. I know where the real opportunities are, the ones the city guard and merchant guilds keep to themselves."
+
+Rook glances around, checking to see if anyone is paying attention to you both, then continues. "Here's my pitch: we could help each other out. You need a guide who knows how this city really works, someone who can navigate the places respectable folk won't go. I need someone who can handle themselves in a fight, someone to watch my back. Fair trade, yeah?"
+
+There's a surprising earnestness beneath their casual pitch. Life on these streets is clearly hard, and dangerous. This isn't just opportunism—it's survival.`;
+
+const getCapitalEncounter = (): string => {
+	return `${capitalArrival}
+
+${slumsDescription}
+
+${crowdedStreets}
+
+${catchingRook}
 
 ${rookApology}
 
+${rookAssessment}
+
 ${rookProposal}`;
+};
 
 export const MeetRook: Scene = {
 	id: 'meet_rook',
-	text: `${capitalContrast} ${pickpocketAttempt}
-
-${rookIntroduction} "You're not from around here. Adventurer type, I'd guess. Look, I know these streets better than anyone. We could help each other out—I need protection, you need a guide. Fair trade?"`,
+	get text() { return getCapitalEncounter(); },
 	textVariants: [
 		{
 			conditions: { hasFlags: ['mercenary_life_chosen:true'] },
-			text: `The capital's slums are a stark contrast to the grand palace visible in the distance. Ash warned you about pickpockets, but you're still caught off guard when you feel a hand in your pocket.
+			get text() {
+				return `${capitalArrival}
 
-Your mercenary training kicks in.
+Six months with Inferno Company has taught you to be observant. Ash specifically warned about the capital's pickpockets during your last briefing. "They're professionals," she'd said. "Better than most soldiers at reading marks and exploiting distractions. Stay sharp."
 
-${rookIntroduction} "Mercenary company gear. Ash's company, if I'm not mistaken." They look impressed. "I know these streets better than anyone, and I know which contracts the company won't touch. We could help each other out—I need protection, you need... information."`
+${slumsDescription}
+
+You recognize the tactical challenges immediately—too many blind corners, too many potential ambush points, civilian density that makes pursuit nearly impossible. This is a thief's paradise.
+
+${crowdedStreets}
+
+${catchingRook}
+
+${rookApology}
+
+Your grip remains firm, years of training making it nearly unbreakable without causing injury. Rook notices and their grin widens.
+
+"Mercenary company gear," Rook observes, eyes flicking to the distinctive leather work on your bracers. "Inferno Company, if I'm not mistaken. Ash's crew. That's... interesting. What's a merc doing in the capital slums without their squad?"
+
+${rookAssessment}
+
+"I know these streets better than anyone," Rook continues, voice taking on a more professional tone. "And I know which jobs the company won't touch—the ones that happen in shadows, the ones that don't make it into official contracts. Information like that? Worth more than gold to someone in your line of work."
+
+${rookProposal}
+
+There's a calculating edge to their pitch now, recognizing you as someone who understands the value of intelligence and connections. The streets have made them sharp, but your training has made you sharper. The question is whether their local expertise might be worth the risk.`;
+			}
 		},
 		{
 			conditions: { hasFlags: ['independent_path:true'] },
-			text: `The capital's slums feel almost familiar after your independent travels. The poverty, the struggle—you've seen it across the kingdom. Still, you don't expect the hand in your pocket.
+			get text() {
+				return `${capitalArrival}
 
-${rookIntroduction} "Independent operator, aren't you? I can tell. No company colors, no guild marks, but you move like you can handle yourself." They grin wider. "I respect that. I know these streets better than anyone. Two independents could do well together—I need someone who can fight, you need someone who knows this city."`
+Six months of traveling alone has taught you to recognize certain patterns. The capital's slums feel almost familiar after your independent travels—the same desperation, the same struggle for survival, the same unspoken rules that govern life on the margins. You've seen it in every town and city across the kingdom.
+
+${slumsDescription}
+
+The difference here is the scale. In smaller settlements, poverty was contained, manageable. Here, it sprawls endlessly, a city within a city. The contrast between the gleaming palace and these desperate streets isn't just visible—it's obscene.
+
+${crowdedStreets}
+
+${catchingRook}
+
+${rookApology}
+
+You study them for a moment. There's something different about this one—less desperation than calculation, less fear than curiosity.
+
+"Independent operator, aren't you?" Rook says, reading you with surprising accuracy. "I can tell. No company colors, no guild marks, but you move like someone who can handle themselves. Self-taught? Or maybe you had training but went your own way?"
+
+${rookAssessment}
+
+"I respect that," Rook continues, and their tone suggests genuine admiration rather than empty flattery. "The guilds and companies, they've got their rules, their hierarchies. Everything's about who you know and who you owe. People like us? We make our own way."
+
+They release some of the tension in their caught wrist, testing if you'll loosen your grip. You don't.
+
+"Look, I know these streets better than anyone. Every independent contractor, every unlicensed opportunity, every job that doesn't require signing your life away to some company or guild. Two independents working together? We could do well. You need someone who knows this city. I need someone who can fight. Simple math, really."
+
+${rookProposal}
+
+There's a kinship in their pitch that wasn't there before. Two people who've chosen to walk their own path, finding each other in a city that grinds outsiders down. The question is whether independence means working alone or being smart enough to find the right allies.`;
+			}
 		}
 	],
 	choices: [
 		{
 			id: 'turn-them-in',
-			text: 'Turn them over to the authorities',
+			text: 'Turn them over to the authorities. Theft is still theft, no matter the circumstances.',
 			next: 'capital_tournament',
 			effects: { reputation: 3 },
 			hiddenEffects: {
@@ -50,7 +126,7 @@ ${rookIntroduction} "Independent operator, aren't you? I can tell. No company co
 		},
 		{
 			id: 'warning',
-			text: 'Let them go with a stern warning',
+			text: 'Let them go with a stern warning. They\'re young, and everyone deserves a chance to change their path.',
 			next: 'capital_tournament',
 			effects: { wisdom: 2 },
 			hiddenEffects: {
@@ -60,7 +136,7 @@ ${rookIntroduction} "Independent operator, aren't you? I can tell. No company co
 		},
 		{
 			id: 'offer-help',
-			text: 'Offer to help them find honest work',
+			text: 'Offer to help them find honest work. Their skills could be put to better use than picking pockets.',
 			next: 'capital_tournament',
 			effects: { charisma: 3 },
 			hiddenEffects: {
@@ -72,7 +148,7 @@ ${rookIntroduction} "Independent operator, aren't you? I can tell. No company co
 		},
 		{
 			id: 'recruit-scout',
-			text: 'Recruit them as your scout',
+			text: 'Recruit them as your scout. Their knowledge of the city could prove invaluable, and they clearly have skills.',
 			next: 'capital_tournament',
 			effects: { wisdom: 2, charisma: 2 },
 			hiddenEffects: {
