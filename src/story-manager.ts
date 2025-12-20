@@ -5,6 +5,11 @@ export type ChoiceRequirement = {
 	max?: number;
 }
 
+export type HiddenAttributeRequirement = {
+	min?: number;
+	max?: number;
+} | number | string | boolean
+
 export type RealLifeChallenge = {
 	id: string;
 	type: 'exercise' | 'cooking' | 'creative' | 'social' | 'learning' | 'meditation' | 'physical';
@@ -28,8 +33,8 @@ export type OutcomeCondition = {
 	hasFlags?: string[];
 	// require that certain titles are already earned
 	hasTitles?: string[];
-	// require that certain hidden attributes match specified values
-	hasHiddenAttributes?: Record<string, number | string | boolean>;
+	// require that certain hidden attributes match specified values or ranges
+	hasHiddenAttributes?: Record<string, HiddenAttributeRequirement>;
 	// custom function for complex conditions
 	custom?: () => boolean;
 }
@@ -611,10 +616,31 @@ function evaluateTextVariants(scene: Scene): string {
 		// check hidden attributes
 		let hiddenAttrsOk = true;
 		if (cond.hasHiddenAttributes) {
-			for (const [key, value] of Object.entries(cond.hasHiddenAttributes)) {
-				if (hiddenAttributes.get(key) !== value) {
-					hiddenAttrsOk = false;
-					break;
+			for (const [key, requirement] of Object.entries(cond.hasHiddenAttributes)) {
+				const currentValue = hiddenAttributes.get(key);
+				
+				// Handle min/max range requirements for numeric values
+				if (typeof requirement === 'object' && requirement !== null && !Array.isArray(requirement)) {
+					const req = requirement as { min?: number; max?: number };
+					const numValue = currentValue as number;
+					if (typeof numValue !== 'number') {
+						hiddenAttrsOk = false;
+						break;
+					}
+					if (req.min !== undefined && numValue < req.min) {
+						hiddenAttrsOk = false;
+						break;
+					}
+					if (req.max !== undefined && numValue > req.max) {
+						hiddenAttrsOk = false;
+						break;
+					}
+				} else {
+					// Exact value match for numbers, strings, and booleans
+					if (currentValue !== requirement) {
+						hiddenAttrsOk = false;
+						break;
+					}
 				}
 			}
 		}
@@ -704,7 +730,47 @@ export function choose(choiceId: string): { scene: Scene | null; newRewards: Rew
 					if (!earnedTitles.has(t)) { titlesOk = false; break; }
 				}
 			}
-			if (statsOk && flagsOk && titlesOk) {
+			// check hidden attributes
+			let hiddenAttrsOk = true;
+			if (cond.hasHiddenAttributes) {
+				for (const [key, requirement] of Object.entries(cond.hasHiddenAttributes)) {
+					const currentValue = hiddenAttributes.get(key);
+					
+					// Handle min/max range requirements for numeric values
+					if (typeof requirement === 'object' && requirement !== null && !Array.isArray(requirement)) {
+						const req = requirement as { min?: number; max?: number };
+						const numValue = currentValue as number;
+						if (typeof numValue !== 'number') {
+							hiddenAttrsOk = false;
+							break;
+						}
+						if (req.min !== undefined && numValue < req.min) {
+							hiddenAttrsOk = false;
+							break;
+						}
+						if (req.max !== undefined && numValue > req.max) {
+							hiddenAttrsOk = false;
+							break;
+						}
+					} else {
+						// Exact value match for numbers, strings, and booleans
+						if (currentValue !== requirement) {
+							hiddenAttrsOk = false;
+							break;
+						}
+					}
+				}
+			}
+			// check custom function
+			let customOk = true;
+			if (cond.custom && typeof cond.custom === 'function') {
+				try {
+					customOk = cond.custom();
+				} catch (e) {
+					customOk = false;
+				}
+			}
+			if (statsOk && flagsOk && titlesOk && hiddenAttrsOk && customOk) {
 				selectedOutcome = out;
 				break;
 			}
@@ -1365,7 +1431,15 @@ function applyPlaceEffects(effectsMap?: Record<string, Record<string, number | E
 function applyHiddenEffects(effects?: Record<string, number | string | boolean>): void {
 	if (!effects) return;
 	Object.entries(effects).forEach(([key, value]) => {
-		hiddenAttributes.set(key, value);
+		// For numeric values, ADD to existing value (like regular effects)
+		// For strings and booleans, SET the value (replace)
+		if (typeof value === 'number') {
+			const current = (hiddenAttributes.get(key) as number) || 0;
+			hiddenAttributes.set(key, current + value);
+		} else {
+			hiddenAttributes.set(key, value);
+		}
+		
 		// If the value is true and the key contains a colon, also add it as a flag
 		// This allows flags like 'origin_choice:courageous' to work with hasFlags conditions
 		if (value === true && key.includes(':')) {

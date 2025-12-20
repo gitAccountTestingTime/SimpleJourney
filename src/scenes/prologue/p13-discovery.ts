@@ -110,7 +110,7 @@ export const DiscoveryAtSilverwood: Scene = {
 	},
 	textVariants: [
 		{
-			conditions: { hasFlags: ['vale_romance:20', 'journey_focus:vale'] },
+			conditions: { hasHiddenAttributes: { vale_romance: 20 }, hasFlags: ['journey_focus:vale'] },
 			text: `${manorApproach}
 
 Vale's hand finds yours as you enter together. The warmth of their touch grounds you as magic swirls around you.
@@ -150,7 +150,7 @@ ${hiddenChamber}
 When you read the letter left by your parents, Vale holds you as tears fall. "You're not alone," they promise. "You've never been alone. And whatever comes next, we face it together."`
 		},
 		{
-			conditions: { hasFlags: ['ash_trust:25', 'journey_focus:ash'] },
+			conditions: { hasHiddenAttributes: { ash_trust: 25 }, hasFlags: ['journey_focus:ash'] },
 			text: `${manorApproach}
 
 Ash positions themselves protectively as you enter, hand on weapon, scanning for threats. But the only danger here is truth.
@@ -170,7 +170,7 @@ Ash stands guard while you read your parents' letter. Their voice is rough when 
 ${finalTruth}`
 		},
 		{
-			conditions: { hasFlags: ['rook_trust:15', 'journey_focus:rook'] },
+			conditions: { hasHiddenAttributes: { rook_trust: 15 }, hasFlags: ['journey_focus:rook'] },
 			get text() {
 				return `The journey to Silverwood with Rook proved surprisingly meaningful. Behind their street-smart facade and quick wit, you discovered someone who'd survived by being alone and was cautiously learning to trust. They shared stories around the campfire—glimpses of a harder life, choices made from desperation, dreams they'd stopped letting themselves have. By the time the manor appeared, you understood: Rook was risking something profound by being here, by caring.
 

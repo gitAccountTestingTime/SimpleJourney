@@ -25,6 +25,7 @@ import {
   getPlayerName,
   getEarnedRewards,
   getAllRewards,
+  getAllHiddenAttributes,
   type RealLifeChallenge,
   type Reward
 } from './story-manager';
@@ -309,6 +310,14 @@ export function createDebugConsole() {
         <div id="debug-stats-editor"></div>
       </fieldset>
       <fieldset class="debug-group">
+        <legend>Character Relationships</legend>
+        <div id="debug-relationships-display"></div>
+      </fieldset>
+      <fieldset class="debug-group">
+        <legend>Hidden Attributes</legend>
+        <div id="debug-hidden-attributes-display"></div>
+      </fieldset>
+      <fieldset class="debug-group">
         <legend>Manage Titles</legend>
         <div id="debug-titles-editor"></div>
       </fieldset>
@@ -382,6 +391,8 @@ export function updateDebugConsole() {
 
   const sceneEl = debugConsole.querySelector('#debug-scene');
   const statsEditor = debugConsole.querySelector('#debug-stats-editor');
+  const relationshipsDisplay = debugConsole.querySelector('#debug-relationships-display');
+  const hiddenAttributesDisplay = debugConsole.querySelector('#debug-hidden-attributes-display');
   const titlesEditor = debugConsole.querySelector('#debug-titles-editor');
   const rewardsDisplay = debugConsole.querySelector('#debug-rewards-display');
   const rewardsEditor = debugConsole.querySelector('#debug-rewards-editor');
@@ -417,6 +428,120 @@ export function updateDebugConsole() {
       }
       statsEditor.appendChild(row);
     });
+  }
+
+  if (relationshipsDisplay) {
+    relationshipsDisplay.innerHTML = '';
+    const hiddenAttrs = getAllHiddenAttributes();
+    
+    // Define major characters and their relationship stats
+    const characters = [
+      { name: 'Vale', trust: 'vale_trust', romance: 'vale_romance', bond: 'vale_bond' },
+      { name: 'Ash', trust: 'ash_trust', romance: 'ash_romance', bond: 'ash_bond' },
+      { name: 'Rook', trust: 'rook_trust', romance: 'rook_romance', bond: 'rook_bond' },
+      { name: 'Sage', trust: 'sage_trust', romance: 'sage_romance', affection: 'sage_affection' },
+      { name: 'Rowan', trust: 'rowan_trust', romance: 'rowan_romance', bond: 'rowan_bond' },
+      { name: 'Lyra', trust: 'lyra_trust', romance: 'lyra_romance', respect: 'lyra_respect' },
+      { name: 'Kieran', trust: 'kieran_trust', romance: 'kieran_romance', loyalty: 'kieran_loyalty' },
+      { name: 'Seraphine', trust: 'seraphine_trust', romance: 'seraphine_romance' },
+      { name: 'Finn', trust: 'finn_trust', romance: 'finn_romance', bond: 'finn_bond' }
+    ];
+
+    characters.forEach(char => {
+      const hasAnyStats = Object.entries(char).slice(1).some(([_, key]) => {
+        const val = hiddenAttrs[key as string];
+        return val !== undefined && val !== 0;
+      });
+
+      if (hasAnyStats) {
+        const charDiv = document.createElement('div');
+        charDiv.style.cssText = 'margin-bottom: 0.75rem; padding: 0.5rem; background: rgba(255,255,255,0.05); border-radius: 4px;';
+        
+        const nameHeader = document.createElement('div');
+        nameHeader.style.cssText = 'font-weight: 600; margin-bottom: 0.25rem; color: #a78bfa;';
+        nameHeader.textContent = char.name;
+        charDiv.appendChild(nameHeader);
+
+        const statsDiv = document.createElement('div');
+        statsDiv.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.25rem; font-size: 0.9em;';
+        
+        Object.entries(char).slice(1).forEach(([label, key]) => {
+          const value = hiddenAttrs[key as string];
+          if (value !== undefined && value !== 0) {
+            const statSpan = document.createElement('div');
+            statSpan.style.cssText = 'display: flex; justify-content: space-between;';
+            statSpan.innerHTML = `<span>${label}:</span><span style="color: #60a5fa;">${value}</span>`;
+            statsDiv.appendChild(statSpan);
+          }
+        });
+
+        charDiv.appendChild(statsDiv);
+        relationshipsDisplay.appendChild(charDiv);
+      }
+    });
+
+    if (relationshipsDisplay.children.length === 0) {
+      relationshipsDisplay.innerHTML = '<p style="color: rgba(255,255,255,0.5); font-size: 0.9em;">No relationship stats tracked yet</p>';
+    }
+  }
+
+  if (hiddenAttributesDisplay) {
+    hiddenAttributesDisplay.innerHTML = '';
+    const hiddenAttrs = getAllHiddenAttributes();
+    
+    // Relationship stat keys to exclude (already shown in relationships section)
+    const relationshipKeys = new Set([
+      'vale_trust', 'vale_romance', 'vale_bond',
+      'ash_trust', 'ash_romance', 'ash_bond',
+      'rook_trust', 'rook_romance', 'rook_bond',
+      'sage_trust', 'sage_romance', 'sage_affection',
+      'rowan_trust', 'rowan_romance', 'rowan_bond',
+      'lyra_trust', 'lyra_romance', 'lyra_respect',
+      'kieran_trust', 'kieran_romance', 'kieran_loyalty',
+      'seraphine_trust', 'seraphine_romance',
+      'finn_trust', 'finn_romance', 'finn_bond'
+    ]);
+
+    const otherAttrs = Object.entries(hiddenAttrs)
+      .filter(([key]) => !relationshipKeys.has(key))
+      .sort(([a], [b]) => a.localeCompare(b));
+
+    if (otherAttrs.length > 0) {
+      const gridDiv = document.createElement('div');
+      gridDiv.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.9em;';
+      
+      otherAttrs.forEach(([key, value]) => {
+        const attrDiv = document.createElement('div');
+        attrDiv.style.cssText = 'display: flex; justify-content: space-between; padding: 0.25rem 0.5rem; background: rgba(255,255,255,0.05); border-radius: 3px;';
+        
+        const keySpan = document.createElement('span');
+        keySpan.style.cssText = 'color: rgba(255,255,255,0.9); overflow: hidden; text-overflow: ellipsis;';
+        keySpan.textContent = key;
+        keySpan.title = key; // Show full key on hover
+        
+        const valueSpan = document.createElement('span');
+        valueSpan.style.cssText = 'color: #60a5fa; font-weight: 500; margin-left: 0.5rem;';
+        
+        // Format value based on type
+        if (typeof value === 'boolean') {
+          valueSpan.textContent = value ? '✓' : '✗';
+          valueSpan.style.color = value ? '#34d399' : '#ef4444';
+        } else if (typeof value === 'number') {
+          valueSpan.textContent = String(value);
+        } else {
+          valueSpan.textContent = String(value);
+          valueSpan.style.color = '#fbbf24';
+        }
+        
+        attrDiv.appendChild(keySpan);
+        attrDiv.appendChild(valueSpan);
+        gridDiv.appendChild(attrDiv);
+      });
+      
+      hiddenAttributesDisplay.appendChild(gridDiv);
+    } else {
+      hiddenAttributesDisplay.innerHTML = '<p style="color: rgba(255,255,255,0.5); font-size: 0.9em;">No hidden attributes tracked yet</p>';
+    }
   }
 
   if (titlesEditor) {

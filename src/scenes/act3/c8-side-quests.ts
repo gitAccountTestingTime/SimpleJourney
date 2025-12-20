@@ -115,7 +115,7 @@ ${kieranConflict}
 ${opportunityRisk}`,
 	textVariants: [
 		{
-			conditions: { hasFlags: ['helped_commoners:true', 'commoner_respect:20'] },
+			conditions: { hasFlags: ['helped_commoners:true'], hasHiddenAttributes: { commoner_respect: 20 } },
 			text: `${tournamentNews}
 
 Word reaches you differently - common folk you've helped are excited. "The heir might actually fight alongside us! Not above us, with us!"

@@ -259,7 +259,7 @@ export const AshBondingPrologue: Scene = {
 
 	You place a hand on her shoulder, "Whatever failures you've had in the past, the Ash I know today is someone that would give their all to protect those that matter to her, no matter what. And that's not the actions of a failure."
 
-	Ash looks at you, a rare instant of vulnerability flickering across their features before they mask it again with stoic resolve. "Well look at you..." they say with a half-smile, "Seems you've also picked up a little bit of smooth talking in the past few months as well".
+	Ash looks at you, a rare instant of vulnerability flickering across their features before they mask it again with stoic resolve. "Well look at you, {name}..." they say with a half-smile, "Seems you've also picked up a little bit of smooth talking in the past few months as well".
 
 	You chuckle as the two of you fall into a comfortable silence, watching the sun dip below the horizon together.  Tomorrow you will be striking out into the capital, but for now you just enjoy the sights and company.`,
 

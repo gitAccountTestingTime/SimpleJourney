@@ -37,7 +37,7 @@ export const RoadToSilverwood: Scene = {
 	},
 	textVariants: [
 		{
-			conditions: { hasFlags: ['vale_romance:15', 'quest_accepted_with_group:true'] },
+			conditions: { hasHiddenAttributes: { vale_romance: 15 }, hasFlags: ['quest_accepted_with_group:true'] },
 			get text() {
 				return `Your decision to recruit companions before departing proved fortuitous. When you approached Vale about joining the expedition to Silverwood Manor, their response was immediate and emphatic: "Of course I'm coming. You think I'd let you face your heritage alone?"
 
@@ -103,7 +103,7 @@ The rest of the night passes in quiet conversation and stolen kisses, building a
 			}
 		},
 		{
-			conditions: { hasFlags: ['ash_trust:25', 'preparation_level:thorough'] },
+			conditions: { hasHiddenAttributes: { ash_trust: 25 }, hasFlags: ['preparation_level:thorough'] },
 			get text() {
 				return `Your decision to prepare thoroughly before departing earned Ash's visible approval. When the mercenary captain learned you'd be taking time to gather proper supplies, plan the route, and research potential dangers, they immediately volunteered to assist—and to accompany you on the journey itself.
 
@@ -169,7 +169,7 @@ The weight of that promise settles between you, solid and reassuring in the face
 			}
 		},
 		{
-			conditions: { hasFlags: ['rook_trust:15', 'preparation_level:informed'] },
+			conditions: { hasHiddenAttributes: { rook_trust: 15 }, hasFlags: ['preparation_level:informed'] },
 			get text() {
 				return `Your decision to gather comprehensive information before departing impressed Rook more than you expected. When the street thief learned you'd spent time questioning the Guild Master about every detail of Silverwood Manor, researching historical records, and mapping potential routes, they showed up at your door with genuine respect in their eyes.
 

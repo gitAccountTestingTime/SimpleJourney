@@ -37,7 +37,7 @@ export const MeetWhisper: Scene = {
 	},
 	textVariants: [
 		{
-			conditions: { hasFlags: ['rook_trust:10', 'magic_reaction:trust'] },
+			conditions: { hasHiddenAttributes: { rook_trust: 10 }, hasFlags: ['magic_reaction:trust'] },
 			get text() {
 				return `Your decision to trust Vale after the magical awakening proved fortuitous. They didn't panic or attempt to exploit your revelation—instead, they immediately began planning your next steps with the pragmatic efficiency of someone who's navigated dangerous situations before.
 

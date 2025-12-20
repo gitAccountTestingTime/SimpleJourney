@@ -55,7 +55,7 @@ export const SeraphineIntroduction: Scene = {
 	},
 	textVariants: [
 		{
-			conditions: { hasFlags: ['trust_in_marcus:true', 'marcus_loyalty:100'] },
+			conditions: { hasFlags: ['trust_in_marcus:true'], hasHiddenAttributes: { marcus_loyalty: 100 } },
 			get text() {
 				return `You chose to trust Marcus immediately, accepting his oath without lengthy interrogation or demands for proof. That trust feels validated now as you see the resources and preparation behind his service—this isn't some improvised loyalty or opportunistic alliance. This is commitment built over decades, infrastructure maintained through years of waiting, genuine devotion to your family that survived twenty years of hiding and searching.
 

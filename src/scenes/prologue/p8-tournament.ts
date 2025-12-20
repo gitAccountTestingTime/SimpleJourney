@@ -55,7 +55,7 @@ What will you do?`;
 	},
 	textVariants: [
 		{
-			conditions: { hasFlags: ['rook_trust:20'] },
+			conditions: { hasHiddenAttributes: { rook_trust: 20 } },
 			get text() {
 				return `Your decision to help Rook find honest work created an instant bond. As you walk together through the capital's winding streets toward the arena, they prove their value immediately—pointing out shortcuts, warning you away from guard patrols known for shaking down outsiders, and sharing insights about the power structures that really run this city.
 
@@ -85,7 +85,7 @@ What will you do?`;
 			}
 		},
 		{
-			conditions: { hasFlags: ['rook_trust:15'] },
+			conditions: { hasHiddenAttributes: { rook_trust: 15 } },
 			get text() {
 				return `Rook accepted your offer to work as your scout with a mixture of surprise and calculation. "Not many people would take a chance on a street thief," they said, testing the weight of your coin purse in their palm before handing it back. "I'll earn this properly. You'll see."
 
@@ -158,7 +158,7 @@ What will you do?`;
 			outcomes: [
 				{
 					conditions: { 
-						hasHiddenAttributes: { combat_skills: 8 },
+						hasHiddenAttributes: { combat_skills: {min: 8 } },
 						stats: { courage: { min: 5 } }
 					},
 					next: 'blood_magic_awakens',

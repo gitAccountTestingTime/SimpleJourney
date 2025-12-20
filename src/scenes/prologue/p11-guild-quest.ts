@@ -51,7 +51,7 @@ export const GuildMastersRequest: Scene = {
 	},
 	textVariants: [
 		{
-			conditions: { hasFlags: ['ash_trust:20', 'whisper_first_impression:direct'] },
+			conditions: { hasHiddenAttributes: { ash_trust: 20 }, hasFlags: ['whisper_first_impression:direct'] },
 			get text() {
 				return `Whisper's direct approach suited you perfectly. No dancing around implications, no cryptic hints—just straightforward information about your bloodline, the Silverwood dynasty, and what your manifested blood magic truly meant. By the time you left the Undercroft, you had a clear understanding of your heritage and the dangers that came with it.
 

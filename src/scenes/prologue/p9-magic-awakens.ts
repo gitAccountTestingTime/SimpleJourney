@@ -12,7 +12,7 @@ Heat rushes through your veins, spreading from the wound site through your entir
 
 The sensation passes as quickly as it came, leaving you gasping and staring at unmarked skin where a wound existed seconds before. You look at your arm...if it were not for the lingering warmth and the faint residual glow fading, you'd think it was all a hallucination.`;
 
-const valeArrival = `Vale emerges from the shadows with their characteristic grace, but there's tension in their posture you haven't seen before. Their eyes fix on your healed arm, then scan the alcove—checking for witnesses, calculating risks with the practiced efficiency of someone whose life depends on such assessments.`;
+const valeArrival = `Vale emerges from the shadows with their characteristic grace, but there's tension in their posture you haven't seen before. Their eyes fix on your healed arm, then scan the alcove; checking for witnesses, calculating risks with the practiced efficiency of someone whose life depends on such assessments.`;
 
 const royalConnection = `"That's blood magic," Vale says quietly, moving closer and lowering their voice to barely above a whisper. "Hereditary. Passed through bloodlines, not learned through study or practice. It's almost extinct; the art nearly died out completely twenty years ago when the royal family of Silverwood was wiped out during the Purge."`;
 
@@ -47,7 +47,7 @@ export const BloodMagicAwakens: Scene = {
 	},
 	textVariants: [
 		{
-			conditions: { hasFlags: ['vale_romance:15', 'tournament_champion:magic'] },
+			conditions: { hasHiddenAttributes: { vale_romance: {min:15 }, tournament_champion: 'magic' } },
 			get text() {
 				return `Your victory in the magical aptitude test drew immediate attention. The Royal Academy judges surrounded you, asking questions, taking notes, discussing your "unprecedented natural affinity." You answered as best you could, but the truth is you're not entirely sure how you performed the feats they witnessed. The magic felt instinctive, like reaching for something that had always been there, waiting.
 
@@ -106,8 +106,8 @@ ${thePurge}
 // 		},
 		{
 			conditions: { 
-				hasHiddenAttributes: { vale_romance:15 }, 
-				hasFlags: ['tournament_champion:combat'] },
+				hasHiddenAttributes: { vale_romance: {min:15 }, tournament_champion: 'combat' } 
+			},
 			get text() {
 				return `Victory in the combat tournament came at a cost. Your body bears the marks of each fight...bruises blooming purple and yellow, muscles screaming protest with every movement, and several cuts from opponents' weapons that got through your guard. The final match was particularly brutal, a grinding test of endurance and pain tolerance as much as skill.
 
@@ -141,7 +141,7 @@ Vale's grip on your hand tightens, protective and fierce. "Your combat victory a
 			}
 		},
 		{
-			conditions: { hasFlags: ['tournament_champion:combat'] },
+			conditions: { hasHiddenAttributes: { tournament_champion: 'combat' } },
 			get text() {
 				return `Victory in the combat tournament came at a cost. Your body bears the marks of each fight...bruises blooming purple and yellow, muscles screaming protest with every movement, and several cuts from opponents' weapons that got through your guard. The final match was particularly brutal, a grinding test of endurance and pain tolerance as much as skill.
 
@@ -172,7 +172,74 @@ Vale's expression shifts to grim determination. "Your combat victory already dre
 		},
 		{
 			conditions: { 
-				hasHiddenAttributes: { vale_romance:15 }, 
+				hasHiddenAttributes: { vale_romance: {min:15 } }, 
+				hasFlags: ['tournament_participant:combat'] 
+			},
+			get text() {
+				return `Your performance in the combat tournament came at a cost. Your body bears the marks of each fight...bruises blooming purple and yellow, muscles screaming protest with every movement, and several cuts from opponents' weapons that got through your guard. Your final match was particularly brutal, a grinding test of endurance and pain tolerance as much as skill.
+
+But you did well even if you didn't win in the end, and the crowd roared your name more than once. A few combat trainers from various military organizations immediately approached with recruitment offers. Through it all, you kept catching glimpses of Vale in the crowd, their eyes never leaving you. Not watching like the recruiters, calculating your value. Watching instead like someone who cared whether you were truly alright beneath the warrior's mask you wore.
+
+You accepted the information with weary grace, then caught Vale's eye. They gave you a subtle nod toward a quieter area; an understanding that you needed space, and they would be there when you were ready. You excused yourself before the adrenaline fully wore off and your body remembered how much punishment it had endured.
+
+You found a secluded alcove beneath the arena's upper galleries, collapsing against the cool stone with relief.
+
+${tournamentAftermath}
+
+You examine the wounds more carefully now, cataloging which ones need attention. There's a particularly nasty cut on your forearm from your opponent's blade; clean edge, precise strike, the work of someone who really knew their craft. You'll need to clean and bandage it properly. You reach to clean it with a cloth when suddenly—
+
+${magicManifestation}
+
+Vale appears instantly, moving with urgent purpose. They must have been nearby, keeping watch even when you thought you were alone. Concern and wonder war on their face as they take in the glowing blood, the sealed wound, the undeniable truth written in crimson light.
+
+"I knew you were extraordinary," Vale says softly, kneeling beside you and gently taking your hand. "Your combat skills, your courage, the way you faced down opponents who should have broken you. But this..." Their voice catches with emotion. "This explains so much."
+
+They meet your eyes, and the vulnerability you see there takes your breath away. "I've grown to care about you, {name}. Perhaps more than is wise or safe for someone in my profession. But watching you fight today, seeing you triumph..." They touch the unmarred skin where the wound had been. "I found myself fearful that something would happen to you. And now I understand why your wounds always healed faster than they should have, why you recovered from exhaustion quicker than seemed natural."
+
+${royalConnection}
+
+${historicalContext}
+
+${thePurge}
+
+${dangerWarning}
+
+Vale's grip on your hand tightens, protective and fierce. "Your combat victory already drew attention from every military recruiter in the kingdom. This power will draw more...nobles, mages, people who would see you as a weapon to be wielded or a threat to be eliminated. But I won't let that happen. Whatever comes next, you won't face it alone. I promise you that."`;
+			}
+		},
+		{
+			conditions: { hasFlags: ['tournament_participant:combat'] },
+			get text() {
+				return `Your performance in the combat tournament came at a cost. Your body bears the marks of each fight...bruises blooming purple and yellow, muscles screaming protest with every movement, and several cuts from opponents' weapons that got through your guard. Your final match was particularly brutal, a grinding test of endurance and pain tolerance as much as skill.
+
+But you did well even if you didn't win in the end, and the crowd roared your name more than once. A few combat trainers from various military organizations immediately approached with recruitment offers. You accepted their information with weary grace, then excused yourself before the adrenaline fully wore off and your body remembered how much punishment it had endured.
+
+You found a secluded alcove beneath the arena's upper galleries, collapsing against the cool stone with relief.
+
+${tournamentAftermath}
+
+You examine the wounds more carefully now, cataloging which ones need attention. There's a particularly nasty cut on your forearm from a opponent's blade; clean edge, precise strike, the work of someone who really knew their craft. You'll need to clean and bandage it properly. You reach to clean it with a cloth when suddenly—
+
+${magicManifestation}
+
+Vale emerges from the shadows, eyes wide with a mixture of shock and recognition. They've seen many things in their career as an information broker, but this clearly catches them off-guard.
+
+"Your combat skills were impressive," they say, voice tight with tension. "Natural talent, good instincts, excellent tactical awareness. I knew you were capable, but this..." They gesture at your healed arm, at the fading glow of your blood. "This changes everything."
+
+${royalConnection}
+
+${historicalContext}
+
+${thePurge}
+
+${dangerWarning}
+
+Vale's expression shifts to grim determination. "Your combat victory already drew attention. This will draw more, and almost exclusively the wrong kind. We need to be very strategic about what happens next."`;
+			}
+		},
+		{
+			conditions: { 
+				hasHiddenAttributes: { vale_romance: {min:15 } }, 
 				hasFlags: ['tournament_participant:magic'] 
 			},
 			get text() {
@@ -235,7 +302,7 @@ Vale studies you with new understanding. "The magical aptitude the judges measur
 		},
 		{
 			conditions: { 
-				hasHiddenAttributes: { vale_romance:15 }, 
+				hasHiddenAttributes: { vale_romance: {min:15 } }, 
 				hasFlags: ['tournament_participant:archery'] 
 			},
 			get text() {
@@ -297,7 +364,7 @@ Vale's analytical mind is clearly working through implications. "Your archery sk
 			}
 		},
 		{
-			conditions: { hasHiddenAttributes: { vale_romance:15 }, hasFlags: ['tournament_participant:strategy'] },
+			conditions: { hasHiddenAttributes: { vale_romance: {min:15 } }, hasFlags: ['tournament_participant:strategy'] },
 			get text() {
 				return `The strategy tournament was a battle of minds rather than bodies. You faced opponents across game boards and tactical scenarios, each match a test of foresight, adaptability, and mental discipline. You performed credibly, winning some matches, losing others, demonstrating enough skill to be noted by several observers including military tacticians looking for potential staff officers.
 

@@ -75,7 +75,7 @@ export const FirstPoliticalMeeting: Scene = {
 	},
 	textVariants: [
 		{
-			conditions: { hasFlags: ['rowan_bond:12', 'companions_integrated:true'] },
+			conditions: { hasHiddenAttributes: { rowan_bond: 12 }, hasFlags: ['companions_integrated:true'] },
 			get text() {
 				return `When Rowan arrived this morning with the summons for a formal political meeting, your first instinct was to turn to your companions—the people who've been with you from the beginning. Vale, Ash, Rook, and possibly Whisper have earned their place at your side through loyalty and shared experience, not through political appointment or traditional protocol.
 

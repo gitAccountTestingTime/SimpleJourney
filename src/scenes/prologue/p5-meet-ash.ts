@@ -79,7 +79,7 @@ ${ashOffer}`
 	choices: [
 		{
 			id: 'join-immediately',
-			text: 'Accept the offer without hesitation. It is time for adventure!',
+			text: 'Accept the offer without hesitation. This is exactly the type of opportunity you have been waiting for.',
 			next: 'mercenary_training',
 			effects: { courage: 2, reputation: 5 },
 			hiddenEffects: {

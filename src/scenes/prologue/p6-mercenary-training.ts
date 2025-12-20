@@ -74,7 +74,7 @@ ${reflection}`;
 	
 	textVariants: [
 		{
-			conditions: { hasFlags: ['ash_romance:10'] },
+			conditions: { hasHiddenAttributes: { ash_romance: 10 } },
 			get text() {
 				return `Six months with Ash's company transforms you. 
 			
@@ -94,7 +94,7 @@ ${reflection}`;
 			}
 		},
 		{
-			conditions: { hasFlags: ['ash_trust:20'] },
+			conditions: { hasHiddenAttributes: { ash_trust: 20 } },
 			get text() {
 				return `Six months with Ash's company transforms you. Your immediate acceptance of their offer impressed Ash, and they've personally overseen your training.  You've quickly become a trusted member of Inferno, becoming a squad leader and one of Ash's closest confidants.
 
@@ -112,7 +112,7 @@ ${reflection}`;
 			}
 		},
 		{
-			conditions: { hasFlags: ['ash_trust:10'] },
+			conditions: { hasHiddenAttributes: { ash_trust: 10 } },
 			get text() {
 				return `Six months with Ash's company on negotiated terms transforms you. You got fair pay and, even more valuably, professional training.
 
@@ -199,7 +199,7 @@ ${reflection}`;
 		{
 			id: 'ash-discussion-prologue',
 			text: 'You gained a lot of skill and experience, but also a profound respect and admiration for Ash. Take this chance to have a meaningful conversation with them.',
-			next: 'ash_discussion_prologue',
+			next: 'ash_bonding_prologue',
 			effects: { wisdom: 3, charisma: 1, wealth: 40 },
 			hiddenEffects: {
 				combat_skills: 5,
