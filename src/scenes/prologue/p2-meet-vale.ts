@@ -25,7 +25,7 @@ const valeIntroduction = `"Mind if I join you?" they ask with an easy smile. The
 
 const valeOffer = `They lean in conspiratorially. "I've also dealt with bandits before, and do spend quite a bit of my time judging people and situations. Perhaps we could help each other?"`;
 
-const valeIntrigue = `There's something charming yet calculating about Vale. You look him in the eyes, but it is clear that he is very practiced at dealing with people, and his face and body language give nothing more away. Why would a bard take such interest in a bandit problem? And yet, you're hardly in a position to refuse experienced help...`;
+const valeIntrigue = `There's something charming yet... calculating about Vale. You look him in the eyes, but it is clear that he is very practiced at dealing with people, and his face and body language give nothing more away. Why would a bard take such interest in a bandit problem? And yet, you're hardly in a position to refuse experienced help...`;
 
 const getTavernEncounter = (): string => {
 	return `${previousDayEnd}
