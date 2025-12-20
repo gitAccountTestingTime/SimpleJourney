@@ -155,7 +155,7 @@ ${getBloodAwakening()}`;
 				{
 					conditions: { stats: { strength: { min: 4 } } },
 					next: 'meet_ash',
-					effects: { courage: 2, reputation: 5 },
+					effects: { courage: 3, reputation: 5 },
 					hiddenEffects: {
 						'shadow_beast_reaction:fought_bravely': true,
 						'magical_awakening:combat': true,
@@ -163,13 +163,14 @@ ${getBloodAwakening()}`;
 						vale_trust: 5,
 						ash_trust: 5,
 						refugees_trust: 5,
+						combat_skills: 3,
 						shadow_beast_bounty_earned: true
 					}
 				},
 				{
 					conditions: { stats: { dexterity: { min: 4 } } },
 					next: 'meet_ash',
-					effects: { courage: 2, reputation: 5 },
+					effects: { courage: 3, reputation: 5 },
 					hiddenEffects: {
 						'shadow_beast_reaction:fought_bravely': true,
 						'magical_awakening:combat': true,
@@ -177,12 +178,13 @@ ${getBloodAwakening()}`;
 						vale_trust: 5,
 						ash_trust: 5,
 						refugees_trust: 5,
+						combat_skills: 3,
 						shadow_beast_bounty_earned: true
 					}
 				},
 				{
 					next: 'meet_ash',
-					effects: { courage: 1, reputation: 3 },
+					effects: { courage: 3, reputation: 3 },
 					hiddenEffects: {
 						'shadow_beast_reaction:fought_desperately': true,
 						'magical_awakening:survival': true,
@@ -190,6 +192,7 @@ ${getBloodAwakening()}`;
 						vale_trust: 3,
 						ash_trust: 5,
 						refugees_trust: 3,
+						combat_skills: 2,
 						shadow_beast_bounty_earned: true
 					}
 				}
@@ -199,7 +202,7 @@ ${getBloodAwakening()}`;
 			id: 'protect-others',
 			text: 'Protect the refugees while retreating.  Focus on buying them time to escape, but don\'t recklessly engage the beast.',
 			next: 'meet_ash',
-			effects: { courage: 1, charisma: 1, reputation: 5 },
+			effects: { courage: 3, charisma: 1, reputation: 5 },
 			hiddenEffects: {
 				'shadow_beast_reaction:protective': true,
 				'magical_awakening:selfless': true,
@@ -208,6 +211,7 @@ ${getBloodAwakening()}`;
 				vale_trust: 12,
 				ash_trust: 5,
 				vale_romance: 7,
+				combat_skills: 3,
 				shadow_beast_bounty_earned: true
 			}
 		},
@@ -221,6 +225,7 @@ ${getBloodAwakening()}`;
 				'magical_awakening:instinct': true,
 				blood_magic_affinity: 1,
 				ruthlessness: 3,
+				combat_skills: 1,
 				shadow_beast_bounty_earned: true
 			}
 		},
@@ -228,7 +233,7 @@ ${getBloodAwakening()}`;
 			id: 'understand-it',
 			text: 'Try to understand the creature rather than fight.  Maybe there is more to it than just mindless hunger?',
 			next: 'meet_ash',
-			effects: { courage: 2 },
+			effects: { courage: 1 },
 			hiddenEffects: {
 				'shadow_beast_reaction:curious': true,
 				'magical_awakening:intellectual': true,

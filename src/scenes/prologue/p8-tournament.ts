@@ -26,7 +26,7 @@ The archery contest tests precision and nerve. Targets at various distances, som
 
 The magical aptitude test draws the most scrutiny from the kingdom's magical community. Candidates perform a series of tasks designed to reveal their innate magical potential and control. Success here could mean sponsorship by a noble house or invitation to study with royal mages.
 
-The chess and strategy tournament attracts nobles, merchants, and military strategists. It's less physically demanding but showcases the kind of thinking that wins wars and builds fortunes. Many successful competitors end up as advisors or tacticians.`;
+The game and strategy tournament attracts nobles, merchants, and military strategists. It's less physically demanding but showcases the kind of thinking that wins wars and builds fortunes. Many successful competitors end up as advisors or tacticians.`;
 
 const tournamentChoice = `You have the skills and courage to enter any of these competitions, or you could forgo competing entirely and focus on making social connections with the nobles and power brokers who attend.`;
 
@@ -162,17 +162,20 @@ What will you do?`;
 						stats: { courage: { min: 5 } }
 					},
 					next: 'blood_magic_awakens',
-					effects: { courage: 3, reputation: 15, wealth: 100 },
+					effects: { courage: 3, combat_skills: 3, reputation: 15, wealth: 100 },
 					hiddenEffects: {
 						tournament_champion: 'combat',
+						ash_trust: 5,
+						ash_romance: 5,
 						general_blackwood_noticed: true
 					}
 				},
 				{
 					next: 'blood_magic_awakens',
-					effects: { courage: 2, reputation: 8, wealth: 50 },
+					effects: { courage: 2, combat_skills: 1, reputation: 8, wealth: 50 },
 					hiddenEffects: {
 						'tournament_participant:combat': true,
+						ash_trust: 5,
 						general_blackwood_noticed: true
 					}
 				}
@@ -182,9 +185,11 @@ What will you do?`;
 			id: 'archery-contest',
 			text: 'Enter the archery contest. Demonstrate precision, patience, and steady nerves under pressure.',
 			next: 'blood_magic_awakens',
-			effects: { wisdom: 2, reputation: 8, wealth: 30 },
+			effects: { wisdom: 2, reputation: 8, combat_skills: 2, wealth: 30 },
 			hiddenEffects: {
-				'tournament_participant:archery': true
+				'tournament_participant:archery': true,
+				ash_trust: 5,
+				general_blackwood_noticed: true
 			}
 		},
 		{
@@ -194,10 +199,12 @@ What will you do?`;
 				{
 					conditions: { hasHiddenAttributes: { blood_magic_affinity: 10 } },
 					next: 'blood_magic_awakens',
-					effects: { wisdom: 3, reputation: 12, wealth: 80 },
+					effects: { wisdom: 3, reputation: 12, combat_skills: 2, wealth: 80 },
 					hiddenEffects: {
 						tournament_champion: 'magic',
 						magical_aptitude: 15,
+						lyra_trust: 3,
+						lyra_romance: 1,
 						lyra_noticed: true
 					}
 				},
@@ -206,28 +213,34 @@ What will you do?`;
 					effects: { wisdom: 2, reputation: 6, wealth: 40 },
 					hiddenEffects: {
 						'tournament_participant:magic': true,
-						magical_aptitude: 8
+						magical_aptitude: 8,
+						lyra_trust: 3,
+						lyra_romance: 1,
+						lyra_noticed: true
 					}
 				}
 			]
 		},
 		{
 			id: 'strategy-tournament',
-			text: 'Enter the chess/strategy tournament. Showcase your tactical mind and ability to outthink opponents.',
+			text: 'Enter the game/strategy tournament. Showcase your tactical mind and ability to outthink opponents.',
 			next: 'blood_magic_awakens',
 			effects: { wisdom: 3, reputation: 10, wealth: 60 },
 			hiddenEffects: {
 				'tournament_participant:strategy': true,
+				seraphine_trust: 3,
+				seraphine_romance: 1,
 				seraphine_noticed: true
 			}
 		},
 		{
 			id: 'socialize',
-			text: 'Skip competing and focus on networking. Sometimes the right connections matter more than winning.',
+			text: 'Skip competing and focus on networking. Sometimes the right connections can be the best victory.',
 			next: 'blood_magic_awakens',
 			effects: { charisma: 3, reputation: 5, wealth: 20 },
 			hiddenEffects: {
 				'tournament_participant:none': true,
+				seraphine_noticed: true,
 				social_connections: 10
 			}
 		}
