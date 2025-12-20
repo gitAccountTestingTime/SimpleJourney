@@ -344,6 +344,17 @@ They force a grin, but their hands are shaking slightly. "So yeah. Promise me yo
 				manor_explored: true,
 				merchant_visit_chosen: true
 			}
+		},
+		{
+			id: 'investigate-library',
+			text: 'Investigate the family library with Vale—uncover what secrets have been hidden in your own archives',
+			next: 'vale_bonding_1',
+			effects: { wisdom: 3, curiosity: 2 },
+			hiddenEffects: {
+				manor_explored: true,
+				library_investigation_begun: true,
+				vale_trust: 5
+			}
 		}
 	]
 };

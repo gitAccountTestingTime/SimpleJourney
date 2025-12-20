@@ -202,7 +202,7 @@ Vale's hand finds yours in the dim library light, their touch warm and grounding
 		{
 			id: 'adventure-partners',
 			text: 'Become adventure partners - investigate everything together',
-			next: 'road_to_silverwood',
+			next: 'rowan_formal_introduction',
 			effects: { wisdom: 6, courage: 5 },
 			hiddenEffects: {
 				vale_bond: 20,
@@ -213,7 +213,7 @@ Vale's hand finds yours in the dim library light, their touch warm and grounding
 		{
 			id: 'acknowledge-connection',
 			text: 'Acknowledge the personal connection growing between you',
-			next: 'road_to_silverwood',
+			next: 'rowan_formal_introduction',
 			effects: { empathy: 6, charisma: 5 },
 			hiddenEffects: {
 				vale_bond: 25,
