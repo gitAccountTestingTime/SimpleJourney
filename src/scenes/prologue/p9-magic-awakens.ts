@@ -464,7 +464,8 @@ ${dangerWarning}
 				magic_revealed: true,
 				vale_knows_secret: true,
 				magical_path_unlocked: true,
-				'magic_reaction:fear': true
+				'magic_reaction:fear': true,
+				vale_trust: -1
 			}
 		},
 		{
@@ -483,7 +484,7 @@ ${dangerWarning}
 		},
 		{
 			id: 'ask-help',
-			text: 'Turn to Vale for guidance and support to ground you. Ask them what you should do next; your mind is still reeling.',
+			text: 'Turn to Vale for guidance and support to ground you. Ask them what you should do next; your mind is still reeling, but you know you can trust him.',
 			next: 'meet_whisper',
 			effects: { charisma: 2 },
 			hiddenEffects: {
@@ -497,7 +498,7 @@ ${dangerWarning}
 		},
 		{
 			id: 'demand-answers',
-			text: 'You need more information, and you need it now. Vale seems to know more than he\'s letting on. Demand to know everything Vale knows about blood magic and royal lineages.',
+			text: 'You need more information, and you need it now. Vale seems to know more than he\'s letting on. Demand to know everything Vale knows about blood magic and royal lineages immediately.',
 			next: 'meet_whisper',
 			effects: { courage: 2 },
 			hiddenEffects: {
