@@ -197,15 +197,14 @@ ${reflection}`;
 			}
 		},
 		{
-			id: 'bond-with-ash',
-			text: 'Spend the evening bonding with Ash. Who knows what the future holds, you\'d hate to later regret not taking this time together.',
-			next: 'ash_bonding_1',
-			effects: { charisma: 3, wealth: 45 },
+			id: 'ash-discussion-prologue',
+			text: 'You gained a lot of skill and experience, but also a profound respect and admiration for Ash. Take this chance to have a meaningful conversation with them.',
+			next: 'ash_discussion_prologue',
+			effects: { wisdom: 3, charisma: 1, wealth: 40 },
 			hiddenEffects: {
 				combat_skills: 5,
-				kingdom_knowledge: 5,
-				ash_trust: 25,
-				ash_romance: 20,
+				kingdom_knowledge: 15,
+				ash_trust: 10,
 				mercenary_pay_received: true
 			}
 		}

@@ -249,6 +249,35 @@ Their voice drops to something intimate and wondering. "So yes. Let's solve ever
 
 // ===== ASH: Mercenary Loyalty & Protection =====
 
+export const AshBondingPrologue: Scene = {
+	id: 'ash_bonding_prologue',
+	text: `You find Ash on a hill overlooking what little remains of the road to the capital, their silhouette sharp against the fading light. Their posture is relaxed but alert, eyes scanning the horizon with the practiced vigilance of someone who's spent years watching for danger. When they notice you, a small, almost imperceptible nod acknowledges your presence; no words needed between two warriors who understand the unspoken language of survival.
+	
+	"I've been thinking," Ash begins, voice low and steady. "About why I do this. Why I protect people." They glance at you, expression unreadable beneath the fading light. "It's not just a job. Not just about the coin. It's... personal. I failed once. Let people down when they needed me most. Can't let that happen again." Their eyes darken with memories best left unspoken. "So I protect those who can't protect themselves. Those who need it most. No matter the cost." They turn back to the horizon, the weight of their vow settling between you like a tangible force.
+	
+	"You've done more than enough for me, Ash," you say quietly, stepping closer. "You've given me in a matter of months the strength and opportunities that I used to only dream of."
+
+	You place a hand on her shoulder, "Whatever failures you've had in the past, the Ash I know today is someone that would give their all to protect those that matter to her, no matter what. And that's not the actions of a failure."
+
+	Ash looks at you, a rare instant of vulnerability flickering across their features before they mask it again with stoic resolve. "Well look at you..." they say with a half-smile, "Seems you've also picked up a little bit of smooth talking in the past few months as well".
+
+	You chuckle as the two of you fall into a comfortable silence, watching the sun dip below the horizon together.  Tomorrow you will be striking out into the capital, but for now you just enjoy the sights and company.`,
+
+	choices: [
+		{
+			id: 'prepare-for-capital',
+			text: 'Bid Ash a good night , then turn in and get some rest. You will likely need it for tomorrow.',
+			next: 'meet_rook',
+			hiddenEffects: {
+				ash_trust: 15,
+				ash_romance: 10,
+				ash_slightly_opens: true,
+				genuine_interest: true
+			}
+		}
+	]
+};
+
 export const AshBonding1: Scene = {
 	id: 'ash_bonding_1',
 	text: `Ash blocks your path in the training yard, their stance wide and unmovable, scarred arms crossed over their chest. Sunlight glints off old battle scars—a slash across their left forearm, burn marks on their knuckles, the faded line of what must have been a serious wound along their jaw. "Spar with me," they demand, not ask. Their voice is flat, professional, allowing no room for negotiation. "If I'm protecting you with my life, I need to know your limits. Your weaknesses. Your reflexes under pressure. How you move when you're tired, scared, hurt."
@@ -294,7 +323,7 @@ They finally meet your eyes, and the haunted look there makes you want to look a
 		{
 			id: 'promise-worth-it',
 			text: 'Promise to be worthy of that protection',
-			next: 'meet_rook',
+			next: 'first_political_meeting',
 			effects: { courage: 6, empathy: 4 },
 			hiddenEffects: {
 				ash_bond: 18,
@@ -305,7 +334,7 @@ They finally meet your eyes, and the haunted look there makes you want to look a
 		{
 			id: 'mutual-protection',
 			text: 'Offer mutual protection - you\'ll guard each other',
-			next: 'meet_rook',
+			next: 'first_political_meeting',
 			effects: { courage: 7, empathy: 4 },
 			hiddenEffects: {
 				ash_bond: 22,

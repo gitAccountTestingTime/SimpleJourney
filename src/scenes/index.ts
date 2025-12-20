@@ -79,3 +79,13 @@ export { VillageHelpScene } from './examples/quests/village-help';
 
 // Special location scenes
 export { ShrineScene } from './examples/special/shrine';
+
+// Relationship scenes
+export { SageBonding1, SageBonding1B, SageBonding2, SageRomancePath, SageRomanceContinue } from './relationships/sage-vale-ash-relationships';
+export { ValeBonding1, ValeBonding1B, ValeBonding2, ValeRomancePath, ValeRomanceContinue } from './relationships/sage-vale-ash-relationships';
+export { AshBondingPrologue, AshBonding1, AshBonding1B, AshBonding2, AshBonding3, AshRomancePath, AshRomanceContinue } from './relationships/sage-vale-ash-relationships';
+export { SeraphineBonding1, SeraphineBonding1B, SeraphineBonding2, SeraphineBonding3, SeraphineRomancePath, SeraphineRomanceContinue, SeraphineNavigatingWorlds, SeraphineFamilyConfrontation, SeraphineLiberation, SeraphineRelationshipResolution, SeraphineIntegrationComplete } from './relationships/seraphine-relationship';
+export { RowanBonding1, RowanBonding1B, RowanBonding2, RowanBonding3, RowanRomancePath, RowanRomanceContinue, RowanFriendshipPath, RowanUncertainPath, RowanProfessionalPath, RowanTrainingSession, RowanForestExpedition } from './relationships/rowan-relationship';
+export { LyraBonding1, LyraBonding1B, LyraBonding2, LyraBonding3, LyraRomancePath, LyraRomanceContinue, LyraMagicLesson, LyraConfrontingPast, LyraAelindraConfrontation, LyraVindication, LyraBondingCrisisResolution, LyraMagicDeepening } from './relationships/lyra-relationship';
+export { KieranBonding1, KieranBonding1B, KieranBonding2, KieranBonding3, KieranRomancePath, KieranRomanceContinue, KieranMemorialCreation, KieranCombatMission, KieranPartnershipDeepens, KieranRelationshipResolution, KieranHealingComplete } from './relationships/kieran-relationship';
+export { FinnBonding1, FinnBonding1B, FinnBonding2, FinnBonding3, FinnRomancePath, FinnRomanceContinue, FinnArtisticCollaboration, FinnWorkersRally, FinnTriumph, FinnRelationshipResolution, FinnMuralComplete } from './relationships/finn-relationship';

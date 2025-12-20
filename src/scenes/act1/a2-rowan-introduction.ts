@@ -296,6 +296,17 @@ Ash nods slowly, assessment complete. They've decided Rowan isn't a threat, at l
 			}
 		},
 		{
+			id: 'bond-with-ash',
+			text: 'Spend time with Ash—they\'ve been watching you closely since the heritage reveal',
+			next: 'ash_bonding_1',
+			effects: { courage: 2 },
+			hiddenEffects: {
+				ash_trust: 15,
+				ash_romance: 10
+			},
+			conditions: { hasFlags: ['mercenary_life_chosen:true'] }
+		},
+		{
 			id: 'ask-heritage',
 			text: 'Ask about their half-elf heritage and connection to nature magic—learn from their perspective',
 			next: 'rowan_bonding_1',
