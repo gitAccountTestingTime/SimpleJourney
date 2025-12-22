@@ -174,7 +174,8 @@ Even heartbroken by your choice, his passionate belief in democratic ideals burn
 				sage_affection: 20,
 				sage_romance_seed: true,
 				sage_blushing: true
-			}
+			},
+			onFail: 'disable'
 		},
 		{
 			id: 'ask-join',

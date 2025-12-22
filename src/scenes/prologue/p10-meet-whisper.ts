@@ -174,6 +174,8 @@ They gesture to a nearby table where ancient books and scrolls lie carefully arr
 			hiddenEffects: {
 				'whisper_first_impression:cautious': true,
 				whisper_trust: 10,
+				rook_trust: 3,
+				rook_romance: 3,
 				whisper_respect: true,
 				information_network_access: true,
 				learned_heritage: true
@@ -202,6 +204,8 @@ They gesture to a nearby table where ancient books and scrolls lie carefully arr
 				'whisper_first_impression:charming': true,
 				whisper_trust: 7,
 				whisper_romance: 5,
+				rook_trust: 3,
+				rook_romance: 3,
 				information_network_access: true,
 				learned_heritage: true
 			}

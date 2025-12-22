@@ -519,7 +519,13 @@ Lyra goes pale as death but you feel fury through bond - not at accusation itsel
 				defied_aelindra: true,
 				scandalous_romance: true,
 				lyra_overwhelmed_joy: true
-			}
+			},
+			outcomes: [{
+				conditions: {
+					hasHiddenAttributes: { lyra_bond: { min: 25 } }
+				}
+			}],
+			onFail: 'disable'
 		},
 		{
 			id: 'respect-but-firm',

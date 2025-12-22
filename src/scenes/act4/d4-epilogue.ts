@@ -384,9 +384,11 @@ The sun continues setting as it always does regardless of human accomplishments 
 
 export const Credits: Scene = {
 	id: 'credits',
-	text: `**Simple Journey: A Tale of Blood and Crowns**
+	text: `**Simple Journey: A Journey Begins**
 
 *A story of inheritance, magic, love, and the weight of choices that define who we become when tested by power.*
+
+IDEAS:
 
 ---
 
@@ -405,35 +407,7 @@ export const Credits: Scene = {
 
 **Thank you for playing SimpleJourney!**
 
-This journey of [scene count] unique scenes was shaped entirely by your choices made moment by moment across four acts spanning prologue to epilogue. Every decision mattered in ways both immediate and cascading forward through narrative web - choosing compassion over cruelty, wisdom over impulse, relationships over power (or the reverse). Every relationship counted toward final outcome as companions remembered how you treated them and responded accordingly in critical moments. Every sacrifice had consequence rippling through story in ways that aren't always obvious until later scenes reveal what paths closed or opened based on earlier choices.
-
-The monarch you created through accumulated decisions was genuinely yours - unique expression of priorities and values demonstrated through action rather than just dialogue options. Whether they ended as beloved unifier who achieved impossible dream of unity, wanderer who chose freedom over duty, tragic failure who meant well but couldn't overcome historical forces, or corrupt tyrant who surrendered soul for power - they reflected who you chose to be when circumstances tested character again and again throughout complex journey requiring difficult choices with no perfect options.
-
-Would you like to play again and discover how different choices lead to entirely different destinies unfolding from same starting point? This game features genuine branching where early decisions cascade forward creating dramatically different scenarios in later acts rather than just superficial variations on linear path that all converge to same ending. Your approach to the prologue influences which companions you meet and how they view you. Your Act 1 choices about factions open or close entire political paths. Your Act 2 relationship decisions determine who remains loyal during Act 3 crisis. Everything connects in web of consequences requiring multiple playthroughs to fully appreciate narrative architecture.
-
-*Note: This is complex branching narrative with 200+ unique scenes across four acts, 10+ major endings (each with multiple variations based on relationships and choices), 8+ romance options with entirely distinct relationship arcs featuring different themes and emotional beats, dozens of companion interactions tracking trust and affection independently so befriending everyone vs focusing on few creates different experiences, faction reputation systems affecting which choices appear as options, hidden attribute tracking for corruption/shadow path determining whether you can even perceive certain options, and secrets you likely didn't uncover in this playthrough including entire questlines and character arcs that only appear based on specific earlier choices creating content many players never see.*
-
-**Your playthrough revealed one thread among many woven through narrative tapestry. There are:**
-
-• **Romances you didn't pursue** - Each of 8+ romance options has unique arc with different emotional themes, intimate moments, and impact on ending. Seraphine's diplomatic partnership differs fundamentally from Rowan's wild freedom, Lyra's immortal bond differs from Kieran's honorable loyalty.
-
-• **Endings you didn't see** - 10+ major endings with variations create dozens of possible conclusions. Democratic founding differs completely from archmage sovereignty. Unity triumph feels different from fragile peace. Shadow corruption's tragedy contrasts sharply with wanderer's freedom.
-
-• **Companions you may have lost** - All companions can survive or die based on earlier choices about trust and positioning. Entire relationship arcs vanish if companions don't survive to later acts, changing story dramatically.
-
-• **Secrets about deeper lore** - World has history spanning millennia with ancient conflicts, lost civilizations, and magical mysteries that only surface through specific investigation paths many players never pursue.
-
-• **Entire political paths unexplored** - Choosing traditional monarchy vs military order vs democratic founding vs archmage rule vs wandering freedom creates fundamentally different Act 3 and 4 content, not just different endings but different scenes entirely.
-
----
-
-**The kingdom awaits your next reign.**  
-
-*Will you rule with wisdom earned through patience, with strength commanding through respect rather than fear, with compassion prioritizing welfare over efficiency - or will you choose freedom over duty entirely and walk away from crown's burden?*
-
-*Will you unite all factions through diplomatic genius, or will you embrace one faction fully accepting others as enemies? Will you pursue romance discovering love amid political chaos, or remain focused solely on governance?*
-
-*Every playthrough tells different story about who you become when power and responsibility collide with personal desires and moral principles. What story will you tell next?*
+What story will you tell next?*
 
 **Begin a new journey to discover paths not yet traveled.**`,
 	choices: [

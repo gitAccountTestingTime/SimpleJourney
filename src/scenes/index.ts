@@ -11,7 +11,12 @@ export { BloodMagicAwakens } from './prologue/p9-magic-awakens';
 export { MeetWhisper } from './prologue/p10-meet-whisper';
 export { GuildMastersRequest } from './prologue/p11-guild-quest';
 export { RoadToSilverwood } from './prologue/p12-road-to-silverwood';
-export { DiscoveryAtSilverwood } from './prologue/p13-discovery';
+export { RoadToSilverwoodDay1 } from './prologue/p12b-road-to-silverwood-day-1';
+export { RoadToSilverwoodDay2 } from './prologue/p12c-road-to-silverwood-day-2';
+export { DiscoveryAtSilverwood, RejectedHeritageEnding } from './prologue/p13-discovery';
+
+// Utility scenes
+export { ToBeContinued, ToBeContinuedDramatic, ToBeContinuedPeaceful } from './to-be-continued';
 
 // Act 1 scenes
 export { ManorExploration } from './act1/a1-manor-exploration';

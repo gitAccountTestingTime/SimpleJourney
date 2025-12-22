@@ -215,29 +215,30 @@ const TITLES: Record<string, Title> = {
 
 // Available rewards in the game
 const REWARDS: Record<string, Reward> = {
-	'coffee-machine': {
-		id: 'coffee-machine',
-		name: 'Coffee Machine (Keurig)',
+	'present-1': {
+		id: 'present-1',
+		name: 'Present 1',
 		description: 'Completed the prologue',
-		icon: '☕',
+		// find icon for present
+		icon: '',
 		condition: { sceneId: 'act1_start' },
-		message: 'Congratulations! You\'ve completed the prologue. Reward unlocked: Coffee Machine (Keurig)'
+		message: 'Congratulations! You\'ve completed the prologue. Reward unlocked: Present 1!'
 	},
 	'storage-containers': {
 		id: 'storage-containers',
 		name: 'Storage Container Variety Pack',
-		description: 'Earned 100+ gold',
+		description: 'Earned 250+ gold',
 		icon: '📦',
-		condition: { stats: { wealth: { min: 100 } } },
-		message: 'Your wealth management skills are excellent! Reward unlocked: Storage Container Variety Pack (Baking Soda, Drink, Basement)'
+		condition: { stats: { wealth: { min: 250 } } },
+		message: 'Your wealth management skills are excellent! Reward unlocked: Storage Container Variety Pack (Baking Soda, Drink, & Basement)!'
 	},
 	'massage-relic': {
 		id: 'massage-relic',
 		name: 'Massage Relic (3 min nightly for 1 year)',
-		description: 'Completed Act 2',
+		description: 'Completed Act 3',
 		icon: '💆',
-		condition: { sceneId: 'act3_start' },
-		message: 'You\'ve navigated the political intrigue of Act 2! Reward unlocked: Massage Relic (3 minute massage nightly on request for 1 year)'
+		condition: { sceneId: 'act4_start' },
+		message: 'You\'ve navigated the political intrigue of Act 3! Reward unlocked: Massage Relic (3 minute massage nightly on request for 1 year)!'
 	},
 	'massage-30min': {
 		id: 'massage-30min',
@@ -248,6 +249,45 @@ const REWARDS: Record<string, Reward> = {
 			custom: () => {
 				const stats = getStats();
 				return Object.values(stats).some(val => val >= 20);
+			}
+		},
+		message: 'You\'ve achieved mastery in a skill! Reward unlocked: 30 Minute Massage'
+	},
+	'massage-30min-2': {
+		id: 'massage-30min-2',
+		name: '30 Minute Massage',
+		description: 'Reached 30+ in any stat',
+		icon: '💆',
+		condition: {
+			custom: () => {
+				const stats = getStats();
+				return Object.values(stats).some(val => val >= 30);
+			}
+		},
+		message: 'You\'ve achieved mastery in a skill! Reward unlocked: 30 Minute Massage'
+	},
+	'massage-30min-3': {
+		id: 'massage-30min-3',
+		name: '30 Minute Massage',
+		description: 'Reached 40+ in any stat',
+		icon: '💆',
+		condition: {
+			custom: () => {
+				const stats = getStats();
+				return Object.values(stats).some(val => val >= 40);
+			}
+		},
+		message: 'You\'ve achieved mastery in a skill! Reward unlocked: 30 Minute Massage'
+	},
+	'massage-30min-4': {
+		id: 'massage-30min-4',
+		name: '30 Minute Massage',
+		description: 'Reached 50+ in any stat',
+		icon: '💆',
+		condition: {
+			custom: () => {
+				const stats = getStats();
+				return Object.values(stats).some(val => val >= 50);
 			}
 		},
 		message: 'You\'ve achieved mastery in a skill! Reward unlocked: 30 Minute Massage'
@@ -281,9 +321,9 @@ const REWARDS: Record<string, Reward> = {
 	'office-chair': {
 		id: 'office-chair',
 		name: 'New Chair (Office)',
-		description: 'Completed Act 3',
+		description: 'Completed Act 4',
 		icon: '🪑',
-		condition: { sceneId: 'act4_start' },
+		condition: { sceneId: 'credits' },
 		message: 'You\'ve conquered the Crystal Heart quest! Reward unlocked: New Chair (Office)'
 	},
 	'headset': {
@@ -305,7 +345,7 @@ const REWARDS: Record<string, Reward> = {
 	'intimate-toy': {
 		id: 'intimate-toy',
 		name: 'New Intimate Toy Purchase',
-		description: 'Achieved high romance with a companion',
+		description: 'Romance is budding with a companion',
 		icon: '💝',
 		condition: {
 			custom: () => {
@@ -320,10 +360,10 @@ const REWARDS: Record<string, Reward> = {
 	'spending-money': {
 		id: 'spending-money',
 		name: 'Guilt-free Spending Money',
-		description: 'Began the quest for Crystal Heart fragments',
+		description: 'Reached the credits scene',
 		icon: '💸',
-		condition: { sceneId: 'crystal_hunt_start' },
-		message: 'The hunt for the Crystal Heart begins! Reward unlocked: Guilt-free Spending Money'
+		condition: { sceneId: 'credits' },
+		message: 'You\'ve completed your journey! Reward unlocked: Guilt-free Spending Money!'
 	}
 };
 
@@ -439,6 +479,8 @@ import * as P9Scenes from './scenes/prologue/p9-magic-awakens';
 import * as P10Scenes from './scenes/prologue/p10-meet-whisper';
 import * as P11Scenes from './scenes/prologue/p11-guild-quest';
 import * as P12Scenes from './scenes/prologue/p12-road-to-silverwood';
+import * as P12bScenes from './scenes/prologue/p12b-road-to-silverwood-day-1';
+import * as P12cScenes from './scenes/prologue/p12c-road-to-silverwood-day-2';
 import * as P13Scenes from './scenes/prologue/p13-discovery';
 
 import * as Act1Scenes from './scenes/act1/a1-manor-exploration';
@@ -502,6 +544,8 @@ const storyScenes = [
 	...extractScenes(P10Scenes),
 	...extractScenes(P11Scenes),
 	...extractScenes(P12Scenes),
+	...extractScenes(P12bScenes),
+	...extractScenes(P12cScenes),
 	...extractScenes(P13Scenes),
 	...extractScenes(Act1Scenes),
 	...extractScenes(A2Scenes),

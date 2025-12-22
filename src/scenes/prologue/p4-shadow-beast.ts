@@ -226,7 +226,8 @@ ${getBloodAwakening()}`;
 				blood_magic_affinity: 1,
 				ruthlessness: 3,
 				combat_skills: 1,
-				shadow_beast_bounty_earned: true
+				shadow_beast_bounty_earned: true,
+				vale_romance: -5
 			}
 		},
 		{

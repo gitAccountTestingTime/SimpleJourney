@@ -284,7 +284,7 @@ You are alone with this truth. But somehow, being alone feels right—feels nece
 		{
 			id: 'claim-destiny',
 			text: 'Embrace your heritage fully: "I am ready. I will claim my destiny and restore House Silverwood."',
-			next: 'act1_start',
+			next: 'to_be_continued',
 			effects: { courage: 5, charisma: 4 },
 			hiddenEffects: {
 				identity_accepted: true,
@@ -298,7 +298,7 @@ You are alone with this truth. But somehow, being alone feels right—feels nece
 		{
 			id: 'reluctant-acceptance',
 			text: 'Accept the truth cautiously: "I acknowledge what I am, but I need time to understand what this means."',
-			next: 'act1_start',
+			next: 'to_be_continued',
 			effects: { wisdom: 5 },
 			hiddenEffects: {
 				identity_accepted: true,
@@ -312,7 +312,7 @@ You are alone with this truth. But somehow, being alone feels right—feels nece
 		{
 			id: 'reject-politics',
 			text: 'Choose independence: "I acknowledge my blood, but I choose my own path—not royal politics."',
-			next: 'act1_start',
+			next: 'to_be_continued',
 			effects: { courage: 4, charisma: 3 },
 			hiddenEffects: {
 				identity_accepted: true,
@@ -326,7 +326,7 @@ You are alone with this truth. But somehow, being alone feels right—feels nece
 		{
 			id: 'embrace-companions',
 			text: 'Prioritize relationships: "My heritage matters, but these people—my friends—matter more."',
-			next: 'act1_start',
+			next: 'to_be_continued',
 			effects: { charisma: 5, wisdom: 2 },
 			hiddenEffects: {
 				identity_accepted: true,
@@ -339,6 +339,86 @@ You are alone with this truth. But somehow, being alone feels right—feels nece
 				ash_trust: 5,
 				rook_trust: 5,
 				whisper_trust: 5
+			}
+		},
+		{
+			id: 'reject-completely',
+			text: 'Turn away from everything: "This isn\'t my burden to carry. I reject all of it."',
+			next: 'rejected_heritage_ending',
+			effects: { },
+			hiddenEffects: {
+				identity_rejected: true,
+				'royal_path:rejected': true,
+				restoration_goal: false,
+				prologue_completed: true,
+				chose_to_walk_away: true
+			}
+		}
+	]
+};
+
+export const RejectedHeritageEnding: Scene = {
+	id: 'rejected_heritage_ending',
+	text: `The weight of revelation crashes down like a collapsing ceiling. Your heritage, your destiny, the painted portrait staring with your own eyes from twenty years before your birth...it's too much. Too heavy. Too impossible.
+
+This isn't what you wanted. You came seeking answers about your blood mark, about the strange magic awakening within you. What you found instead was a throne you never asked for, a kingdom that died before you were born, expectations from ghosts who sacrificed everything so you could exist.
+
+But you didn't ask for their sacrifice. You didn't choose this bloodline. You didn't agree to carry the hopes of a fallen dynasty on shoulders that were just learning to bear the weight of your own survival.
+
+"No," you say, and the word echoes through the grand entry hall. "No, I don't accept this."
+
+Your companions stare, shock written across their faces. Whisper steps forward, urgency in their voice: "You don't understand what you're—"
+
+"I understand perfectly," you interrupt, backing away from the portrait, from the hidden chamber, from everything this manor represents. "I understand that people I never knew made choices about my life before I existed. That they painted my face and wrote my name and decided my destiny without ever asking what I wanted. That they died expecting me to fix everything, to restore what they lost, to be someone I never chose to be."
+
+Your blood mark burns, magic protesting your rejection, but you push it down, force it silent. If this power comes from heritage you refuse, then you refuse the power too.
+
+"I won't do it," you continue, voice gaining strength from conviction. "I won't be your lost heir. I won't be anyone's last hope. I won't carry a crown that's been waiting in darkness for twenty years. This is not my story."
+
+Vale reaches for you, pain in their eyes. "Please, think about what you're—"
+
+"I have thought about it." You're moving toward the doors now, toward escape, toward freedom from destiny. "All my life I've felt like something was missing, like I didn't quite belong anywhere. I thought finding answers would fix that. But this?" You gesture at the portraits, at the opulence, at the weight of history pressing down. "This doesn't fix anything. It just adds chains I never wanted."
+
+Ash positions themselves between you and the exit, conflicted loyalty warring across their features. "If you walk away from this, you're walking away from the only explanation you'll ever have. The only connection to where you came from."
+
+"Then I walk away." Your voice is steady now, certain. "Better to be nobody than to be somebody I don't want to be. Better to have no heritage than to be crushed under the weight of one I can't bear."
+
+The manor seems to respond to your rejection. The lights dim. The warmth fades. The sense of welcome that greeted your blood turns to cold disappointment. The doors—which opened so eagerly before—now feel distant, as if the building itself is trying to hold you, to change your mind, to make you understand.
+
+But you've made your choice.
+
+You push past Ash, ignore Whisper's protests, turn away from Vale's reaching hand. You walk through those grand doors and don't look back—not at the portrait of yourself that should never exist, not at the companions whose faces show betrayal and confusion and fear for your future, not at the manor that would have been yours, the destiny that would have shaped you, the crown that waited in darkness.
+
+You walk away from Silverwood Manor the same way you approached it: as an orphan with mysterious magic and no clear future. Except now the mystery is solved, and the future is certain in its emptiness.
+
+There will be no restoration of House Silverwood. No reclaiming of lost glory. No heir rising from obscurity to transform the kingdom. The portrait will gather dust, the hidden chamber will seal itself once more, and eventually the manor will crumble entirely—along with the last hopes of those who believed blood and destiny were enough.
+
+You rejected your heritage. You chose ignorance over burden. You walked away from everything you could have been because the cost of becoming it was too high.
+
+The road stretches ahead, ordinary and mundane. Your companions follow at a distance, uncertain what to do with someone who refused their own destiny. The blood mark on your hand slowly fades, magic withdrawing when its purpose is denied. By nightfall, it's barely visible—a faint scar, a reminder of what you chose not to be.
+
+You tell yourself you made the right choice. That freedom matters more than legacy. That choosing your own path—even if it leads nowhere—is better than walking one laid out by the dead.
+
+But in quiet moments, you'll wonder. You'll imagine what might have been. You'll see that painted face in dreams and ask yourself: what if?
+
+What if you'd been brave enough to accept the burden?
+What if you'd been strong enough to carry the crown?
+What if you'd been willing to become what your parents—strangers who loved you enough to die—believed you could be?
+
+But those are questions for a different person. A different life. A different choice.
+
+You chose to walk away. And walk away you did, into an ordinary existence, carrying the extraordinary weight of a destiny refused. The story ends here, not with crowns or glory or restoration, but with a closed door and a path not taken.
+
+House Silverwood falls silent once more, waiting for an heir who will never return.`,
+	choices: [
+		{
+			id: 'accept-ending',
+			text: 'Accept the consequences of your choice',
+			next: null, // Ends the game
+			effects: { },
+			hiddenEffects: {
+				heritage_rejected_ending: true,
+				story_ended_early: true
 			}
 		}
 	]

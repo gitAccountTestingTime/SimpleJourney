@@ -238,7 +238,13 @@ They meet your eyes with warmth transforming features. "Thank you for that profo
 				rowan_romance: true,
 				rowan_relationship: 'romantic',
 				first_kiss_imminent: true
-			}
+			},
+			outcomes: [{
+				conditions: {
+					hasHiddenAttributes: { rowan_romance_seed: true, rowan_bond: { min: 15 } }
+				}
+			}],
+			onFail: 'disable'
 		},
 		{
 			id: 'friendship-affirm',
