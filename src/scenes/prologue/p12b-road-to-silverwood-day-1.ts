@@ -132,49 +132,49 @@ As you settle for sleep, Ash's presence nearby feels reassuring not only because
 
 const day1RookFriendly = `The morning finds you and Rook naturally pairing off as the group travels, the former street thief's restless energy finding outlet in scouting and exploration that you're invited to join. What follows is an education in seeing the world through entirely different eyes.
 
-"Most people walk through places without really seeing them," Rook explains as you move through the forest. "They notice the big things—trees, roads, landmarks—but miss all the details that tell the real story. Watch."
+"Most people walk through places without really seeing them," Rook explains as you move through the forest. "They notice the big things such as trees, roads, or landmarks, but miss all the details that tell the real story. Watch." And with that, he leads you off the main path into a thicket of underbrush.
 
 Rook points out signs you would have overlooked entirely: disturbed earth where something was recently buried or dug up, broken branches at specific heights that indicate what kind of creature passed through, scratches on tree bark that mark territorial boundaries. They demonstrate how to move silently, how to use terrain for concealment, how to read the landscape for resources and dangers alike.
 
-"In the Undercroft, these skills kept me alive," Rook continues. "Reading the city like a book, spotting dangers before they spotted me, finding opportunities everyone else missed. But it translates out here too. Observation, pattern recognition, trusting your instincts—that's universal, whether you're dealing with city crowds or wilderness."
+"In the Undercroft, these skills kept me alive," Rook continues. "Reading the city like a book, spotting dangers before they spotted me, finding opportunities everyone else missed. But it translates out here too. Observation, pattern recognition, trusting your instincts...that's universal, whether you're dealing with the wilderness, or the even more wild denizens of the capital."
 
-As the day progresses, Rook shares more practical knowledge: how to identify edible plants, where to find clean water, how to set simple snares, how to read weather signs in cloud formations and animal behavior. The information is delivered pragmatically, without romantic wilderness mysticism, but with genuine respect for practical skills that have kept people alive for generations.
+As the day progresses, Rook shares more practical knowledge: how to identify edible plants, where to find clean water, how to set simple snares, how to read weather signs in cloud formations and animal behavior. The information is delivered pragmatically, without romantic wilderness mysticism, but with genuine respect for practical skills that have kept people alive for generations, and kept him alive so far. You listen and ask questions, genuinely interested in learning what you can from him.
 
-During an afternoon break, Rook settles beside you with unusual openness. "You know what I respect about you?" they ask. "You don't pretend to know things you don't. Most nobles would rather fake expertise than admit ignorance, like asking questions makes them look weak. But you actually want to learn. You listen when people teach you things. That's rare."
+During an afternoon break, Rook settles beside you with unusual openness. "You know what I respect about you?" they ask. "You don't pretend to know things you don't. Most nobles would rather fake expertise than admit ignorance, like asking questions makes them look weak. But you actually want to learn. You listen when people teach you things. That's rare...and I have a feeling it is exactly the type of thing you are going to need a lot of in the near future."
 
-The conversation shifts to philosophy—Rook's practical, street-hardened worldview providing interesting counterpoint to more conventional wisdom you've encountered. They talk about trust and betrayal, about the difference between loyalty earned and loyalty demanded, about how survival sometimes requires moral flexibility but shouldn't mean abandoning all principles.
+The conversation takes an unexpected shift to philosophy, with Rook's practical, street-hardened worldview providing interesting counterpoint to more conventional wisdom you've encountered, and providing you a different perspective that reminds you of your life in Thornshaven. He talks about trust and betrayal, about the difference between loyalty earned and loyalty demanded, about how survival sometimes requires moral flexibility but shouldn't mean abandoning all principles.
 
-"I've done things I'm not proud of," Rook admits. "Stolen from people who probably needed what I took. Worked jobs that hurt folks who didn't deserve it. The Undercroft doesn't reward conscience—it rewards results." They meet your eyes seriously. "But I'm trying to be better than survival mode requires. Trying to figure out what kind of person I want to be when I'm not just scrambling to get through another day. You make that feel possible."
+"I've done things I'm not proud of," Rook admits. "Stolen from people who probably needed what I took. Worked jobs that hurt folks who didn't deserve it. The Undercroft doesn't reward conscience, it rewards results...and there are times I was desperate enough to do what I had to for survival." They meet your eyes seriously. "But I'm trying to be better than just what survival mode requires. I'm trying to figure out what kind of person I want to be when I'm not just scrambling... to get through another day. You make that feel possible."
 
-As evening approaches, Rook demonstrates more advanced techniques—how to detect whether someone's following you, how to read subtle body language that reveals intentions, how to gather information from casual observation. The skills are clearly honed from years of necessity, but Rook shares them generously, treating you as a legitimate student rather than amusing amateur.
+As evening approaches, Rook demonstrates more advanced techniques, such as how to detect whether someone's following you, how to read subtle body language that reveals intentions, and how to gather information from casual observation. The skills are clearly honed from years of necessity, but Rook shares them generously, treating you as a legitimate student rather than amusing amateur.
 
-Around the campfire that night, Rook tells stories about the Undercroft—not glorified adventure tales, but honest narratives about life on society's margins. The stories are sometimes funny, often harsh, always real. They paint a picture of a world most nobles never see, making you understand perspectives you've been sheltered from.
+Around the campfire that night, Rook tells stories about the Undercroft. Not some glorified adventure tales, but honest narratives about life on society's margins. The stories are sometimes funny, often harsh, and always real. They paint a picture of a world most never see, making you understand perspectives you've not experienced yourself.
 
 "Thanks for not judging," Rook says quietly as others begin settling for sleep. "For seeing me as a person instead of just a street criminal with useful skills. For treating knowledge from the gutter as equally valuable as knowledge from books. That means more than you probably realize."
 
-The first day ends with your perspective broadened, practical skills gained, and a friendship forged with someone whose life experience provides invaluable balance to your more privileged upbringing. As you drift toward sleep, Rook's quiet presence on watch feels reassuring—not just for safety, but because you're traveling with someone who sees the world clearly and is choosing to trust you with that vision.`;
+The first day ends with your perspective broadened, practical skills gained, and a friendship forged with someone whose life experience provides invaluable balance. As you drift toward sleep, you find yourself grateful for the fact that your companions each bring unique strengths and perspectives for the journey ahead.`;
 
 const day1Reflection = `You choose to spend the first day in contemplative solitude, processing the enormity of what lies ahead. Your companions sense your need for internal space and respect it, maintaining protective watch while allowing you the mental privacy to work through complicated feelings.
 
-The morning passes in thought as deep as meditation but more directed. You consider the questions that have been circling since Whisper confirmed your heritage: What does it mean to carry Silverwood blood? What responsibilities come with ancient magic and noble lineage? What kind of leader do you want to become, if leadership is indeed your destiny?
+The morning passes in thought as deep as meditation, but more directed. You consider the questions that have been circling since Whisper confirmed the origin of your heritage: What does it mean to carry Silverwood blood? What responsibilities come with ancient magic and some form of noble lineage? What kind of leader do you want to become, if leadership is indeed your destiny? Is it even worth considering that as a possibilty, or are you letting yourself get carried away by fantasies of grandeur?
 
-The forest provides a contemplative backdrop, ancient and patient, as you wrestle with these questions. You think about the people you've met since your magic awakened—Vale's artistic wisdom and romantic heart, Ash's battle-hardened integrity and fierce protectiveness, Rook's street-smart pragmatism and hard-won loyalty. Each of them represents different aspects of what strength can look like, different approaches to navigating a world that can be both beautiful and brutal.
+The forest provides a contemplative backdrop, ancient and patient, as you wrestle with these questions. You think about the people you've met since your magic awakened...Vale's artistic wisdom and romantic heart, Ash's battle-hardened integrity and fierce protectiveness, Rook's street-smart pragmatism and hard-won loyalty. Each of them represents different aspects of what strength can look like, different approaches to navigating a world that can be both beautiful and brutal.
 
-Around midday, as you pause for rest, you find yourself thinking about power itself. The kingdom you've seen has power concentrated in hands that often wield it selfishly—nobles extracting wealth from peasants, authorities maintaining control through fear, the strong dominating the weak simply because they can. Is that inevitable? Or can power be held differently, used to serve rather than subjugate?
+Around midday, as you pause for rest, you find yourself thinking about power itself. The kingdom you've seen has power concentrated in hands that often wield it selfishly. It takes the form of nobles extracting wealth from peasants, authorities maintaining control through fear, or the strong dominating the weak simply because they can. Is that inevitable? Or can power be held differently, used to serve rather than subjugate?
 
-You think about your experiences in the capital—the tournament where your blood magic awakened publicly, the Guild Master who recognized your potential and offered guidance, the various factions already maneuvering to either support or oppose your claim before you've even understood what you're claiming. Politics and magic and violence all intertwining in ways you're only beginning to comprehend.
+You reflect on the tournament where your blood magic awakened publicly, and the Guild Master who recognized your potential and offered guidance. You try to keep in mind the various factions Whisper mentioned, who are no doubt already maneuvering to either support or oppose your claim before you've even understood what you're claiming. Politics, magic, and violence...all intertwining in ways you're only beginning to comprehend.
 
-The afternoon brings different reflections, more personal than philosophical. You think about the life you might have led if your magic had never awakened—a simple existence, perhaps, but also a safe one. Discovering your heritage has thrown open doors to possibility and danger alike. There's grief in acknowledging what you're leaving behind, even as excitement builds for what you're moving toward.
+The afternoon brings different reflections, more personal than philosophical. You think about the life you might have led if your magic had never awakened, of your day to day routine back in Thornshaven that feels like a different lifetime. It was a simple existence, perhaps, but also a safe one. Discovering your heritage has thrown open doors to possibility and danger alike. There's grief in acknowledging what you're leaving behind, even as excitement builds for what you're moving toward.
 
-As evening approaches and camp is established, Ash settles near you with unusual gentleness. "Heavy thoughts?" they ask, and when you nod, they simply sit in companionable silence, offering presence without demanding conversation. It's exactly what you need—acknowledgment without intrusion.
+As evening approaches and camp is established, Ash settles near you with unusual gentleness. "Heavy thoughts?" they ask, and when you nod, they simply sit in companionable silence, offering presence without demanding conversation. You can't help but smile to yourself at the fact that those who travel with you know that while you seek acknowledgment, you also need time to think without intrusion.
 
-Around the campfire that night, you find yourself more observer than participant, watching your companions interact with new understanding. Each of them has chosen to come on this journey for their own reasons, but they're also choosing to travel together, to form community despite differences in background and experience. There's a lesson in that about how leadership might work—not demanding loyalty through authority but earning it through relationship.
+Around the campfire that night, you find yourself more observer than participant, watching your companions interact with new understanding. Each of them has chosen to come on this journey for their own reasons but they're also choosing to travel together, to form community and bonds despite differences in background and experience. Perhaps there's a lesson in that about how leadership might work...not by demanding loyalty through authority but earning it through relationships, bonds, and mutual understanding.
 
-Vale plays quiet music as the fire burns low, melodies that somehow capture the contemplative mood without requiring words. The notes drift up toward stars emerging overhead, and you feel yourself held by something larger than individual anxiety—by the story unfolding, by the companions sharing this journey, by the sense that you're part of something meaningful even if its full shape remains unclear.
+Vale plays quiet music as the fire burns low, melodies that somehow capture the contemplative mood without requiring words. The notes drift up toward stars emerging overhead, and you feel yourself held by something larger than individual anxiety, as though you are but a part in the story unfolding.  That your story is still to be told, and that you will be joined by the companions sharing this journey. You make a conscious choice to embrace the sense that you're part of something meaningful, even if its full shape remains unclear for now.
 
-As you settle toward sleep, your mind feels clearer than it has in weeks. You don't have all the answers—you may never have all the answers—but you have better questions now, and better understanding of what matters as you move forward. The first day ends with internal work accomplished, foundations of self-knowledge strengthened.
+As you settle toward sleep, your mind feels clearer than it has in weeks. You don't have all the answers. In fact, you may never have all the answers. But you have better questions now, and better understanding of what matters as you move forward. The first day of travel towards what may be your home ends with internal work accomplished, foundations of self-knowledge strengthened.
 
-Tomorrow will bring new choices, new challenges, new opportunities to discover who you're becoming. Tonight, you rest in the quiet certainty that contemplation was time well spent, preparation as valuable as any physical training or magical education.`;
+Tomorrow will bring new choices, new challenges, new opportunities to discover who you're becoming. But for tonight, you rest in the quiet certainty that contemplation was time well spent, preparation as valuable as any physical training or magical education.`;
 
 const day2TransitionBase = `The second day dawns clear and cool, morning mist clinging to the forest floor like remnants of dreams. Your companions wake and prepare with the easy efficiency of a second day's travel, the initial awkwardness of finding group rhythm already smoothed into comfortable cooperation.
 
@@ -256,14 +256,14 @@ export const RoadToSilverwoodDay1: Scene = {
 			outcomes: [{
 				conditions: {
 					hasHiddenAttributes: { vale_trust: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_vale_romantic') && !getHiddenAttribute('journey_day1_vale_friendly')
+					custom: () => !getHiddenAttribute('journey_day1_vale_romantic')
 				}
 			}],
 			onFail: 'disable'
 		},
 		{
 			id: 'romantic-vale-day2',
-			text: 'Deepen your romantic connection with Vale',
+			text: '[Romantic] Spend the day walking closely with Vale, exploring the growing connection between you.',
 			next: 'road_to_silverwood_day2',
 			effects: { charisma: 2, wisdom: 1 },
 			hiddenEffects: {
@@ -273,14 +273,14 @@ export const RoadToSilverwoodDay1: Scene = {
 			outcomes: [{
 				conditions: {
 					hasHiddenAttributes: { vale_romance: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_vale_romantic') && !getHiddenAttribute('journey_day1_vale_friendly')
+					custom: () => !getHiddenAttribute('journey_day1_vale_friendly')
 				}
 			}],
 			onFail: 'disable'
 		},
         {
 			id: 'companion-ash-day2',
-			text: 'Continue combat training and strategic lessons with Ash',
+			text: 'Learn combat techniques and strategy from Ash as you travel.',
 			next: 'road_to_silverwood_day2',
 			effects: { strength: 2, wisdom: 1 },
 			hiddenEffects: {
@@ -291,14 +291,14 @@ export const RoadToSilverwoodDay1: Scene = {
 			outcomes: [{
 				conditions: {
 					hasHiddenAttributes: { ash_trust: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_ash_romantic') && !getHiddenAttribute('journey_day1_ash_friendly')
+					custom: () => !getHiddenAttribute('journey_day1_ash_friendly')
 				}
 			}],
 			onFail: 'disable'
 		},
 		{
 			id: 'romantic-ash-day2',
-			text: 'Continue exploring the charged connection with Ash',
+			text: '[Romantic] Train with Ash throughout the day, and aim to explore the feeling the charged tension between your sparring and something deeper.',
 			next: 'road_to_silverwood_day2',
 			effects: { strength: 2, courage: 1 },
 			hiddenEffects: {
@@ -309,14 +309,14 @@ export const RoadToSilverwoodDay1: Scene = {
 			outcomes: [{
 				conditions: {
 					hasHiddenAttributes: { ash_romance: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_ash_romantic') && !getHiddenAttribute('journey_day1_ash_friendly')
+					custom: () => !getHiddenAttribute('journey_day1_ash_romantic')
 				}
 			}],
 			onFail: 'disable'
 		},
         {
 			id: 'companion-rook-day2',
-			text: 'Explore wilderness skills and perspective with Rook',
+			text: 'Scout the area with Rook, learning from their survival skills and street smarts.',
 			next: 'road_to_silverwood_day2',
 			effects: { intelligence: 2, dexterity: 1 },
 			hiddenEffects: {
@@ -326,14 +326,14 @@ export const RoadToSilverwoodDay1: Scene = {
 			outcomes: [{
 				conditions: {
 					hasHiddenAttributes: { rook_trust: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_rook_romantic') && !getHiddenAttribute('journey_day1_rook_friendly')
+					custom: () => !getHiddenAttribute('journey_day1_rook_friendly')
 				}
 			}],
 			onFail: 'disable'
 		},
 		{
 			id: 'romantic-rook-day2',
-			text: 'Deepen the intimate trust growing with Rook',
+			text: '[Romantic] Explore the wilderness with Rook, sharing secrets and trying to foster a more intimate trust.',
 			next: 'road_to_silverwood_day2',
 			effects: { intelligence: 2, charisma: 1 },
 			hiddenEffects: {
@@ -343,14 +343,14 @@ export const RoadToSilverwoodDay1: Scene = {
 			outcomes: [{
 				conditions: {
 					hasHiddenAttributes: { rook_romance: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_rook_romantic') && !getHiddenAttribute('journey_day1_rook_friendly')
+					custom: () => !getHiddenAttribute('journey_day1_rook_romantic')
 				}
 			}],
 			onFail: 'disable'
 		},
 		{
 			id: 'reflect-day2',
-			text: 'Spend another day in contemplative solitude',
+			text: 'Spend the day in contemplative solitude',
 			next: 'road_to_silverwood_day2',
 			effects: { wisdom: 3 },
 			hiddenEffects: {
