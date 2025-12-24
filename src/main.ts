@@ -26,11 +26,11 @@ document.querySelector('#app').innerHTML = `
 <div class="app-wrapper">
     <main class="app-card" role="main">
         <div id="intro-text" aria-live="polite" class="intro-text"></div>
-        <section class="choices-section">
+        <section class="choices-section" style="display: none;">
             <h2>Make your choice:</h2>
             <ul id="choices-list" aria-label="Choices" role="list"></ul>
         </section>
-        <section class="titles-section">
+        <section class="titles-section" style="display: none;">
             <h3>Titles Earned</h3>
             <div id="titles-display" class="titles-display"></div>
         </section>

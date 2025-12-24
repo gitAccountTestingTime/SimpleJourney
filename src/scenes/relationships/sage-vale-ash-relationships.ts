@@ -266,7 +266,7 @@ export const AshBondingPrologue: Scene = {
 	choices: [
 		{
 			id: 'prepare-for-capital',
-			text: 'Bid Ash a good night , then turn in and get some rest. You will likely need it for tomorrow.',
+			text: 'Bid Ash a good night, then turn in and get some rest. You will likely need it for tomorrow.',
 			next: 'meet_rook',
 			hiddenEffects: {
 				ash_trust: 15,

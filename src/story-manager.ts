@@ -149,42 +149,42 @@ let completedChallenges: Map<string, { completedAt: number; verified: boolean }>
 // track active challenges
 let activeChallenges: Map<string, { startedAt: number; choiceId: string }> = new Map();
 
-// Available titles in the game
+// Available titles in the game - TITLE SEARCH
 const TITLES: Record<string, Title> = {
 	'brave-soul': {
 		id: 'brave-soul',
 		name: 'Brave Soul',
-		description: 'Reached 10+ courage',
+		description: 'Reached 25+ courage',
 		icon: '⚔️'
 	},
 	'scholar': {
 		id: 'scholar',
 		name: 'Scholar',
-		description: 'Reached 10+ curiosity',
+		description: 'Reached 25+ curiosity',
 		icon: '📚'
 	},
 	'wealthy': {
 		id: 'wealthy',
 		name: 'Wealthy',
-		description: 'Reached 50+ wealth',
+		description: 'Reached 200+ wealth',
 		icon: '💰'
 	},
 	'beloved': {
 		id: 'beloved',
 		name: 'Beloved',
-		description: 'Reached 20+ reputation',
+		description: 'Reached 50+ reputation',
 		icon: '❤️'
 	},
 	'strong': {
 		id: 'strong',
 		name: 'Strong',
-		description: 'Reached 15+ strength',
+		description: 'Reached 25+ strength',
 		icon: '💪'
 	},
 	'wise': {
 		id: 'wise',
 		name: 'Wise',
-		description: 'Reached 15+ wisdom',
+		description: 'Reached 25+ wisdom',
 		icon: '🧙'
 	},
 	'fortunate': {
@@ -196,21 +196,9 @@ const TITLES: Record<string, Title> = {
 	'charismatic': {
 		id: 'charismatic',
 		name: 'Charismatic',
-		description: 'Reached 15+ charisma',
+		description: 'Reached 25+ charisma',
 		icon: '✨'
 	},
-	'forest-explorer': {
-		id: 'forest-explorer',
-		name: 'Forest Explorer',
-		description: 'Visited the forest',
-		icon: '🌲'
-	},
-	'sailor': {
-		id: 'sailor',
-		name: 'Sailor',
-		description: 'Took the boat to sea',
-		icon: '⛵'
-	}
 };
 
 // Available rewards in the game
@@ -225,7 +213,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'storage-containers': {
 		id: 'storage-containers',
-		name: 'Storage Container Variety Pack',
+		name: 'Store that money!',
 		description: 'Earned 250+ wealth',
 		icon: '📦',
 		condition: { stats: { wealth: { min: 300 } } },
@@ -233,16 +221,16 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'first-reward': {
 		id: 'first-reward',
-		name: '5 minute massage!',
+		name: 'Getting Started Reward',
 		description: 'Selected a starting weapon.',
 		// find icon for weapon selection
 		icon: '',
-		condition: { sceneId: 'meet_vale' },
-		message: 'You\'ve selected your starting weapon! Here\'s a reward example!: 5 minute massage!'
+		condition: { sceneId: 'weapon_choice' },
+		message: 'Rewards are scattered throughout your journey, triggered by a wide variety of events, situations, and choices. When you encounter one, you should write down the reward message (Getting Started Reward, in this example). You cannot earn the same reward multiple times, but you can earn different rewards across different playthroughs. Good luck! :)       You\'ve selected your starting weapon! Here\'s a reward example!: 5 minute massage!'
 	},
 	'massage-relic': {
 		id: 'massage-relic',
-		name: 'Massage Relic (3 min nightly for 1 year)',
+		name: 'Massage Relic!?',
 		description: 'Completed Act 3',
 		icon: '💆',
 		condition: { sceneId: 'act4_start' },
@@ -250,59 +238,63 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'massage-30min': {
 		id: 'massage-30min',
-		name: '30 Minute Massage',
+		name: 'Skill Mastery - 20 - Massage',
 		description: 'Reached 20+ in any stat',
 		icon: '💆',
 		condition: {
 			custom: () => {
 				const stats = getStats();
-				return Object.values(stats).some(val => val >= 20);
+				const { wealth, health, ...relevantStats } = stats;
+				return Object.values(relevantStats).some(val => val >= 20);
 			}
 		},
 		message: 'You\'ve achieved mastery in a skill! Reward unlocked: 30 Minute Massage'
 	},
 	'massage-30min-2': {
 		id: 'massage-30min-2',
-		name: '30 Minute Massage',
+		name: 'Skill Mastery - 30 - Massage',
 		description: 'Reached 30+ in any stat',
 		icon: '💆',
 		condition: {
 			custom: () => {
 				const stats = getStats();
-				return Object.values(stats).some(val => val >= 30);
+				const { wealth, health, ...relevantStats } = stats;
+				return Object.values(relevantStats).some(val => val >= 30);
 			}
 		},
 		message: 'You\'ve achieved mastery in a skill! Reward unlocked: 30 Minute Massage'
 	},
 	'massage-30min-3': {
 		id: 'massage-30min-3',
-		name: '30 Minute Massage',
+		name: 'Skill Mastery - 40 - Massage',
 		description: 'Reached 40+ in any stat',
 		icon: '💆',
 		condition: {
 			custom: () => {
 				const stats = getStats();
-				return Object.values(stats).some(val => val >= 40);
+				const { wealth, health, ...relevantStats } = stats;
+				return Object.values(relevantStats).some(val => val >= 40);
 			}
 		},
 		message: 'You\'ve achieved mastery in a skill! Reward unlocked: 30 Minute Massage'
 	},
 	'massage-30min-4': {
 		id: 'massage-30min-4',
-		name: '30 Minute Massage',
+		name: 'Skill Mastery - 50 - Massage',
 		description: 'Reached 50+ in any stat',
 		icon: '💆',
 		condition: {
 			custom: () => {
 				const stats = getStats();
-				return Object.values(stats).some(val => val >= 50);
+				const { wealth, health, ...relevantStats } = stats;
+				return Object.values(relevantStats).some(val => val >= 50);
 			}
 		},
 		message: 'You\'ve achieved mastery in a skill! Reward unlocked: 30 Minute Massage'
 	},
 	'massage-15min': {
 		id: 'massage-15min',
-		name: '15 Minute Massage',
+		name: 'Titles Earned - Massage',
 		description: 'Earned three different titles',
 		icon: '💆',
 		condition: {
@@ -314,7 +306,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'massage-15min-2': {
 		id: 'massage-15min-2',
-		name: '15 Minute Massage',
+		name: 'Titles Earned - 5 - Massage',
 		description: 'Earned 5 different titles',
 		icon: '💆',
 		condition: {
@@ -326,7 +318,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'massage-15min-3': {
 		id: 'massage-15min-3',
-		name: '15 Minute Massage',
+		name: 'Titles Earned - 7 - Massage',
 		description: 'Earned 7 different titles',
 		icon: '💆',
 		condition: {
@@ -338,7 +330,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'massage-15min-4': {
 		id: 'massage-15min-4',
-		name: '15 Minute Massage',
+		name: 'Titles Earned - 10 - Massage',
 		description: 'Earned 10 different titles',
 		icon: '💆',
 		condition: {
@@ -350,7 +342,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'massage-5min': {
 		id: 'massage-5min',
-		name: '5 Minute Massage',
+		name: 'Romance Progress - 10 - Massage',
 		description: 'Made a romance choice',
 		icon: '💆',
 		condition: { 
@@ -364,7 +356,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'massage-5min-2': {
 		id: 'massage-5min-2',
-		name: '5 Minute Massage',
+		name: 'Romance Progress - 20 - Massage',
 		description: 'Made a romance choice',
 		icon: '💆',
 		condition: { 
@@ -378,7 +370,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'massage-5min-3': {
 		id: 'massage-5min-3',
-		name: '5 Minute Massage',
+		name: 'Romance Progress - 30 - Massage',
 		description: 'Made a romance choice',
 		icon: '💆',
 		condition: { 
@@ -392,7 +384,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'massage-5min-4': {
 		id: 'massage-5min-4',
-		name: '5 Minute Massage',
+		name: 'Romance Progress - 40 - Massage',
 		description: 'Made a romance choice',
 		icon: '💆',
 		condition: { 
@@ -406,7 +398,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'massage-5min-5': {
 		id: 'massage-5min-5',
-		name: '5 Minute Massage',
+		name: 'Romance Progress - 50 - Massage',
 		description: 'Made a romance choice',
 		icon: '💆',
 		condition: { 
@@ -420,15 +412,15 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'office-chair': {
 		id: 'office-chair',
-		name: 'New Chair (Office)',
+		name: 'Truly worthy of the throne!',
 		description: 'Completed Act 4',
 		icon: '🪑',
 		condition: { sceneId: 'credits' },
-		message: 'You\'ve conquered the Crystal Heart quest! Reward unlocked: New Chair (Office)'
+		message: 'You did it!!! Reward unlocked: New Chair (Office)'
 	},
 	'headset': {
 		id: 'headset',
-		name: 'New Headset',
+		name: 'Listened to your Destiny!',
 		description: 'Accepted your heritage at Silverwood Manor.',
 		icon: '🎧',
 		condition: { flags: ['identity_accepted:true'] },
@@ -436,7 +428,7 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'book-shopping': {
 		id: 'book-shopping',
-		name: 'Book Shopping Spree',
+		name: 'Sought Knowledge',
 		description: 'Explored the manor library',
 		icon: '📚',
 		condition: { sceneId: 'library_discovery' },
@@ -444,8 +436,8 @@ const REWARDS: Record<string, Reward> = {
 	},
 	'intimate-toy': {
 		id: 'intimate-toy',
-		name: 'New Intimate Toy Purchase',
-		description: 'Shared an intimate connection with a companion',
+		name: 'Intimate Connection',
+		description: 'Forged an intimate connection with a companion',
 		icon: '💝',
 		condition: {
 			custom: () => {
@@ -1342,18 +1334,18 @@ export function checkRequirements(reqs?: Record<string, ChoiceRequirement>): { o
 	return { ok: unmet.length === 0, unmet };
 }
 
-/** Check for and automatically earn titles based on stat thresholds. */
+/** Check for and automatically earn titles based on stat thresholds. - TITLE SEARCH */
 function checkTitleTriggers(): void {
 	const stats = getStats();
 	// stat-based titles
-	if (stats.courage >= 10) earnedTitles.add('brave-soul');
-	if (stats.curiosity >= 10) earnedTitles.add('scholar');
-	if (stats.wealth >= 50) earnedTitles.add('wealthy');
-	if (stats.reputation >= 20) earnedTitles.add('beloved');
-	if (stats.strength >= 15) earnedTitles.add('strong');
-	if (stats.wisdom >= 15) earnedTitles.add('wise');
+	if (stats.courage >= 25) earnedTitles.add('brave-soul');
+	if (stats.curiosity >= 25) earnedTitles.add('scholar');
+	if (stats.wealth >= 200) earnedTitles.add('wealthy');
+	if (stats.reputation >= 50) earnedTitles.add('beloved');
+	if (stats.strength >= 25) earnedTitles.add('strong');
+	if (stats.wisdom >= 25) earnedTitles.add('wise');
 	if (stats.luck >= 10) earnedTitles.add('fortunate');
-	if (stats.charisma >= 15) earnedTitles.add('charismatic');
+	if (stats.charisma >= 25) earnedTitles.add('charismatic');
 	// choice-based titles (triggered by scene id)
 	if (currentSceneId === 'forest') earnedTitles.add('forest-explorer');
 	if (currentSceneId === 'boat') earnedTitles.add('sailor');

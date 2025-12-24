@@ -81,7 +81,8 @@ ${firstDayPrompt}`,
 			effects: { charisma: 2, wisdom: 1 },
 			hiddenEffects: {
 				vale_romance: 10,
-				journey_day1_vale_romantic: true
+				journey_day1_vale_romantic: true,
+				romantic_vale: true
 			},
 			outcomes: [{
 				conditions: {
@@ -115,7 +116,8 @@ ${firstDayPrompt}`,
 			hiddenEffects: {
 				ash_romance: 10,
 				combat_skills: 2,
-				journey_day1_ash_romantic: true
+				journey_day1_ash_romantic: true,
+				romantic_ash: true
 			},
 			outcomes: [{
 				conditions: {

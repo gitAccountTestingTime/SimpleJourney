@@ -62,12 +62,16 @@ export function showRewardNotification(reward: Reward) {
 
 export function populateChoices(scene: ReturnType<typeof getCurrentScene>) {
   const choicesList = document.getElementById('choices-list') as HTMLUListElement | null;
+  const choicesSection = document.querySelector('.choices-section') as HTMLElement | null;
   if (!choicesList) return;
   clearChoicesUI();
   if (!scene.choices || scene.choices.length === 0) {
     renderEndState();
+    if (choicesSection) choicesSection.style.display = 'none';
     return;
   }
+  // Show the choices section when there are choices to display
+  if (choicesSection) choicesSection.style.display = 'block';
   const stats = getStats();
   scene.choices.forEach((c) => {
     const li = document.createElement('li');
@@ -210,13 +214,17 @@ export function renderStats() {
 
 export function renderTitles() {
   const titlesDisplay = document.getElementById('titles-display') as HTMLElement | null;
+  const titlesSection = document.querySelector('.titles-section') as HTMLElement | null;
   if (!titlesDisplay) return;
   const titles = getEarnedTitles();
   titlesDisplay.innerHTML = '';
   if (titles.length === 0) {
-    titlesDisplay.innerHTML = '<p style="color: rgba(255,255,255,0.5);">No titles earned yet</p>';
+    // Hide the entire titles section when no titles are earned
+    if (titlesSection) titlesSection.style.display = 'none';
     return;
   }
+  // Show the titles section when titles exist
+  if (titlesSection) titlesSection.style.display = 'block';
   titles.forEach((t) => {
     const badge = document.createElement('div');
     badge.className = 'title-badge';
