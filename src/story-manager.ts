@@ -219,18 +219,26 @@ const REWARDS: Record<string, Reward> = {
 		id: 'present-1',
 		name: 'Present 1',
 		description: 'Completed the prologue',
-		// find icon for present
-		icon: '',
+		icon: '🎁',
 		condition: { sceneId: 'act1_start' },
 		message: 'Congratulations! You\'ve completed the prologue. Reward unlocked: Present 1!'
 	},
 	'storage-containers': {
 		id: 'storage-containers',
 		name: 'Storage Container Variety Pack',
-		description: 'Earned 250+ gold',
+		description: 'Earned 250+ wealth',
 		icon: '📦',
-		condition: { stats: { wealth: { min: 250 } } },
+		condition: { stats: { wealth: { min: 300 } } },
 		message: 'Your wealth management skills are excellent! Reward unlocked: Storage Container Variety Pack (Baking Soda, Drink, & Basement)!'
+	},
+	'first-reward': {
+		id: 'first-reward',
+		name: '5 minute massage!',
+		description: 'Selected a starting weapon.',
+		// find icon for weapon selection
+		icon: '',
+		condition: { sceneId: 'meet_vale' },
+		message: 'You\'ve selected your starting weapon! Here\'s a reward example!: 5 minute massage!'
 	},
 	'massage-relic': {
 		id: 'massage-relic',
@@ -304,6 +312,42 @@ const REWARDS: Record<string, Reward> = {
 		},
 		message: 'Your accomplishments are recognized! Reward unlocked: 15 Minute Massage'
 	},
+	'massage-15min-2': {
+		id: 'massage-15min-2',
+		name: '15 Minute Massage',
+		description: 'Earned 5 different titles',
+		icon: '💆',
+		condition: {
+			custom: () => {
+				return getEarnedTitles().length >= 5;
+			}
+		},
+		message: 'Your accomplishments are recognized! Reward unlocked: 15 Minute Massage'
+	},
+	'massage-15min-3': {
+		id: 'massage-15min-3',
+		name: '15 Minute Massage',
+		description: 'Earned 7 different titles',
+		icon: '💆',
+		condition: {
+			custom: () => {
+				return getEarnedTitles().length >= 7;
+			}
+		},
+		message: 'Your accomplishments are recognized! Reward unlocked: 15 Minute Massage'
+	},
+	'massage-15min-4': {
+		id: 'massage-15min-4',
+		name: '15 Minute Massage',
+		description: 'Earned 10 different titles',
+		icon: '💆',
+		condition: {
+			custom: () => {
+				return getEarnedTitles().length >= 10;
+			}
+		},
+		message: 'Your accomplishments are recognized! Reward unlocked: 15 Minute Massage'
+	},
 	'massage-5min': {
 		id: 'massage-5min',
 		name: '5 Minute Massage',
@@ -311,9 +355,65 @@ const REWARDS: Record<string, Reward> = {
 		icon: '💆',
 		condition: { 
 			custom: () => {
-				return chosenFlags.has('vale_romance:15') || chosenFlags.has('ash_romance:15') || 
-				       chosenFlags.has('rook_romance:15') || chosenFlags.has('vale_romance:20') || 
+				return chosenFlags.has('vale_romance:10') || chosenFlags.has('ash_romance:10') || 
+				       chosenFlags.has('rook_romance:10') || chosenFlags.has('vale_romance:10') || 
+				       chosenFlags.has('ash_romance:10') || chosenFlags.has('rook_romance:10');
+			}
+		},
+		message: 'You\'ve opened your heart! Reward unlocked: 5 Minute Massage'
+	},
+	'massage-5min-2': {
+		id: 'massage-5min-2',
+		name: '5 Minute Massage',
+		description: 'Made a romance choice',
+		icon: '💆',
+		condition: { 
+			custom: () => {
+				return chosenFlags.has('vale_romance:20') || chosenFlags.has('ash_romance:20') || 
+				       chosenFlags.has('rook_romance:20') || chosenFlags.has('vale_romance:20') || 
 				       chosenFlags.has('ash_romance:20') || chosenFlags.has('rook_romance:20');
+			}
+		},
+		message: 'You\'ve opened your heart! Reward unlocked: 5 Minute Massage'
+	},
+	'massage-5min-3': {
+		id: 'massage-5min-3',
+		name: '5 Minute Massage',
+		description: 'Made a romance choice',
+		icon: '💆',
+		condition: { 
+			custom: () => {
+				return chosenFlags.has('vale_romance:30') || chosenFlags.has('ash_romance:30') || 
+				       chosenFlags.has('rook_romance:30') || chosenFlags.has('vale_romance:30') || 
+				       chosenFlags.has('ash_romance:30') || chosenFlags.has('rook_romance:30');
+			}
+		},
+		message: 'You\'ve opened your heart! Reward unlocked: 5 Minute Massage'
+	},
+	'massage-5min-4': {
+		id: 'massage-5min-4',
+		name: '5 Minute Massage',
+		description: 'Made a romance choice',
+		icon: '💆',
+		condition: { 
+			custom: () => {
+				return chosenFlags.has('vale_romance:40') || chosenFlags.has('ash_romance:40') || 
+				       chosenFlags.has('rook_romance:40') || chosenFlags.has('vale_romance:40') || 
+				       chosenFlags.has('ash_romance:40') || chosenFlags.has('rook_romance:40');
+			}
+		},
+		message: 'You\'ve opened your heart! Reward unlocked: 5 Minute Massage'
+	},
+	'massage-5min-5': {
+		id: 'massage-5min-5',
+		name: '5 Minute Massage',
+		description: 'Made a romance choice',
+		icon: '💆',
+		condition: { 
+			custom: () => {
+				return chosenFlags.has('vale_romance:50') || chosenFlags.has('ash_romance:50') || 
+				       chosenFlags.has('rook_romance:50') || chosenFlags.has('vale_romance:50') || 
+				       chosenFlags.has('ash_romance:50') || chosenFlags.has('rook_romance:50');
 			}
 		},
 		message: 'You\'ve opened your heart! Reward unlocked: 5 Minute Massage'
@@ -329,7 +429,7 @@ const REWARDS: Record<string, Reward> = {
 	'headset': {
 		id: 'headset',
 		name: 'New Headset',
-		description: 'Accepted your heritage at Silverwood',
+		description: 'Accepted your heritage at Silverwood Manor.',
 		icon: '🎧',
 		condition: { flags: ['identity_accepted:true'] },
 		message: 'You\'ve embraced your true identity! Reward unlocked: New Headset'
@@ -345,17 +445,22 @@ const REWARDS: Record<string, Reward> = {
 	'intimate-toy': {
 		id: 'intimate-toy',
 		name: 'New Intimate Toy Purchase',
-		description: 'Romance is budding with a companion',
+		description: 'Shared an intimate connection with a companion',
 		icon: '💝',
 		condition: {
 			custom: () => {
-				const valeRomance = Number(hiddenAttributes.get('vale_romance')) || 0;
-				const ashRomance = Number(hiddenAttributes.get('ash_romance')) || 0;
-				const rookRomance = Number(hiddenAttributes.get('rook_romance')) || 0;
-				return valeRomance >= 25 || ashRomance >= 25 || rookRomance >= 25;
+				return hiddenAttributes.get('intimate_connection_vale') === true ||
+				       hiddenAttributes.get('intimate_connection_ash') === true ||
+				       hiddenAttributes.get('intimate_connection_rook') === true ||
+				       hiddenAttributes.get('intimate_connection_rowan') === true ||
+				       hiddenAttributes.get('intimate_connection_lyra') === true ||
+				       hiddenAttributes.get('intimate_connection_seraphine') === true ||
+				       hiddenAttributes.get('intimate_connection_kieran') === true ||
+				       hiddenAttributes.get('intimate_connection_finn') === true ||
+				       hiddenAttributes.get('intimate_connection_sage') === true;
 			}
 		},
-		message: 'Your deep connection with your companion is special! Reward unlocked: New Intimate Toy Purchase'
+		message: 'Your intimate connection with your companion is special! Reward unlocked: New Intimate Toy Purchase'
 	},
 	'spending-money': {
 		id: 'spending-money',
