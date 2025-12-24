@@ -10,9 +10,9 @@ const journeyReflection = `Three days of travel, according to the Guild Master's
 
 const companionship = `As you travel, you're not alone. Word of your quest spread quickly among those you've met during your time in the capital. Some chose to accompany you for various reasons. Some drawn by friendship forged through shared experiences, some curiosity about the mysteries you're pursuing, or perhaps something deeper altogether. Fate itself might be gathering the right people for what's to come.
 
-The journey stretches before you—three days to reach Silverwood Manor. Three days that will offer opportunities to deepen the bonds with those who've chosen to travel beside you.`;
+The journey stretches before you, three days to reach Silverwood Manor. Three days that will offer opportunities to deepen the bonds with those who've chosen to travel beside you.  After a day on the road, you and your companions settle in for the night, all quickly taking to resting as you adjust to the rhythm of travel.`;
 
-const firstDayPrompt = `As the first day of travel begins in earnest, you consider how to spend your time on the road. 
+const firstDayPrompt = `The group awakens and quickly prepares to resume moving. As the first day of real travel begins in earnest, you consider how to spend your time on the road. 
 
 Your companions who readily joined you on your journey and have settled into their own rhythms:
 - Vale humming softly while scanning the treeline, 
@@ -126,7 +126,7 @@ ${firstDayPrompt}`,
 		},
 		{
 			id: 'companion-rook',
-			text: 'Scout the area with Rook, learning from their survival skills and street smarts. ',
+			text: 'Scout the area with Rook, learning from their survival skills and street smarts.',
 			next: 'road_to_silverwood_day1',
 			effects: { intelligence: 2, dexterity: 1 },
 			hiddenEffects: {
@@ -142,7 +142,7 @@ ${firstDayPrompt}`,
 		},
 		{
 			id: 'romantic-rook',
-			text: '[Romantic] Explore the wilderness with Rook, sharing secrets and try building a more intimate trust.',
+			text: '[Romantic] Explore the wilderness with Rook, sharing secrets and trying to foster a more intimate trust.',
 			next: 'road_to_silverwood_day1',
 			effects: { intelligence: 2, charisma: 1 },
 			hiddenEffects: {

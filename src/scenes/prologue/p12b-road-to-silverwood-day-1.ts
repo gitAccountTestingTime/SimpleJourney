@@ -176,9 +176,11 @@ As you settle toward sleep, your mind feels clearer than it has in weeks. You do
 
 Tomorrow will bring new choices, new challenges, new opportunities to discover who you're becoming. But for tonight, you rest in the quiet certainty that contemplation was time well spent, preparation as valuable as any physical training or magical education.`;
 
-const day2TransitionBase = `The second day dawns clear and cool, morning mist clinging to the forest floor like remnants of dreams. Your companions wake and prepare with the easy efficiency of a second day's travel, the initial awkwardness of finding group rhythm already smoothed into comfortable cooperation.
+const day2TransitionBase = `The second travel day dawns clear and cool, morning mist clinging to the forest floor like remnants of dreams. Your companions wake and prepare with the easy efficiency of a second day's travel, the initial awkwardness of finding group rhythm already smoothed into comfortable cooperation.
 
-The road ahead continues through increasingly wild terrain, and you find yourself once again considering how to spend the day's journey. Yesterday's choice shaped the experience in ways both expected and surprising, and now another day stretches ahead with its own possibilities.`;
+The road ahead continues through increasingly wild terrain, and you find yourself once again considering how to spend the day's journey. Yesterday's choice shaped the experience in ways both expected and surprising, and now another day stretches ahead with its own possibilities.
+
+Tomorrow, you'll reach Silverwood.  But for today, more opportunities to learn, to connect, and to prepare for what lies ahead await. The forest seems to hum with anticipation, as if aware that something significant is approaching. You take a deep breath of the crisp morning air, feeling both grounded in the present moment and drawn toward the future unfolding before you.`;
 
 export const RoadToSilverwoodDay1: Scene = {
 	id: 'road_to_silverwood_day1',
@@ -216,7 +218,7 @@ export const RoadToSilverwoodDay1: Scene = {
 	choices: [
 		{
 			id: 'walking-meditation-challenge-day2',
-			text: 'Continue mindful walking meditation practice',
+			text: 'Practice mindful walking meditation for a short time, using the moment to ground yourself. [Does not advance scene]',
 			next: 'road_to_silverwood_day1',
 			effects: { wisdom: 3, vitality: 1 },
 			hiddenEffects: {
@@ -246,7 +248,7 @@ export const RoadToSilverwoodDay1: Scene = {
 		},
         {
 			id: 'companion-vale-day2',
-			text: 'Learn more from Vale about magic and music',
+			text: 'Walk alongside Vale, learning about their bardic knowledge and magical insights.',
 			next: 'road_to_silverwood_day2',
 			effects: { wisdom: 2, charisma: 1 },
 			hiddenEffects: {
@@ -268,7 +270,8 @@ export const RoadToSilverwoodDay1: Scene = {
 			effects: { charisma: 2, wisdom: 1 },
 			hiddenEffects: {
 				vale_romance: 5,
-				journey_day2_vale_romantic: true
+				journey_day2_vale_romantic: true,
+				romantic_vale: true
 			},
 			outcomes: [{
 				conditions: {
@@ -304,7 +307,8 @@ export const RoadToSilverwoodDay1: Scene = {
 			hiddenEffects: {
 				ash_romance: 5,
 				combat_skills: 2,
-				journey_day2_ash_romantic: true
+				journey_day2_ash_romantic: true,
+				romantic_ash: true
 			},
 			outcomes: [{
 				conditions: {
