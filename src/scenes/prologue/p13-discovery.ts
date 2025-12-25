@@ -79,7 +79,7 @@ You are the future they saw coming, painted, and prepared for.
 
 Everything in your life...every choice, every hardship, every struggle, every victory, has lead to this moment. To this truth. To this threshold of destiny.`;
 
-const letterDiscovery = `You take in all that you see before you—the artifacts, the journals, the maps, but most of all, the letter bearing your name. Taking a deep breath to steady your trembling hands, you break the seal and unfold the pages. Fine, delicate handwriting, the type that conveys both intelligence and appreciate of beauty, fills the pages:
+const letterDiscovery = `You take in all that you see before you; the artifacts, the journals, the maps... but the thing that stands out most of all is a letter bearing your name. Taking a deep breath to steady your trembling hands, you break the seal and unfold the pages. Fine, delicate handwriting, the type that conveys both intelligence and appreciate of beauty, fills the pages:
 
 "My Dearest {name},
 

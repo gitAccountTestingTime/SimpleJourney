@@ -580,6 +580,9 @@ import * as P12bScenes from './scenes/prologue/p12b-road-to-silverwood-day-1';
 import * as P12cScenes from './scenes/prologue/p12c-road-to-silverwood-day-2';
 import * as P13Scenes from './scenes/prologue/p13-discovery';
 
+// Import utility scenes
+import * as ToBeContinuedScenes from './scenes/to-be-continued';
+
 import * as Act1Scenes from './scenes/act1/a1-manor-exploration';
 import * as A2Scenes from './scenes/act1/a2-rowan-introduction';
 import * as A3Scenes from './scenes/act1/a3-first-political-meeting';
@@ -610,6 +613,10 @@ import * as D1Scenes from './scenes/act4/d1-climax-endings';
 import * as D2Scenes from './scenes/act4/d2-unity-path';
 import * as D3Scenes from './scenes/act4/d3-all-endings';
 import * as D4Scenes from './scenes/act4/d4-epilogue';
+
+// Import merchant scenes
+import * as MerchantScenes from './scenes/merchants/traveling-merchant';
+import * as MerchantIntegrationScenes from './scenes/merchants/merchant-integration';
 
 // Import relationship scenes
 import * as SageValeAshRelationships from './scenes/relationships/sage-vale-ash-relationships';
@@ -644,6 +651,8 @@ const storyScenes = [
 	...extractScenes(P12bScenes),
 	...extractScenes(P12cScenes),
 	...extractScenes(P13Scenes),
+	// Utility scenes
+	...extractScenes(ToBeContinuedScenes),
 	...extractScenes(Act1Scenes),
 	...extractScenes(A2Scenes),
 	...extractScenes(A3Scenes),
@@ -671,6 +680,9 @@ const storyScenes = [
 	...extractScenes(D2Scenes),
 	...extractScenes(D3Scenes),
 	...extractScenes(D4Scenes),
+	// Merchant scenes
+	...extractScenes(MerchantScenes),
+	...extractScenes(MerchantIntegrationScenes),
 	// Relationship scenes
 	...extractScenes(SageValeAshRelationships),
 	...extractScenes(RowanRelationships),
@@ -1024,8 +1036,14 @@ export function saveToSlot(slotId: number, customName?: string): SaveSlot {
 		throw new Error('localStorage not available');
 	}
 
+	// If current scene is a to_be_continued variant, save the previous scene instead
+	const isToBeContinued = currentSceneId === 'to_be_continued' || 
+	                        currentSceneId === 'to_be_continued_dramatic' || 
+	                        currentSceneId === 'to_be_continued_peaceful';
+	const sceneToSave = isToBeContinued && previousSceneId ? previousSceneId : currentSceneId;
+
 	const data = {
-		sceneId: currentSceneId,
+		sceneId: sceneToSave,
 		previousSceneId: previousSceneId,
 		playerName: playerName,
 		stats: playerStats,
@@ -1039,9 +1057,9 @@ export function saveToSlot(slotId: number, customName?: string): SaveSlot {
 		activeChallenges: Array.from(activeChallenges.entries())
 	};
 
-	// Get current scene for metadata
-	const currentScene = getCurrentScene();
-	const sceneDisplayName = currentScene.id.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+	// Get scene for metadata (use the scene we're actually saving)
+	const sceneForMetadata = sceneToSave && scenes[sceneToSave] ? scenes[sceneToSave] : getCurrentScene();
+	const sceneDisplayName = (sceneToSave || currentSceneId || 'prologue_start').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
 	// Generate a meaningful save name if not provided
 	let saveName = customName;
@@ -1060,7 +1078,7 @@ export function saveToSlot(slotId: number, customName?: string): SaveSlot {
 		id: slotId,
 		name: saveName,
 		timestamp: Date.now(),
-		sceneId: currentSceneId || 'prologue_start',
+		sceneId: sceneToSave || 'prologue_start',
 		sceneName: sceneDisplayName,
 		playerName: playerName,
 		playerLevel: playerStats.courage + playerStats.wisdom + playerStats.charisma, // Simple level calculation
@@ -1326,8 +1344,18 @@ export function checkRequirements(reqs?: Record<string, ChoiceRequirement>): { o
 	const unmet: string[] = [];
 	Object.keys(reqs).forEach(k => {
 		const r = reqs[k];
+		// Check playerStats first, then hiddenAttributes if not found
 		// @ts-ignore
-		const val = playerStats[k] || 0;
+		let val = playerStats[k];
+		if (val === undefined) {
+			// Check if it's a hidden attribute
+			const hiddenVal = hiddenAttributes.get(k);
+			if (typeof hiddenVal === 'number') {
+				val = hiddenVal;
+			} else {
+				val = 0;
+			}
+		}
 		if (typeof r.min === 'number' && val < r.min) unmet.push(`${k} ≥ ${r.min}`);
 		if (typeof r.max === 'number' && val > r.max) unmet.push(`${k} ≤ ${r.max}`);
 	});

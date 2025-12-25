@@ -1,4 +1,4 @@
-import { Scene } from '../../story-manager';
+import { Scene, getHiddenAttribute, setHiddenAttribute } from '../../story-manager';
 
 const departure = `You leave the capital at dawn, when the morning mist still clings to the cobblestone streets and the city's usual cacophony hasn't yet begun. The Guild Master provided detailed directions, supplies for a three-day journey, and a map marked with safe camping sites along the route. The weight of the contract sits in your pack alongside provisions, serving as a constant reminder of what awaits at your destination.`;
 
@@ -63,100 +63,100 @@ ${firstDayPrompt}`,
 			text: 'Walk alongside Vale, learning about their bardic knowledge and magical insights.',
 			next: 'road_to_silverwood_day1',
 			effects: { wisdom: 2, charisma: 1 },
-			hiddenEffects: {
-				vale_trust: 5,
-				journey_day1_vale_friendly: true
-			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { vale_trust: { min: 10 } }
+					custom: () => {
+						const currentTrust = (getHiddenAttribute('vale_trust') as number) || 0;
+						setHiddenAttribute('vale_trust', currentTrust + 10);
+						setHiddenAttribute('journey_day1_vale_friendly', 1);
+						return true;
+					}
 				}
-			}],
-			onFail: 'disable'
+			}]
 		},
 		{
 			id: 'romantic-vale',
 			text: '[Romantic] Spend the day walking closely with Vale, exploring the growing connection between you.',
 			next: 'road_to_silverwood_day1',
 			effects: { charisma: 2, wisdom: 1 },
-			hiddenEffects: {
-				vale_romance: 10,
-				journey_day1_vale_romantic: true,
-				romantic_vale: true
-			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { vale_romance: { min: 10 } }
+					custom: () => {
+						const currentRomance = (getHiddenAttribute('vale_romance') as number) || 0;
+						setHiddenAttribute('vale_romance', currentRomance + 10);
+						setHiddenAttribute('journey_day1_vale_romantic', 1);
+						setHiddenAttribute('romantic_vale', true);
+						return true;
+					}
 				}
-			}],
-			onFail: 'disable'
+			}]
 		},
 		{
 			id: 'companion-ash',
 			text: 'Learn combat techniques and strategy from Ash as you travel.',
 			next: 'road_to_silverwood_day1',
 			effects: { strength: 2, wisdom: 1 },
-			hiddenEffects: {
-				ash_trust: 5,
-				combat_skills: 2,
-				journey_day1_ash_friendly: true
-			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { ash_trust: { min: 10 } }
+					custom: () => {
+						const currentTrust = (getHiddenAttribute('ash_trust') as number) || 0;
+						setHiddenAttribute('ash_trust', currentTrust + 10);
+						setHiddenAttribute('combat_skills', 2);
+						setHiddenAttribute('journey_day1_ash_friendly', 1);
+						return true;
+					}
 				}
-			}],
-			onFail: 'disable'
+			}]
 		},
 		{
 			id: 'romantic-ash',
 			text: '[Romantic] Train with Ash throughout the day, and aim to explore the feeling the charged tension between your sparring and something deeper.',
 			next: 'road_to_silverwood_day1',
 			effects: { strength: 2, courage: 1 },
-			hiddenEffects: {
-				ash_romance: 10,
-				combat_skills: 2,
-				journey_day1_ash_romantic: true,
-				romantic_ash: true
-			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { ash_romance: { min: 10 } }
+					custom: () => {
+						const currentRomance = (getHiddenAttribute('ash_romance') as number) || 0;
+						setHiddenAttribute('ash_romance', currentRomance + 10);
+						setHiddenAttribute('combat_skills', 2);
+						setHiddenAttribute('journey_day1_ash_romantic', 1);
+						setHiddenAttribute('romantic_ash', true);
+						return true;
+					}
 				}
-			}],
-			onFail: 'disable'
+			}]
 		},
 		{
 			id: 'companion-rook',
 			text: 'Scout the area with Rook, learning from their survival skills and street smarts.',
 			next: 'road_to_silverwood_day1',
 			effects: { intelligence: 2, dexterity: 1 },
-			hiddenEffects: {
-				rook_trust: 5,
-				journey_day1_rook_friendly: true
-			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { rook_trust: { min: 10 } }
+					custom: () => {
+						const currentTrust = (getHiddenAttribute('rook_trust') as number) || 0;
+						setHiddenAttribute('rook_trust', currentTrust + 10);
+						setHiddenAttribute('journey_day1_rook_friendly', 1);
+						return true;
+					}
 				}
-			}],
-			onFail: 'disable'
+			}]
 		},
 		{
 			id: 'romantic-rook',
 			text: '[Romantic] Explore the wilderness with Rook, sharing secrets and trying to foster a more intimate trust.',
 			next: 'road_to_silverwood_day1',
 			effects: { intelligence: 2, charisma: 1 },
-			hiddenEffects: {
-				rook_romance: 10,
-				journey_day1_rook_romantic: true
-			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { rook_romance: { min: 10 } }
+					custom: () => {
+						const currentRomance = (getHiddenAttribute('rook_romance') as number) || 0;
+						setHiddenAttribute('rook_romance', currentRomance + 10);
+						setHiddenAttribute('journey_day1_rook_romantic', 1);
+						return true;
+					}
 				}
-			}],
-			onFail: 'disable'
+			}]
 		},
 		{
 			id: 'reflect-day1',

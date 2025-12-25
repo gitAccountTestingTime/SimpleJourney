@@ -26,6 +26,7 @@ import {
   getEarnedRewards,
   getAllRewards,
   getAllHiddenAttributes,
+  checkRequirements,
   type RealLifeChallenge,
   type Reward
 } from './story-manager';
@@ -120,22 +121,9 @@ export function populateChoices(scene: ReturnType<typeof getCurrentScene>) {
     // Check requirements (if any) and act accordingly
     let unmetReasons: string[] = [];
     if (c.requirements) {
-      const check = (window as any).storyManagerCheckRequirements
-        ? (window as any).storyManagerCheckRequirements(c.requirements)
-        : null;
-      if (check && typeof check === 'object') {
-        if (!check.ok) unmetReasons = check.unmet;
-      } else {
-        Object.keys(c.requirements).forEach((k) => {
-          const req = (c.requirements as any)[k] as { min?: number; max?: number };
-          const val = (stats as any)[k] || 0;
-          if (typeof req.min === 'number' && val < req.min) {
-            unmetReasons.push(`${k} ≥ ${req.min}`);
-          }
-          if (typeof req.max === 'number' && val > req.max) {
-            unmetReasons.push(`${k} ≤ ${req.max}`);
-          }
-        });
+      const check = checkRequirements(c.requirements);
+      if (!check.ok) {
+        unmetReasons = check.unmet;
       }
     }
 

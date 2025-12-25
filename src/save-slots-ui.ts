@@ -211,6 +211,12 @@ function handleLoad(slotId: number): void {
 	try {
 		const scene = loadFromSlot(slotId);
 		
+		// Hide name modal if it's visible
+		const nameModal = document.getElementById('name-modal');
+		if (nameModal) {
+			nameModal.style.display = 'none';
+		}
+		
 		// Show success message
 		showStatusMessage(`Game loaded from Slot ${slotId}`, 'success');
 		

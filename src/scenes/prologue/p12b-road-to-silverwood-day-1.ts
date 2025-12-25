@@ -1,4 +1,4 @@
-import { Scene, getHiddenAttribute } from '../../story-manager';
+import { Scene, getHiddenAttribute, setHiddenAttribute } from '../../story-manager';
 
 const day1ValeRomantic = `The morning sun climbs higher as you and your companions continue along the forest road. Vale has been walking beside you since breakfast, closer than strictly necessary for conversation, their presence creating a bubble of warmth that seems to push back against the cool shadows of the ancient trees.
 
@@ -251,16 +251,26 @@ export const RoadToSilverwoodDay1: Scene = {
 			text: 'Walk alongside Vale, learning about their bardic knowledge and magical insights.',
 			next: 'road_to_silverwood_day2',
 			effects: { wisdom: 2, charisma: 1 },
-			hiddenEffects: {
-				vale_trust: 5,
-				journey_day2_vale_friendly: true
+			requirements: {
+				vale_trust: { min: 10 },
+				journey_day1_vale_friendly: { max: 0 },
+				journey_day1_vale_romantic: { max: 0 }
 			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { vale_trust: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_vale_romantic')
+					custom: () => {
+						if (getHiddenAttribute('journey_day1_vale_romantic') || getHiddenAttribute('journey_day1_vale_friendly')) {
+							return false;
+						}
+						const currentTrust = (getHiddenAttribute('vale_trust') as number) || 0;
+						setHiddenAttribute('vale_trust', currentTrust + 5);
+						return true;
+					}
 				}
 			}],
+			hiddenEffects: {
+				journey_day2_vale_friendly: true
+			},
 			onFail: 'disable'
 		},
 		{
@@ -268,17 +278,27 @@ export const RoadToSilverwoodDay1: Scene = {
 			text: '[Romantic] Spend the day walking closely with Vale, exploring the growing connection between you.',
 			next: 'road_to_silverwood_day2',
 			effects: { charisma: 2, wisdom: 1 },
-			hiddenEffects: {
-				vale_romance: 5,
-				journey_day2_vale_romantic: true,
-				romantic_vale: true
+			requirements: {
+				vale_romance: { min: 10 },
+				journey_day1_vale_friendly: { max: 0 },
+				journey_day1_vale_romantic: { max: 0 }
 			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { vale_romance: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_vale_friendly')
+					custom: () => {
+						if (getHiddenAttribute('journey_day1_vale_friendly') || getHiddenAttribute('journey_day1_vale_romantic')) {
+							return false;
+						}
+						const currentRomance = (getHiddenAttribute('vale_romance') as number) || 0;
+						setHiddenAttribute('vale_romance', currentRomance + 5);
+						return true;
+					}
 				}
 			}],
+			hiddenEffects: {
+				journey_day2_vale_romantic: true,
+				romantic_vale: true
+			},
 			onFail: 'disable'
 		},
         {
@@ -286,17 +306,27 @@ export const RoadToSilverwoodDay1: Scene = {
 			text: 'Learn combat techniques and strategy from Ash as you travel.',
 			next: 'road_to_silverwood_day2',
 			effects: { strength: 2, wisdom: 1 },
-			hiddenEffects: {
-				ash_trust: 5,
-				combat_skills: 2,
-				journey_day2_ash_friendly: true
+			requirements: {
+				ash_trust: { min: 10 },
+				journey_day1_ash_friendly: { max: 0 },
+				journey_day1_ash_romantic: { max: 0 }
 			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { ash_trust: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_ash_friendly')
+					custom: () => {
+						if (getHiddenAttribute('journey_day1_ash_friendly') || getHiddenAttribute('journey_day1_ash_romantic')) {
+							return false;
+						}
+						const currentTrust = (getHiddenAttribute('ash_trust') as number) || 0;
+						setHiddenAttribute('ash_trust', currentTrust + 5);
+						return true;
+					}
 				}
 			}],
+			hiddenEffects: {
+				combat_skills: 2,
+				journey_day2_ash_friendly: true
+			},
 			onFail: 'disable'
 		},
 		{
@@ -304,18 +334,28 @@ export const RoadToSilverwoodDay1: Scene = {
 			text: '[Romantic] Train with Ash throughout the day, and aim to explore the feeling the charged tension between your sparring and something deeper.',
 			next: 'road_to_silverwood_day2',
 			effects: { strength: 2, courage: 1 },
+			requirements: {
+				ash_romance: { min: 10 },
+				journey_day1_ash_friendly: { max: 0 },
+				journey_day1_ash_romantic: { max: 0 }
+			},
+			outcomes: [{
+				conditions: {
+					custom: () => {
+						if (getHiddenAttribute('journey_day1_ash_romantic') || getHiddenAttribute('journey_day1_ash_friendly')) {
+							return false;
+						}
+						const currentRomance = (getHiddenAttribute('ash_romance') as number) || 0;
+						setHiddenAttribute('ash_romance', currentRomance + 5);
+						return true;
+					}
+				}
+			}],
 			hiddenEffects: {
-				ash_romance: 5,
 				combat_skills: 2,
 				journey_day2_ash_romantic: true,
 				romantic_ash: true
 			},
-			outcomes: [{
-				conditions: {
-					hasHiddenAttributes: { ash_romance: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_ash_romantic')
-				}
-			}],
 			onFail: 'disable'
 		},
         {
@@ -323,16 +363,26 @@ export const RoadToSilverwoodDay1: Scene = {
 			text: 'Scout the area with Rook, learning from their survival skills and street smarts.',
 			next: 'road_to_silverwood_day2',
 			effects: { intelligence: 2, dexterity: 1 },
-			hiddenEffects: {
-				rook_trust: 5,
-				journey_day2_rook_friendly: true
+			requirements: {
+				rook_trust: { min: 10 },
+				journey_day1_rook_friendly: { max: 0 },
+				journey_day1_rook_romantic: { max: 0 }
 			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { rook_trust: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_rook_friendly')
+					custom: () => {
+						if (getHiddenAttribute('journey_day1_rook_friendly') || getHiddenAttribute('journey_day1_rook_romantic')) {
+							return false;
+						}
+						const currentTrust = (getHiddenAttribute('rook_trust') as number) || 0;
+						setHiddenAttribute('rook_trust', currentTrust + 5);
+						return true;
+					}
 				}
 			}],
+			hiddenEffects: {
+				journey_day2_rook_friendly: true
+			},
 			onFail: 'disable'
 		},
 		{
@@ -340,16 +390,26 @@ export const RoadToSilverwoodDay1: Scene = {
 			text: '[Romantic] Explore the wilderness with Rook, sharing secrets and trying to foster a more intimate trust.',
 			next: 'road_to_silverwood_day2',
 			effects: { intelligence: 2, charisma: 1 },
-			hiddenEffects: {
-				rook_romance: 5,
-				journey_day2_rook_romantic: true
+			requirements: {
+				rook_romance: { min: 10 },
+				journey_day1_rook_friendly: { max: 0 },
+				journey_day1_rook_romantic: { max: 0 }
 			},
 			outcomes: [{
 				conditions: {
-					hasHiddenAttributes: { rook_romance: { min: 10 } },
-					custom: () => !getHiddenAttribute('journey_day1_rook_romantic')
+					custom: () => {
+						if (getHiddenAttribute('journey_day1_rook_romantic') || getHiddenAttribute('journey_day1_rook_friendly')) {
+							return false;
+						}
+						const currentRomance = (getHiddenAttribute('rook_romance') as number) || 0;
+						setHiddenAttribute('rook_romance', currentRomance + 5);
+						return true;
+					}
 				}
 			}],
+			hiddenEffects: {
+				journey_day2_rook_romantic: true
+			},
 			onFail: 'disable'
 		},
 		{
@@ -367,7 +427,8 @@ export const RoadToSilverwoodDay1: Scene = {
 				conditions: {
 					custom: () => !getHiddenAttribute('journey_day1_reflect')
 				}
-			}]
+			}],
+			onFail: 'disable'
 		}
 	]
 };

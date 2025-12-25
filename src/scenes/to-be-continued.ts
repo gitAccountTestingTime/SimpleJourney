@@ -2,11 +2,11 @@ import { Scene } from '../story-manager';
 
 const toBeContinuedText = `The path ahead fades into mist, obscuring what lies beyond. Your journey has brought you this far, revealing truths and forging bonds, testing courage and wisdom in equal measure. But this chapter of your story is not yet written.
 
-The tale continues, though the words remain unspoken for now. New challenges await, new choices will present themselves, new paths will branch before you—but those stories are still taking shape, waiting to be told.
+The tale continues, though the words remain unspoken for now. New challenges await, new choices will present themselves, new paths will branch before you...but those stories are still taking shape, waiting to be told.
 
 Your progress has been remarkable. The person you were when this journey began has been transformed by experience, by the companions you've gathered, by the choices you've made along the way. That growth is preserved, carried forward into whatever comes next.
 
-For now, this is where the current path pauses. But it is not an ending—merely an intermission. The story will continue, and when it does, you'll be ready to face what awaits with all the strength, wisdom, and determination you've cultivated thus far.`;
+For now, this is where the current path pauses. But it is not an ending! It is merely an intermission. The story will continue, and when it does, you'll be ready to face what awaits with all the strength, wisdom, and determination you've cultivated thus far.`;
 
 const saveReminderText = `You may wish to save your progress here, preserving this moment so you can return when new paths open before you. When the story continues, your journey will resume from this point, carrying forward everything you've achieved and become.`;
 
@@ -16,16 +16,7 @@ export const ToBeContinued: Scene = {
 	choices: [
 		{
 			id: 'save-and-acknowledge',
-			text: 'Save your progress and step back from the story for now',
-			next: null, // Ends the story at this point
-			effects: { wisdom: 1 },
-			hiddenEffects: {
-				reached_story_boundary: true
-			}
-		},
-		{
-			id: 'acknowledge-without-save',
-			text: 'Acknowledge the pause without saving (you can save manually from the menu)',
+			text: 'You should save your progress. Once completed, click here if you are ready to step back from the story. For now...',
 			next: null, // Ends the story at this point
 			effects: { wisdom: 1 },
 			hiddenEffects: {

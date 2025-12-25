@@ -223,7 +223,7 @@ export const RoadToSilverwoodDay2: Scene = {
 		{
 			id: 'arrive-at-manor',
 			text: 'Approach Silverwood Manor. If there is a destiny for me here, I will face it and decide.',
-			next: 'merchant_road_encounter',
+			next: 'traveling_merchant_intro',
 			effects: { courage: 1, wisdom: 1 }
 		}
 	]

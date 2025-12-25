@@ -457,7 +457,7 @@ ${dangerWarning}
 	choices: [
 		{
 			id: 'panic',
-			text: 'What just happened makes no sense. Your mind races as fear and confusion flood your senses.',
+			text: 'What just happened makes no sense. Your mind races as fear and confusion floods your senses.',
 			next: 'meet_whisper',
 			effects: { courage: -1 },
 			hiddenEffects: {
@@ -470,7 +470,7 @@ ${dangerWarning}
 		},
 		{
 			id: 'control',
-			text: 'Take a deep breath, trying to steady your thoughts and understand this new power, and what it means for you.',
+			text: 'Take a deep breath, trying to steady your thoughts and understand this new power and what it means for you going forward.',
 			next: 'meet_whisper',
 			effects: { wisdom: 3 },
 			hiddenEffects: {
@@ -484,7 +484,7 @@ ${dangerWarning}
 		},
 		{
 			id: 'ask-help',
-			text: 'Turn to Vale for guidance and support to ground you. Ask them what you should do next; your mind is still reeling, but you know you can trust him.',
+			text: 'Turn to Vale for guidance and support. Ask him what you should do next; your mind is still reeling, but you know you can trust him.',
 			next: 'meet_whisper',
 			effects: { charisma: 2 },
 			hiddenEffects: {
