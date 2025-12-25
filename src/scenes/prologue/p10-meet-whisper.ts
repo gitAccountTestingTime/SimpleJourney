@@ -168,7 +168,7 @@ They gesture to a nearby table where ancient books and scrolls lie carefully arr
 		},
 		{
 			id: 'cautious',
-			text: '"Much as I trust Vale\'s judgement, I also need to be sure I can trust you. Why should I believe you have my best interests at heart?"',
+			text: '"As much as I trust Vale\'s and Rook\'s judgement, I also need to be sure I can trust you. Why should I believe you have my best interests at heart?"',
 			next: 'guild_masters_request',
 			effects: { wisdom: 3 },
 			hiddenEffects: {
