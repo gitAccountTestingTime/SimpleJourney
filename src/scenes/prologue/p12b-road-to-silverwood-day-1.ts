@@ -187,27 +187,27 @@ export const RoadToSilverwoodDay1: Scene = {
 	text: day2TransitionBase,
 	textVariants: [
 		{
-			conditions: { hasHiddenAttributes: { journey_day1_vale_romantic: true } },
+			conditions: { hasHiddenAttributes: { journey_day1_vale_romantic: 1 } },
 			text: day1ValeRomantic + '\n\n' + day2TransitionBase
 		},
 		{
-			conditions: { hasHiddenAttributes: { journey_day1_ash_romantic: true } },
+			conditions: { hasHiddenAttributes: { journey_day1_ash_romantic: 1 } },
 			text: day1AshRomantic + '\n\n' + day2TransitionBase
 		},
 		{
-			conditions: { hasHiddenAttributes: { journey_day1_rook_romantic: true } },
+			conditions: { hasHiddenAttributes: { journey_day1_rook_romantic: 1 } },
 			text: day1RookRomantic + '\n\n' + day2TransitionBase
 		},
 		{
-			conditions: { hasHiddenAttributes: { journey_day1_vale_friendly: true } },
+			conditions: { hasHiddenAttributes: { journey_day1_vale_friendly: 1 } },
 			text: day1ValeFriendly + '\n\n' + day2TransitionBase
 		},
 		{
-			conditions: { hasHiddenAttributes: { journey_day1_ash_friendly: true } },
+			conditions: { hasHiddenAttributes: { journey_day1_ash_friendly: 1 } },
 			text: day1AshFriendly + '\n\n' + day2TransitionBase
 		},
 		{
-			conditions: { hasHiddenAttributes: { journey_day1_rook_friendly: true } },
+			conditions: { hasHiddenAttributes: { journey_day1_rook_friendly: 1 } },
 			text: day1RookFriendly + '\n\n' + day2TransitionBase
 		},
 		{
@@ -319,12 +319,13 @@ export const RoadToSilverwoodDay1: Scene = {
 						}
 						const currentTrust = (getHiddenAttribute('ash_trust') as number) || 0;
 						setHiddenAttribute('ash_trust', currentTrust + 5);
+						const currentSkills = (getHiddenAttribute('combat_skills') as number) || 0;
+						setHiddenAttribute('combat_skills', currentSkills + 2);
 						return true;
 					}
 				}
 			}],
 			hiddenEffects: {
-				combat_skills: 2,
 				journey_day2_ash_friendly: true
 			},
 			onFail: 'disable'
@@ -347,12 +348,13 @@ export const RoadToSilverwoodDay1: Scene = {
 						}
 						const currentRomance = (getHiddenAttribute('ash_romance') as number) || 0;
 						setHiddenAttribute('ash_romance', currentRomance + 5);
+						const currentSkills = (getHiddenAttribute('combat_skills') as number) || 0;
+						setHiddenAttribute('combat_skills', currentSkills + 2);
 						return true;
 					}
 				}
 			}],
 			hiddenEffects: {
-				combat_skills: 2,
 				journey_day2_ash_romantic: true,
 				romantic_ash: true
 			},

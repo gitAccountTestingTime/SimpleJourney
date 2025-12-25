@@ -154,6 +154,12 @@ export function populateChoices(scene: ReturnType<typeof getCurrentScene>) {
         renderEndState();
         return;
       }
+      
+      // Show purchase notification for merchant items (choices that deduct wealth)
+      if (c.effects && c.effects.wealth && c.effects.wealth < 0) {
+        showPurchaseNotification(c.text, c.effects);
+      }
+      
       renderScene(result.scene);
       const newlyEarned = (result.scene as any)._newlyEarnedTitles || [];
       newlyEarned.forEach((title: any) => {
@@ -243,6 +249,28 @@ export function renderRewards() {
 export function showTitleToast(title: any) {
   const icon = title.icon || '⭐';
   alert(`${icon} Title Earned!\n\n${title.name}\n\n${title.description}`);
+}
+
+export function showPurchaseNotification(choiceText: string, stats: Record<string, number>) {
+  const icon = '🛒';
+  const itemName = choiceText.replace(/^Buy /, '').replace(/ \(\d+ gold\)$/, '');
+  const wealthChange = stats.wealth || 0;
+  const cost = Math.abs(wealthChange);
+  
+  // Build stat changes message (excluding wealth)
+  const statChanges: string[] = [];
+  for (const [stat, value] of Object.entries(stats)) {
+    if (stat !== 'wealth' && value !== 0) {
+      const prefix = value > 0 ? '+' : '';
+      statChanges.push(`${stat.charAt(0).toUpperCase() + stat.slice(1)}: ${prefix}${value}`);
+    }
+  }
+  
+  const message = statChanges.length > 0 
+    ? `${statChanges.join('\n')}`
+    : 'Item acquired!';
+  
+  alert(`${icon} Purchase Complete!\n\n${itemName}\nCost: ${cost} gold\n\n${message}`);
 }
 
 // Expose story-manager's checkRequirements to UI so main can call it
