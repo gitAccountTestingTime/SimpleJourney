@@ -208,15 +208,20 @@ const REWARDS: Record<string, Reward> = {
 		name: 'Present 1',
 		description: 'Completed the prologue',
 		icon: '🎁',
-		condition: { sceneId: 'act1_start' },
+		condition: { sceneId: 'to_be_continued' },
 		message: 'Congratulations! You\'ve completed the prologue. Reward unlocked: Present 1!'
 	},
 	'storage-containers': {
 		id: 'storage-containers',
 		name: 'Store that money!',
-		description: 'Earned 250+ wealth',
+		description: 'Earned 250+ wealth or organized your space',
 		icon: '📦',
-		condition: { stats: { wealth: { min: 300 } } },
+		condition: {
+			custom: () => {
+				const stats = getStats();
+				return stats.wealth >= 300 || isChallengeCompleted('organize_space_challenge');
+			}
+		},
 		message: 'Your wealth management skills are excellent! Reward unlocked: Storage Container Variety Pack (Baking Soda, Drink, & Basement)!'
 	},
 	'first-reward': {

@@ -303,8 +303,7 @@ Ash nods slowly, assessment complete. They've decided Rowan isn't a threat, at l
 			hiddenEffects: {
 				ash_trust: 15,
 				ash_romance: 10
-			},
-			conditions: { hasFlags: ['mercenary_life_chosen:true'] }
+			}
 		},
 		{
 			id: 'ask-heritage',

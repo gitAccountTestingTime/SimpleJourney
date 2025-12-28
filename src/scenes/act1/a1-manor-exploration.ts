@@ -1,22 +1,28 @@
-import { Scene } from '../../story-manager';
+import { Scene, getHiddenAttribute } from '../../story-manager';
 
-const inheritanceRealized = `The words still feel surreal, almost dreamlike in their impossibility: Silverwood Manor belongs to you. Not through purchase or conquest, not through accident or theft, but through blood and birthright and destiny written before you were born. This sprawling estate, abandoned for twenty years, sealed by magic and protected by prophecy, has been waiting for you.
+const inheritanceRealized = `The words left to you that describe your inheritance still feel surreal, almost dreamlike in their impossibility: Silverwood Manor, and all that that comes with, belongs to you. Not through purchase, conquest, accident, or theft... but through blood, birthright, heritage, and destiny written before you were born. This sprawling estate, abandoned for twenty years, sealed by magic and protected by prophecy, was not dead but simply waiting for its rightful heir to return. Waiting for you.
 
-And now you stand in its great hall, no longer a visitor or investigator, but its rightful heir. The reality of that truth settles over you with weight both exhilarating and terrifying.`;
+And now you stand in its great hall, no longer a visitor or investigator, but its rightful heir. The reality of that truth still hasn't fully settled for you yet, but you're slowly beginning to come to terms with both the exhilarating and terrifying weight it carries.`;
 
-const greatHallDescription = `The great hall itself is a masterpiece of architectural ambition and magical artistry. Vaulted ceilings soar overhead, so high that sound echoes strangely, creating an acoustic that makes even whispers feel significant. Frescoes cover every inch of the ceiling—painted scenes depicting magical creatures both beautiful and terrible, ancient heroes performing legendary deeds, moments from Silverwood history rendered in vivid color that has somehow survived decades of neglect.
+const greatHallDescription = `The great hall itself is a masterpiece of architectural ambition and magical artistry. Vaulted ceilings soar overhead, so high that sound echoes strangely, creating an acoustic that makes even whispers feel significant. Frescoes cover every inch of the ceiling, painted scenes depicting magical creatures both beautiful and terrible, ancient heroes performing legendary deeds, even moments from Silverwood history rendered in vivid color that has somehow survived decades of neglect.
 
-Walls line with portraits, dozens of them, each capturing a silver-haired ancestor who wore the blood of House Silverwood in their veins. You see your own features reflected in their faces—the shape of your eyes in a great-grandmother's portrait, the curve of your jaw in a great-uncle's, the exact shade of your hair color recurring through generations. This is your family, your lineage, proof written in paint and canvas that you belong to something ancient and powerful.`;
+The walls are lined with portraits, dozens of them, each capturing a silver-haired ancestor who wore the blood of House Silverwood in their veins. You see your own features reflected in their faces...the shape of your eyes in a great-grandmother's portrait, the curve of your jaw in a great-uncle's, the exact shade of your hair color recurring through generations. This is your family, your lineage, an undeniable reminder written in paint and canvas that you belong to something ancient and powerful.`;
 
-const architecturalWonder = `Sunlight streams through stained glass windows—massive installations that must have taken years to craft, depicting the Silverwood tree in various seasons, surrounded by the thirteen stars of the allied houses. The light fractures into rainbow patterns that dance across marble floors, creating kaleidoscope effects that shift throughout the day. The stone itself appears to shimmer with residual magic, responding subtly to your presence, recognizing the blood that gives you claim to this place.`;
+const architecturalWonder = `Sunlight streams through stained glass windows, massive installations that must have taken years to craft, depicting the Silverwood tree in various seasons, surrounded by the thirteen stars of the allied houses. The light fractures into rainbow patterns that dance across marble floors, creating kaleidoscope effects that shift throughout the day. The stone itself appears to shimmer with residual magic, responding subtly to your presence, recognizing the blood that gives you claim to this place.`;
 
-const emotionalWeight = `This is the life that was stolen from you. The childhood you should have had, walking these halls as a prince or princess, learning magic from tutors in the library, dining in the great hall with family who loved you, growing up knowing who you were and what you would become. All of it taken by the Purge, by political enemies who feared your family's power, by those who tried to erase Silverwood from history.
+const emotionalWeight = `This is the life that was stolen from you. The childhood you should have had, walking these halls as a prince or princess, learning magic from tutors in the library, dining in the great hall with family who loved you, growing up knowing who you were and what you would become. All of it taken by the Purge, by political enemies who feared your family's power, by those who tried to erase the Silverwoods from history. 
 
-But they failed. You survived. You returned. And now you stand in your ancestral home, inheriting not just wealth and property, but responsibility and legacy and the weight of an entire house's hopes.`;
+Thinking about it fills you with a complex mix of sorrow and anger and determination.  It isn't just your own childhood that was stolen, it was the lives of your parents, your siblings, those who served them...the lives and future of an entire house. You find yourself tensing up as you consider the terrible cost of other's greed and jealousy. The lives and futures of your family and house were no less worthy to live than your own, yet none of them remain. What kind of people would even consider such an act to be justified? 
 
-const companionsPresence = `Your companions from your adventuring days—the people who knew you before titles and birthright, who traveled with you as an equal, who stood beside you through danger and discovery—explore alongside you now. Each reacts differently to this revelation of your true identity, their responses shaped by their own histories, values, and relationships with power.
+It is the stone walls around you that bring you back to the moment, the previously subtle magic now pulsing with recognition of your anger. It helps you take a deep breath and center yourself. Those who tried to erase your family underestimated your parents. They underestimated you. And as you look out across the actions and legends of the Silverwoods, it is clear that it is never wise to underestimate a Silverwood.
 
-You watch them taking in the grandeur, and wonder: will this change things between you? Can friendship survive the transformation from fellow adventurer to noble heir? Do they see you differently now, standing in halls that speak of wealth and privilege they never possessed?`;
+They may have thought they could completely eliminate your family...but they failed. You survived. You returned. And now you stand in your ancestral home, inheriting not just wealth and property, but responsibility and legacy and the weight of an entire house's hopes.`;
+
+const companionsPresence = `Your companions from your adventuring days, the people who knew you before titles and birthright and traveled with you as an equal and then stood beside you through danger and discovery also explore the manor alongside you now. Each reacts differently to this revelation of your true identity, their responses shaped by their own histories, values, and relationships with power.
+
+You watch them taking in the grandeur, and wonder: will this change things between you? Can the relationships you've forged survive the transformation from fellow adventurer to noble heir of one of the ancient royal houses? Do they see you differently now, standing in halls that speak of wealth and privilege they could never hope to possess?
+
+The time has come for you to choose where to start. The road ahead is long, but it begins here, with a single step forward.`;
 
 const getManorExploration = (): string => {
 	return `${inheritanceRealized}
@@ -37,13 +43,13 @@ export const ManorExploration: Scene = {
 	},
 	textVariants: [
 		{
-			conditions: { hasFlags: ['identity_accepted:true', 'royal_path:true'] },
+			conditions: { hasFlags: ['royal_path:true'] },
 			get text() {
-				return `When you stood before your impossible portrait at Silverwood Manor, when the truth of your heritage crashed over you like a tidal wave, you made a choice: to embrace it fully. To accept not just the blood in your veins, but the responsibility it carries, the legacy it demands, the destiny it offers.
+				return `After you stood before your impossible portrait at Silverwood Manor and truth of your heritage crashed over you like a tidal wave...after you read your parents letter and wept for all that you've lost, all they've lost, and all you've now found...you made a choice: to embrace your royal heritage fully. To accept not just the blood in your veins, but the responsibility it carries, the legacy it demands, and the destiny it offers.
 
-"I am ready," you declared. "I will claim my destiny and restore House Silverwood."
+"I am ready," you declared. "I will claim my destiny and restore House Silverwood. The sacrifice of my parents and all those who served them will not be in vain."
 
-The words felt right then, and they feel right now, even as the full weight of what they mean begins to settle. You didn't just inherit a building—you inherited a cause, a purpose, a duty to something larger than yourself.
+The declaration felt right then, and still feels right now, even as the full weight of what they truly mean begins to settle. You didn't just inherit a building, you inherited a cause, a purpose, and a duty to something larger than yourself. 
 
 ${inheritanceRealized}
 
@@ -51,15 +57,15 @@ ${greatHallDescription}
 
 ${architecturalWonder}
 
-You walk through these halls not as a visitor discovering your past, but as an heir claiming your future. Each room you enter, each artifact you touch, each decision you make—all of it carries the weight of your declaration. You chose this path deliberately, accepted the crown even before it was offered, committed yourself to restoration before fully understanding the cost.
+You walk through these halls not as a visitor discovering your past, but as an heir claiming your future. Each room you enter, each artifact you touch, each decision you make...all of it is made even more significant because it carries the weight of your declaration. You chose this path deliberately and have committed yourself to restoration before even fully understanding the cost, and now that's becoming clear one moment at a time.
 
-The sense of purpose is intoxicating. This is what you were meant for, what your parents sacrificed everything to preserve. Their love and hope and desperate faith brought you here, and you won't let their sacrifice be meaningless.
+You realize, however, that the sense of purpose is intoxicating. This is what you were meant for, and what your parents sacrificed everything to preserve. Their love and hope and desperate faith brought you here, and you refuse to let their sacrifice be meaningless.
 
 ${emotionalWeight}
 
-Your companions from your adventuring days explore alongside you, and you notice the shift in their behavior. They watch you more carefully now, assessing, measuring, wondering. Not with hostility, but with the wariness of people who understand that power changes things. You declared yourself ready to be royalty—now they're watching to see if power will change who you are, if the crown will corrupt the person they knew.
+Your companions from your adventuring days explore alongside you, and you notice the shift in their behavior. They watch you more carefully now, assessing, measuring, wondering. Not with hostility, but with the wariness of people who understand that power changes things and that it can isolate as much as it elevates...and there are few in history who have suddenly gained such responsibility in an instant. You declared yourself ready to be royalty and now they're watching to see if power will change who you are. To see if the crown will corrupt the person they knew and chose to support.
 
-Some look proud. Others look concerned. A few look calculating, already positioning themselves for whatever comes next. The dynamics are shifting, and you feel the loss of easy equality even as you gain the potential for greater purpose.`;
+The variety of responses you see among them, some proud, some concerned, some calculating and already positioning themselves for whatever comes next, does fill you with a small sense of loss. The dynamics are shifting, and you feel the the feeling of easy equality between you and others is something you will likely never have again, even as you gain the potential for greater purpose.`;
 			}
 		},
 		{
@@ -243,13 +249,23 @@ They gesture around the opulent hall. "This is real power. Real wealth. The kind
 
 They force a grin, but their hands are shaking slightly. "So yeah. Promise me you won't forget. Promise me this place doesn't change what we have. Because what we have... it matters to me. More than I probably should admit."`;
 			}
+		},
+		{
+			conditions: { hasFlags: ['making_it_home'] },
+			get text() {
+				return `You spend time clearing out the personal chambers left to you in Silverwood Manor, determined to make at least a small part of this inherited space feel like home.
+			
+				The process is surprisingly therapeutic. As you sort through belongings, arrange furniture, and add personal touches, you find yourself reflecting on the journey that brought you here. Each item you place feels like a small claim on this vast estate, a way to assert your identity amidst the grandeur.
+				
+				By the time you're finished, the room feels distinctly yours. It's a sanctuary within the sprawling manor, a place where you can retreat and be yourself. The act of organizing your space brings clarity to your mind, helping you process the complex emotions tied to your inheritance.`;
+}
 		}
 	],
 	choices: [
 		{
 			id: 'organize-chambers',
-			text: 'Organize your personal chambers thoughtfully—make this inherited space feel like home',
-			next: 'rowan_formal_introduction',
+			text: 'Organize your personal chambers thoughtfully to make at least a small part of this inherited space feel like home [Scene will not advance]',
+			next: 'act1_start',
 			effects: { wisdom: 3, empathy: 2 },
 			hiddenEffects: {
 				manor_explored: true,
@@ -262,22 +278,19 @@ They force a grin, but their hands are shaking slightly. "So yeah. Promise me yo
 				type: 'physical',
 				title: 'Claim Your Space',
 				description: 'Your character organizes their ancestral manor - you bring order to your own space',
-				instructions: 'Spend 15 minutes organizing a space around you. Clean a desk, organize a closet, arrange books, tidy a room - choose any area that needs attention. Create a sense of order and ownership over your environment.',
-				durationMinutes: 15,
+				instructions: 'Spend some time organizing a space around you. Clean a desk, organize a closet, arrange books, tidy a room - choose any area that needs attention. Create a sense of order and ownership over your environment.',
 				verificationMethod: 'honor',
-				checklistItems: [
-					'Choose a space to organize',
-					'Clear away clutter',
-					'Arrange items intentionally',
-					'Create a sense of order',
-					'Feel ownership of your space'
-				],
 				rewards: {
 					stats: { wisdom: 2, vitality: 2, empathy: 1 },
 					hiddenAttributes: { organized_mind: 1, space_claimed: true },
 					message: 'Your space is more organized, and so is your mind. Like your character taking ownership of Silverwood Manor, you\'ve claimed and ordered your own environment. Small acts of organization create foundations for greater things.'
 				}
-			}
+			},
+			outcomes: [{
+				conditions: {
+					custom: () => !getHiddenAttribute('making_it_home')
+				}
+			}]
 		},
 		{
 			id: 'journals',

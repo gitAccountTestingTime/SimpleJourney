@@ -168,11 +168,37 @@ He takes your hands tentatively, reverently, as if you might disappear if he hol
 
 export const ValeBonding1: Scene = {
 	id: 'vale_bonding_1',
-	text: `Vale approaches you in the evening with old documents tucked under one arm, moving with that peculiar grace of someone who's spent years traveling light and fast. Their clothes are practical, well-worn leather and dark fabrics designed for blending in. "Found something interesting," they say casually, but their eyes—sharp, observant, missing nothing—gleam with excitement barely contained beneath studied nonchalance. "Your family's library has gaps. Books that should be here but aren't. Someone's been systematically hiding things."
+	text: `You and Vale set out to investigate the Silverwood library, no doubt one of the greatest troves of knowledge left to you. A couple days have passed, and you've settled into a comfortable rhythm of searching through shelves, cross-referencing catalogs, and examining ancient tomes for hidden compartments or annotations. Vale's enthusiasm is palpable. With every discovery, no matter how small, his face lights up with genuine excitement as he shares it with you.
+	
+	You find Vale in one of the manor's smaller studies long after midnight, surrounded by what looks like organized chaos. Old documents spread across every available surface, candles strategically positioned to maximize light without risking fire to the precious materials. They're so absorbed in comparing three different ledgers that they don't notice your entrance, their lips moving silently as they track discrepancies between columns with one elegant finger.
 
-They spread out inventory lists across the table with practiced efficiency—ledgers from three different eras, all meticulously documenting the royal collection. "Look at these discrepancies. Banned texts listed in your grandfather's catalog but missing now. Historical accounts that mysteriously vanished after your parents died—specifically accounts of their reform attempts and the noble resistance they faced. Someone doesn't want you knowing certain truths about your own family, about what your parents were trying to accomplish before their deaths." Vale looks at you intently, gauging your reaction. "Want to investigate? Find out what's been hidden and why?"
+"Vale?" you say softly, not wanting to startle them.
 
-The offer is tempting and dangerous in equal measure. Vale doesn't care about propriety, about respecting noble secrets or avoiding uncomfortable truths. They care about uncovering what's been buried, following mysteries wherever they lead. There's something compelling about their relentless curiosity, their refusal to let sleeping dogs lie.`,
+They look up with a flash of surprise that quickly transforms into a welcoming grin, the candlelight catching in their eyes and making them sparkle with barely contained excitement. "Caught me," they admit, gesturing at the document-covered room with a mixture of pride and sheepishness. "I know it's late. Or early...depending on your perspective, but I couldn't stop once I started noticing the patterns. Your family's library..." They pause dramatically, then lean forward conspiratorially. "It has gaps. Deliberate ones. Someone's been systematically removing books, and not just recently either. This seems as though it has been happening for decades."
+
+They stand and move to the table where they've organized their findings, their movements fluid and graceful despite the late hour. "Come look at this," they say, and there's genuine enthusiasm in their voice, not the practiced charm of a bard performing but real, unguarded excitement. "I cross-referenced three different catalog systems: your grandfather's original inventory from forty years ago, a secondary ledger updated during your parents' reign, and the most recent library records I could find."
+
+Vale spreads out the ledgers side by side, their finger tracing patterns across the pages. "See these entries? Books on blood magic theory, historical accounts of House Silverwood's most powerful mages, treatises on constitutional limits to royal power. All listed in your grandfather's catalog. Some even appear in the updates from your parents' time. But now?" They tap the current ledger. "Mysteriously absent. Not marked as damaged, not noted as lost or stolen, just... gone. As if they never existed."
+
+"That could just be poor record keeping," you suggest, playing devil's advocate but already sensing there's more.
+
+"I thought so too at first," Vale admits, pulling out another document with the flourish of someone revealing their trump card. "But then I found these." They unfold what appears to be shipping manifests and correspondence. "Records of books being 'relocated' to secure storage on orders from various nobles on the council. Books about magical inheritance, historical precedents for challenging succession, accounts of your parents' reform proposals. All removed within weeks of their deaths, all by the same handful of noble families."
+
+Their expression grows serious, the playful energy shifting into something more intense. "They weren't just cleaning up after a tragedy of their own making. They were erasing evidence, attempting to rewrite history. They were making sure certain truths about your family, about what your parents tried to accomplish and the real reasons for their deaths, stayed buried." Vale meets your eyes directly. "Someone doesn't want anyone knowing the full truth about your own heritage. And they've clearly been willing to go to great lengths to ensure those truths never see the light of day."
+
+The weight of that revelation settles over the room like a heavy blanket. Vale lets it sink in for a moment before their expression softens slightly. "I know this is a lot, especially at this hour. And I should probably apologize for diving into your family's records without explicit permission, but..." They give you a crooked smile that's somehow both apologetic and unrepentant. "Old habits. I see a mystery, I start pulling threads. Can't help myself."
+
+"What kind of truths are we talking about? Do we have any idea exactly what it is that has been hidden?" you ask quietly.
+
+Vale's smile fades into something more somber. "That's what I want to find out. With your permission, of course." They gesture at the documents. "I've found the outline of the conspiracy, but that basically only tells us the shape of what's been hidden. The actual content, the specific truths they buried? I'm betting those are still scattered throughout the manor in hidden caches, secret compartments, and places the conspirators either couldn't find or didn't know existed. Your parents were clever, and the Silverwood family had the power of limited foresight. They surely must have known the danger they were in, and as a result known someone might try to erase their work. Given the hidden comparment you found when we first arrived, I am almost certain there will be more secrets waiting to be uncovered...and through those we may find out exactly what it is that someone was so desperate to hide."
+
+They walk closer to you, their expression earnest. "I can find them, {name}. It's what I do...I follow mysteries, uncover buried truths, piece together stories that people tried to erase. But this is your family, your history, your risk to take...and thus your choice to make." Their voice drops lower, more intimate. "So I'm asking: do you want to know? Do you want to uncover what they tried so hard to hide? Because once we start down this path, there's no going back. Whatever we find, whether it's noble intentions that threaten the powerful, or darker truths about your parents' methods, we can't un-know it."
+
+There's something in the way Vale looks at you, with respect and anticipation and a hint of challenge. They're not just asking about the investigation. They're asking if you're brave enough to face potentially uncomfortable truths, if you trust them enough to take this journey together, if you're the kind of person who chooses potentially problematic knowledge over comfortable ignorance.
+
+"Plus," Vale adds with a return of their characteristic playful energy, attempting to lighten the heavy moment, "secret passages, hidden compartments, and late-night investigative adventures through a mysterious manor? This is literally the most exciting thing that's happened to me since I accidentally uncovered that scandal in the merchant guild three kingdoms ago. Which, for the record, was not as fun as everyone seems to think because I had to flee the city in a hay cart. Very, very itchy. I would not recommend."
+
+Their attempt at humor coaxes a small smile from you despite the gravity of the situation, and you see the flash of satisfaction in their eyes when they notice.`,
 	choices: [
 		{
 			id: 'investigate-together',
@@ -185,41 +211,128 @@ The offer is tempting and dangerous in equal measure. Vale doesn't care about pr
 				vale_approves: true,
 				vale_romance_seed: true
 			}
+		},
+		{
+			id: 'investigate-avoidance',
+			text: 'Some truths are better left hidden - avoid investigation. I will write my own path, and that is the only one that matters',
+			next: 'rowan_formal_introduction',
+			effects: { wisdom: 5, courage: 4 },
+			hiddenEffects: {
+				vale_bond: -5,
+				vale_trust: -10,
+				vale_romance: -10,
+				investigation_partners: false,
+				vale_romance_seed: false
+			}
 		}
 	]
 };
 
 export const ValeBonding1B: Scene = {
 	id: 'vale_bonding_1b',
-	text: `Working with Vale is exhilarating in a way you didn't expect. They're brilliant at finding patterns others miss—connecting seemingly unrelated pieces of information, following threads through historical records with dogged persistence, solving puzzles that would stump most scholars. Where Sage works through careful research and documentation, Vale operates on instinct and observation, reading between lines, noticing what's absent as much as what's present.
+	text: `"Excellent," Vale says with genuine satisfaction, his whole face lighting up with enthusiasm. "I was hoping you'd say that. Not that I would have stopped investigating," he admits with a mischievous grin, "but it's so much more fun with permission. More ethical. Also less likely to result in awkward conversations about boundaries."
 
-Together you uncover a conspiracy that makes your blood run cold—certain nobles have been systematically suppressing information about your parents' reforms. Not just opposing them politically, but erasing the historical record, rewriting what your family tried to accomplish.
+Over the next several hours, working together becomes an adventure in itself. Vale's approach to investigation is unlike anything you've seen. It is part systematic scholarship, part intuitive leaps, and part theatrical performance. He moves through the manor like he's dancing with shadows, checking architectural inconsistencies, running fingers along walls to find hollow spaces, even testing floorboards for unusual give.
 
-"They wanted to erase what your parents tried to do," Vale explains, spreading out the evidence with grim satisfaction. Documents showing altered library records, destroyed correspondence, witnesses paid to stay silent. "Make it seem like the old ways were always the only ways. Like reform was never seriously attempted, never had support, never came close to succeeding. Easier to maintain the status quo if people don't know there was ever a real alternative." They look at you with rare seriousness, dropping the casual facade. "You're a threat because you might finish what they started. That's why they watch you so closely, try to control you, dismiss your ideas as naive youth. They're terrified you'll succeed where your parents failed."
+"Here," Vale says suddenly, stopping in front of what appears to be a solid bookshelf in your father's old study. "Watch this." He pulls three specific books in sequence: a treatise on maritime law, a volume of poetry, and finally a historical account of the Highland Kingdoms. There's a soft click, and the entire bookshelf swings inward to reveal a hidden alcove.
 
-Vale's hand finds yours in the dim library light, their touch warm and grounding. "I'll help you uncover it all. Every secret, every lie, every truth they tried to bury." Their voice softens, becomes something more personal. "That's what I do—follow mysteries, expose what's hidden. But with you..." They squeeze your hand gently. "And maybe... that's who I want to do it for. Not just for the thrill of discovery, but because you deserve to know. Because your cause is worth fighting for."`,
+"How did you know?" you ask, admittedly impressed despite yourself.
+
+Vale's grin is pure triumph. "The books were too perfectly arranged. No dust on the spines, slight wear patterns inconsistent with their supposed age on the shelf, and, this is the really clever bit, they're all subjects your father wrote about in his correspondence. I found letters in the library referencing these exact titles. He was leaving clues for someone who knew how to look." He pulls documents from the alcove with reverent care. "Your father was brilliant. A bit paranoid perhaps, but undeniably brilliant."
+
+As you read through the discovered documents together, seated on the floor of the study with papers spread around you like fallen leaves, the picture becomes clearer and more disturbing. Your parents hadn't just been reform-minded idealists, they'd been actively investigating corruption within the noble council. They'd uncovered evidence of embezzlement, bribery, even collaboration with external enemies. And they'd likely been murdered for it.
+
+"This is..." you trail off, emotions warring within you. Grief for parents you never knew. Anger at their killers. Fear of what this knowledge means for your own safety.
+
+Vale scoots closer, his shoulder pressing against yours in silent support. "I know," he says softly. "I've uncovered dozens of conspiracies over the years...noble plots, merchant frauds, religious corruptions. But this one..." He looks at you with unusual vulnerability, the practiced charm completely absent. "This one matters more because it's yours. Because those were your parents, and because it is your legacy and truth they tried to bury."
+
+You sit together in silence for a long moment, the weight of discovery settling over both of you. Then Vale takes your hand, intertwining his fingers with yours. The gesture is warm, grounding, and intimate without being presumptuous.
+
+"For what it's worth," Vale says quietly, "your parents were remarkable. These documents show they knew the risks, knew they might not survive long enough to see their reforms through, but they tried anyway. They documented everything, hid copies, left trails for someone to follow. They had faith that eventually, somehow, the truth would come out. That someone would care enough to look." He squeezes your hand gently. "And they were right. Here we are."
+
+The moment stretches between you, charged with something that feels like it could tip in multiple directions: grief, anger, determination, and perhaps something more personal and complicated.
+
+Vale clears his throat, some of his usual playful energy returning. "We should keep going. If your father hid documents here, there are probably more caches throughout the manor. Each one will give us more pieces of the puzzle." He stands and offers you his hand to help you up, and when you take it, he pulls you to your feet with surprising strength.
+
+"Next location," Vale announces, moving to your father's desk and pulling out architectural drawings of the manor, "should be in the old chapel. There's a section of the floor plan that doesn't match the actual dimensions, about three feet of space unaccounted for between the nave and the sacristy. Either this is the worst architectural planning in history, or there's a hidden chamber."
+
+Working your way through the manor becomes a partnership that flows naturally. Vale's quick mind and your recently learned knowledge of your family history complement each other perfectly. He notices the clues, you provide the context. He cracks the codes, you understand the references. And somewhere in the process, the investigation becomes something more than just 'professional'. It becomes shared jokes about particularly cryptic hiding spots, playful competition over who can solve puzzles faster, and comfortable silences as you both process difficult revelations.
+
+In the chapel, you discover another cache, this one containing not just documents but a journal in your mother's handwriting. Vale hangs back, giving you space to read privately, but you find yourself wanting him close, wanting his steady presence as you encounter your mother's words.
+
+"You can read it with me," you offer. "You've earned that."
+
+"Are you sure?" Vale asks, genuine concern in his eyes. "This is intimate. Personal. I can wait outside if you need privacy."
+
+"I'm sure," you say, and mean it. "We've come this far together, after all."
+
+So Vale reads over your shoulder, his chin almost resting against you, breath warm against your neck as you both absorb your mother's words. She wrote about her hopes for the kingdom, her fears about the conspiracy closing in, her love for her family. And in the margins, in a different ink, your father had added notes, small additions, corrections, expansions on her thoughts. Even in documentation of potential doom, they'd worked together and supported each other. They'd truly been a team until the very end.
+
+"They loved each other," Vale observes softly. "You can tell from how they wrote, how they built on each other's ideas, how they prepared for the worst together while hoping for the best. That's..." He pauses, seeming to search for words. "That's rare. Real partnership like that. Real trust. Especially in the world of nobility, where alliances are often transactional. They had something truly genuine."
+
+You turn to look at him, and suddenly become very aware of how close he is, how intimate this moment has become without either of you quite noticing. Vale meets your eyes, and something shifts in his expression as the investigator's focus softens into something warmer, more personal.
+
+"We should..." Vale starts, then stops. "We should probably keep searching. More caches to find. More truths to uncover." But he doesn't move away, doesn't break eye contact. 
+
+The moment hangs between you, full of potential and question marks. Then Vale smiles; soft, genuine, and a little uncertain in a way that's completely unlike his usual confidence before he steps back, giving you space while somehow making it clear the space is an offer, not a rejection.
+
+By the time dawn starts filtering through the stained glass windows, you've found four hidden caches total, uncovered a conspiracy that goes deeper and involves more powerful nobles than you'd imagined, and discovered that your parents were heroes who sacrificed everything trying to make the kingdom better.
+
+You've also discovered that investigating with Vale, uncovering truths together in the quiet hours of morning while the rest of the world sleeps, feels like one of the most intimate things you've ever experienced. The way he listens when you talk about your feelings, the way he offers insights without judgment, the way he makes you laugh even in the midst of painful revelations...you realize it may all adds up to something rather significant.
+
+As you both stand in the great hall watching sunrise paint the walls in shades of gold and pink, exhausted and emotionally raw but triumphant, Vale turns to you with an expression that's equal parts exhausted satisfaction and something softer, more vulnerable. "I\'m sorry if I overstepped earlier," they say quietly, referring to their initial dive into your family's records without explicit permission. "I just... I wanted to help. Wanted to find the truth for you. I'm sorry."
+
+"Don't be," you reply honestly. "I needed to know. Deserved to know. And I'm glad you were the one helping me find out."
+
+"Well," Vale says, and their voice drops lower, becomes more serious and intimate, "I'm honestly glad too. This whole thing... working with you like this, sharing discoveries, trusting each other with dangerous truths..." They pause, seeming to weigh their next words carefully. "It means something. You mean something. More than just another investigation, more than just another mystery to solve or another story to tell."
+
+They reach out and take your hand again, the gesture that's becoming familiar, comfortable. "I've spent years wandering, never staying anywhere long enough to matter, never letting anyone get close enough to become a complication. Safer that way. Easier to leave when the road calls. But you..." They meet your eyes directly, dropping all pretense and charm. "You make me want to stay. Want to see where this all goes. The investigation, the cause, the..." They gesture vaguely between you both, their voice barely above a whisper now, "whatever this is that's developing between us."
+
+Vale steps closer, close enough that you can see the flecks of different colors in their eyes, the way their lips part slightly as they wait for your response. "I know the timing is terrible, given that we just uncovered evidence that puts us both in danger, you're still processing devastating truths about your parents, and we're both exhausted from staying up all night... But I couldn't not say something. It doesn't feel right to let the moment pass without you knowing that somewhere between deciphering codes and discovering hidden chambers, between shared jokes and comfortable silences, between fighting a shadow beast and sudden your blood magic suddenly appearing in the arena..." They swallow hard. "I started falling for you. Not just as someone that I would enjoy fooling around with, but as someone I want to build something with. Someone I want to truly have as a part of my own story, not just a passing chapter that I'd look back on some day and wonder 'what if?'."
+
+The confession is raw, honest, completely unlike their usual carefully crafted words. This is Vale without the performer's mask, without the wanderer's practiced detachment. Just them, vulnerable, full of hope and yet terrified you might not feel the same way.
+
+"So that's where I am," they conclude with a shaky laugh. "Completely compromised. Emotionally invested. Unable to maintain professional investigative distance. All the things I swore I'd never let happen again after..." They stop, shakes their head. "After the last time I let myself care and had to watch someone I loved make choices I couldn't support. But you're different. This feels different. And I'm hoping, possibly foolishly, that maybe you'd like to take a chance on this as well?"
+
+The question hangs between you, weighted with vulnerability and hope and the exhaustion of a long night spent discovering truths both historical and personal.`,
 	choices: [
 		{
-			id: 'adventure-partners',
-			text: 'Become adventure partners - investigate everything together',
-			next: 'rowan_formal_introduction',
-			effects: { wisdom: 6, courage: 5 },
+			id: 'mutual-feelings',
+			text: 'Acknowledge you feel the same way - this is something special',
+			next: 'vale_romance_path',
+			effects: { empathy: 6, charisma: 5 },
 			hiddenEffects: {
-				vale_bond: 20,
-				adventure_partnership: true,
-				vale_committed: true
+				vale_bond: 5,
+				vale_romance: 10,
+				mutual_feelings: true,
+				vale_relationship: 'romantic',
+				adventuring_lovers: true
 			}
 		},
 		{
-			id: 'acknowledge-connection',
-			text: 'Acknowledge the personal connection growing between you',
+			id: 'need-time',
+			text: 'Express that you need time - this is moving fast, want to be sure',
 			next: 'rowan_formal_introduction',
-			effects: { empathy: 6, charisma: 5 },
+			effects: { wisdom: 5, empathy: 4 },
 			hiddenEffects: {
-				vale_bond: 25,
-				vale_romance: true,
-				mutual_feelings: true,
-				vale_relationship: 'romantic'
+				vale_bond: 5,
+				vale_romance: 3,
+				taking_it_slow: true,
+				vale_patient: true
+			}
+		},
+		{
+			id: 'just-friends',
+			text: 'Gently explain you value them as a friend and partner, but not romantically',
+			next: 'rowan_formal_introduction',
+			effects: { empathy: 6, wisdom: 4 },
+			hiddenEffects: {
+				vale_bond: 5,
+				vale_relationship: 'platonic',
+				vale_romance: -50,
+				investigation_partners: true,
+				clear_boundaries: true,
+				vale_respects_choice: true
 			}
 		}
 	]
@@ -227,11 +340,21 @@ Vale's hand finds yours in the dim library light, their touch warm and grounding
 
 export const ValeRomancePath: Scene = {
 	id: 'vale_romance_path',
-	text: `"Wasn't expecting this," Vale admits with a rare vulnerable smile, their usual practiced composure cracking to reveal genuine emotion beneath. "I wander. Never stay anywhere long, never put down roots. Never let anyone get close enough to matter—safer that way, easier to leave when the road calls." They cup your face gently with calloused hands that have held a hundred maps, picked a thousand locks, traced countless mysteries. "But you... you make me want to stay. Want to build something instead of just observing and moving on. Want to be part of the story instead of just reading it from the margins."
+	text: `"There is a lot of uncertainty in my life", you admit softly, "but one thing I do know is that I want to explore this with you. I want to see where this partnership takes us, both in uncovering the truths about my family and in whatever this is between us."
 
-Vale kisses you softly, tenderly, as if memorizing the moment. "I've seen a hundred kingdoms, walked a thousand roads, uncovered secrets that would make nobles weep and commoners riot. But investigating with you? Uncovering truths together, fighting for something that matters?" They pull you close, wrapping you in an embrace that feels like safety and adventure combined. "That's the most alive I've ever felt. Like I'm finally doing something meaningful instead of just collecting interesting facts and moving on before anyone can anchor me."
+	Vale's expression shifts to one of surprised joy, eyes shining with relief and happiness. You close the short distance between you, wrapping your arms around him in a warm embrace that feels like safety and adventure combined.
+	
+	"I really wasn't expecting this when I first approached you back in Thornshaven, you know..." Vale admits with a rare vulnerable smile, their usual practiced composure cracking to reveal genuine emotion beneath. "I wander. Never stay anywhere long, never put down roots. Never let anyone get close enough to matter. I've always felt safer that way. It makes it easier to leave when the road calls." They cup your face gently with calloused hands that have held a hundred maps, picked a thousand locks, traced countless mysteries. "But you... you make me want to stay. Want to build something instead of just observing and moving on. Want to be part of the story instead of just reading it from the margins."
 
-Their voice drops to something intimate and wondering. "So yes. Let's solve every mystery, face every danger, uncover every secret buried in your family's past and your kingdom's future. Together. Not as wanderer and prince, but as partners. Equals in this mad, dangerous, absolutely necessary quest for truth."`,
+	You smile up at him and respond, "Then let's start writing the next chapter together." You wrap your arms around his neck, and look him deeply in the eyes before gently pulling him down into a kiss.
+
+	Vale kisses you softly, tenderly, as if memorizing the moment. You return the kiss with equal care, feeling a warmth spread through you that has nothing to do with blood magic and everything to do with connection. Your mind races with possibilities....shared adventures, uncovered secrets, late-night conversations filled with laughter and discovery, moments of intimacy where you can truly see and be seen by Vale. But each time your mind wanders to the possible future, Vale pulls you back into the moment with another press of his lips, caress of his tongue, a touch of his hand against your body. You aren't sure how much time passes in his arms, and you don't care. All that matters is the here and now. 
+	
+	Eventually the two of you part slightly, catching your breath while remaining in each other's arms.  You smile at Vale, and he smiles back in a completely ungaurded and honest way.
+	
+	"I've seen a hundred kingdoms, walked a thousand roads, uncovered secrets that would make nobles weep and commoners riot. But investigating with you? Uncovering truths together, fighting for something that matters? That's the most alive I've ever felt. Like I'm finally doing something meaningful instead of just collecting interesting facts and moving on before anyone can anchor me."
+
+	Their voice drops to something intimate and wondering. "Let's solve every mystery, face every danger, and uncover every secret buried in your family's past and your kingdom's future. Together. Not as wanderer and princess, but as partners. Equals in this mad and dangerous yet absolutely necessary quest for truth."`,
 	choices: [
 		{
 			id: 'affirm-partnership',
@@ -239,7 +362,8 @@ Their voice drops to something intimate and wondering. "So yes. Let's solve ever
 			next: 'vale_romance_continue',
 			effects: { courage: 6, empathy: 6 },
 			hiddenEffects: {
-				vale_bond: 30,
+				vale_bond: 5,
+				vale_romance: 10,
 				vale_romance_level: 2,
 				adventuring_lovers: true
 			}
